@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as axios from 'axios';
-import './Widget.css';
 import ResultsCard from './ResultsCard.js'
 
 class Widget extends Component {
@@ -23,6 +22,15 @@ class Widget extends Component {
                 coordinates: output.data.polling_station.geometry.coordinates[1] + "," + output.data.polling_station.geometry.coordinates[0]
             }
         });
+    }
+
+    componentWillMount() {
+        const link = document.createElement("link");
+        link.rel = 'stylesheet';
+        link.href = 'https://widget.wheredoivote.co.uk/wdiv.css';
+        link.type = 'text/css';
+
+        document.head.appendChild(link);
     }
 
     findStation() {
