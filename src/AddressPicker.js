@@ -11,12 +11,11 @@ class AddressPicker extends React.Component {
     }
 
     setAddress(event) {
-        console.log(event.target.value);
         this.setState({ address: event.target.value });
     }
 
-    addressOption(address) {
-        return <option value={address.url}>{address.address}</option>;
+    addressOption(address, index) {
+        return <option key={index} value={address.url}>{address.address}</option>;
     }
 
     handleSubmit(event) {
