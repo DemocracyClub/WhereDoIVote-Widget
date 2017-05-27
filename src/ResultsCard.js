@@ -10,8 +10,8 @@ function ResultsCard(props) {
                 </div>
 
                 <div id="directions">
-                    <a href={"http://www.google.com/maps/place/@" + props.pollingStation.coordinates + ",20z"} target="_top">
-                        Get walking directions
+                    <a href={"https://maps.google.com/maps?q=" + props.pollingStation.coordinates} target="_top">
+                        Show me on Google Maps
                     </a>
                 </div>
             </div>
