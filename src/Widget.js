@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ResultsCard from './ResultsCard.js';
 import AddressPicker from './AddressPicker.js';
 import PostcodeSelector from './PostcodeSelector.js';
+import StationNotFound from './StationNotFound.js';
 import { getPollingStation, toAddress, getFromSelector } from './WdivAPI.js';
 
 class Widget extends Component {
@@ -22,7 +23,7 @@ class Widget extends Component {
         if (output.data.polling_station_known) {
             this.setState({ searchInitiated: true, foundStation: true, resolvedPollingStation: toAddress(output)});
         } else if (output.data.addresses.length === 0) {
-            this.setState({ searchInitiated: true, foundStation: false })
+            this.setState({ searchInitiated: true, foundStation: false, council: output.data.council })
         } else {
             this.setState({ searchInitiated: true, foundStation: false, addressList: output.data.addresses})
         }
@@ -52,6 +53,8 @@ class Widget extends Component {
             return ( <ResultsCard pollingStation={this.state.resolvedPollingStation} /> );
         } else if (!this.state.foundStation && this.state.addressList) {
             return ( <AddressPicker onSelection={this.handleAddressSelectorState} addressList={this.state.addressList} /> );
+        } else {
+            return ( <StationNotFound council={this.state.council} /> );
         }
     }
 }
