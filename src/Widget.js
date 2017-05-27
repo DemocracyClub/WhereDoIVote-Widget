@@ -11,6 +11,7 @@ class Widget extends Component {
         this.findStation = this.findStation.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.updateState = this.updateState.bind(this);
+        this.updateErrorState = this.updateErrorState.bind(this);
         this.handleAddressSelectorState = this.handleAddressSelectorState.bind(this);
         this.state = {};
     }
@@ -19,7 +20,12 @@ class Widget extends Component {
       this.setState({ postcode: event.target.value})
     }
 
+    updateErrorState(error) {
+        this.setState({ error: error.response.data.detail.replace(/.*: /g, "") });
+    }
+
     updateState(output) {
+        this.setState({ error: undefined })
         if (output.data.polling_station_known) {
             this.setState({ searchInitiated: true, foundStation: true, resolvedPollingStation: toAddress(output)});
         } else if (output.data.addresses.length === 0) {
@@ -43,12 +49,14 @@ class Widget extends Component {
     }
 
     findStation(postcode) {
-        getPollingStation(postcode).then(this.updateState)
+        getPollingStation(postcode)
+            .then(this.updateState)
+            .catch(this.updateErrorState);
     }
 
     render() {
         if (!this.state.searchInitiated) {
-            return ( <PostcodeSelector findStation={this.findStation} /> );
+            return ( <PostcodeSelector findStation={this.findStation} error={this.state.error}/> );
         } else if (this.state.foundStation) {
             return ( <ResultsCard pollingStation={this.state.resolvedPollingStation} /> );
         } else if (!this.state.foundStation && this.state.addressList) {

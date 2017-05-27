@@ -33,8 +33,13 @@ class PostcodeSelector extends React.Component {
                              <input type="text" id="postcode" name="postcode" className="form-control" onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
                              <p className="form-hint">e.g. GL1 2EQ</p>
                          </div>
+                          { this.props.error &&
+                             <span className="dc_error">{this.props.error}</span>
+                          }
+                                              ​
+
                          <button type="submit" onClick={this.findStation}>Find your polling station</button>
-                     ​
+
                      <a href="https://democracyclub.org.uk/" className="dc_logo">
                          Built by <img alt="Democracy Club" src="https://candidates.democracyclub.org.uk/static/img/logo-with-text.png"/>
                      </a>
