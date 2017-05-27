@@ -8,15 +8,27 @@ function ResultsCard(props) {
                 <div>
                     {props.pollingStation.address}
                 </div>
-
-                <div id="directions">
-                    <a href={"https://maps.google.com/maps?q=" + props.pollingStation.coordinates.destination} target="_top">
-                        Show me on Google Maps
-                    </a> or <a href={"https://www.openstreetmap.org/directions?engine=mapzen_foot&route=" + props.pollingStation.coordinates.origin + ";" + props.pollingStation.coordinates.destination} target="_top">
-                        show me directions
-                    </a>
-                </div>
+                { props.pollingStation.coordinates &&
+                    <Directions origin={props.pollingStation.coordinates.origin} destination={props.pollingStation.coordinates.destination} />
+                }
             </div>
+        </div>
+    );
+}
+
+function Directions(props) {
+    return (
+        <div id="directions">
+            <br/>
+            <a href={"https://maps.google.com/maps?q=" + props.destination} target="_top">
+                Show me on Google Maps
+            </a>
+            { props.origin && " or " }
+            { props.origin &&
+                <a href={"https://www.openstreetmap.org/directions?engine=mapzen_foot&route=" + props.origin + ";" + props.destination} target="_top">
+                    show me directions
+                </a>
+            }
         </div>
     );
 }

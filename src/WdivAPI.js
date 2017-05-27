@@ -10,14 +10,24 @@ export function getFromSelector(url) {
 
 export function toAddress(output) {
     const address = output.data.polling_station.properties.address.replace('\n',', ');
-    const coordinates = output.data.polling_station.geometry.coordinates
-    const postcodeCoordinates = output.data.postcode_location.geometry.point.coordinates
+    const addressData = { address: address }
 
-    return {
-       address: address,
-       coordinates: {
-         destination: coordinates[1] + "," + coordinates[0],
-         origin: postcodeCoordinates[1] + "," + postcodeCoordinates[0],
+    if (output.data.polling_station.geometry) {
+       const destinationCoordinates = output.data.polling_station.geometry.coordinates
+
+       let coordinates = {
+         destination: destinationCoordinates[1] + "," + destinationCoordinates[0]
        }
+
+       if (output.data.postcode_location.geometry) {
+          const originCoordinates = output.data.postcode_location.geometry.point.coordinates;
+          coordinates.origin = originCoordinates[1] + "," + originCoordinates[0];
+       }
+
+        console.log(output.data.postcode_location)
+
+       addressData.coordinates = coordinates;
     }
+
+    return addressData;
 }
