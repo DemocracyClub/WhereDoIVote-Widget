@@ -11,9 +11,13 @@ export function getFromSelector(url) {
 export function toAddress(output) {
     const address = output.data.polling_station.properties.address.replace('\n',', ');
     const coordinates = output.data.polling_station.geometry.coordinates
+    const postcodeCoordinates = output.data.postcode_location.geometry.point.coordinates
 
     return {
        address: address,
-       coordinates: coordinates[1] + "," + coordinates[0]
+       coordinates: {
+         destination: coordinates[1] + "," + coordinates[0],
+         origin: postcodeCoordinates[1] + "," + postcodeCoordinates[0],
+       }
     }
 }
