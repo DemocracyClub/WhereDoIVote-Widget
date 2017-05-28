@@ -1,5 +1,7 @@
 # WhereDoIVote-Widget
 
+[![Build Status](https://travis-ci.org/DemocracyClub/WhereDoIVote-Widget.svg?branch=master)](https://travis-ci.org/DemocracyClub/WhereDoIVote-Widget)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 
 ## Including the widget on your page
