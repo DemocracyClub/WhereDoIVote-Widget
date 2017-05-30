@@ -31,7 +31,6 @@ class PostcodeSelector extends React.Component {
                          <div className="form-group">
                              <label className="form-label-bold">Enter your postcode</label>
                              <input type="text" id="postcode" name="postcode" className="form-control" onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
-                             <p className="form-hint">e.g. GL1 2EQ</p>
                          </div>
                           { this.props.error &&
                              <span className="dc_error">{this.props.error}</span>
