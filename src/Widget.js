@@ -31,12 +31,15 @@ class Widget extends Component {
 
     updateState(output) {
         this.setState({ error: undefined })
+
         if (output.data.polling_station_known) {
             this.setState({ searchInitiated: true, foundStation: true, resolvedPollingStation: toAddress(output)});
+        } else if (this.state.addressList !== undefined) {
+            this.setState({ searchInitiated: true, foundStation: false, council: output.data.council, addressList: undefined });
         } else if (output.data.addresses.length === 0) {
-            this.setState({ searchInitiated: true, foundStation: false, council: output.data.council })
+            this.setState({ searchInitiated: true, foundStation: false, council: output.data.council });
         } else {
-            this.setState({ searchInitiated: true, foundStation: false, addressList: output.data.addresses})
+            this.setState({ searchInitiated: true, foundStation: false, addressList: output.data.addresses});
         }
     }
 
