@@ -29,7 +29,7 @@ class AddressPicker extends React.Component {
                 <div className="card">
                     <div>
                         <div className="form-group">
-                            <label className="form-label-bold">Enter your postcode</label>
+                            <label className="form-label-bold">Choose your address</label>
                             <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="select_multirow" id="id_address" name="address" size="5">
                             {
 
