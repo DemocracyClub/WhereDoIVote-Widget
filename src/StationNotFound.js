@@ -6,7 +6,15 @@ function StationNotFound(props) {
             <div className="card">
                 <h2>We couldn't find your station!</h2>
                 <div>
-                    Get in touch with <b>{props.council.name}</b> <a href={props.council.website}>here</a>
+                    Get in touch with <b>{props.council.name}</b>:
+                     <br/>
+                     <br/>
+                     <ul>
+                        <li>Website - <a href={props.council.website}>{props.council.website}</a></li>
+                        <li>Phone - {props.council.phone}</li>
+                        <li>Email - <a href={"mailto:"+props.council.email}>{props.council.email}</a></li>
+                     </ul>
+                     <br/>
                 </div>
 
                  <a href="https://democracyclub.org.uk/" className="dc_logo">
