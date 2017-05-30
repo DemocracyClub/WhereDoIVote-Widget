@@ -9,6 +9,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Add the following lines to your HTML, where you want the widget to appear on the page
 
 ```html
+<noscript>
+  <iframe src="https://wheredoivote.co.uk/embed/" style="width:100%; height:1100px" frameborder="0" scrolling="no"></iframe>
+</noscript>
 <div id="dc_wdiv"></div>
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
