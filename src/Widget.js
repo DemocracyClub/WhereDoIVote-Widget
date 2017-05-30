@@ -4,6 +4,7 @@ import AddressPicker from './AddressPicker.js';
 import PostcodeSelector from './PostcodeSelector.js';
 import StationNotFound from './StationNotFound.js';
 import { getPollingStation, toAddress, getFromSelector } from './WdivAPI.js';
+require('es6-shim');
 
 class Widget extends Component {
     constructor(props) {
