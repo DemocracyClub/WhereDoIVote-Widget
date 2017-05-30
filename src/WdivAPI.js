@@ -29,8 +29,6 @@ export function toAddress(output) {
           coordinates.origin = originCoordinates[1] + "," + originCoordinates[0];
        }
 
-        console.log(output.data.postcode_location)
-
        addressData.coordinates = coordinates;
     }
 

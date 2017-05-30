@@ -32,9 +32,9 @@ class AddressPicker extends React.Component {
                             <label className="form-label-bold">Choose your address</label>
                             <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="select_multirow" id="id_address" name="address" size="5">
                             {
-
                                 this.props.addressList.map(this.addressOption)
                             }
+                                <option key={this.props.addressList.length} value="">My address is not in the list</option>
                             </select>
                         </div>
                         ​

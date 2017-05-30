@@ -39,12 +39,17 @@ class Widget extends Component {
         } else if (output.data.addresses.length === 0) {
             this.setState({ searchInitiated: true, foundStation: false, council: output.data.council });
         } else {
-            this.setState({ searchInitiated: true, foundStation: false, addressList: output.data.addresses});
+            this.setState({ searchInitiated: true, foundStation: false, council: output.data.council, addressList: output.data.addresses});
         }
     }
 
     handleAddressSelectorState(value) {
-        getFromSelector(value).then(this.updateState);
+        if(value === "") {
+            this.setState({ addressList: undefined });
+        } else {
+            getFromSelector(value).then(this.updateState);
+        }
+
     }
 
     componentWillMount() {
