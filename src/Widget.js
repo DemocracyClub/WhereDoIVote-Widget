@@ -19,15 +19,24 @@ class Widget extends Component {
     }
 
     handleInput(event) {
-        this.setState({ postcode: event.target.value})
+        this.setState({ postcode: event.target.value});
     }
 
     updateErrorState(error) {
-        this.setState({ error: error.replace(/.*: /g, "") });
+        this.setState({ error: error });
     }
 
     updateErrorFromResponse(data) {
-        this.updateErrorState(data.response.data.detail)
+        var err = data.response.data.detail.replace(/.*: /g, "");
+        if (data.response.status === 400) {
+            if (err.startsWith('Postcode') && err.endsWith('is not valid.')) {
+                this.updateErrorState(err);
+            } else {
+                this.updateErrorState("We don't know where you should vote");
+            }
+        } else {
+            this.updateErrorState("We don't know where you should vote");
+        }
     }
 
     updateState(output) {
