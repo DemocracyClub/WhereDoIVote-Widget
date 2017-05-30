@@ -9,7 +9,12 @@ export function getFromSelector(url) {
 }
 
 export function toAddress(output) {
-    const address = output.data.polling_station.properties.address.replace('\n',', ');
+    let address = output.data.polling_station.properties.address.replace(/\n/g,',');
+
+    if (output.data.polling_station.properties.postcode) {
+        address += ',' + output.data.polling_station.properties.postcode;
+    }
+
     const addressData = { address: address }
 
     if (output.data.polling_station.geometry) {

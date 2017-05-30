@@ -1,12 +1,20 @@
 import React from 'react';
 
 function ResultsCard(props) {
+    let splitAddress = [];
+
+    props.pollingStation.address.split(",")
+        .forEach(function(line) {
+            splitAddress.push(line);
+            splitAddress.push(< br/>);
+        });
+
     return (
         <div className="democracy_club_embed">
             <div className="card">
                 <h2>Your polling station</h2>
                 <div>
-                    {props.pollingStation.address}
+                    {splitAddress.slice(0, splitAddress.length - 1)}
                 </div>
                 { props.pollingStation.coordinates &&
                     <Directions origin={props.pollingStation.coordinates.origin} destination={props.pollingStation.coordinates.destination} />
