@@ -21,7 +21,7 @@ class Widget extends Component {
     }
 
     updateErrorState(error) {
-        this.setState({ error: error.response.data.detail.replace(/.*: /g, "") });
+        this.setState({ error: error.replace(/.*: /g, "") });
     }
 
     updateState(output) {
@@ -49,9 +49,13 @@ class Widget extends Component {
     }
 
     findStation(postcode) {
-        getPollingStation(postcode)
-            .then(this.updateState)
-            .catch(this.updateErrorState);
+        if (postcode === undefined || postcode.replace(/./g,"").length === 0) {
+           this.updateErrorState('Postcode is empty, please enter a non-empty postcode.')
+        } else {
+            getPollingStation(postcode)
+                .then(this.updateState)
+                .catch(function(error) { this.updateErrorState(error.response.data.detail); });
+        }
     }
 
     render() {
