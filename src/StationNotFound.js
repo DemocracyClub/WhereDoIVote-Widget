@@ -15,11 +15,14 @@ function StationNotFound(props) {
                         <li>Email - <a href={"mailto:"+props.council.email}>{props.council.email}</a></li>
                      </ul>
                      <br/>
-                </div>
 
-                 <a href="https://democracyclub.org.uk/" className="dc_logo">
+                 </div>
+                 <button href="#" onClick={props.home}>Try another postcode</button>
+
+                 <div><a href="https://democracyclub.org.uk/" className="dc_logo">
                      Built by <img alt="Democracy Club" src="https://candidates.democracyclub.org.uk/static/img/logo-with-text.png"/>
                  </a>
+                 </div>
             </div>
         </div>
     );

@@ -14,11 +14,12 @@ class Widget extends Component {
         this.updateErrorState = this.updateErrorState.bind(this);
         this.updateErrorFromResponse = this.updateErrorFromResponse.bind(this);
         this.handleAddressSelectorState = this.handleAddressSelectorState.bind(this);
+        this.home = this.home.bind(this);
         this.state = {};
     }
 
     handleInput(event) {
-      this.setState({ postcode: event.target.value})
+        this.setState({ postcode: event.target.value})
     }
 
     updateErrorState(error) {
@@ -71,15 +72,25 @@ class Widget extends Component {
         }
     }
 
+    home() {
+        this.setState({
+            searchInitiated: false,
+            addressList: undefined,
+            foundStation: undefined,
+            resolvedPollingStation: undefined,
+            council: undefined
+        });
+    }
+
     render() {
         if (!this.state.searchInitiated) {
             return ( <PostcodeSelector findStation={this.findStation} error={this.state.error}/> );
         } else if (this.state.foundStation) {
-            return ( <ResultsCard pollingStation={this.state.resolvedPollingStation} /> );
+            return ( <ResultsCard pollingStation={this.state.resolvedPollingStation} home={this.home}/> );
         } else if (!this.state.foundStation && this.state.addressList) {
-            return ( <AddressPicker onSelection={this.handleAddressSelectorState} addressList={this.state.addressList} /> );
+            return ( <AddressPicker home={this.home} onSelection={this.handleAddressSelectorState} addressList={this.state.addressList} /> );
         } else {
-            return ( <StationNotFound council={this.state.council} /> );
+            return ( <StationNotFound council={this.state.council} home={this.home}/> );
         }
     }
 }

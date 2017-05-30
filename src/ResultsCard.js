@@ -19,6 +19,7 @@ function ResultsCard(props) {
                 { props.pollingStation.coordinates &&
                     <Directions origin={props.pollingStation.coordinates.origin} destination={props.pollingStation.coordinates.destination} />
                 }
+                <button href="#" onClick={props.home}>Try another postcode</button>
             </div>
         </div>
     );
