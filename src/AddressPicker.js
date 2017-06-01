@@ -40,7 +40,7 @@ class AddressPicker extends React.Component {
                         </div>
 
                         <button {...inputProps} type="submit" className="button" onClick={this.handleSubmit}>
-                            I've selected my address. Find my Polling Station
+                            Find my Polling Station
                         </button>
                         <br/>
                          <button href="#" onClick={this.props.home}>Back to postcode search</button>
