@@ -6,7 +6,8 @@ function StationNotFound(props) {
             <div className="card">
                 <h2>We couldn't find your station!</h2>
                 <div>
-                    Get in touch with <b>{props.council.name}</b>:
+                    Get in touch with <b>
+                    { props.council.council_id.startsWith('N09') ? 'The Electoral Office for Northern Ireland' : props.council.name }</b>:
                      <br/>
                      <br/>
                      <ul>
