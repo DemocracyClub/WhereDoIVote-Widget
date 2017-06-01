@@ -38,18 +38,19 @@ class AddressPicker extends React.Component {
                                 <option key={this.props.addressList.length} value="">My address is not in the list</option>
                             </select>
                         </div>
-                        ​
+
                         <button {...inputProps} type="submit" className="button" onClick={this.handleSubmit}>
                             I've selected my address. Find my Polling Station
                         </button>
                         <br/>
                          <button href="#" onClick={this.props.home}>Back to postcode search</button>
-                        <br/>
                     </div>
-                    ​
-                    <a href="https://democracyclub.org.uk/" className="dc_logo">
+
+                    <div>
+                        <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
                         Built by <img alt="Democracy Club" src="https://candidates.democracyclub.org.uk/static/img/logo-with-text.png"/>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         );
