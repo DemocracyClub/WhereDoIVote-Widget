@@ -4,7 +4,7 @@ function StationNotFound(props) {
     return (
         <div className="democracy_club_embed">
             <div className="card">
-                <h2>We couldn't find your station!</h2>
+                <h2>We couldn't find your station</h2>
                 <div>
                     Get in touch with <b>{props.council.name}</b>:
                      <br/>
@@ -17,7 +17,7 @@ function StationNotFound(props) {
                      <br/>
 
                  </div>
-                 <button href="#" onClick={props.home}>Try another postcode</button>
+                 <button href="#" onClick={props.home}>Back to postcode search</button>
 
                 <div>
                     <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
