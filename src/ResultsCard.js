@@ -20,6 +20,12 @@ function ResultsCard(props) {
                     <Directions origin={props.pollingStation.coordinates.origin} destination={props.pollingStation.coordinates.destination} />
                 }
                 <button href="#" onClick={props.home}>Try another postcode</button>
+
+                <div>
+                    <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
+                    Built by <img alt="Democracy Club" src="https://candidates.democracyclub.org.uk/static/img/logo-with-text.png"/>
+                    </a>
+                </div>
             </div>
         </div>
     );

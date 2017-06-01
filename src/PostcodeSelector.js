@@ -26,24 +26,27 @@ class PostcodeSelector extends React.Component {
 
     render() {
         return (
-             <div className="democracy_club_embed">
-                 <div className="card">
-                         <div className="form-group">
-                             <label className="form-label-bold">Enter your postcode</label>
-                             <input type="text" id="postcode" name="postcode" className="form-control" onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
-                         </div>
-                          { this.props.error &&
-                             <span className="dc_error">{this.props.error}</span>
-                          }
-                                              ​
+            <div className="democracy_club_embed">
+                <div className="card">
+                    <div>
+                        <div className="form-group">
+                            <label className="form-label-bold">Enter your postcode</label>
+                            <input type="text" id="postcode" name="postcode" className="form-control" onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
+                        </div>
+                        { this.props.error &&
+                            <span className="dc_error">{this.props.error}</span>
+                        }
 
-                         <button type="submit" onClick={this.findStation}>Find your polling station</button>
+                        <button type="submit" onClick={this.findStation}>Find your polling station</button>
+                    </div>
 
-                     <a href="https://democracyclub.org.uk/" className="dc_logo">
-                         Built by <img alt="Democracy Club" src="https://candidates.democracyclub.org.uk/static/img/logo-with-text.png"/>
-                     </a>
-                 </div>
-             </div>
+                    <div>
+                        <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
+                        Built by <img alt="Democracy Club" src="https://candidates.democracyclub.org.uk/static/img/logo-with-text.png"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
