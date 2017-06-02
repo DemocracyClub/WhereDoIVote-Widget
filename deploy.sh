@@ -1,7 +1,10 @@
 #!/bin/bash
 
+CACHE_HEADERS="max-age=no-cache,no-store"
+ACL="public-read"
+
 deploy-to-s3() {
-    aws s3 cp --cache-control max-age=no-cache,no-store --acl public-read $1 s3://widget.wheredoivote.co.uk/$2
+    aws s3 cp --cache-control ${CACHE_HEADERS} --acl ${ACL} $1 s3://widget.wheredoivote.co.uk/$2
 }
 
 npm run build
