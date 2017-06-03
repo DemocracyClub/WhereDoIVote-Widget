@@ -6,7 +6,7 @@ function ResultsCard(props) {
     props.pollingStation.address.split(",")
         .forEach(function(line) {
             splitAddress.push(line);
-            splitAddress.push(< br/>);
+            splitAddress.push(<br/>);
         });
 
     return (
