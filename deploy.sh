@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CACHE_HEADERS="max-age=no-cache,no-store"
+CACHE_HEADERS="max-age=600"
 ACL="public-read"
 
 deploy-to-s3() {
