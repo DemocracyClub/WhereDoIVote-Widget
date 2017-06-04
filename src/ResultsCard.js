@@ -23,7 +23,7 @@ function ResultsCard(props) {
 
                 <div>
                     <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
-                    Built by <img alt="Democracy Club" src="https://candidates.democracyclub.org.uk/static/img/logo-with-text.png"/>
+                    Built by <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png"/>
                     </a>
                 </div>
             </div>
