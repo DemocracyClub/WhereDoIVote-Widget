@@ -1,4 +1,5 @@
 import React from 'react';
+import { EmbedCard, BuiltByDC } from './Branding';
 
 class PostcodeSelector extends React.Component {
     constructor(props) {
@@ -26,8 +27,7 @@ class PostcodeSelector extends React.Component {
 
     render() {
         return (
-            <div className="democracy_club_embed">
-                <div className="card">
+            <EmbedCard>
                     <div>
                         <div className="form-group">
                             <label className="form-label-bold">Enter your postcode</label>
@@ -40,13 +40,8 @@ class PostcodeSelector extends React.Component {
                         <button type="submit" onClick={this.findStation}>Find your polling station</button>
                     </div>
 
-                    <div>
-                        <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
-                        Built by <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png"/>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                    <BuiltByDC/>
+            </EmbedCard>
         );
     }
 }

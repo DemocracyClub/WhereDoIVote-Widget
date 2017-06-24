@@ -1,9 +1,9 @@
 import React from 'react';
+import { EmbedCard, BuiltByDC } from './Branding';
 
 function StationNotFound(props) {
     return (
-        <div className="democracy_club_embed">
-            <div className="card">
+            <EmbedCard>
                 <h2>We couldn't find your station</h2>
                 { props.council &&
                     <div>
@@ -21,13 +21,8 @@ function StationNotFound(props) {
                  }
                  <button href="#" onClick={props.home}>Back to postcode search</button>
 
-                <div>
-                    <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
-                    Built by <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png"/>
-                    </a>
-                </div>
-            </div>
-        </div>
+                <BuiltByDC/>
+            </EmbedCard>
     );
 }
 

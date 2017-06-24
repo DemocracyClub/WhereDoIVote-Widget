@@ -1,18 +1,18 @@
 import React from 'react';
-import Directions from './Directions'
+import { Directions } from './Directions'
+import { EmbedCard, BuiltByDC } from './Branding'
 
 function ResultsCard(props) {
     let splitAddress = [];
 
     props.pollingStation.address.split(",")
-        .forEach(function(line) {
+        .forEach(function(line, index) {
             splitAddress.push(line);
-            splitAddress.push(<br/>);
+            splitAddress.push(<br key={index}/>);
         });
 
     return (
-        <div className="democracy_club_embed">
-            <div className="card">
+            <EmbedCard>
                 <h2>Your polling station</h2>
                 <div>
                     {splitAddress.slice(0, splitAddress.length - 1)}
@@ -22,13 +22,8 @@ function ResultsCard(props) {
                 }
                 <button href="#" onClick={props.home}>Back to postcode search</button>
 
-                <div>
-                    <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
-                    Built by <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png"/>
-                    </a>
-                </div>
-            </div>
-        </div>
+                <BuiltByDC/>
+            </EmbedCard>
     );
 }
 
