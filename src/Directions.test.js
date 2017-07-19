@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import 'jest-enzyme';
-import { Directions, GoogleMaps, OpenStreetMap } from './Directions';
+import { Directions, GoogleMaps, GoogleDirections } from './Directions';
 
 describe('Directions', () => {
 
@@ -14,14 +14,14 @@ describe('Directions', () => {
         const wrapper = shallow(<Directions destination={params.destination}/>);
 
         expect(wrapper).toContainReact(<GoogleMaps destination={456}/>);
-        expect(wrapper).not.toContainReact(<OpenStreetMap/>);
+        expect(wrapper).not.toContainReact(<GoogleDirections/>);
     });
 
-    it('renders OpenStreetMap directions when destination and origin present', () => {
+    it('renders only Google Directions when destination and origin present', () => {
         const wrapper = shallow(<Directions destination={params.destination} origin={params.origin}/>);
 
-        expect(wrapper).toContainReact(<GoogleMaps destination={456}/>);
-        expect(wrapper).toContainReact(<OpenStreetMap destination={456} origin={123}/>);
+        expect(wrapper).not.toContainReact(<GoogleMaps/>);
+        expect(wrapper).toContainReact(<GoogleDirections destination={456} origin={123}/>);
     });
 
 });

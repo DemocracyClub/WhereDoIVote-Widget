@@ -1,12 +1,17 @@
 import React from 'react';
 
 function Directions(props) {
+    var gmaps_link;
+    if (props.origin) {
+        gmaps_link = <GoogleDirections origin={props.origin} destination={props.destination} />
+    } else {
+        gmaps_link = <GoogleMaps destination={props.destination} />
+    }
+
     return (
         <div id="directions">
             <br/>
-            <GoogleMaps destination={props.destination} />
-            { props.origin && <span> or </span> }
-            { props.origin && <OpenStreetMap origin={props.origin} destination={props.destination} /> }
+            { gmaps_link }
         </div>
     );
 }
@@ -17,10 +22,10 @@ function GoogleMaps(props) {
            </a>
 }
 
-function OpenStreetMap(props) {
-    return <a href={"https://www.openstreetmap.org/directions?engine=mapzen_foot&route=" + props.origin + ";" + props.destination} target="_top">
-               show me directions
+function GoogleDirections(props) {
+    return <a href={"https://maps.google.com/maps/dir/" + props.origin + '/' + props.destination} target="_top">
+               Show me directions
            </a>
 }
 
-export { Directions, GoogleMaps, OpenStreetMap };
+export { Directions, GoogleMaps, GoogleDirections };
