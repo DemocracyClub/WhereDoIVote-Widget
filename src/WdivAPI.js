@@ -25,7 +25,7 @@ export function toAddress(output) {
        }
 
        if (output.data.postcode_location.geometry) {
-          const originCoordinates = output.data.postcode_location.geometry.point.coordinates;
+          const originCoordinates = output.data.postcode_location.geometry.coordinates;
           coordinates.origin = originCoordinates[1] + "," + originCoordinates[0];
        }
 
