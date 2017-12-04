@@ -24,9 +24,11 @@ export function toAddress(output) {
          destination: destinationCoordinates[1] + "," + destinationCoordinates[0]
        }
 
-       if (output.data.postcode_location.geometry) {
-          const originCoordinates = output.data.postcode_location.geometry.coordinates;
-          coordinates.origin = originCoordinates[1] + "," + originCoordinates[0];
+       if (output.data.postcode_location) {
+         if (output.data.postcode_location.geometry) {
+           const originCoordinates = output.data.postcode_location.geometry.coordinates;
+           coordinates.origin = originCoordinates[1] + "," + originCoordinates[0];
+         }
        }
 
        addressData.coordinates = coordinates;
