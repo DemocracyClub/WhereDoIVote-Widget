@@ -3,7 +3,8 @@ import ResultsCard from './ResultsCard.js';
 import AddressPicker from './AddressPicker.js';
 import PostcodeSelector from './PostcodeSelector.js';
 import StationNotFound from './StationNotFound.js';
-import { getPollingStation, toAddress, getFromSelector } from './WdivAPI.js';
+import * as axios from 'axios';
+import API from './WdivAPI.js';
 require('es6-shim');
 
 class Widget extends Component {
@@ -16,6 +17,7 @@ class Widget extends Component {
         this.updateErrorFromResponse = this.updateErrorFromResponse.bind(this);
         this.handleAddressSelectorState = this.handleAddressSelectorState.bind(this);
         this.home = this.home.bind(this);
+        this.api = new API(axios);
         this.state = {};
     }
 
@@ -44,7 +46,7 @@ class Widget extends Component {
         this.setState({ error: undefined })
 
         if (output.data.polling_station_known) {
-            this.setState({ searchInitiated: true, foundStation: true, resolvedPollingStation: toAddress(output)});
+            this.setState({ searchInitiated: true, foundStation: true, resolvedPollingStation: this.api.toAddress(output)});
         } else if (output.data.council === null) {
             this.updateErrorState("We don't know where you should vote");
         } else if (this.state.addressList !== undefined) {
@@ -60,7 +62,7 @@ class Widget extends Component {
         if(value === "") {
             this.setState({ addressList: undefined });
         } else {
-            getFromSelector(value).then(this.updateState);
+            this.api.getFromSelector(value).then(this.updateState);
         }
 
     }
@@ -78,7 +80,7 @@ class Widget extends Component {
         if (postcode === undefined || postcode.replace(/\W/g,"").length === 0) {
            this.updateErrorState('Postcode is empty, please enter a non-empty postcode.')
         } else {
-            getPollingStation(postcode)
+            this.api.getPollingStation(postcode)
                 .then(this.updateState)
                 .catch(this.updateErrorFromResponse);
         }
