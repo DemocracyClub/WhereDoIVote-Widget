@@ -4,3 +4,7 @@ node_js:
   - "node"
 before_script:
   - npm install
+script:
+  - npm run coverage
+after_script:
+  - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
