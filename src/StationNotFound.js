@@ -4,10 +4,10 @@ import { EmbedCard, BuiltByDC } from './Branding';
 function StationNotFound(props) {
     return (
             <EmbedCard>
-                <h2>We couldn't find your station</h2>
+                <h2 id='dc_header'>We couldn't find your station</h2>
                 { props.council &&
                     <div>
-                        <span>Get in touch with <b>
+                        <span id='dc_get_in_touch'>Get in touch with <b>
                         { props.council.council_id.startsWith('N09') ? 'The Electoral Office for Northern Ireland' : props.council.name }</b>:</span>
                          <br/>
                          <br/>
