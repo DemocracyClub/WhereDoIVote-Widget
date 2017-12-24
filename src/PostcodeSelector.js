@@ -34,7 +34,7 @@ class PostcodeSelector extends React.Component {
                             <input type="text" id="postcode" name="postcode" className="form-control" onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
                         </div>
                         { this.props.error &&
-                            <span className="dc_error">{this.props.error}</span>
+                            <span id="dc_error" className="dc_error">{this.props.error}</span>
                         }
 
                         <button type="submit" onClick={this.findStation}>Find your polling station</button>

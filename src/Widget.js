@@ -78,7 +78,7 @@ class Widget extends Component {
 
     findStation(postcode) {
         if (postcode === undefined || postcode.replace(/\W/g,"").length === 0) {
-           this.updateErrorState('Postcode is empty, please enter a non-empty postcode.')
+           this.updateErrorState('Postcode is empty, please enter a non-empty postcode.');
         } else {
             this.api.getPollingStation(postcode)
                 .then(this.updateState)
