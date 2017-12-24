@@ -41,6 +41,15 @@ describe('WhereDoIVote Widget', () => {
             expect(cardHeader()).toEqual("We couldn't find your station");
             expect(cardBody()).toEqual("Get in touch with Gloucester City Council:");
         });
+
+        it('should accept Enter instead of clicking the button', async () => {
+            submitPostcodeWithEnter('GL1 2EQ');
+
+            await sleep(500);
+
+            expect(cardHeader()).toEqual("We couldn't find your station");
+            expect(cardBody()).toEqual("Get in touch with Gloucester City Council:");
+        });
     });
 
     function cardHeader() {
@@ -49,6 +58,11 @@ describe('WhereDoIVote Widget', () => {
 
     function cardBody() {
         return screen.find("#dc_get_in_touch").map(node => node.text())[0];
+    }
+
+    function submitPostcodeWithEnter(postcode) {
+        screen.find("#postcode").simulate('change', { 'target': { 'value': postcode}});
+        screen.find("#postcode").simulate('keyPress', { key: 'Enter', keyCode: 13 });
     }
 
     function submitPostcode(postcode) {
