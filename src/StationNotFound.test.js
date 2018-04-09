@@ -2,10 +2,19 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import 'jest-enzyme';
 import StationNotFound from './StationNotFound';
+import { Notification } from './Notification';
 
 const council = { council_id: 'test', name: 'Example Council' };
 
 describe('StationNotFound', () => {
+
+    const idPilot = {
+      '2018-05-03-id-pilot': {
+        title: 'foo',
+        url: 'bar'
+      }
+    };
+
     it('always renders header', () => {
         const wrapper = shallow(<StationNotFound />);
 
@@ -45,5 +54,15 @@ describe('StationNotFound', () => {
 
             expect(wrapper).toContainReact(<li>Email - <a href="mailto:test@example.com">test@example.com</a></li>);
         });
+    });
+
+    it('does not show notification when there is no voter id pilot', () => {
+      const wrapper = shallow(<StationNotFound council={council} metadata={{}}/>);
+      expect(wrapper).not.toContainReact(<Notification />);
+    });
+
+    it('shows notification when there is a voter id pilot', () => {
+      const wrapper = shallow(<StationNotFound council={council} metadata={idPilot}/>);
+      expect(wrapper).toContainReact(<Notification title='foo' url='bar' />);
     });
 });
