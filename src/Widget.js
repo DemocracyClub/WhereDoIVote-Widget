@@ -49,7 +49,8 @@ class Widget extends Component {
             this.setState({
               searchInitiated: true,
               foundStation: true,
-              resolvedPollingStation: this.api.toAddress(output)
+              resolvedPollingStation: this.api.toAddress(output),
+              metadata: output.data.metadata
             });
         } else if (output.data.council === null) {
             this.updateErrorState("We don't know where you should vote");
@@ -58,20 +59,23 @@ class Widget extends Component {
               searchInitiated: true,
               foundStation: false,
               council: output.data.council,
-              addressList: undefined
+              addressList: undefined,
+              metadata: output.data.metadata
             });
         } else if (output.data.addresses.length === 0) {
             this.setState({
               searchInitiated: true,
               foundStation: false,
-              council: output.data.council
+              council: output.data.council,
+              metadata: output.data.metadata
             });
         } else {
             this.setState({
               searchInitiated: true,
               foundStation: false,
               council: output.data.council,
-              addressList: output.data.addresses
+              addressList: output.data.addresses,
+              metadata: output.data.metadata
             });
         }
     }
@@ -110,7 +114,8 @@ class Widget extends Component {
             addressList: undefined,
             foundStation: undefined,
             resolvedPollingStation: undefined,
-            council: undefined
+            council: undefined,
+            metadata: undefined
         });
     }
 
@@ -118,11 +123,19 @@ class Widget extends Component {
         if (!this.state.searchInitiated) {
             return ( <PostcodeSelector findStation={this.findStation} error={this.state.error}/> );
         } else if (this.state.foundStation) {
-            return ( <ResultsCard pollingStation={this.state.resolvedPollingStation} home={this.home}/> );
+            return ( <ResultsCard
+              pollingStation={this.state.resolvedPollingStation}
+              home={this.home}
+              metadata={this.state.metadata}
+            /> );
         } else if (!this.state.foundStation && this.state.addressList) {
             return ( <AddressPicker home={this.home} onSelection={this.handleAddressSelectorState} addressList={this.state.addressList} /> );
         } else {
-            return ( <StationNotFound council={this.state.council} home={this.home}/> );
+            return ( <StationNotFound
+              council={this.state.council}
+              home={this.home}
+              metadata={this.state.metadata}
+            /> );
         }
     }
 }
