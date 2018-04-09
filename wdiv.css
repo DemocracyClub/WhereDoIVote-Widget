@@ -47,6 +47,10 @@
 .democracy_club_embed .link-button:hover{
     background-color:#f9fdff
 }
+.democracy_club_embed a{
+    color:#EC008C;
+    text-decoration:none
+}
 .democracy_club_embed .form-group{
     width:100%;
     clear:both
