@@ -29,13 +29,13 @@ class PostcodeSelector extends React.Component {
         return (
             <EmbedCard>
                     <div>
+                        { this.props.error &&
+                            <span id="dc_error" className="dc_error">{this.props.error}</span>
+                        }
                         <div className="form-group">
                             <label className="form-label-bold">Enter your postcode</label>
                             <input type="text" id="postcode" name="postcode" className="form-control" onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
                         </div>
-                        { this.props.error &&
-                            <span id="dc_error" className="dc_error">{this.props.error}</span>
-                        }
 
                         <button type="submit" onClick={this.findStation}>Find your polling station</button>
                     </div>
