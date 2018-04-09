@@ -121,7 +121,10 @@ class Widget extends Component {
 
     render() {
         if (!this.state.searchInitiated) {
-            return ( <PostcodeSelector findStation={this.findStation} error={this.state.error}/> );
+            return ( <PostcodeSelector
+              findStation={this.findStation}
+              error={this.state.error}
+            /> );
         } else if (this.state.foundStation) {
             return ( <ResultsCard
               pollingStation={this.state.resolvedPollingStation}
@@ -129,7 +132,11 @@ class Widget extends Component {
               metadata={this.state.metadata}
             /> );
         } else if (!this.state.foundStation && this.state.addressList) {
-            return ( <AddressPicker home={this.home} onSelection={this.handleAddressSelectorState} addressList={this.state.addressList} /> );
+            return ( <AddressPicker
+              home={this.home}
+              onSelection={this.handleAddressSelectorState}
+              addressList={this.state.addressList}
+            /> );
         } else {
             return ( <StationNotFound
               council={this.state.council}
