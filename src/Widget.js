@@ -46,15 +46,33 @@ class Widget extends Component {
         this.setState({ error: undefined })
 
         if (output.data.polling_station_known) {
-            this.setState({ searchInitiated: true, foundStation: true, resolvedPollingStation: this.api.toAddress(output)});
+            this.setState({
+              searchInitiated: true,
+              foundStation: true,
+              resolvedPollingStation: this.api.toAddress(output)
+            });
         } else if (output.data.council === null) {
             this.updateErrorState("We don't know where you should vote");
         } else if (this.state.addressList !== undefined) {
-            this.setState({ searchInitiated: true, foundStation: false, council: output.data.council, addressList: undefined });
+            this.setState({
+              searchInitiated: true,
+              foundStation: false,
+              council: output.data.council,
+              addressList: undefined
+            });
         } else if (output.data.addresses.length === 0) {
-            this.setState({ searchInitiated: true, foundStation: false, council: output.data.council });
+            this.setState({
+              searchInitiated: true,
+              foundStation: false,
+              council: output.data.council
+            });
         } else {
-            this.setState({ searchInitiated: true, foundStation: false, council: output.data.council, addressList: output.data.addresses});
+            this.setState({
+              searchInitiated: true,
+              foundStation: false,
+              council: output.data.council,
+              addressList: output.data.addresses
+            });
         }
     }
 
