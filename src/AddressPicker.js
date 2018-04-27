@@ -31,7 +31,7 @@ class AddressPicker extends React.Component {
                     <div>
                         <div className="form-group">
                             <label className="form-label-bold">Choose your address</label>
-                            <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="select_multirow" id="id_address" name="address" size="5">
+                            <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="democracy_club_select_multirow" id="id_address" name="address" size="5">
                             {
                                 this.props.addressList.map(this.addressOption)
                             }
