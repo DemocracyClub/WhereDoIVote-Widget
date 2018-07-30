@@ -1,10 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Widget from './Widget';
 import axios from 'axios'
 import httpAdapter from 'axios/lib/adapters/http'
 
 axios.defaults.adapter = httpAdapter;
+configure({ adapter: new Adapter() });
 
 describe('WhereDoIVote Widget', () => {
     let screen;
@@ -53,10 +55,12 @@ describe('WhereDoIVote Widget', () => {
     });
 
     function cardHeader() {
+        screen.update()
         return screen.find("#dc_header").map(node => node.text())[0];
     }
 
     function cardBody() {
+        screen.update()
         return screen.find("#dc_get_in_touch").map(node => node.text())[0];
     }
 
@@ -73,6 +77,7 @@ describe('WhereDoIVote Widget', () => {
     }
 
     function errorMessage() {
+      screen.update()
       return screen.find("#dc_error").map(node => node.text())[0];
     }
 
