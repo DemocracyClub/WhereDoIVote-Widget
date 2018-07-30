@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "es6-shim": "^0.35.3",
-    "react": "^15.5.4",
+    "react": "^16.4.1",
     "react-dom": "^15.5.4",
     "sinon": "^6.1.4"
   },
