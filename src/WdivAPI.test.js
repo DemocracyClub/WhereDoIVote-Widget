@@ -19,7 +19,7 @@ describe('WhereDoIVote API client', () => {
         api.getPollingStation("T3 5TS").catch((err) => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toMatch("https://wheredoivote.co.uk/api/beta/postcode/T3 5TS.json");
+        expect(requestUrl).toMatch("https://wheredoivote.co.uk/api/beta/postcode/T3 5TS");
     });
 
     it('adds metadata to show where it has been embedded', () => {
@@ -28,16 +28,16 @@ describe('WhereDoIVote API client', () => {
         api.getPollingStation("T3 5TS").catch((err) => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toMatch("T3 5TS.json?utm_source=localhost&utm_medium=widget");
+        expect(requestUrl).toMatch("T3 5TS?utm_source=localhost&utm_medium=widget");
     });
 
-    it('requests from selector by removing last character and adding JSON extension', () => {
+    it('requests from selector', () => {
         var api = new API(axios);
 
         api.getFromSelector("https://wheredoivote.co.uk/some_path/").catch((err) => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toEqual("https://wheredoivote.co.uk/some_path.json");
+        expect(requestUrl).toEqual("https://wheredoivote.co.uk/some_path/");
     });
 
     describe('address transformation', () => {
