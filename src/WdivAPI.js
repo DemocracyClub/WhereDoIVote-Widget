@@ -1,7 +1,9 @@
 function API(client) {
 
+    client.defaults.headers.get['Content-Type'] = 'application/json';
+
     function toUrl(postcode) {
-        return 'https://wheredoivote.co.uk/api/beta/postcode/' + postcode + '.json';
+        return 'https://wheredoivote.co.uk/api/beta/postcode/' + postcode;
     }
 
     function addAnalytics() {
@@ -14,11 +16,11 @@ function API(client) {
 
     return {
         getPollingStation: function(postcode) {
-            return client.get(toUrl(postcode) + "?" + addAnalytics())
+            return client.get(toUrl(postcode) + "?" + addAnalytics());
         },
 
         getFromSelector: function(url) {
-            return client.get(url.substring(0, url.length - 1) + '.json')
+            return client.get(url);
         },
 
         toAddress: function(output) {
