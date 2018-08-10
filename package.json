@@ -7,7 +7,7 @@
     "es6-shim": "^0.35.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "sinon": "^6.1.4"
+    "sinon": "^6.1.5"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
