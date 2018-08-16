@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
-    "enzyme": "^3.4.1",
+    "enzyme": "^3.4.2",
     "enzyme-adapter-react-16": "^1.2.0",
     "jest-enzyme": "^6.0.3",
     "react-scripts": "1.1.4",
