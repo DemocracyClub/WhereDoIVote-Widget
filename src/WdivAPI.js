@@ -2,8 +2,14 @@ function API(client) {
 
     client.defaults.headers.get['Content-Type'] = 'application/json';
 
+    function whereDoIVoteApiEndpoint() {
+        return process.env.NODE_ENV === 'development'
+            ? process.env.REACT_APP_WDIV_API_URL
+            : 'https://wheredoivote.co.uk/api';
+    }
+
     function toUrl(postcode) {
-        return 'https://wheredoivote.co.uk/api/beta/postcode/' + postcode;
+        return whereDoIVoteApiEndpoint() + '/beta/postcode/' + postcode;
     }
 
     function addAnalytics() {
