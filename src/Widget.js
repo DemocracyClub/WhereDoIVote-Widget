@@ -5,7 +5,6 @@ import PostcodeSelector from './PostcodeSelector.js';
 import StationNotFound from './StationNotFound.js';
 import * as axios from 'axios';
 import API from './WdivAPI.js';
-require('es6-shim');
 
 class Widget extends Component {
     constructor(props) {
