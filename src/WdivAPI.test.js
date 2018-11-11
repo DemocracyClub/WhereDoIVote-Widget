@@ -22,13 +22,38 @@ describe('WhereDoIVote API client', () => {
         expect(requestUrl).toMatch("https://wheredoivote.co.uk/api/beta/postcode/T3 5TS");
     });
 
-    it('adds metadata to show where it has been embedded', () => {
-        var api = new API(axios);
+    describe('appends tracking information', () => {
 
-        api.getPollingStation("T3 5TS").catch((err) => {});
+        function setLocation(location) {
+            Object.defineProperty(
+                window,
+                'location',
+                { value: location, writable: true }
+            );
+        }
 
-        var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toMatch("T3 5TS?utm_source=localhost&utm_medium=widget");
+        it('when location is present on window', () => {
+            setLocation({ hostname: 'example.com'})
+
+            var api = new API(axios);
+
+            api.getPollingStation("T3 5TS").catch((err) => {});
+
+            var requestUrl = axios.get.getCall(0).args[0];
+            expect(requestUrl).toMatch("utm_source=example.com&utm_medium=widget");
+        });
+
+        it('when location is not present on window', () => {
+            setLocation(undefined);
+
+            var api = new API(axios);
+
+            api.getPollingStation("T3 5TS").catch((err) => {});
+
+            var requestUrl = axios.get.getCall(0).args[0];
+            expect(requestUrl).toMatch("utm_source=unknown&utm_medium=widget");
+        });
+
     });
 
     it('requests from selector', () => {
