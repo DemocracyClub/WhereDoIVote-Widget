@@ -5,11 +5,11 @@ function API(client) {
     function whereDoIVoteApiEndpoint() {
         return process.env.NODE_ENV === 'development'
             ? process.env.REACT_APP_WDIV_API_URL
-            : 'https://wheredoivote.co.uk/api';
+            : 'https://wheredoivote.co.uk/api/beta';
     }
 
     function toUrl(postcode) {
-        return whereDoIVoteApiEndpoint() + '/beta/postcode/' + postcode;
+        return whereDoIVoteApiEndpoint() + '/postcode/' + postcode;
     }
 
     function addAnalytics() {
