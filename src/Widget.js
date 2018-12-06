@@ -88,7 +88,7 @@ class Widget extends Component {
 
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const link = document.createElement("link");
         link.rel = 'stylesheet';
         link.href = 'https://widget.wheredoivote.co.uk/wdiv.css';
