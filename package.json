@@ -16,7 +16,7 @@
     "enzyme-adapter-react-16": "^1.9.1",
     "jest-enzyme": "^7.0.1",
     "react-scripts": "2.1.5",
-    "react-test-renderer": "^16.8.1"
+    "react-test-renderer": "^16.8.2"
   },
   "scripts": {
     "start": "react-scripts start",
