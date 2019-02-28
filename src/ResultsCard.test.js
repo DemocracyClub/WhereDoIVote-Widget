@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import ResultsCard from './ResultsCard';
 import { Directions } from './Directions';
-import { Notification } from './Notification';
+import { IdRequirement } from './Notification';
 
 const council = { council_id: 'test', name: 'Example Council' };
 configure({ adapter: new Adapter() });
@@ -54,11 +54,11 @@ describe('ResultsCard', () => {
 
     it('does not show notification when there is no voter id pilot', () => {
       const wrapper = shallow(<ResultsCard pollingStation={pollingStation} metadata={{}}/>);
-      expect(wrapper).not.toContainReact(<Notification />);
+      expect(wrapper).not.toContainReact(<IdRequirement />);
     });
 
     it('shows notification when there is a voter id pilot', () => {
       const wrapper = shallow(<ResultsCard pollingStation={pollingStation} metadata={idPilot}/>);
-      expect(wrapper).toContainReact(<Notification title='foo' url='bar' />);
+      expect(wrapper).toContainReact(<IdRequirement metadata={idPilot} />);
     });
 });
