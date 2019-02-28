@@ -1,16 +1,11 @@
 import React from 'react';
 import { EmbedCard, BuiltByDC } from './Branding';
-import { Notification } from './Notification';
+import { IdRequirement } from './Notification';
 
 function StationNotFound(props) {
     return (
             <EmbedCard>
-                { props.metadata && ('2018-05-03-id-pilot' in props.metadata) &&
-                  <Notification
-                    title={props.metadata['2018-05-03-id-pilot'].title}
-                    url={props.metadata['2018-05-03-id-pilot'].url}
-                  />
-                }
+                { <IdRequirement metadata={props.metadata} /> }
                 <h2 id='dc_header'>We couldn't find your station</h2>
                 { props.council &&
                     <div>
