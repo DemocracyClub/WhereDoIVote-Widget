@@ -32,15 +32,15 @@ describe('WhereDoIVote API client', () => {
             );
         }
 
-        it('when location is present on window', () => {
-            setLocation({ hostname: 'example.com'})
+        it('and escapes when url is present on window', () => {
+            setLocation({ href: 'https://example.com/foo'})
 
             var api = new API(axios);
 
             api.getPollingStation("T3 5TS").catch((err) => {});
 
             var requestUrl = axios.get.getCall(0).args[0];
-            expect(requestUrl).toMatch("utm_source=example.com&utm_medium=widget");
+            expect(requestUrl).toMatch("utm_source=https%3A%2F%2Fexample.com%2Ffoo&utm_medium=widget");
         });
 
         it('when location is not present on window', () => {

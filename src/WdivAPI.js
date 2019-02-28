@@ -13,10 +13,11 @@ function API(client) {
     }
 
     function addAnalytics() {
-        if (window && window.location && window.location.hostname && window.location.hostname !== "") {
-            return "utm_source="+window.location.hostname+"&utm_medium=widget";
-        } else {
-            return "utm_source=unknown&utm_medium=widget";
+        try {
+          const encodedUrl = encodeURIComponent(window.location.href)
+          return "utm_source="+encodedUrl+"&utm_medium=widget";
+        } catch (e) {
+          return "utm_source=unknown&utm_medium=widget";
         }
     }
 
