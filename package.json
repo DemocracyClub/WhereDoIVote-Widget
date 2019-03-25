@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "es6-shim": "^0.35.4",
-    "react": "^16.8.4",
+    "react": "^16.8.5",
     "react-app-polyfill": "^0.2.2",
     "react-dom": "^16.8.4",
     "sinon": "^7.2.7"
