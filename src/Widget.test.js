@@ -19,7 +19,7 @@ describe('WhereDoIVote Widget', () => {
         it('should give error message when no postcode is entered', async () => {
             submitPostcode();
 
-            await sleep(1000);
+            await sleep(2000);
 
             expect(errorMessage()).toEqual("Postcode is empty, please enter a non-empty postcode.");
         });
@@ -27,7 +27,7 @@ describe('WhereDoIVote Widget', () => {
         it('should give error message malformed postcode is entered', async () => {
             submitPostcode('aaaaa');
 
-            await sleep(1000);
+            await sleep(2000);
 
             expect(errorMessage()).toEqual("We don't know where you should vote");
         });
@@ -38,7 +38,7 @@ describe('WhereDoIVote Widget', () => {
         it('should declare that it cannot find the station if so ', async () => {
             submitPostcode('GL1 2EQ');
 
-            await sleep(1000);
+            await sleep(2000);
 
             expect(cardHeader()).toEqual("We couldn't find your station");
             expect(cardBody()).toEqual("Get in touch with Gloucester City Council:");
@@ -47,7 +47,7 @@ describe('WhereDoIVote Widget', () => {
         it('should accept Enter instead of clicking the button', async () => {
             submitPostcodeWithEnter('GL1 2EQ');
 
-            await sleep(1000);
+            await sleep(2000);
 
             expect(cardHeader()).toEqual("We couldn't find your station");
             expect(cardBody()).toEqual("Get in touch with Gloucester City Council:");
