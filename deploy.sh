@@ -33,7 +33,7 @@ deploy-to-s3() {
 
 npm run build
 
-JS_FILE=$(cat build/asset-manifest.json | jq -r '."main.js"')
+JS_FILE=$(cat build/asset-manifest.json | jq -r '.files."main.js"')
 
 deploy-to-s3 build/${JS_FILE} wdiv.js
 deploy-to-s3 ./wdiv.css wdiv.css
