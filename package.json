@@ -16,7 +16,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "jest-enzyme": "^7.1.0",
     "react-scripts": "3.0.1",
-    "react-test-renderer": "^16.8.6",
+    "react-test-renderer": "^16.9.0",
     "rewire": "^4.0.1"
   },
   "scripts": {
