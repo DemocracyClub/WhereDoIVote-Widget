@@ -5,7 +5,7 @@ import PostcodeSelector from './PostcodeSelector.js';
 import StationNotFound from './StationNotFound.js';
 import * as axios from 'axios';
 import API from './WdivAPI.js';
-import './wdiv.css';
+import './Widget.css';
 
 class Widget extends Component {
     constructor(props) {
