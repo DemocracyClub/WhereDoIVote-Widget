@@ -5,6 +5,7 @@ import PostcodeSelector from './PostcodeSelector.js';
 import StationNotFound from './StationNotFound.js';
 import * as axios from 'axios';
 import API from './WdivAPI.js';
+import './wdiv.css';
 
 class Widget extends Component {
     constructor(props) {
@@ -86,15 +87,6 @@ class Widget extends Component {
             this.api.getFromSelector(value).then(this.updateState);
         }
 
-    }
-
-    componentWillMount() {
-        const link = document.createElement("link");
-        link.rel = 'stylesheet';
-        link.href = 'https://widget.wheredoivote.co.uk/wdiv.css';
-        link.type = 'text/css';
-
-        document.head.appendChild(link);
     }
 
     findStation(postcode) {
