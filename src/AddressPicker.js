@@ -46,6 +46,7 @@ class AddressPicker extends React.Component {
                     <br/>
                     <button href="#" onClick={this.props.home}>Back to postcode search</button>
                 </div>
+                <BuiltByDC />
             </EmbedCard>
         );
     }
