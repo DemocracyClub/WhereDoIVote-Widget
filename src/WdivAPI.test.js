@@ -19,7 +19,7 @@ describe('WhereDoIVote API client', () => {
         api.getPollingStation("T3 5TS").catch((err) => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toMatch("https://wheredoivote.co.uk/api/beta/postcode/T3 5TS");
+        expect(requestUrl).toMatch("https://developers.democracyclub.org.uk/api/v1/sandbox/postcode/T3 5TS");
     });
 
     describe('appends tracking information', () => {

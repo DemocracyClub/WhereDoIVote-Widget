@@ -5,7 +5,7 @@ function API(client) {
     function whereDoIVoteApiEndpoint() {
         return process.env.NODE_ENV === 'development'
             ? process.env.REACT_APP_WDIV_API_URL
-            : 'https://wheredoivote.co.uk/api/beta';
+            : 'https://developers.democracyclub.org.uk/api/v1/sandbox';
     }
 
     function toUrl(postcode) {

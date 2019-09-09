@@ -29,16 +29,21 @@ class Widget extends Component {
     }
 
     updateErrorFromResponse(data) {
-        var err = data.response.data.detail.replace(/.*: /g, "");
-        if (data.response.status === 400) {
-            if (err.startsWith('Postcode') && err.endsWith('is not valid.')) {
-                this.updateErrorState(err);
+        if (data.response !== undefined) {
+            var err = data.response.data.detail.replace(/.*: /g, "");
+            if (data.response.status === 400) {
+                if (err.startsWith('Postcode') && err.endsWith('is not valid.')) {
+                    this.updateErrorState(err);
+                } else {
+                    this.updateErrorState("We don't know where you should vote");
+                }
             } else {
                 this.updateErrorState("We don't know where you should vote");
             }
         } else {
-            this.updateErrorState("We don't know where you should vote");
+            this.updateErrorState("The lookup service is down. Please try again later.")
         }
+
     }
 
     updateState(output) {
