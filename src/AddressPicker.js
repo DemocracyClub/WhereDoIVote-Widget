@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './WidgetStyles';
 
 class AddressPicker extends React.Component {
     constructor(props) {
@@ -26,10 +27,10 @@ class AddressPicker extends React.Component {
     render() {
         const inputProps = { disabled: this.state.address === undefined }
         return (
-            <div className="democracy_club_embed">
-                <div className="card">
+            <div style={styles.DCEmbed}>
+                <div style={styles.Card}>
                     <div>
-                        <div className="form-group">
+                        <div styles={styles.FormGroup}>
                             <label className="form-label-bold">Choose your address</label>
                             <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="democracy_club_select_multirow" id="id_address" name="address" size="5">
                             {
