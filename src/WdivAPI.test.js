@@ -4,9 +4,8 @@ import * as axios from 'axios';
 import API from './WdivAPI';
 
 describe('WhereDoIVote API client', () => {
-
     beforeEach(() => {
-        sinon.spy(axios, "get");
+        sinon.spy(axios, 'get');
     });
 
     afterEach(() => {
@@ -16,31 +15,28 @@ describe('WhereDoIVote API client', () => {
     it('makes request for postcode', () => {
         var api = new API(axios);
 
-        api.getPollingStation("T3 5TS").catch((err) => {});
+        api.getPollingStation('T3 5TS').catch(err => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toMatch("https://wheredoivote.co.uk/api/beta/postcode/T3 5TS");
+        expect(requestUrl).toMatch('https://wheredoivote.co.uk/api/beta/postcode/T3 5TS');
     });
 
     describe('appends tracking information', () => {
-
         function setLocation(location) {
-            Object.defineProperty(
-                window,
-                'location',
-                { value: location, writable: true }
-            );
+            Object.defineProperty(window, 'location', { value: location, writable: true });
         }
 
         it('and escapes when url is present on window', () => {
-            setLocation({ href: 'https://example.com/foo'})
+            setLocation({ href: 'https://example.com/foo' });
 
             var api = new API(axios);
 
-            api.getPollingStation("T3 5TS").catch((err) => {});
+            api.getPollingStation('T3 5TS').catch(err => {});
 
             var requestUrl = axios.get.getCall(0).args[0];
-            expect(requestUrl).toMatch("utm_source=https%3A%2F%2Fexample.com%2Ffoo&utm_medium=widget");
+            expect(requestUrl).toMatch(
+                'utm_source=https%3A%2F%2Fexample.com%2Ffoo&utm_medium=widget'
+            );
         });
 
         it('when location is not present on window', () => {
@@ -48,21 +44,20 @@ describe('WhereDoIVote API client', () => {
 
             var api = new API(axios);
 
-            api.getPollingStation("T3 5TS").catch((err) => {});
+            api.getPollingStation('T3 5TS').catch(err => {});
 
             var requestUrl = axios.get.getCall(0).args[0];
-            expect(requestUrl).toMatch("utm_source=unknown&utm_medium=widget");
+            expect(requestUrl).toMatch('utm_source=unknown&utm_medium=widget');
         });
-
     });
 
     it('requests from selector', () => {
         var api = new API(axios);
 
-        api.getFromSelector("https://wheredoivote.co.uk/some_path/").catch((err) => {});
+        api.getFromSelector('https://wheredoivote.co.uk/some_path/').catch(err => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toEqual("https://wheredoivote.co.uk/some_path/");
+        expect(requestUrl).toEqual('https://wheredoivote.co.uk/some_path/');
     });
 
     describe('address transformation', () => {
@@ -73,14 +68,13 @@ describe('WhereDoIVote API client', () => {
                 data: {
                     polling_station: {
                         properties: {
-                            address: 'Some Address'
-                        }
-                    }
-                }
+                            address: 'Some Address',
+                        },
+                    },
+                },
             };
 
-            expect(api.toAddress(input)).toEqual({ address: 'Some Address'});
-
+            expect(api.toAddress(input)).toEqual({ address: 'Some Address' });
         });
 
         it('substitutes newlines for commas', () => {
@@ -88,13 +82,15 @@ describe('WhereDoIVote API client', () => {
                 data: {
                     polling_station: {
                         properties: {
-                            address: 'Some Address\nSome Place\nSome Country'
-                        }
-                    }
-                }
+                            address: 'Some Address\nSome Place\nSome Country',
+                        },
+                    },
+                },
             };
 
-            expect(api.toAddress(input)).toEqual({ address: 'Some Address,Some Place,Some Country'});
+            expect(api.toAddress(input)).toEqual({
+                address: 'Some Address,Some Place,Some Country',
+            });
         });
 
         it('adds postcode if present', () => {
@@ -103,13 +99,13 @@ describe('WhereDoIVote API client', () => {
                     polling_station: {
                         properties: {
                             address: 'Some Address',
-                            postcode: 'T3 5TS'
-                        }
-                    }
-                }
+                            postcode: 'T3 5TS',
+                        },
+                    },
+                },
             };
 
-            expect(api.toAddress(input)).toEqual({ address: 'Some Address,T3 5TS'});
+            expect(api.toAddress(input)).toEqual({ address: 'Some Address,T3 5TS' });
         });
 
         it('adds destination postcode if present', () => {
@@ -118,20 +114,20 @@ describe('WhereDoIVote API client', () => {
                     polling_station: {
                         properties: {
                             address: 'Some Address',
-                            postcode: 'T3 5TS'
+                            postcode: 'T3 5TS',
                         },
                         geometry: {
-                            coordinates: [20, 10]
-                        }
-                    }
-                }
+                            coordinates: [20, 10],
+                        },
+                    },
+                },
             };
 
             expect(api.toAddress(input)).toEqual({
                 address: 'Some Address,T3 5TS',
                 coordinates: {
-                    destination: "10,20"
-                }
+                    destination: '10,20',
+                },
             });
         });
 
@@ -141,28 +137,27 @@ describe('WhereDoIVote API client', () => {
                     polling_station: {
                         properties: {
                             address: 'Some Address',
-                            postcode: 'T3 5TS'
+                            postcode: 'T3 5TS',
                         },
                         geometry: {
-                            coordinates: [20, 10]
-                        }
+                            coordinates: [20, 10],
+                        },
                     },
                     postcode_location: {
                         geometry: {
-                            coordinates: [40, 30]
-                        }
-                    }
-                }
+                            coordinates: [40, 30],
+                        },
+                    },
+                },
             };
 
             expect(api.toAddress(input)).toEqual({
                 address: 'Some Address,T3 5TS',
                 coordinates: {
-                    destination: "10,20",
-                    origin: "30,40"
-                }
+                    destination: '10,20',
+                    origin: '30,40',
+                },
             });
         });
-
     });
 });
