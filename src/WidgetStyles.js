@@ -5,26 +5,36 @@ const DCEmbed = {
 }
 
 const Card = {
-    borderRadius: "0 3px",
-    clear: "both",
-    padding: "20px",
-    background: "#fff",
-    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.1),0 3px 10px 0 rgba(0,0,0,0.09)"
+  borderRadius: "0 3px",
+  clear: "both",
+  padding: "20px",
+  background: "#fff",
+  boxShadow: "0 4px 8px 0 rgba(0,0,0,0.1),0 3px 10px 0 rgba(0,0,0,0.09)"
 }
 
 const DCLogo = {
-    textDecoration: "none",
-    fontSize: "14px"
+  textDecoration: "none",
+  fontSize: "14px"
 }
 
 const FormGroup = {
-    width: '100%',
-    clear: 'both'
+  width: "100%",
+  clear: "both"
 }
 
-export default { DCEmbed, Card, DCLogo, FormGroup }
+const DCNotification = {
+  color: "#6f777b",
+  display: "block",
+  border: "2px solid #00AEEF",
+  fontSize: "19px",
+  fontWeight: "normal",
+  lineHeight: "1.25",
+  marginTop: "2px",
+  padding: "1rem 2rem 1.0625rem 2rem",
+  textTransform: "none"
+}
 
- 
+export default { DCEmbed, Card, DCLogo, FormGroup, DCNotification }
 
 // .democracy_club_embed .dc_logo img{
 //     max-width:120px;
@@ -117,17 +127,6 @@ export default { DCEmbed, Card, DCLogo, FormGroup }
 //     line-height:1.25;
 //     margin-top:2px;
 //     margin-bottom:4px;
-//     padding:1rem 2rem 1.0625rem 2rem;
-//     text-transform:none
-// }
-// .democracy_club_embed .dc_notification{
-//     color:#6f777b;
-//     display:block;
-//     border:2px solid #00AEEF;
-//     font-size:19px;
-//     font-weight:normal;
-//     line-height:1.25;
-//     margin-top:2px;
 //     padding:1rem 2rem 1.0625rem 2rem;
 //     text-transform:none
 // }
