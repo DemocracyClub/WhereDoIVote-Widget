@@ -88,15 +88,6 @@ class Widget extends Component {
 
     }
 
-    componentWillMount() {
-        const link = document.createElement("link");
-        link.rel = 'stylesheet';
-        link.href = 'https://widget.wheredoivote.co.uk/wdiv.css';
-        link.type = 'text/css';
-
-        document.head.appendChild(link);
-    }
-
     findStation(postcode) {
         if (postcode === undefined || postcode.replace(/\W/g,"").length === 0) {
            this.updateErrorState('Postcode is empty, please enter a non-empty postcode.');

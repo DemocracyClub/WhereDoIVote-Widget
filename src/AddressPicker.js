@@ -1,4 +1,6 @@
 import React from 'react';
+import { EmbedCard, BuiltByDC } from './Branding';
+import styles from './WidgetStyles';
 
 class AddressPicker extends React.Component {
     constructor(props) {
@@ -26,33 +28,26 @@ class AddressPicker extends React.Component {
     render() {
         const inputProps = { disabled: this.state.address === undefined }
         return (
-            <div className="democracy_club_embed">
-                <div className="card">
-                    <div>
-                        <div className="form-group">
-                            <label className="form-label-bold">Choose your address</label>
-                            <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="democracy_club_select_multirow" id="id_address" name="address" size="5">
-                            {
-                                this.props.addressList.map(this.addressOption)
-                            }
-                                <option key={this.props.addressList.length} value="">My address is not in the list</option>
-                            </select>
-                        </div>
-
-                        <button {...inputProps} type="submit" className="button" onClick={this.handleSubmit}>
-                            Find my Polling Station
-                        </button>
-                        <br/>
-                         <button href="#" onClick={this.props.home}>Back to postcode search</button>
+            <EmbedCard>
+                <div>
+                    <div styles={styles.FormGroup}>
+                        <label className="form-label-bold">Choose your address</label>
+                        <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="democracy_club_select_multirow" id="id_address" name="address" size="5">
+                        {
+                            this.props.addressList.map(this.addressOption)
+                        }
+                            <option key={this.props.addressList.length} value="">My address is not in the list</option>
+                        </select>
                     </div>
 
-                    <div>
-                        <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
-                        Built by <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png"/>
-                        </a>
-                    </div>
+                    <button {...inputProps} type="submit" className="button" onClick={this.handleSubmit}>
+                        Find my Polling Station
+                    </button>
+                    <br/>
+                    <button href="#" onClick={this.props.home}>Back to postcode search</button>
                 </div>
-            </div>
+                <BuiltByDC />
+            </EmbedCard>
         );
     }
 }

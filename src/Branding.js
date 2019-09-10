@@ -1,19 +1,20 @@
 import React from 'react';
+import styles from './WidgetStyles';
 
 function EmbedCard(props) {
-    return <div className="democracy_club_embed">
-               <div className="card">
+    return <section style={styles.DCEmbed}>
+               <div style={styles.Card}>
                  {props.children}
                </div>
-           </div>;
+           </section>;
 }
 
-function BuiltByDC(props) {
-    return  <div>
-                <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
+function BuiltByDC() {
+    return  <footer>
+                <a href="https://democracyclub.org.uk/" target="_top" style={styles.DCLogo}>
                 Built by <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png"/>
                 </a>
-            </div>;
+            </footer>;
 }
 
 export { EmbedCard, BuiltByDC };
