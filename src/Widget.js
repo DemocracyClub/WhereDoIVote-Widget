@@ -5,6 +5,7 @@ import PostcodeSelector from './PostcodeSelector.js';
 import StationNotFound from './StationNotFound.js';
 import * as axios from 'axios';
 import API from './WdivAPI.js';
+import translations from './translations/en'
 
 class Widget extends Component {
     constructor(props) {
@@ -30,18 +31,19 @@ class Widget extends Component {
 
     updateErrorFromResponse(data) {
         if (data.response !== undefined) {
-            var err = data.response.data.detail.replace(/.*: /g, "");
+            
+            var err = data.response.data.message.replace(/.*: /g, "");
             if (data.response.status === 400) {
                 if (err.startsWith('Postcode') && err.endsWith('is not valid.')) {
                     this.updateErrorState(err);
                 } else {
-                    this.updateErrorState("We don't know where you should vote");
+                    this.updateErrorState(translations["api.errors.voting-location-unknown"]);
                 }
             } else {
-                this.updateErrorState("We don't know where you should vote");
+                this.updateErrorState(translations["api.errors.voting-location-unknown"]);
             }
         } else {
-            this.updateErrorState("The lookup service is down. Please try again later.")
+            this.updateErrorState(translations["api.errors.lookup-service-down"])
         }
 
     }
@@ -57,7 +59,7 @@ class Widget extends Component {
                 metadata: output.data.metadata,
             });
         } else if (output.data.council === null) {
-            this.updateErrorState("We don't know where you should vote");
+            this.updateErrorState(translations["api.errors.voting-location-unknown"]);
         } else if (this.state.addressList !== undefined) {
             this.setState({
                 searchInitiated: true,
@@ -93,8 +95,8 @@ class Widget extends Component {
     }
 
     findStation(postcode) {
-        if (postcode === undefined || postcode.replace(/\W/g, '').length === 0) {
-            this.updateErrorState('Postcode is empty, please enter a non-empty postcode.');
+        if (postcode === undefined || postcode.replace(/\W/g,"").length === 0) {
+           this.updateErrorState(translations["api.errors.empty-postcode"]);
         } else {
             this.api
                 .getPollingStation(postcode)

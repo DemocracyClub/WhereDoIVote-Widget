@@ -2,8 +2,9 @@ import React from 'react';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Widget from './Widget';
-import axios from 'axios';
-import httpAdapter from 'axios/lib/adapters/http';
+import axios from 'axios'
+import httpAdapter from 'axios/lib/adapters/http'
+import translations from './translations/en'
 
 axios.defaults.adapter = httpAdapter;
 configure({ adapter: new Adapter() });
@@ -21,7 +22,7 @@ describe('WhereDoIVote Widget', () => {
 
             await sleep(2000);
 
-            expect(errorMessage()).toEqual('Postcode is empty, please enter a non-empty postcode.');
+            expect(errorMessage()).toEqual(translations["api.errors.empty-postcode"]);
         });
 
         it('should give error message malformed postcode is entered', async () => {
@@ -29,7 +30,7 @@ describe('WhereDoIVote Widget', () => {
 
             await sleep(2000);
 
-            expect(errorMessage()).toEqual("We don't know where you should vote");
+            expect(errorMessage()).toEqual(translations["api.errors.voting-location-unknown"]);
         });
     });
 
