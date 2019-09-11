@@ -1,7 +1,7 @@
-import * as axios from 'axios';
 
-function API() {
-    axios.defaults.headers.get['Content-Type'] = 'application/json';
+
+function API(client) {
+    client.defaults.headers.get['Content-Type'] = 'application/json';
 
     function whereDoIVoteApiEndpoint() {
         return process.env.NODE_ENV === 'development'
@@ -24,11 +24,11 @@ function API() {
 
     return {
         getPostcodeData: function(postcode) {
-            return axios.get(toUrl(postcode) + '?' + addAnalytics());
+            return client.get(toUrl(postcode) + '?' + addAnalytics());
         },
 
         getFromSelector: function(url) {
-            return axios.get(url);
+            return client.get(url);
         },
 
         toAddress: function(output) {

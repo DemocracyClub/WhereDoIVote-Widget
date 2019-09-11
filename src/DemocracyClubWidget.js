@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { EmbedCard, StartAgainButton, ErrorMessage, BuiltByDC } from './Branding';
 import PostcodeSelector from './PostcodeSelector';
+import * as axios from 'axios'
 import API from './api/DemocracyClubAPIHandler';
 
 function DemocracyClubWidget() {
-    const api = new API();
+    const api = new API(axios);
     const [searchInitiated, setSearchInitiated] = useState(false);
     const [postcodeData, setPostcodeData] = useState(false);
     const [currentError, setCurrentError] = useState(undefined);

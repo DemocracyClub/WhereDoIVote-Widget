@@ -15,7 +15,7 @@ describe('Democracy Club API client', () => {
     it('makes request for postcode', () => {
         var api = new API(axios);
 
-        api.getPollingStation('T3 5TS').catch(err => {});
+        api.getPostcodeData('T3 5TS').catch(err => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
         expect(requestUrl).toMatch("https://developers.democracyclub.org.uk/api/v1/sandbox/postcode/T3 5TS");
@@ -31,7 +31,7 @@ describe('Democracy Club API client', () => {
 
             var api = new API(axios);
 
-            api.getPollingStation('T3 5TS').catch(err => {});
+            api.getPostcodeData('T3 5TS').catch(err => {});
 
             var requestUrl = axios.get.getCall(0).args[0];
             expect(requestUrl).toMatch(
@@ -44,7 +44,7 @@ describe('Democracy Club API client', () => {
 
             var api = new API(axios);
 
-            api.getPollingStation('T3 5TS').catch(err => {});
+            api.getPostcodeData('T3 5TS').catch(err => {});
 
             var requestUrl = axios.get.getCall(0).args[0];
             expect(requestUrl).toMatch('utm_source=unknown&utm_medium=widget');
