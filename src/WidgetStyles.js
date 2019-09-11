@@ -17,6 +17,19 @@ const DCLogo = {
     fontSize: '14px',
 };
 
+const DCError = {
+    color: '#b10e1e',
+    display: 'block',
+    border: '2px solid #b10e1e',
+    fontSize: '19px',
+    fontWeight: 'normal',
+    lineHeight: '1.25',
+    marginTop: '2px',
+    marginBottom: '4px',
+    padding: '1rem 2rem 1.0625rem 2rem',
+    textTransform: 'none',
+};
+
 const FormGroup = {
     width: '100%',
     clear: 'both',
@@ -34,7 +47,7 @@ const DCNotification = {
     textTransform: 'none',
 };
 
-export default { DCEmbed, Card, DCLogo, FormGroup, DCNotification };
+export default { DCEmbed, Card, DCLogo, DCError, FormGroup, DCNotification };
 
 // .democracy_club_embed .dc_logo img{
 //     max-width:120px;
@@ -116,18 +129,6 @@ export default { DCEmbed, Card, DCLogo, FormGroup, DCNotification };
 //     line-height:1.25;
 //     margin-top:2px;
 //     padding-bottom:2px;
-//     text-transform:none
-// }
-// .democracy_club_embed .dc_error{
-//     color:#b10e1e;
-//     display:block;
-//     border:2px solid #b10e1e;
-//     font-size:19px;
-//     font-weight:normal;
-//     line-height:1.25;
-//     margin-top:2px;
-//     margin-bottom:4px;
-//     padding:1rem 2rem 1.0625rem 2rem;
 //     text-transform:none
 // }
 // .democracy_club_select_multirow {

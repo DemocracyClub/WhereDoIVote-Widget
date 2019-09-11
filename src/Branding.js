@@ -9,13 +9,20 @@ function EmbedCard(props) {
     );
 }
 
+function ErrorMessage(props) {
+    return (
+        <div className="ErrorMessage" id="dc_error" style={styles.DCError} role="alert">
+            {props.currentError}
+            <button title="Dismiss error" aria-label="Dismiss error" onClick={props.clearError}>
+                Close
+            </button>
+        </div>
+    );
+}
+
 function StartAgainButton(props) {
     return (
-        <button
-            aria-label="Start again"
-            title="Start again"
-            onClick={props.onClick}
-        >
+        <button aria-label="Start again" title="Start again" onClick={props.onClick}>
             Back to postcode search
         </button>
     );
@@ -40,4 +47,4 @@ function BuiltByDC() {
     );
 }
 
-export { EmbedCard, StartAgainButton, BuiltByDC };
+export { EmbedCard, StartAgainButton, BuiltByDC, ErrorMessage };

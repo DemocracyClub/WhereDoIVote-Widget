@@ -17,6 +17,10 @@ describe('isPostcodeValid', () => {
     it('should return false if passed more than 10 characters', () => {
         expect(isPostcodeValid('WEDR ERQWEDER')).toBe(false)
     })
+    it('should return false if passed undefined or null', () => {
+        expect(isPostcodeValid(undefined)).toBe(false)
+        expect(isPostcodeValid(null)).toBe(false)
+    })
 })
 
 describe('PostcodeSelector', function() {

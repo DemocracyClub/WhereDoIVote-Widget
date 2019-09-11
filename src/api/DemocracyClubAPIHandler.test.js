@@ -1,7 +1,7 @@
 import * as sinon from 'sinon';
 import * as axios from 'axios';
 
-import API from './WdivAPI';
+import API from './DemocracyClubAPIHandler';
 
 describe('Democracy Club API client', () => {
     beforeEach(() => {
