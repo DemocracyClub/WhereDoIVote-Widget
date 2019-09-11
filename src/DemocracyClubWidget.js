@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
-import { EmbedCard } from './Branding';
+import { EmbedCard, StartAgainButton } from './Branding';
 import PostcodeSelector from './PostcodeSelector';
 
 function DemocracyClubWidget() {
     let [searchInitiated, setSearchInitiated] = useState(false);
 
     return (
-        <EmbedCard>
+        <EmbedCard className="DemocracyClubWidget">
             {!searchInitiated && <PostcodeSelector setSearchInitiated={setSearchInitiated} />}
 
-            {searchInitiated && (
-                <>
-                
-                <button onClick={() => setSearchInitiated(false)}>Back to postcode search</button>
-                </>
-            )}
+            {searchInitiated && <StartAgainButton onClick={() => setSearchInitiated(false)}/>}
         </EmbedCard>
     );
 }

@@ -3,15 +3,17 @@ import { configure, shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import PostcodeSelector from './PostcodeSelector';
+import { childAttributeChecker } from './utils/test';
 
 configure({ adapter: new Adapter() });
 
 describe('PostcodeSelector', function() {
     let postcodeSelectorComponent;
+    let postCodeSelectorContains;
 
     beforeEach(() => {
         postcodeSelectorComponent = shallow(<PostcodeSelector />);
-        console.log(postcodeSelectorComponent)
+        postCodeSelectorContains = childAttributeChecker(postcodeSelectorComponent);
     });
 
     it('should be selectable by class "PostcodeSelector"', function() {
@@ -23,12 +25,6 @@ describe('PostcodeSelector', function() {
     });
 
     it('should contain a for attribute on the form label', function() {
-        let forAttributeIndex = postcodeSelectorComponent
-            .find('label')
-            .first()
-            .html()
-            .indexOf('for')
-        let gotForAttribute = forAttributeIndex > 0 ? true : false;
-        expect(gotForAttribute).toEqual(true);
+        expect(postCodeSelectorContains('label', 'for')).toEqual(true);
     });
 });
