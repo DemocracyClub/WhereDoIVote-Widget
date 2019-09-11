@@ -1,18 +1,21 @@
 import React from 'react';
 
-function PostcodeSelector(props) {
-
-    function findStation(postcode) {
-        console.log(postcode);
+function isPostcodeValid(postcode) {
+    if (typeof postcode !== String) {
+        return false
+    } else if (postcode === undefined || postcode.replace(/\W/g, '').length === 0) {
+        return false;
+    } else if (typeof postcode === String && postcode.length > 10) {
+        return false;
+    } else {
+        return true;
     }
 
-    function isPostcodeValid(postcode) {
-        if (postcode === undefined || postcode.replace(/\W/g, '').length === 0) {
-            props.setSearchInitiated(false);
-            return false;
-        } else {
-            return true;
-        }
+}
+
+function PostcodeSelector(props) {
+    function findStation(postcode) {
+        console.log(postcode);
     }
 
     function handleSubmit(event) {
@@ -21,6 +24,8 @@ function PostcodeSelector(props) {
         let postcode = event.target[0].value;
         if (isPostcodeValid(postcode)) {
             findStation(postcode);
+        } else {
+            props.setSearchInitiated(false);
         }
     }
 
@@ -41,5 +46,5 @@ function PostcodeSelector(props) {
         </form>
     );
 }
-
+export { isPostcodeValid }
 export default PostcodeSelector;
