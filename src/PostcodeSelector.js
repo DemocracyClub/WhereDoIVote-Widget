@@ -1,60 +1,45 @@
 import React from 'react';
-import { EmbedCard, BuiltByDC } from './Branding';
 
-class PostcodeSelector extends React.Component {
-    constructor(props) {
-        super(props);
-        this.props = props;
-        this.handleInput = this.handleInput.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.findStation = this.findStation.bind(this);
-        this.state = {};
+function PostcodeSelector(props) {
+
+    function findStation(postcode) {
+        console.log(postcode);
     }
 
-    handleInput(event) {
-        this.setState({ postcode: event.target.value });
-    }
-
-    findStation() {
-        this.props.findStation(this.state.postcode);
-    }
-
-    handleKeyPress(event) {
-        if (event.key === 'Enter') {
-            this.findStation();
+    function isPostcodeValid(postcode) {
+        if (postcode === undefined || postcode.replace(/\W/g, '').length === 0) {
+            props.setSearchInitiated(false);
+            return false;
+        } else {
+            return true;
         }
     }
 
-    render() {
-        return (
-            <EmbedCard>
-                <div>
-                    {this.props.error && (
-                        <span id="dc_error" className="dc_error">
-                            {this.props.error}
-                        </span>
-                    )}
-                    <div className="form-group">
-                        <label className="form-label-bold">Enter your postcode</label>
-                        <input
-                            type="text"
-                            id="postcode"
-                            name="postcode"
-                            className="form-control"
-                            onChange={this.handleInput}
-                            onKeyPress={this.handleKeyPress}
-                        />
-                    </div>
-
-                    <button type="submit" onClick={this.findStation}>
-                        Find your polling station
-                    </button>
-                </div>
-
-                <BuiltByDC />
-            </EmbedCard>
-        );
+    function handleSubmit(event) {
+        event.preventDefault();
+        props.setSearchInitiated(true);
+        let postcode = event.target[0].value;
+        if (isPostcodeValid(postcode)) {
+            findStation(postcode);
+        }
     }
+
+    return (
+        <form className="PostcodeSelector" onSubmit={handleSubmit}>
+            {props.error && (
+                <span id="dc_error" className="dc_error">
+                    {props.error}
+                </span>
+            )}
+            <div className="form-group">
+                <label className="form-label-bold" htmlFor="postcode">
+                    Enter your postcode
+                </label>
+                <input type="text" id="postcode" name="postcode" className="form-control" />
+            </div>
+            <button type="submit">Find your polling station</button>
+        </form>
+    );
 }
 
 export default PostcodeSelector;

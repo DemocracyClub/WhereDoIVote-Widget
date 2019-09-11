@@ -51,6 +51,8 @@ class Widget extends Component {
     updateState(output) {
         this.setState({ error: undefined });
 
+        console.log(output)
+
         if (output.data.polling_station_known) {
             this.setState({
                 searchInitiated: true,

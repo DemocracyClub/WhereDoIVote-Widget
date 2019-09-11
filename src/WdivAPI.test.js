@@ -3,7 +3,7 @@ import * as axios from 'axios';
 
 import API from './WdivAPI';
 
-describe('WhereDoIVote API client', () => {
+describe('Democracy Club API client', () => {
     beforeEach(() => {
         sinon.spy(axios, 'get');
     });
