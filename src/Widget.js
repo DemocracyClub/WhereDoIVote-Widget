@@ -21,7 +21,7 @@ class Widget extends Component {
     }
 
     handleInput(event) {
-        this.setState({ postcode: event.target.value});
+        this.setState({ postcode: event.target.value });
     }
 
     updateErrorState(error) {
@@ -29,7 +29,7 @@ class Widget extends Component {
     }
 
     updateErrorFromResponse(data) {
-        var err = data.response.data.detail.replace(/.*: /g, "");
+        var err = data.response.data.detail.replace(/.*: /g, '');
         if (data.response.status === 400) {
             if (err.startsWith('Postcode') && err.endsWith('is not valid.')) {
                 this.updateErrorState(err);
@@ -42,57 +42,57 @@ class Widget extends Component {
     }
 
     updateState(output) {
-        this.setState({ error: undefined })
+        this.setState({ error: undefined });
 
         if (output.data.polling_station_known) {
             this.setState({
-              searchInitiated: true,
-              foundStation: true,
-              resolvedPollingStation: this.api.toAddress(output),
-              metadata: output.data.metadata
+                searchInitiated: true,
+                foundStation: true,
+                resolvedPollingStation: this.api.toAddress(output),
+                metadata: output.data.metadata,
             });
         } else if (output.data.council === null) {
             this.updateErrorState("We don't know where you should vote");
         } else if (this.state.addressList !== undefined) {
             this.setState({
-              searchInitiated: true,
-              foundStation: false,
-              council: output.data.council,
-              addressList: undefined,
-              metadata: output.data.metadata
+                searchInitiated: true,
+                foundStation: false,
+                council: output.data.council,
+                addressList: undefined,
+                metadata: output.data.metadata,
             });
         } else if (output.data.addresses.length === 0) {
             this.setState({
-              searchInitiated: true,
-              foundStation: false,
-              council: output.data.council,
-              metadata: output.data.metadata
+                searchInitiated: true,
+                foundStation: false,
+                council: output.data.council,
+                metadata: output.data.metadata,
             });
         } else {
             this.setState({
-              searchInitiated: true,
-              foundStation: false,
-              council: output.data.council,
-              addressList: output.data.addresses,
-              metadata: output.data.metadata
+                searchInitiated: true,
+                foundStation: false,
+                council: output.data.council,
+                addressList: output.data.addresses,
+                metadata: output.data.metadata,
             });
         }
     }
 
     handleAddressSelectorState(value) {
-        if(value === "") {
+        if (value === '') {
             this.setState({ addressList: undefined });
         } else {
             this.api.getFromSelector(value).then(this.updateState);
         }
-
     }
 
     findStation(postcode) {
-        if (postcode === undefined || postcode.replace(/\W/g,"").length === 0) {
-           this.updateErrorState('Postcode is empty, please enter a non-empty postcode.');
+        if (postcode === undefined || postcode.replace(/\W/g, '').length === 0) {
+            this.updateErrorState('Postcode is empty, please enter a non-empty postcode.');
         } else {
-            this.api.getPollingStation(postcode)
+            this.api
+                .getPollingStation(postcode)
                 .then(this.updateState)
                 .catch(this.updateErrorFromResponse);
         }
@@ -105,34 +105,37 @@ class Widget extends Component {
             foundStation: undefined,
             resolvedPollingStation: undefined,
             council: undefined,
-            metadata: undefined
+            metadata: undefined,
         });
     }
 
     render() {
         if (!this.state.searchInitiated) {
-            return ( <PostcodeSelector
-              findStation={this.findStation}
-              error={this.state.error}
-            /> );
+            return <PostcodeSelector findStation={this.findStation} error={this.state.error} />;
         } else if (this.state.foundStation) {
-            return ( <ResultsCard
-              pollingStation={this.state.resolvedPollingStation}
-              home={this.home}
-              metadata={this.state.metadata}
-            /> );
+            return (
+                <ResultsCard
+                    pollingStation={this.state.resolvedPollingStation}
+                    home={this.home}
+                    metadata={this.state.metadata}
+                />
+            );
         } else if (!this.state.foundStation && this.state.addressList) {
-            return ( <AddressPicker
-              home={this.home}
-              onSelection={this.handleAddressSelectorState}
-              addressList={this.state.addressList}
-            /> );
+            return (
+                <AddressPicker
+                    home={this.home}
+                    onSelection={this.handleAddressSelectorState}
+                    addressList={this.state.addressList}
+                />
+            );
         } else {
-            return ( <StationNotFound
-              council={this.state.council}
-              home={this.home}
-              metadata={this.state.metadata}
-            /> );
+            return (
+                <StationNotFound
+                    council={this.state.council}
+                    home={this.home}
+                    metadata={this.state.metadata}
+                />
+            );
         }
     }
 }

@@ -1,0 +1,26 @@
+{
+    "settings": {
+        "react": {
+            "version": "latest"
+        }
+    },
+    "parser": "babel-eslint",
+    "plugins": ["prettier", "react", "jest"],
+    "rules": {
+        "prettier/prettier": "error",
+        "react/prop-types": 0
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2015,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "jest/globals": true,
+        "node": true
+    },
+    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended", "plugin:jest/recommended"]
+}

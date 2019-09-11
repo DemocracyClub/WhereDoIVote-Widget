@@ -1,40 +1,40 @@
 const DCEmbed = {
-  fontSize: "19px",
-  color: "#58595b",
-  fontFamily: '"Adobe Caslon Pro",Cambria,Times,"Times New Roman",serif'
-}
+    fontSize: '19px',
+    color: '#58595b',
+    fontFamily: '"Adobe Caslon Pro",Cambria,Times,"Times New Roman",serif',
+};
 
 const Card = {
-  borderRadius: "0 3px",
-  clear: "both",
-  padding: "20px",
-  background: "#fff",
-  boxShadow: "0 4px 8px 0 rgba(0,0,0,0.1),0 3px 10px 0 rgba(0,0,0,0.09)"
-}
+    borderRadius: '0 3px',
+    clear: 'both',
+    padding: '20px',
+    background: '#fff',
+    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.1),0 3px 10px 0 rgba(0,0,0,0.09)',
+};
 
 const DCLogo = {
-  textDecoration: "none",
-  fontSize: "14px"
-}
+    textDecoration: 'none',
+    fontSize: '14px',
+};
 
 const FormGroup = {
-  width: "100%",
-  clear: "both"
-}
+    width: '100%',
+    clear: 'both',
+};
 
 const DCNotification = {
-  color: "#6f777b",
-  display: "block",
-  border: "2px solid #00AEEF",
-  fontSize: "19px",
-  fontWeight: "normal",
-  lineHeight: "1.25",
-  marginTop: "2px",
-  padding: "1rem 2rem 1.0625rem 2rem",
-  textTransform: "none"
-}
+    color: '#6f777b',
+    display: 'block',
+    border: '2px solid #00AEEF',
+    fontSize: '19px',
+    fontWeight: 'normal',
+    lineHeight: '1.25',
+    marginTop: '2px',
+    padding: '1rem 2rem 1.0625rem 2rem',
+    textTransform: 'none',
+};
 
-export default { DCEmbed, Card, DCLogo, FormGroup, DCNotification }
+export default { DCEmbed, Card, DCLogo, FormGroup, DCNotification };
 
 // .democracy_club_embed .dc_logo img{
 //     max-width:120px;

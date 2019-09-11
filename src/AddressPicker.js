@@ -17,7 +17,11 @@ class AddressPicker extends React.Component {
     }
 
     addressOption(address, index) {
-        return <option key={index} value={address.url}>{address.address}</option>;
+        return (
+            <option key={index} value={address.url}>
+                {address.address}
+            </option>
+        );
     }
 
     handleSubmit(event) {
@@ -26,25 +30,40 @@ class AddressPicker extends React.Component {
     }
 
     render() {
-        const inputProps = { disabled: this.state.address === undefined }
+        const inputProps = { disabled: this.state.address === undefined };
         return (
             <EmbedCard>
                 <div>
                     <div styles={styles.FormGroup}>
                         <label className="form-label-bold">Choose your address</label>
-                        <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="democracy_club_select_multirow" id="id_address" name="address" size="5">
-                        {
-                            this.props.addressList.map(this.addressOption)
-                        }
-                            <option key={this.props.addressList.length} value="">My address is not in the list</option>
+                        <select
+                            value={this.state.value}
+                            onChange={this.setAddress}
+                            aria-describedby="address_picker"
+                            className="democracy_club_select_multirow"
+                            id="id_address"
+                            name="address"
+                            size="5"
+                        >
+                            {this.props.addressList.map(this.addressOption)}
+                            <option key={this.props.addressList.length} value="">
+                                My address is not in the list
+                            </option>
                         </select>
                     </div>
 
-                    <button {...inputProps} type="submit" className="button" onClick={this.handleSubmit}>
+                    <button
+                        {...inputProps}
+                        type="submit"
+                        className="button"
+                        onClick={this.handleSubmit}
+                    >
                         Find my Polling Station
                     </button>
-                    <br/>
-                    <button href="#" onClick={this.props.home}>Back to postcode search</button>
+                    <br />
+                    <button href="#" onClick={this.props.home}>
+                        Back to postcode search
+                    </button>
                 </div>
                 <BuiltByDC />
             </EmbedCard>
