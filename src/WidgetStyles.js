@@ -47,7 +47,11 @@ const DCNotification = {
     textTransform: 'none',
 };
 
-export default { DCEmbed, Card, DCLogo, DCError, FormGroup, DCNotification };
+const Loader = {
+
+}
+
+export default { DCEmbed, Card, DCLogo, DCError, FormGroup, DCNotification, Loader };
 
 // .democracy_club_embed .dc_logo img{
 //     max-width:120px;

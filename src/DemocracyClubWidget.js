@@ -3,6 +3,7 @@ import { EmbedCard, StartAgainButton, ErrorMessage, BuiltByDC } from './Branding
 import PostcodeSelector from './PostcodeSelector';
 import * as axios from 'axios'
 import API from './api/DemocracyClubAPIHandler';
+import Loader from './utils/Loader.js';
 
 function DemocracyClubWidget() {
     const api = new API(axios);
@@ -26,6 +27,7 @@ function DemocracyClubWidget() {
                     setPostcodeData={setPostcodeData}
                 />
             )}
+            {!postcodeData && searchInitiated && <Loader />}
             {postcodeData && searchInitiated && <h1>Got data</h1>}
             {searchInitiated && <StartAgainButton onClick={() => setSearchInitiated(false)} />}
             <BuiltByDC />
