@@ -3,6 +3,10 @@ import * as axios from 'axios';
 
 import API from './DemocracyClubAPIHandler';
 
+function getDCAPIPollingStationResponseFormat(election) {
+    return { data: { dates: [election] } };
+}
+
 describe('Democracy Club API client', () => {
     beforeEach(() => {
         sinon.spy(axios, 'get');
@@ -15,10 +19,12 @@ describe('Democracy Club API client', () => {
     it('makes request for postcode', () => {
         var api = new API(axios);
 
-        api.getPostcodeData('T3 5TS').catch(err => {});
+        api.getPollingStation('T3 5TS').catch(err => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toMatch("https://developers.democracyclub.org.uk/api/v1/sandbox/postcode/T3 5TS");
+        expect(requestUrl).toMatch(
+            'https://developers.democracyclub.org.uk/api/v1/sandbox/postcode/T3 5TS'
+        );
     });
 
     describe('appends tracking information', () => {
@@ -31,7 +37,7 @@ describe('Democracy Club API client', () => {
 
             var api = new API(axios);
 
-            api.getPostcodeData('T3 5TS').catch(err => {});
+            api.getPollingStation('T3 5TS').catch(err => {});
 
             var requestUrl = axios.get.getCall(0).args[0];
             expect(requestUrl).toMatch(
@@ -44,7 +50,7 @@ describe('Democracy Club API client', () => {
 
             var api = new API(axios);
 
-            api.getPostcodeData('T3 5TS').catch(err => {});
+            api.getPollingStation('T3 5TS').catch(err => {});
 
             var requestUrl = axios.get.getCall(0).args[0];
             expect(requestUrl).toMatch('utm_source=unknown&utm_medium=widget');
@@ -54,39 +60,43 @@ describe('Democracy Club API client', () => {
     it('requests from selector', () => {
         var api = new API(axios);
 
-        api.getFromSelector('https://wheredoivote.co.uk/some_path/').catch(err => {});
+        api.getFromSelector(
+            'https://developers.democracyclub.org.uk/api/v1/sandbox/some_path/'
+        ).catch(err => {});
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toEqual('https://wheredoivote.co.uk/some_path/');
+        expect(requestUrl).toEqual(
+            'https://developers.democracyclub.org.uk/api/v1/sandbox/some_path/'
+        );
     });
 
     describe('address transformation', () => {
         let api = new API(axios);
 
         it('returns address if only address is present', () => {
-            let input = {
-                data: {
-                    polling_station: {
+            let input = getDCAPIPollingStationResponseFormat({
+                polling_station: {
+                    station: {
                         properties: {
                             address: 'Some Address',
                         },
                     },
                 },
-            };
+            });
 
             expect(api.toAddress(input)).toEqual({ address: 'Some Address' });
         });
 
         it('substitutes newlines for commas', () => {
-            let input = {
-                data: {
-                    polling_station: {
+            let input = getDCAPIPollingStationResponseFormat({
+                polling_station: {
+                    station: {
                         properties: {
                             address: 'Some Address\nSome Place\nSome Country',
                         },
                     },
                 },
-            };
+            });
 
             expect(api.toAddress(input)).toEqual({
                 address: 'Some Address,Some Place,Some Country',
@@ -94,24 +104,24 @@ describe('Democracy Club API client', () => {
         });
 
         it('adds postcode if present', () => {
-            let input = {
-                data: {
-                    polling_station: {
+            let input = getDCAPIPollingStationResponseFormat({
+                polling_station: {
+                    station: {
                         properties: {
                             address: 'Some Address',
                             postcode: 'T3 5TS',
                         },
                     },
                 },
-            };
+            });
 
             expect(api.toAddress(input)).toEqual({ address: 'Some Address,T3 5TS' });
         });
 
         it('adds destination postcode if present', () => {
-            let input = {
-                data: {
-                    polling_station: {
+            let input = getDCAPIPollingStationResponseFormat({
+                polling_station: {
+                    station: {
                         properties: {
                             address: 'Some Address',
                             postcode: 'T3 5TS',
@@ -121,7 +131,7 @@ describe('Democracy Club API client', () => {
                         },
                     },
                 },
-            };
+            });
 
             expect(api.toAddress(input)).toEqual({
                 address: 'Some Address,T3 5TS',
@@ -134,15 +144,21 @@ describe('Democracy Club API client', () => {
         it('adds origin postcode if present', () => {
             let input = {
                 data: {
-                    polling_station: {
-                        properties: {
-                            address: 'Some Address',
-                            postcode: 'T3 5TS',
+                    dates: [
+                        {
+                            polling_station: {
+                                station: {
+                                    properties: {
+                                        address: 'Some Address',
+                                        postcode: 'T3 5TS',
+                                    },
+                                    geometry: {
+                                        coordinates: [20, 10],
+                                    },
+                                },
+                            },
                         },
-                        geometry: {
-                            coordinates: [20, 10],
-                        },
-                    },
+                    ],
                     postcode_location: {
                         geometry: {
                             coordinates: [40, 30],
