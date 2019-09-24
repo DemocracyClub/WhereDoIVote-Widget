@@ -2,5 +2,6 @@
     "api.errors.empty-postcode": "Postcode is empty, please enter a non-empty postcode.",
     "api.errors.voting-location-unknown": "We don't know where you should vote.",
     "api.errors.lookup-service-down": "The lookup service is down. Please try again later.",
+    "api.errors.unknown-error": "An unknown error occurred. Please try again later.",
     "postcode.errors.invalid-postcode": "Please enter a valid postcode."
 }

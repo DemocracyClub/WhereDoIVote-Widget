@@ -28,6 +28,14 @@ function StartAgainButton(props) {
     );
 }
 
+function Loader() {
+    return (
+      <div className="Loader" role="alert" style={styles.Loader}>
+        Loading
+      </div>
+    )
+  }
+
 function BuiltByDC() {
     return (
         <footer>
@@ -47,4 +55,4 @@ function BuiltByDC() {
     );
 }
 
-export { EmbedCard, StartAgainButton, BuiltByDC, ErrorMessage };
+export { EmbedCard, StartAgainButton, BuiltByDC, ErrorMessage, Loader };

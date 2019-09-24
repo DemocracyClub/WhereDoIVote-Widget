@@ -23,7 +23,7 @@ function API(client) {
     }
 
     return {
-        getPostcodeData: function(postcode) {
+        getPollingStation: function(postcode) {
             return client.get(toUrl(postcode) + '?' + addAnalytics());
         },
 
@@ -31,26 +31,28 @@ function API(client) {
             return client.get(url);
         },
 
-        toAddress: function(output) {
-            let address = output.data.polling_station.properties.address.replace(/\n/g, ',');
-
-            if (output.data.polling_station.properties.postcode) {
-                address += ',' + output.data.polling_station.properties.postcode;
+        toAddress: function(response) {
+            let election = response.data.dates[0]
+            let stationProperties = election.polling_station.station.properties
+            let address = stationProperties.address.replace(/\n/g, ',');
+ 
+            if (stationProperties.postcode) {
+                address += ',' + stationProperties.postcode;
             }
 
             const addressData = { address: address };
 
-            if (output.data.polling_station.geometry) {
-                const destinationCoordinates = output.data.polling_station.geometry.coordinates;
+            if (election.polling_station.station.geometry) {
+                const destinationCoordinates = election.polling_station.station.geometry.coordinates;
 
                 let coordinates = {
                     destination: destinationCoordinates[1] + ',' + destinationCoordinates[0],
                 };
 
-                if (output.data.postcode_location) {
-                    if (output.data.postcode_location.geometry) {
+                if (response.data.postcode_location) {
+                    if (response.data.postcode_location.geometry) {
                         const originCoordinates =
-                            output.data.postcode_location.geometry.coordinates;
+                            response.data.postcode_location.geometry.coordinates;
                         coordinates.origin = originCoordinates[1] + ',' + originCoordinates[0];
                     }
                 }
