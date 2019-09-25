@@ -25,7 +25,7 @@ describe('Branding Components Accessibility', () => {
         expect(builtByDcContains('a','title')).toEqual(true);
     });
 
-    it('Start again button should have an aria labels and titles', () => {
+    it('Start again button should have an aria label and title', () => {
         expect(startAgainContains('button', 'aria-label')).toEqual(true);
         expect(startAgainContains('button', 'title')).toEqual(true);
     });

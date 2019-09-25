@@ -1,15 +1,10 @@
 import React from 'react';
-import Notification from './Notification';
+import { IdRequirement } from './Notification';
 
 function StationNotFound(props) {
     return (
         <>
-            {props.metadata && props.metadata['voter_id'] && (
-                <Notification
-                    title={props.metadata['voter_id'].title}
-                    url={props.metadata['voter_id'].url}
-                />
-            )}
+            { props.metadata && <IdRequirement metadata={props.metadata} />  }
             <h2 id="dc_header">We couldn't find your station</h2>
             {props.electoral_services && (
                 <div>
