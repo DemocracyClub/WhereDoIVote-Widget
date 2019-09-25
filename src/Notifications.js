@@ -1,18 +1,15 @@
 import React from 'react';
 import styles from './WidgetStyles';
 
-function IdRequirement(props) {
-    if (!props.metadata) {
-      return (null);
+function Notifications(props) {
+    if (!props.list) {
+        return null;
+    } else {
+        return props.list.map((n, i) => (
+            <Notification key={i} title={n.title} url={n.url} detail={n.detail} />
+        ));
     }
-    if ('voter_id' in props.metadata) {
-      return (<Notification
-        title={props.metadata['voter_id'].title}
-        url={props.metadata['voter_id'].url}
-      />);
-    }
-    return (null);
-  }
+}
 
 function Notification(props) {
     return (
@@ -23,4 +20,4 @@ function Notification(props) {
     );
 }
 
-export { IdRequirement, Notification }
+export { Notifications, Notification };

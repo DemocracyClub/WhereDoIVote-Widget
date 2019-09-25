@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IdRequirement } from './Notification';
+import { Notifications } from './Notifications';
 import  { Directions } from './Directions';
 function PollingStation(props) {
     let splitAddress = [];
@@ -11,7 +11,7 @@ function PollingStation(props) {
     });
     return (
         <section className="PollingStation">
-            <IdRequirement metadata={props.metadata} /> 
+            <Notifications list={props.notifications} />
             <h2>Your polling station</h2>
             <div>{splitAddress.slice(0, splitAddress.length - 1)}</div>
             {props.station.coordinates && (

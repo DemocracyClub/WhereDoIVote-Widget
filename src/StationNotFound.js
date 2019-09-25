@@ -1,10 +1,10 @@
 import React from 'react';
-import { IdRequirement } from './Notification';
+import { Notifications } from './Notifications';
 
 function StationNotFound(props) {
     return (
         <>
-            { props.metadata && <IdRequirement metadata={props.metadata} />  }
+            <Notifications list={props.notifications} />
             <h2 id="dc_header">We couldn't find your station</h2>
             {props.electoral_services && (
                 <div>

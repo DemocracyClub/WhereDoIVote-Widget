@@ -19,7 +19,7 @@ function DemocracyClubWidget() {
     const [currentError, setCurrentError] = useState(undefined);
     const [station, setStation] = useState(undefined);
     const [stationNotFound, setStationNotFound] = useState(false);
-    const [metadata, setMetadata] = useState(undefined);
+    const [notifications, setNotifications] = useState(undefined);
     const [addressList, setAddressList] = useState(undefined);
     const [electoralServices, setElectoralServices] = useState(undefined);
 
@@ -59,8 +59,8 @@ function DemocracyClubWidget() {
         let nextElection = resp.data.dates[0];
         let response = resp.data;
 
-        if (response.metadata) {
-            setMetadata(response.metadata);
+        if (nextElection.notifications) {
+            setNotifications(nextElection.notifications);
         }
 
         if (response.electoral_services) {
@@ -111,7 +111,7 @@ function DemocracyClubWidget() {
                 />
             )}
             {loading && <Loader />}
-            {station && <PollingStation station={station} />}
+            {station && <PollingStation station={station} notifications={notifications} />}
             {addressList && !station && (
                 <AddressPicker
                     addressList={addressList}
@@ -119,7 +119,7 @@ function DemocracyClubWidget() {
                 />
             )}
             {stationNotFound && (
-                <StationNotFound metadata={metadata} electoral_services={electoralServices} />
+                <StationNotFound notifications={notifications} electoral_services={electoralServices} />
             )}
             {searchInitiated && <StartAgainButton onClick={resetWidget} />}
             <BuiltByDC />
