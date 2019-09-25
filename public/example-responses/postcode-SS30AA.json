@@ -1,0 +1,81 @@
+{
+  "electoral_services": {
+    "website": "http://www.rochford.gov.uk/",
+    "name": "Rochford District Council",
+    "council_id": "E07000075",
+    "phone": "01702 318187",
+    "postcode": "SS4 1BW",
+    "address": "Electoral Registration Officer\nCouncil Offices\nSouth Street\nRochford",
+    "email": "elections@rochford.gov.uk"
+  },
+  "dates": [
+    {
+      "date": "2019-05-02",
+      "notifications": [
+        {
+          "url": null,
+          "type": "cancelled_election",
+          "detail": "The poll for this election will not take place because it is uncontested.",
+          "title": "Uncontested Election"
+        }
+      ],
+      "ballots": [
+        {
+          "ballot_paper_id": "local.rochford.foulness-the-wakerings.2019-05-02",
+          "replaced_by": null,
+          "election_name": "Rochford local election",
+          "post_name": "Foulness & The Wakerings",
+          "ballot_title": "Rochford local election Foulness & The Wakerings",
+          "elected_role": "Local Councillor",
+          "wcivf_url": "https://whocanivotefor.co.uk/elections/local.rochford.foulness-the-wakerings.2019-05-02/foulness-the-wakerings/",
+          "replaces": null,
+          "candidates_verified": true,
+          "candidates": [
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 9798,
+                "name": "Daniel Efde",
+                "absolute_url": "https://whocanivotefor.co.uk/person/9798/daniel-efde"
+              }
+            }
+          ],
+          "cancelled": true,
+          "poll_open_date": "2019-05-02",
+          "election_id": "local.rochford.2019-05-02",
+          "metadata": {
+            "cancelled_election": {
+              "url": null,
+              "type": "cancelled_election",
+              "detail": "The poll for this election will not take place because it is uncontested.",
+              "title": "Uncontested Election"
+            }
+          }
+        }
+      ],
+      "polling_station": {
+        "polling_station_known": false,
+        "station": null,
+        "report_problem_url": null,
+        "custom_finder": null
+      }
+    }
+  ],
+  "address_picker": false,
+  "postcode_location": {
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.8085029214285714,
+        51.55376431071428
+      ]
+    },
+    "type": "Feature",
+    "properties": null
+  },
+  "addresses": []
+}

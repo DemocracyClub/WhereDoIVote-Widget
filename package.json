@@ -27,6 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "mock": "REACT_APP_MOCK=true react-scripts start",
     "build": "node ./build-without-chunks.js",
     "test": "react-scripts test --env=jsdom",
     "lint": "eslint \"./src/**/*.js\"",

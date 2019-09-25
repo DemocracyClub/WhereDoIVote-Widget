@@ -7,15 +7,16 @@ import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
 
 import * as axios from 'axios';
+import MockDCAPI from './utils/MockDCAPI';
 import API from './api/DemocracyClubAPIHandler';
 
 import translations from './translations/en';
 import StationNotFound from './StationNotFound';
 
 function DemocracyClubWidget() {
-    const api = new API(axios);
+    const api = new API(process.env.REACT_APP_MOCK ? new MockDCAPI() : axios)
     const [searchInitiated, setSearchInitiated] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [currentError, setCurrentError] = useState(undefined);
     const [station, setStation] = useState(undefined);
     const [stationNotFound, setStationNotFound] = useState(false);
@@ -51,15 +52,15 @@ function DemocracyClubWidget() {
         } else {
             setCurrentError(translations['api.errors.lookup-service-down']);
         }
+        setLoading(false)
     }
 
     function handleResponse(resp) {
+        
         setCurrentError(undefined);
-
         let nextElection = resp.data.dates[0];
         let response = resp.data;
-
-        if (nextElection.notifications) {
+        if (nextElection && nextElection.notifications) {
             setNotifications(nextElection.notifications);
         }
 
@@ -119,7 +120,10 @@ function DemocracyClubWidget() {
                 />
             )}
             {stationNotFound && (
-                <StationNotFound notifications={notifications} electoral_services={electoralServices} />
+                <StationNotFound
+                    notifications={notifications}
+                    electoral_services={electoralServices}
+                />
             )}
             {searchInitiated && <StartAgainButton onClick={resetWidget} />}
             <BuiltByDC />
