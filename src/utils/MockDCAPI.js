@@ -10,24 +10,12 @@ class MockDCAPI {
     }
 
     async get(url) {
-        let exampleResponsePath;
-        if (url.indexOf('100') > 0) {
-            // it's an address ID
-            let addressId = url
-                .split('/address/')[1]
-                .split('/')[0]
-                .split(' ')
-                .join('');
-            exampleResponsePath = `/example-responses/address-${addressId}.json`;
-        } else {
-            // it's a postcode
-            let postcode = url
-                .split('/postcode/')[1]
-                .split('?')[0]
-                .split(' ')
-                .join('');
-            exampleResponsePath = `/example-responses/postcode-${postcode}.json`;
-        }
+        const { pathname } = new URL(url);
+        const path_parts = pathname.split('/').filter(Boolean);
+        const len = path_parts.length;
+        const exampleResponsePath = `/example-responses/${path_parts[len - 2]}-${
+            path_parts[len - 1]
+        }.json`;
 
         try {
             const response = await fetch(exampleResponsePath);

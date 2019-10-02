@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import translations from './translations/en';
 
 function isPostcodeValid(postcode) {
@@ -14,28 +14,32 @@ function isPostcodeValid(postcode) {
 }
 function PostcodeSelector(props) {
 
+    let [formValue, setFormValue] = useState('');
 
+    function handleFormChange(event) {
+         setFormValue(event.target.value)
+    }
+    
     function handleSubmit(event) {
         event.preventDefault();
-
-        let postcode = event.target[0].value;
+        let postcode = formValue;
         if (isPostcodeValid(postcode)) {
             props.setSearchInitiated(true);
             props.lookupGivenPostcode(postcode)
         } else {
-            event.target[0].value = ''
+            setFormValue('')
             props.setCurrentError(translations['postcode.errors.invalid-postcode']);
             props.setSearchInitiated(false);
         }
     }
-
+    
     return (
-        <form className="PostcodeSelector" onSubmit={handleSubmit}>
+        <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
             <div className="form-group">
                 <label className="form-label-bold" htmlFor="postcode">
                     Enter your postcode
                 </label>
-                <input type="text" id="postcode" name="postcode" className="form-control" />
+                <input value={formValue} onChange={handleFormChange} type="text" id="postcode" name="postcode" className="form-control" />
             </div>
             <button type="submit">Find your polling station</button>
         </form>

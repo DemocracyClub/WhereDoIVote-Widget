@@ -58,10 +58,10 @@ function DemocracyClubWidget() {
     function handleResponse(resp) {
         
         setCurrentError(undefined);
-        let nextElection = resp.data.dates[0];
+        let nextBallotDate = resp.data.dates[0];
         let response = resp.data;
-        if (nextElection && nextElection.notifications) {
-            setNotifications(nextElection.notifications);
+        if (nextBallotDate && nextBallotDate.notifications) {
+            setNotifications(nextBallotDate.notifications);
         }
 
         if (response.electoral_services) {
@@ -69,9 +69,9 @@ function DemocracyClubWidget() {
         } else {
             setElectoralServices(false); // TODO handle
         }
-        if (nextElection && nextElection.polling_station.polling_station_known) {
+        if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
             setStation(api.toAddress(resp));
-        } else if (nextElection && nextElection.polling_station.polling_station_known === false) {
+        } else if (nextBallotDate && nextBallotDate.polling_station.polling_station_known === false) {
             setStationNotFound(true);
         } else if (response.address_picker) {
             setAddressList(response.addresses);

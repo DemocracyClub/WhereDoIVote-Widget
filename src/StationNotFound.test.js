@@ -82,7 +82,7 @@ describe('StationNotFound', () => {
 
     it('does not show notification when there is no voter id pilot', () => {
         const wrapper = shallow(
-            <StationNotFound electoral_services={electoral_services} notifications={{}} />
+            <StationNotFound electoral_services={electoral_services} notifications={[]} />
         );
         expect(wrapper).not.toContainReact(<Notification />);
     });

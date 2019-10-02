@@ -32,8 +32,8 @@ function API(client) {
         },
 
         toAddress: function(response) {
-            let election = response.data.dates[0]
-            let stationProperties = election.polling_station.station.properties
+            let nextBallotDate = response.data.dates[0]
+            let stationProperties = nextBallotDate.polling_station.station.properties
             let address = stationProperties.address.replace(/\n/g, ',');
  
             if (stationProperties.postcode) {
@@ -42,8 +42,8 @@ function API(client) {
 
             const addressData = { address: address };
 
-            if (election.polling_station.station.geometry) {
-                const destinationCoordinates = election.polling_station.station.geometry.coordinates;
+            if (nextBallotDate.polling_station.station.geometry) {
+                const destinationCoordinates = nextBallotDate.polling_station.station.geometry.coordinates;
 
                 let coordinates = {
                     destination: destinationCoordinates[1] + ',' + destinationCoordinates[0],

@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Widget from './Widget';
+import DemocracyClubWidget from './DemocracyClubWidget';
 import axios from 'axios'
 import httpAdapter from 'axios/lib/adapters/http'
 import translations from './translations/en'
@@ -13,7 +13,7 @@ describe('WhereDoIVote Widget', () => {
     let screen;
 
     beforeEach(async () => {
-        screen = mount(<Widget />);
+        screen = mount(<DemocracyClubWidget />);
     });
 
     describe('errors', () => {
@@ -22,7 +22,7 @@ describe('WhereDoIVote Widget', () => {
 
             await sleep(2000);
 
-            expect(errorMessage()).toEqual(translations["api.errors.empty-postcode"]);
+            expect(errorMessage()).toEqual(translations["postcode.errors.invalid-postcode"]);
         });
 
         it('should give error message malformed postcode is entered', async () => {
@@ -70,6 +70,7 @@ describe('WhereDoIVote Widget', () => {
     }
 
     function submitPostcode(postcode) {
+        console.log(screen.find('#postcode'))
         if (postcode !== undefined) {
             screen.find('#postcode').simulate('change', { target: { value: postcode } });
         }
