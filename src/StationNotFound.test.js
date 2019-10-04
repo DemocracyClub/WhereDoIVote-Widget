@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import StationNotFound from './StationNotFound';
@@ -19,13 +19,13 @@ describe('StationNotFound', () => {
     ];
 
     it('always renders header', () => {
-        const wrapper = shallow(<StationNotFound />);
+        const wrapper = mount(<StationNotFound />);
 
         expect(wrapper).toContainReact(<h2 id="dc_header">We couldn't find your station</h2>);
     });
 
     it('should present council to get in touch with', () => {
-        const wrapper = shallow(<StationNotFound electoral_services={electoral_services} />);
+        const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
         expect(wrapper).toContainReact(
             <span id="dc_get_in_touch">
@@ -36,7 +36,7 @@ describe('StationNotFound', () => {
 
     it('should present NI Electoral Office for N09 postcodes', () => {
         const electoral_services = { council_id: 'N09 1XA' };
-        const wrapper = shallow(<StationNotFound electoral_services={electoral_services} />);
+        const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
         expect(wrapper).toContainReact(
             <span id="dc_get_in_touch">
@@ -54,7 +54,7 @@ describe('StationNotFound', () => {
         };
 
         it('via website', () => {
-            const wrapper = shallow(<StationNotFound electoral_services={electoral_services} />);
+            const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
             expect(wrapper).toContainReact(
                 <li>
@@ -64,13 +64,13 @@ describe('StationNotFound', () => {
         });
 
         it('via phone', () => {
-            const wrapper = shallow(<StationNotFound electoral_services={electoral_services} />);
+            const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
             expect(wrapper).toContainReact(<li>Phone - 118 118</li>);
         });
 
         it('via email', () => {
-            const wrapper = shallow(<StationNotFound electoral_services={electoral_services} />);
+            const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
             expect(wrapper).toContainReact(
                 <li>
@@ -81,14 +81,14 @@ describe('StationNotFound', () => {
     });
 
     it('does not show notification when there is no voter id pilot', () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <StationNotFound electoral_services={electoral_services} notifications={[]} />
         );
         expect(wrapper).not.toContainReact(<Notification />);
     });
 
     it('shows notification when there is a voter id pilot', () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <StationNotFound electoral_services={electoral_services} notifications={notifications} />
         );
         expect(wrapper).toContainReact(<Notifications list={notifications} />);

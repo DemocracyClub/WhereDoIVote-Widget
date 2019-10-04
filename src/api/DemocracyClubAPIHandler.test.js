@@ -1,5 +1,5 @@
 import * as sinon from 'sinon';
-import * as axios from 'axios';
+import axios from 'axios';
 
 import API from './DemocracyClubAPIHandler';
 
