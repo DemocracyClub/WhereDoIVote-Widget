@@ -4,7 +4,7 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 
-import { childAttributeChecker } from './utils/test';
+import { childAttributeChecker } from './test-utils/test';
 
 configure({ adapter: new Adapter() });
 

@@ -7,7 +7,7 @@ import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
 
 import axios from 'axios';
-import MockDCAPI from './utils/MockDCAPI';
+import MockDCAPI from './test-utils/MockDCAPI';
 import API from './api/DemocracyClubAPIHandler';
 
 import translations from './translations/en';

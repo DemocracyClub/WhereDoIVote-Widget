@@ -34,12 +34,13 @@ class AddressPicker extends React.Component {
     render() {
         const inputProps = { disabled: this.state.address === undefined };
         return (
-            <form className="AddressPicker">
+            <form className="AddressPicker" data-testid="address-selector">
                 <div styles={styles.FormGroup}>
                     <label className="form-label-bold">Choose your address</label>
                     <select
                         value={this.state.value}
                         onChange={this.setAddress}
+                        data-testid="address-select"
                         aria-describedby="address_picker"
                         className="democracy_club_select_multirow"
                         id="id_address"
@@ -57,6 +58,7 @@ class AddressPicker extends React.Component {
                     {...inputProps}
                     type="submit"
                     className="button"
+                    data-testid="address-button"
                     onClick={this.handleSubmit}
                 >
                     Find my Polling Station

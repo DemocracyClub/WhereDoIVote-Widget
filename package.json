@@ -42,5 +42,15 @@
     "not dead",
     "not ie <= 9",
     "not op_mini all"
-  ]
+  ],
+  
+    "jest": {
+      "coveragePathIgnorePatterns" : [
+        "<rootDir>/src/test-utils/" 
+      ],
+      "watchPathIgnorePatterns" : [
+        "<rootDir>/src/test-utils/" 
+      ]
+    }
+  
 }
