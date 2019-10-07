@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Notifications } from './Notifications';
 import { Directions } from './Directions';
+
 function PollingStation(props) {
     let splitAddress = [];
 

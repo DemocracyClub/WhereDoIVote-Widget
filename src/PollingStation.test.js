@@ -2,14 +2,13 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import ResultsCard from './ResultsCard';
+import PollingStation from './PollingStation';
 import { Directions } from './Directions';
-import { IdRequirement } from './Notification';
+import { Notifications } from './Notifications';
 
-const council = { council_id: 'test', name: 'Example Council' };
 configure({ adapter: new Adapter() });
 
-describe('ResultsCard', () => {
+describe('PollingStation', () => {
     const pollingStation = {
         address: '123 Test Street,T3 5TS',
         coordinates: {
@@ -18,21 +17,23 @@ describe('ResultsCard', () => {
         },
     };
 
-    const idPilot = {
-        '2018-05-03-id-pilot': {
-            title: 'foo',
-            url: 'bar',
+    const notifications = [
+        {
+            type: 'voter_id',
+            url: 'https://www.example.com',
+            title: 'You need ID',
+            detail: 'you really will need ID',
         },
-    };
+    ];
 
     it('always renders header', () => {
-        const wrapper = shallow(<ResultsCard pollingStation={pollingStation} />);
+        const wrapper = shallow(<PollingStation station={pollingStation} notifications={[]} />);
 
         expect(wrapper).toContainReact(<h2>Your polling station</h2>);
     });
 
     it('renders address', () => {
-        const wrapper = shallow(<ResultsCard pollingStation={pollingStation} />);
+        const wrapper = shallow(<PollingStation station={pollingStation} notifications={[]} />);
 
         expect(wrapper).toContainReact(
             <div>
@@ -44,7 +45,7 @@ describe('ResultsCard', () => {
     });
 
     it('renders out directions when coordinates are present', () => {
-        const wrapper = shallow(<ResultsCard pollingStation={pollingStation} />);
+        const wrapper = shallow(<PollingStation station={pollingStation} notifications={[]} />);
 
         expect(wrapper).toContainReact(<Directions origin="foo" destination="bar" />);
     });
@@ -52,18 +53,24 @@ describe('ResultsCard', () => {
     it('does not render out directions when coordinates are not present', () => {
         var pollingStationWithoutCoordinates = { address: '123 Test Street,T3 5TS' };
 
-        const wrapper = shallow(<ResultsCard pollingStation={pollingStationWithoutCoordinates} />);
+        const wrapper = shallow(
+            <PollingStation station={pollingStationWithoutCoordinates} notifications={[]} />
+        );
 
         expect(wrapper).not.toContainReact(<Directions />);
     });
 
     it('does not show notification when there is no voter id pilot', () => {
-        const wrapper = shallow(<ResultsCard pollingStation={pollingStation} metadata={{}} />);
-        expect(wrapper).not.toContainReact(<IdRequirement />);
+        const wrapper = shallow(
+            <PollingStation station={pollingStation} notifications={notifications} />
+        );
+        expect(wrapper).not.toContainReact(<Notifications />);
     });
 
     it('shows notification when there is a voter id pilot', () => {
-        const wrapper = shallow(<ResultsCard pollingStation={pollingStation} metadata={idPilot} />);
-        expect(wrapper).toContainReact(<IdRequirement metadata={idPilot} />);
+        const wrapper = shallow(
+            <PollingStation station={pollingStation} notifications={notifications} />
+        );
+        expect(wrapper).toContainReact(<Notifications list={notifications} />);
     });
 });
