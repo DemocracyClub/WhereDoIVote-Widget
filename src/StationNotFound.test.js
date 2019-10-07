@@ -21,7 +21,7 @@ describe('StationNotFound', () => {
     it('always renders header', () => {
         const wrapper = mount(<StationNotFound />);
 
-        expect(wrapper).toContainReact(<h2 id="dc_header">We couldn't find your station</h2>);
+        expect(wrapper).toContainReact(<h2 id="dc_header">{"We couldn't find your station"}</h2>);
     });
 
     it('should present council to get in touch with', () => {
