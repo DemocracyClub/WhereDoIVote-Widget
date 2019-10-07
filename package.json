@@ -34,11 +34,11 @@
     "start": "npm run start:prod",
     "build": "node ./build-without-chunks.js",
     "test": "REACT_APP_API=sandbox react-scripts test --env=jsdom",
+    "coverage": "REACT_APP_API=sandbox react-scripts test --env=jsdom --coverage",
+    "coveralls": "cat ./coverage/lcov.info | node ./node_modules/.bin/coveralls",
     "lint": "eslint \"./src/**/*.js\"",
     "prettier": "prettier --write \"./src/**/*.js\"",
     "prettier:check": "prettier --check \"./src/**/*.js\"",
-    "coverage": "react-scripts test --env=jsdom --coverage",
-    "coveralls": "cat ./coverage/lcov.info | node ./node_modules/.bin/coveralls",
     "eject": "react-scripts eject"
   },
   "browserslist": [
