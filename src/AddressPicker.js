@@ -27,7 +27,6 @@ class AddressPicker extends React.Component {
         event.preventDefault();
         if (this.state.address !== '') {
             this.props.lookupChosenAddress(this.state.address);
-        } else {
         }
     }
 
