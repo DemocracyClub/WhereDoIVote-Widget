@@ -31,8 +31,8 @@ describe('WhereDoIVote Widget', () => {
         fireEvent.submit(getByTestId('address-selector'));
     }
 
-    function mockResponseForPostcode(pc) {
-        const content = fs.readFileSync(`./public/example-responses/postcode-${pc}.json`);
+    function mockResponse(endpoint, param) {
+        const content = fs.readFileSync(`./public/example-responses/${endpoint}-${param}.json`);
         axiosMock.get.mockResolvedValueOnce({
             data: JSON.parse(content),
         });
@@ -40,7 +40,7 @@ describe('WhereDoIVote Widget', () => {
 
     it("should display 'No upcoming election' if there isn't an upcoming date", async () => {
         let enteredPostcode = 'AA11AA';
-        mockResponseForPostcode(enteredPostcode);
+        mockResponse('postcode', enteredPostcode);
         typePostcode(enteredPostcode);
         submitPostcode();
         const NoUpcomingElection = await waitForElement(() =>
@@ -53,12 +53,7 @@ describe('WhereDoIVote Widget', () => {
         it('should load address picker for Tunbridge Wells postcode', async () => {
             let enteredPostcode = 'TN48XA';
 
-            const content = fs.readFileSync(
-                `./public/example-responses/postcode-${enteredPostcode}.json`
-            );
-            axiosMock.get.mockResolvedValueOnce({
-                data: JSON.parse(content),
-            });
+            mockResponse('postcode', enteredPostcode);
             typePostcode(enteredPostcode);
             submitPostcode();
 
@@ -70,12 +65,7 @@ describe('WhereDoIVote Widget', () => {
 
         it('should show polling station for address chosen from picker', async () => {
             let enteredPostcode = 'TN48XA';
-            const content = fs.readFileSync(
-                `./public/example-responses/postcode-${enteredPostcode}.json`
-            );
-            axiosMock.get.mockResolvedValueOnce({
-                data: JSON.parse(content),
-            });
+            mockResponse('postcode', enteredPostcode);
             typePostcode(enteredPostcode);
             submitPostcode();
             const rusthall = await waitForElement(() =>
@@ -86,12 +76,7 @@ describe('WhereDoIVote Widget', () => {
             });
             const button = await waitForElement(() => getByTestId('address-button'));
             let addressId = '10000066465';
-            const addressJSON = fs.readFileSync(
-                `./public/example-responses/address-${addressId}.json`
-            );
-            axiosMock.get.mockResolvedValueOnce({
-                data: JSON.parse(addressJSON),
-            });
+            mockResponse('address', addressId);
             fireEvent.click(button);
             const pollingStation = await waitForElement(() =>
                 container.querySelector('.PollingStation')
@@ -104,12 +89,7 @@ describe('WhereDoIVote Widget', () => {
         it('should show voter ID requirement for DE13GB', async () => {
             let enteredPostcode = 'DE13GB';
 
-            const content = fs.readFileSync(
-                `./public/example-responses/postcode-${enteredPostcode}.json`
-            );
-            axiosMock.get.mockResolvedValueOnce({
-                data: JSON.parse(content),
-            });
+            mockResponse('postcode', enteredPostcode);
             typePostcode(enteredPostcode);
             submitPostcode();
             const notificationContainer = await waitForElement(() =>
@@ -122,7 +102,7 @@ describe('WhereDoIVote Widget', () => {
 
         it('should show an uncontested election for SS30AA', async () => {
             let enteredPostcode = 'SS30AA';
-            mockResponseForPostcode(enteredPostcode);
+            mockResponse('postcode', enteredPostcode);
             typePostcode(enteredPostcode);
             submitPostcode();
             const notification = await waitForElement(() => getByTestId('notification'));
