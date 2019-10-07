@@ -1,19 +1,7 @@
 import React from 'react';
-import {
-    render,
-    cleanup,
-    fireEvent,
-    waitForElement,
-    waitForDomChange,
-    wait,
-    act,
-    getByTestId,
-    getByLabelText,
-    getByText,
-} from '@testing-library/react';
+import { render, cleanup, fireEvent, waitForElement } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import axiosMock from 'axios';
-import translations from './translations/en';
 import DemocracyClubWidget from './DemocracyClubWidget';
 
 import fs from 'fs';
@@ -21,13 +9,12 @@ import fs from 'fs';
 afterEach(cleanup);
 
 describe('WhereDoIVote Widget', () => {
-    let container, getByTestId, debug;
+    let container, getByTestId;
 
     beforeEach(async () => {
         const wrapper = render(<DemocracyClubWidget />);
         container = wrapper.container;
         getByTestId = wrapper.getByTestId;
-        debug = wrapper.debug;
     });
 
     function typePostcode(postcode) {

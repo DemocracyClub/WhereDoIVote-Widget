@@ -8,7 +8,8 @@
     "plugins": ["prettier", "react", "jest"],
     "rules": {
         "prettier/prettier": "error",
-        "react/prop-types": 0
+        "react/prop-types": 0,
+        "no-unused-vars": ["error", { "args": "none" }]
     },
     "parserOptions": {
         "sourceType": "module",
@@ -22,5 +23,10 @@
         "jest/globals": true,
         "node": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended", "plugin:jest/recommended"]
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "plugin:jest/recommended"
+    ]
 }

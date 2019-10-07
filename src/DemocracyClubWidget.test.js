@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent, waitForElement, act } from '@testing-library/react';
+import { render, fireEvent, waitForElement, act } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import translations from './translations/en';
 import DemocracyClubWidget from './DemocracyClubWidget';
