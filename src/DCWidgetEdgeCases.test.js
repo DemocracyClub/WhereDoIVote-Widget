@@ -50,7 +50,7 @@ describe('WhereDoIVote Widget', () => {
     });
 
     describe('Address picker', () => {
-        it('should load address picker for Tunbridge Wells postcode', async () => {
+        it('should load address picker if multiple addresses returned', async () => {
             let enteredPostcode = 'TN48XA';
 
             mockResponse('postcode', enteredPostcode);
@@ -85,7 +85,7 @@ describe('WhereDoIVote Widget', () => {
         });
     });
 
-    describe('Exceptional circumstances', () => {
+    describe('Notifications', () => {
         it('should show voter ID requirement for DE13GB', async () => {
             let enteredPostcode = 'DE13GB';
 

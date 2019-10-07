@@ -25,7 +25,7 @@ describe('AddressPicker', () => {
         expect(wrapper).toContainReact(<option value="bar.com">bar</option>);
     });
 
-    it('renders option for correct address not being present in list', () => {
+    it('renders "My address is not in the list" option', () => {
         let addresses = [{ address: 'foo', url: 'foo.com' }];
 
         const wrapper = shallow(<AddressPicker addressList={addresses} />);

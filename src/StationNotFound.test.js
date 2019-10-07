@@ -80,7 +80,7 @@ describe('StationNotFound', () => {
         });
     });
 
-    it('does not show notification when there is no voter id pilot', () => {
+    it('does not show notification when there is no event to be aware of', () => {
         const wrapper = mount(
             <StationNotFound electoral_services={electoral_services} notifications={[]} />
         );

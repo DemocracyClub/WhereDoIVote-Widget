@@ -31,7 +31,7 @@ describe('Democracy Club API client', () => {
             Object.defineProperty(window, 'location', { value: location, writable: true });
         }
 
-        it('when url is present on window', () => {
+        it('when location is present on window', () => {
             setLocation({ href: 'https://example.com/foo' });
             api.getPollingStation('T3 5TS').catch(err => {});
             var requestParams = axios.get.getCall(0).args[1].params;
