@@ -5,6 +5,8 @@ node_js:
 before_script:
   - npm install
 script:
+  - npm run prettier:check
+  - npm run lint
   - npm run build
   - npm run coverage
 after_script:
