@@ -28,10 +28,12 @@
     "rewire": "^4.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "mock": "REACT_APP_MOCK=true react-scripts start",
+    "start:prod": "REACT_APP_API=prod react-scripts start",
+    "start:sandbox": "REACT_APP_API=sandbox react-scripts start",
+    "start:mock": "REACT_APP_API=mock react-scripts start",
+    "start": "npm run start:prod",
     "build": "node ./build-without-chunks.js",
-    "test": "react-scripts test --env=jsdom",
+    "test": "REACT_APP_API=sandbox react-scripts test --env=jsdom",
     "lint": "eslint \"./src/**/*.js\"",
     "prettier": "prettier --write \"./src/**/*.js\"",
     "prettier:check": "prettier --check \"./src/**/*.js\"",

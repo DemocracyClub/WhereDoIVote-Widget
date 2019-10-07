@@ -6,16 +6,14 @@ import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
 
-import axios from 'axios';
-import MockDCAPI from './test-utils/MockDCAPI';
-import API from './api/DemocracyClubAPIHandler';
+import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 
 import translations from './translations/en';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 
 function DemocracyClubWidget() {
-    const api = new API(process.env.REACT_APP_MOCK ? new MockDCAPI() : axios);
+    const api = APIClientFactory();
     const [searchInitiated, setSearchInitiated] = useState(false);
     const [loading, setLoading] = useState(false);
     const [currentError, setCurrentError] = useState(undefined);

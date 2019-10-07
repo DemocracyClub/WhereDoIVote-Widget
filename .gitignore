@@ -4,3 +4,4 @@ build/
 example.html
 .DS_Store
 coverage/
+.env.*

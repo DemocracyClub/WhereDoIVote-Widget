@@ -1,11 +1,13 @@
 import * as sinon from 'sinon';
 import axios from 'axios';
 
-import API from './DemocracyClubAPIHandler';
+import { APIClient, APIClientFactory } from './DemocracyClubAPIHandler';
 
 function getDCAPIPollingStationResponseFormat(election) {
     return { data: { dates: [election] } };
 }
+
+let api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', null);
 
 describe('Democracy Club API client', () => {
     beforeEach(() => {
@@ -17,13 +19,10 @@ describe('Democracy Club API client', () => {
     });
 
     it('makes request for postcode', () => {
-        var api = new API(axios);
-
         api.getPollingStation('T3 5TS').catch(err => {});
-
         var requestUrl = axios.get.getCall(0).args[0];
         expect(requestUrl).toMatch(
-            'https://developers.democracyclub.org.uk/api/v1/sandbox/postcode/T3 5TS'
+            'https://developers.democracyclub.org.uk/api/v1/postcode/T3 5TS'
         );
     });
 
@@ -32,47 +31,55 @@ describe('Democracy Club API client', () => {
             Object.defineProperty(window, 'location', { value: location, writable: true });
         }
 
-        it('and escapes when url is present on window', () => {
+        it('when url is present on window', () => {
             setLocation({ href: 'https://example.com/foo' });
-
-            var api = new API(axios);
-
             api.getPollingStation('T3 5TS').catch(err => {});
-
-            var requestUrl = axios.get.getCall(0).args[0];
-            expect(requestUrl).toMatch(
-                'utm_source=https%3A%2F%2Fexample.com%2Ffoo&utm_medium=widget'
-            );
+            var requestParams = axios.get.getCall(0).args[1].params;
+            expect(requestParams.utm_source).toMatch('https://example.com/foo');
+            expect(requestParams.utm_medium).toMatch('widget');
         });
 
         it('when location is not present on window', () => {
             setLocation(undefined);
-
-            var api = new API(axios);
-
             api.getPollingStation('T3 5TS').catch(err => {});
+            var requestParams = axios.get.getCall(0).args[1].params;
+            expect(requestParams.utm_source).toMatch('unknown');
+            expect(requestParams.utm_medium).toMatch('widget');
+        });
+    });
 
-            var requestUrl = axios.get.getCall(0).args[0];
-            expect(requestUrl).toMatch('utm_source=unknown&utm_medium=widget');
+    describe('uses API key', () => {
+        function setLocation(location) {
+            Object.defineProperty(window, 'location', { value: location, writable: true });
+        }
+
+        it('when key is present', () => {
+            api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', 'f00b42');
+            setLocation({ href: 'https://example.com/foo' });
+            api.getPollingStation('T3 5TS').catch(err => {});
+            var requestHeaders = axios.get.getCall(0).args[1].headers;
+            expect(requestHeaders.Authorization).toMatch('Token f00b42');
+        });
+
+        it('when key is not present', () => {
+            api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', null);
+            setLocation(undefined);
+            api.getPollingStation('T3 5TS').catch(err => {});
+            var requestHeaders = axios.get.getCall(0).args[1].headers;
+            expect(requestHeaders).toMatchObject({});
         });
     });
 
     it('requests from selector', () => {
-        var api = new API(axios);
-
-        api.getFromSelector(
-            'https://developers.democracyclub.org.uk/api/v1/sandbox/some_path/'
-        ).catch(err => {});
+        api.getFromSelector('https://developers.democracyclub.org.uk/api/v1/some_path/').catch(
+            err => {}
+        );
 
         var requestUrl = axios.get.getCall(0).args[0];
-        expect(requestUrl).toEqual(
-            'https://developers.democracyclub.org.uk/api/v1/sandbox/some_path/'
-        );
+        expect(requestUrl).toEqual('https://developers.democracyclub.org.uk/api/v1/some_path/');
     });
 
     describe('address transformation', () => {
-        let api = new API(axios);
-
         it('returns address if only address is present', () => {
             let input = getDCAPIPollingStationResponseFormat({
                 polling_station: {
@@ -99,7 +106,7 @@ describe('Democracy Club API client', () => {
             });
 
             expect(api.toAddress(input)).toEqual({
-                address: 'Some Address,Some Place,Some Country',
+                address: 'Some Address, Some Place, Some Country',
             });
         });
 
@@ -115,7 +122,7 @@ describe('Democracy Club API client', () => {
                 },
             });
 
-            expect(api.toAddress(input)).toEqual({ address: 'Some Address,T3 5TS' });
+            expect(api.toAddress(input)).toEqual({ address: 'Some Address, T3 5TS' });
         });
 
         it('adds destination postcode if present', () => {
@@ -134,7 +141,7 @@ describe('Democracy Club API client', () => {
             });
 
             expect(api.toAddress(input)).toEqual({
-                address: 'Some Address,T3 5TS',
+                address: 'Some Address, T3 5TS',
                 coordinates: {
                     destination: '10,20',
                 },
@@ -168,12 +175,43 @@ describe('Democracy Club API client', () => {
             };
 
             expect(api.toAddress(input)).toEqual({
-                address: 'Some Address,T3 5TS',
+                address: 'Some Address, T3 5TS',
                 coordinates: {
                     destination: '10,20',
                     origin: '30,40',
                 },
             });
         });
+    });
+});
+
+describe('API Client Factory', () => {
+    it('Constructs APIClient with valid inputs', () => {
+        expect(
+            APIClientFactory({ NODE_ENV: 'production', REACT_APP_API_KEY: 'f00ba2' })
+        ).toBeInstanceOf(Object);
+        expect(APIClientFactory({ NODE_ENV: 'development', REACT_APP_API: 'mock' })).toBeInstanceOf(
+            Object
+        );
+        expect(
+            APIClientFactory({ NODE_ENV: 'development', REACT_APP_API: 'sandbox' })
+        ).toBeInstanceOf(Object);
+        expect(
+            APIClientFactory({
+                NODE_ENV: 'development',
+                REACT_APP_API: 'prod',
+                REACT_APP_API_KEY: 'f00ba2',
+            })
+        ).toBeInstanceOf(Object);
+    });
+
+    it('Throws with valid inputs', () => {
+        expect(() => APIClientFactory({ NODE_ENV: 'production' })).toThrow(Error);
+        expect(() => APIClientFactory({ NODE_ENV: 'development', REACT_APP_API: 'prod' })).toThrow(
+            Error
+        );
+        expect(() =>
+            APIClientFactory({ NODE_ENV: 'development', REACT_APP_API: 'cheese' })
+        ).toThrow(Error);
     });
 });
