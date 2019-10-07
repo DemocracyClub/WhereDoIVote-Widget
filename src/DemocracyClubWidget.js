@@ -38,20 +38,13 @@ function DemocracyClubWidget() {
     function handleError(data) {
         setSearchInitiated(false);
         if (data.response !== undefined) {
-            var err = data.response.data.message.replace(/.*: /g, '');
             if (data.response.status === 400) {
-                if (err.startsWith('Postcode') && err.endsWith('is not valid.')) {
-                    setCurrentError(err);
-                } else if (err.startsWith('Could not') && err.endsWith('any source')) {
-                    setCurrentError(translations['api.errors.voting-location-unknown']);
-                } else {
-                    setCurrentError(translations['api.errors.voting-location-unknown']);
-                }
+                setCurrentError(translations['api.errors.bad-postcode']);
             } else {
                 setCurrentError(translations['api.errors.voting-location-unknown']);
             }
         } else {
-            setCurrentError(translations['api.errors.lookup-service-down']);
+            setCurrentError(translations['api.errors.generic-error']);
         }
         setLoading(false);
     }
