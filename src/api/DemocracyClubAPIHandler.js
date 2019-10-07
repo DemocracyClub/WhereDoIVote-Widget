@@ -1,5 +1,3 @@
-
-
 function API(client) {
     client.defaults.headers.get['Content-Type'] = 'application/json';
 
@@ -32,10 +30,10 @@ function API(client) {
         },
 
         toAddress: function(response) {
-            let nextBallotDate = response.data.dates[0]
-            let stationProperties = nextBallotDate.polling_station.station.properties
+            let nextBallotDate = response.data.dates[0];
+            let stationProperties = nextBallotDate.polling_station.station.properties;
             let address = stationProperties.address.replace(/\n/g, ',');
- 
+
             if (stationProperties.postcode) {
                 address += ',' + stationProperties.postcode;
             }
@@ -43,7 +41,8 @@ function API(client) {
             const addressData = { address: address };
 
             if (nextBallotDate.polling_station.station.geometry) {
-                const destinationCoordinates = nextBallotDate.polling_station.station.geometry.coordinates;
+                const destinationCoordinates =
+                    nextBallotDate.polling_station.station.geometry.coordinates;
 
                 let coordinates = {
                     destination: destinationCoordinates[1] + ',' + destinationCoordinates[0],

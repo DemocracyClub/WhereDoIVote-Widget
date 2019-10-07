@@ -22,7 +22,7 @@ describe('Branding Components Accessibility', () => {
     });
 
     it('builtByDcComponent should include a title attribute on the Democracy Club hyperlink', () => {
-        expect(builtByDcContains('a','title')).toEqual(true);
+        expect(builtByDcContains('a', 'title')).toEqual(true);
     });
 
     it('Start again button should have an aria label and title', () => {

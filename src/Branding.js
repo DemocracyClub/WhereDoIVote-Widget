@@ -30,11 +30,11 @@ function StartAgainButton(props) {
 
 function Loader() {
     return (
-      <div className="Loader" role="alert" style={styles.Loader}>
-        Loading
-      </div>
-    )
-  }
+        <div className="Loader" role="alert" style={styles.Loader}>
+            Loading
+        </div>
+    );
+}
 
 function BuiltByDC() {
     return (

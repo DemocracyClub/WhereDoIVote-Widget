@@ -104,7 +104,6 @@ function DemocracyClubWidget() {
                 .catch(handleError);
         }
         setAddressList(undefined);
-        
     }
 
     return (

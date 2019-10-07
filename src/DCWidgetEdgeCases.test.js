@@ -27,7 +27,7 @@ describe('WhereDoIVote Widget', () => {
         const wrapper = render(<DemocracyClubWidget />);
         container = wrapper.container;
         getByTestId = wrapper.getByTestId;
-        debug = wrapper.debug
+        debug = wrapper.debug;
     });
 
     function typePostcode(postcode) {
@@ -94,8 +94,10 @@ describe('WhereDoIVote Widget', () => {
             const rusthall = await waitForElement(() =>
                 container.querySelector('#id_address option:nth-child(27)')
             );
-            fireEvent.change(getByTestId("address-select"), { target: { value: rusthall.innerHTML } });
-            const button = await waitForElement(() => getByTestId("address-button"));
+            fireEvent.change(getByTestId('address-select'), {
+                target: { value: rusthall.innerHTML },
+            });
+            const button = await waitForElement(() => getByTestId('address-button'));
             let addressId = '10000066465';
             const addressJSON = fs.readFileSync(
                 `./public/example-responses/address-${addressId}.json`
@@ -103,7 +105,7 @@ describe('WhereDoIVote Widget', () => {
             axiosMock.get.mockResolvedValueOnce({
                 data: JSON.parse(addressJSON),
             });
-            fireEvent.click(button);        
+            fireEvent.click(button);
             const pollingStation = await waitForElement(() =>
                 container.querySelector('.PollingStation')
             );

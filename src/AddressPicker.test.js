@@ -30,6 +30,8 @@ describe('AddressPicker', () => {
 
         const wrapper = shallow(<AddressPicker addressList={addresses} />);
 
-        expect(wrapper).toContainReact(<option value="not-in-list">My address is not in the list</option>);
+        expect(wrapper).toContainReact(
+            <option value="not-in-list">My address is not in the list</option>
+        );
     });
 });

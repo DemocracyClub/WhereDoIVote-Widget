@@ -47,9 +47,7 @@ const DCNotification = {
     textTransform: 'none',
 };
 
-const Loader = {
-
-}
+const Loader = {};
 
 export default { DCEmbed, Card, DCLogo, DCError, FormGroup, DCNotification, Loader };
 

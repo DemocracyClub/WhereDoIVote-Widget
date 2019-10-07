@@ -89,7 +89,10 @@ describe('StationNotFound', () => {
 
     it('shows notification when there is a voter id pilot', () => {
         const wrapper = mount(
-            <StationNotFound electoral_services={electoral_services} notifications={notifications} />
+            <StationNotFound
+                electoral_services={electoral_services}
+                notifications={notifications}
+            />
         );
         expect(wrapper).toContainReact(<Notifications list={notifications} />);
     });
