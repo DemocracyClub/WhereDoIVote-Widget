@@ -33,6 +33,7 @@
     "build": "node ./build-without-chunks.js",
     "test": "react-scripts test --env=jsdom",
     "lint": "eslint \"./src/**/*.js\"",
+    "prettier": "prettier --write \"./src/**/*.js\"",
     "coverage": "react-scripts test --env=jsdom --coverage",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/.bin/coveralls",
     "eject": "react-scripts eject"
@@ -43,14 +44,12 @@
     "not ie <= 9",
     "not op_mini all"
   ],
-  
-    "jest": {
-      "coveragePathIgnorePatterns" : [
-        "<rootDir>/src/test-utils/" 
-      ],
-      "watchPathIgnorePatterns" : [
-        "<rootDir>/src/test-utils/" 
-      ]
-    }
-  
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/test-utils/"
+    ],
+    "watchPathIgnorePatterns": [
+      "<rootDir>/src/test-utils/"
+    ]
+  }
 }
