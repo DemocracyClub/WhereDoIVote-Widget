@@ -95,10 +95,16 @@ function DemocracyClubWidget() {
 
     function lookupChosenAddress(value) {
         setLoading(true);
-        api.getFromSelector(value)
-            .then(handleResponse)
-            .catch(handleError);
+        if (value === 'not-in-list') {
+            setStationNotFound(true);
+            setLoading(false);
+        } else {
+            api.getFromSelector(value)
+                .then(handleResponse)
+                .catch(handleError);
+        }
         setAddressList(undefined);
+        
     }
 
     return (

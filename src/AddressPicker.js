@@ -27,6 +27,8 @@ class AddressPicker extends React.Component {
         event.preventDefault();
         if (this.state.address !== '') {
             this.props.lookupChosenAddress(this.state.address);
+        } else {
+
         }
         
     }
@@ -48,7 +50,7 @@ class AddressPicker extends React.Component {
                         size="5"
                     >
                         {this.props.addressList.map(this.addressOption)}
-                        <option key={this.props.addressList.length} value="">
+                        <option key={this.props.addressList.length} value="not-in-list">
                             My address is not in the list
                         </option>
                     </select>
