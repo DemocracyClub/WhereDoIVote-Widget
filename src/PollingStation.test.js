@@ -10,7 +10,7 @@ configure({ adapter: new Adapter() });
 
 describe('PollingStation', () => {
     const pollingStation = {
-        address: '123 Test Street,T3 5TS',
+        address: '123 Test Street, T3 5TS',
         coordinates: {
             origin: 'foo',
             destination: 'bar',
@@ -51,7 +51,7 @@ describe('PollingStation', () => {
     });
 
     it('does not render out directions when coordinates are not present', () => {
-        var pollingStationWithoutCoordinates = { address: '123 Test Street,T3 5TS' };
+        var pollingStationWithoutCoordinates = { address: '123 Test Street, T3 5TS' };
 
         const wrapper = shallow(
             <PollingStation station={pollingStationWithoutCoordinates} notifications={[]} />

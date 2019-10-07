@@ -7,7 +7,7 @@ function PollingStation(props) {
     let splitAddress = [];
 
     props.station.address.split(',').forEach(function(line, index) {
-        splitAddress.push(line);
+        splitAddress.push(line.trim());
         splitAddress.push(<br key={index} />);
     });
     return (
