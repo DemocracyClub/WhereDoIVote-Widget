@@ -38,7 +38,7 @@ describe('WhereDoIVote Widget', () => {
         });
     }
 
-    it("should display 'No upcoming election' if there isn't an upcoming date", async () => {
+    it("should display 'No upcoming election' message if there isn't an upcoming date", async () => {
         let enteredPostcode = 'AA11AA';
         mockResponse('postcode', enteredPostcode);
         typePostcode(enteredPostcode);
@@ -46,7 +46,9 @@ describe('WhereDoIVote Widget', () => {
         const NoUpcomingElection = await waitForElement(() =>
             container.querySelector('.NoUpcomingElection')
         );
-        expect(NoUpcomingElection).toHaveTextContent('No upcoming election');
+        expect(NoUpcomingElection).toHaveTextContent(
+            "We don't know of any upcoming elections in your area"
+        );
     });
 
     describe('Address picker', () => {
