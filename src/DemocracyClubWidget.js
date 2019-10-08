@@ -79,7 +79,7 @@ function DemocracyClubWidget() {
 
     function lookupGivenPostcode(postcode) {
         setLoading(true);
-        api.getPollingStation(postcode)
+        api.fetchByPostcode(postcode)
             .then(handleResponse)
             .catch(handleError);
     }
@@ -90,7 +90,7 @@ function DemocracyClubWidget() {
             setStationNotFound(true);
             setLoading(false);
         } else {
-            api.getFromSelector(value)
+            api.fetch(value)
                 .then(handleResponse)
                 .catch(handleError);
         }

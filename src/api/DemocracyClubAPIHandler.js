@@ -32,7 +32,7 @@ export function APIClientFactory(env = process.env) {
 export function APIClient(client, base_url, api_key) {
     client.defaults.headers.get['Content-Type'] = 'application/json';
 
-    const get = function(url) {
+    const fetch = function(url) {
         let utm_source;
         try {
             utm_source = window.location.href;
@@ -47,12 +47,12 @@ export function APIClient(client, base_url, api_key) {
     };
 
     return {
-        getPollingStation: function(postcode) {
-            return get(`${base_url}/postcode/${postcode}`);
+        fetchByPostcode: function(postcode) {
+            return fetch(`${base_url}/postcode/${postcode}`);
         },
 
-        getFromSelector: function(url) {
-            return get(url);
+        fetch: function(url) {
+            return fetch(url);
         },
 
         toAddress: function(response) {
