@@ -60,7 +60,7 @@ function DemocracyClubWidget() {
         if (response.electoral_services) {
             setElectoralServices(response.electoral_services);
         } else {
-            setElectoralServices(false); // TODO handle
+            setElectoralServices(false);
         }
         if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
             setStation(api.toAddress(resp));
@@ -99,12 +99,7 @@ function DemocracyClubWidget() {
 
     return (
         <EmbedCard className="DemocracyClubWidget">
-            {currentError && (
-                <ErrorMessage
-                    currentError={currentError}
-                    clearError={() => setCurrentError(false)}
-                />
-            )}
+            {currentError && <ErrorMessage currentError={currentError} />}
             {!searchInitiated && (
                 <PostcodeSelector
                     lookupGivenPostcode={lookupGivenPostcode}

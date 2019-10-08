@@ -13,9 +13,6 @@ function ErrorMessage(props) {
     return (
         <div className="ErrorMessage" id="dc_error" style={styles.DCError} role="alert">
             {props.currentError}
-            <button title="Dismiss error" aria-label="Dismiss error" onClick={props.clearError}>
-                Close
-            </button>
         </div>
     );
 }
