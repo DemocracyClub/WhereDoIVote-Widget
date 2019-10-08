@@ -34,8 +34,8 @@ describe('StationNotFound', () => {
         );
     });
 
-    it('should present NI Electoral Office for N09 postcodes', () => {
-        const electoral_services = { council_id: 'N09 1XA' };
+    it('should present NI Electoral Office for N09 GSS codes', () => {
+        const electoral_services = { council_id: 'N09000000' };
         const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
         expect(wrapper).toContainReact(
@@ -47,7 +47,7 @@ describe('StationNotFound', () => {
 
     describe('should present contact details', () => {
         const electoral_services = {
-            council_id: 'N09 1XA',
+            council_id: 'N09000000',
             website: 'example.com',
             phone: '118 118',
             email: 'test@example.com',
