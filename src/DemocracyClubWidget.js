@@ -14,7 +14,7 @@ import translations from './translations/en';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 
-import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line import/no-webpack-loader-syntax
+import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line 
 
 function DemocracyClubWidget() {
     const api = APIClientFactory();
