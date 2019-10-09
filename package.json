@@ -37,7 +37,7 @@
         "start": "npm run start:prod",
         "build": "node ./build-without-chunks.js",
         "test": "REACT_APP_API=sandbox REACT_APP_TESTING=true react-app-rewired test --env=jsdom",
-        "coverage": "REACT_APP_API=sandbox react-app-rewired test --env=jsdom --coverage",
+        "coverage": "REACT_APP_API=sandbox REACT_APP_TESTING=true react-app-rewired test --env=jsdom --coverage",
         "coveralls": "cat ./coverage/lcov.info | node ./node_modules/.bin/coveralls",
         "lint": "eslint \"./src/**/*.js\"",
         "prettier": "prettier --write \"./src/**/*.js\"",
