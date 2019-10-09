@@ -4,6 +4,10 @@ import '@testing-library/jest-dom/extend-expect';
 import translations from './translations/en';
 import DemocracyClubWidget from './DemocracyClubWidget';
 
+jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+    virtual: true,
+});
+
 describe('WhereDoIVote Widget', () => {
     let container, getByTestId;
 

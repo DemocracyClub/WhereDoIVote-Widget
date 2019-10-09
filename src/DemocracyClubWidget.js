@@ -6,7 +6,7 @@ import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
 
-import root from 'react-shadow';
+import ShadowDomFactory from './ShadowDomFactory';
 
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 
@@ -102,7 +102,7 @@ function DemocracyClubWidget() {
     }
 
     return (
-        <root.div className="DCWidget">
+        <ShadowDomFactory>
             <style type="text/css">{styles}</style>
             <EmbedCard className="DemocracyClubWidget">
                 {currentError && <ErrorMessage currentError={currentError} />}
@@ -136,7 +136,7 @@ function DemocracyClubWidget() {
                 {searchInitiated && <StartAgainButton onClick={resetWidget} />}
                 <BuiltByDC />
             </EmbedCard>
-        </root.div>
+        </ShadowDomFactory>
     );
 }
 
