@@ -12,14 +12,14 @@ describe('Directions', () => {
         origin: 123,
     };
 
-    it('renders only Google Maps when no origin present', () => {
+    it('renders Google Maps only when no origin present', () => {
         const wrapper = shallow(<Directions destination={params.destination} />);
 
         expect(wrapper).toContainReact(<GoogleMaps destination={456} />);
         expect(wrapper).not.toContainReact(<GoogleDirections />);
     });
 
-    it('renders only Google Directions when destination and origin present', () => {
+    it('renders Google Directions only when destination and origin present', () => {
         const wrapper = shallow(
             <Directions destination={params.destination} origin={params.origin} />
         );

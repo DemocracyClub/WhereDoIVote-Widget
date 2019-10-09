@@ -1,0 +1,326 @@
+{
+  "electoral_services": {
+    "website": "http://www.broxtowe.gov.uk/",
+    "name": "Broxtowe Borough Council",
+    "council_id": "E07000172",
+    "phone": "0115 917 3250 / 917 3276",
+    "postcode": "NG9 1AB",
+    "address": "Electoral Registration Officer\nCouncil Offices\nFoster Avenue\nBeeston",
+    "email": "elections@broxtowe.gov.uk"
+  },
+  "dates": [],
+  "address_picker": true,
+  "postcode_location": {
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.2361016919999996,
+        52.91688478600002
+      ]
+    },
+    "type": "Feature",
+    "properties": null
+  },
+  "addresses": [
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336374/",
+      "slug": "100031336374",
+      "postcode": "NG95EH",
+      "address": "1 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336375/",
+      "slug": "100031336375",
+      "postcode": "NG95EH",
+      "address": "3 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336376/",
+      "slug": "100031336376",
+      "postcode": "NG95EH",
+      "address": "5 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336377/",
+      "slug": "100031336377",
+      "postcode": "NG95EH",
+      "address": "7 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336378/",
+      "slug": "100031336378",
+      "postcode": "NG95EH",
+      "address": "9 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336380/",
+      "slug": "100031336380",
+      "postcode": "NG95EH",
+      "address": "11 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336381/",
+      "slug": "100031336381",
+      "postcode": "NG95EH",
+      "address": "12 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336382/",
+      "slug": "100031336382",
+      "postcode": "NG95EH",
+      "address": "14 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336383/",
+      "slug": "100031336383",
+      "postcode": "NG95EH",
+      "address": "15 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336384/",
+      "slug": "100031336384",
+      "postcode": "NG95EH",
+      "address": "16 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336385/",
+      "slug": "100031336385",
+      "postcode": "NG95EH",
+      "address": "17 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336386/",
+      "slug": "100031336386",
+      "postcode": "NG95EH",
+      "address": "18 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336387/",
+      "slug": "100031336387",
+      "postcode": "NG95EH",
+      "address": "19 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336388/",
+      "slug": "100031336388",
+      "postcode": "NG95EH",
+      "address": "20 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336389/",
+      "slug": "100031336389",
+      "postcode": "NG95EH",
+      "address": "21 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336390/",
+      "slug": "100031336390",
+      "postcode": "NG95EH",
+      "address": "22 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336391/",
+      "slug": "100031336391",
+      "postcode": "NG95EH",
+      "address": "23 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336392/",
+      "slug": "100031336392",
+      "postcode": "NG95EH",
+      "address": "24 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336393/",
+      "slug": "100031336393",
+      "postcode": "NG95EH",
+      "address": "25 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336394/",
+      "slug": "100031336394",
+      "postcode": "NG95EH",
+      "address": "26 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336395/",
+      "slug": "100031336395",
+      "postcode": "NG95EH",
+      "address": "27 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336396/",
+      "slug": "100031336396",
+      "postcode": "NG95EH",
+      "address": "28 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336397/",
+      "slug": "100031336397",
+      "postcode": "NG95EH",
+      "address": "29 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336398/",
+      "slug": "100031336398",
+      "postcode": "NG95EH",
+      "address": "30 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336399/",
+      "slug": "100031336399",
+      "postcode": "NG95EH",
+      "address": "31 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336400/",
+      "slug": "100031336400",
+      "postcode": "NG95EH",
+      "address": "32 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336401/",
+      "slug": "100031336401",
+      "postcode": "NG95EH",
+      "address": "33 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336402/",
+      "slug": "100031336402",
+      "postcode": "NG95EH",
+      "address": "34 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336403/",
+      "slug": "100031336403",
+      "postcode": "NG95EH",
+      "address": "35 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336404/",
+      "slug": "100031336404",
+      "postcode": "NG95EH",
+      "address": "36 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336405/",
+      "slug": "100031336405",
+      "postcode": "NG95EH",
+      "address": "37 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336406/",
+      "slug": "100031336406",
+      "postcode": "NG95EH",
+      "address": "38 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336407/",
+      "slug": "100031336407",
+      "postcode": "NG95EH",
+      "address": "39 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336408/",
+      "slug": "100031336408",
+      "postcode": "NG95EH",
+      "address": "40 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336409/",
+      "slug": "100031336409",
+      "postcode": "NG95EH",
+      "address": "41 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336410/",
+      "slug": "100031336410",
+      "postcode": "NG95EH",
+      "address": "42 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336411/",
+      "slug": "100031336411",
+      "postcode": "NG95EH",
+      "address": "43 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336412/",
+      "slug": "100031336412",
+      "postcode": "NG95EH",
+      "address": "44 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336413/",
+      "slug": "100031336413",
+      "postcode": "NG95EH",
+      "address": "46 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336414/",
+      "slug": "100031336414",
+      "postcode": "NG95EH",
+      "address": "48 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336415/",
+      "slug": "100031336415",
+      "postcode": "NG95EH",
+      "address": "49 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336416/",
+      "slug": "100031336416",
+      "postcode": "NG95EH",
+      "address": "50 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336417/",
+      "slug": "100031336417",
+      "postcode": "NG95EH",
+      "address": "51 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336418/",
+      "slug": "100031336418",
+      "postcode": "NG95EH",
+      "address": "52 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336419/",
+      "slug": "100031336419",
+      "postcode": "NG95EH",
+      "address": "53 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336420/",
+      "slug": "100031336420",
+      "postcode": "NG95EH",
+      "address": "55 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336421/",
+      "slug": "100031336421",
+      "postcode": "NG95EH",
+      "address": "57 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100031336379/",
+      "slug": "100031336379",
+      "postcode": "NG95EH",
+      "address": "11A SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/10013963653/",
+      "slug": "10013963653",
+      "postcode": "NG95EH",
+      "address": "11B SCHOOL LANE, BEESTON, NOTTINGHAM"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100032133557/",
+      "slug": "100032133557",
+      "postcode": "NG95EH",
+      "address": "SCHOOL LANE DENTIST, 65 SCHOOL LANE, BEESTON, NOTTINGHAM"
+    }
+  ]
+}

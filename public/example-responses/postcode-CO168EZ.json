@@ -1,0 +1,157 @@
+{
+  "electoral_services": {
+    "website": "http://www.tendringdc.gov.uk/",
+    "name": "Tendring District Council",
+    "council_id": "E07000076",
+    "phone": "01255 686586",
+    "postcode": "CO15 1SE",
+    "address": "Electoral Registration Officer\nTown Hall\nStation Road\nClacton-on-Sea",
+    "email": "elections@tendringdc.gov.uk"
+  },
+  "dates": [
+    {
+      "date": "2019-05-02",
+      "notifications": [
+        {
+          "url": null,
+          "type": "cancelled_election",
+          "detail": "The poll for this election has been rescheduled due to the sad death of one of the candidates. It will now take place on 23 May 2019.",
+          "title": "Cancelled Election"
+        }
+      ],
+      "ballots": [
+        {
+          "ballot_paper_id": "local.tendring.st-osyth.2019-05-02",
+          "replaced_by": "local.tendring.st-osyth.by.2019-05-23",
+          "election_name": "Tendring local election",
+          "post_name": "St Osyth",
+          "ballot_title": "Tendring local election St Osyth",
+          "elected_role": "Local Councillor",
+          "wcivf_url": "https://whocanivotefor.co.uk/elections/local.tendring.st-osyth.2019-05-02/st-osyth/",
+          "replaces": null,
+          "candidates_verified": true,
+          "candidates": [
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 65845,
+                "name": "Anita Jane Bailey",
+                "absolute_url": "https://whocanivotefor.co.uk/person/65845/anita-jane-bailey"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Independent",
+                "party_id": "ynmp-party:2"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 65850,
+                "name": "John Frederick White",
+                "absolute_url": "https://whocanivotefor.co.uk/person/65850/john-frederick-white"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Independent",
+                "party_id": "ynmp-party:2"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 65848,
+                "name": "Michael John Talbot",
+                "absolute_url": "https://whocanivotefor.co.uk/person/65848/michael-john-talbot"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 65937,
+                "name": "Mick Skeels",
+                "absolute_url": "https://whocanivotefor.co.uk/person/65937/mick-skeels"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Labour Party",
+                "party_id": "party:53"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 65847,
+                "name": "Tracey Osben",
+                "absolute_url": "https://whocanivotefor.co.uk/person/65847/tracey-osben"
+              }
+            }
+          ],
+          "cancelled": true,
+          "poll_open_date": "2019-05-02",
+          "election_id": "local.tendring.2019-05-02",
+          "metadata": {
+            "cancelled_election": {
+              "url": null,
+              "type": "cancelled_election",
+              "detail": "The poll for this election has been rescheduled due to the sad death of one of the candidates. It will now take place on 23 May 2019.",
+              "title": "Cancelled Election"
+            }
+          }
+        }
+      ],
+      "polling_station": {
+        "polling_station_known": false,
+        "station": null,
+        "report_problem_url": null,
+        "custom_finder": null
+      }
+    },
+    {
+      "date": "2019-05-23",
+      "notifications": [],
+      "ballots": [
+        {
+          "ballot_paper_id": "local.tendring.st-osyth.by.2019-05-23",
+          "replaced_by": null,
+          "election_name": "Tendring local  by-election",
+          "post_name": "St Osyth",
+          "ballot_title": "Tendring local election St Osyth by-election",
+          "elected_role": "Local Councillor",
+          "wcivf_url": "https://whocanivotefor.co.uk/elections/local.tendring.st-osyth.by.2019-05-23/st-osyth/",
+          "replaces": "local.tendring.st-osyth.2019-05-02",
+          "candidates_verified": false,
+          "candidates": [],
+          "cancelled": false,
+          "poll_open_date": "2019-05-23",
+          "election_id": "local.tendring.2019-05-23",
+          "metadata": null
+        }
+      ],
+      "polling_station": {
+        "polling_station_known": false,
+        "station": null,
+        "report_problem_url": null,
+        "custom_finder": null
+      }
+    }
+  ],
+  "address_picker": false,
+  "postcode_location": {
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        1.0653426,
+        51.798236259999996
+      ]
+    },
+    "type": "Feature",
+    "properties": null
+  },
+  "addresses": []
+}

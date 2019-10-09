@@ -1,60 +1,55 @@
-import React from 'react';
-import { EmbedCard, BuiltByDC } from './Branding';
+import React, { useState } from 'react';
+import translations from './translations/en';
 
-class PostcodeSelector extends React.Component {
-    constructor(props) {
-        super(props);
-        this.props = props;
-        this.handleInput = this.handleInput.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.findStation = this.findStation.bind(this);
-        this.state = {};
+function isPostcodeValid(postcode) {
+    if (typeof postcode !== 'string') {
+        return false;
+    } else if (postcode === undefined || postcode.replace(/\W/g, '').length === 0) {
+        return false;
+    } else if ((typeof postcode === 'string' && postcode.length > 10) || postcode.length < 5) {
+        return false;
+    } else {
+        return true;
+    }
+}
+function PostcodeSelector(props) {
+    let [formValue, setFormValue] = useState('');
+
+    function handleFormChange(event) {
+        setFormValue(event.target.value);
     }
 
-    handleInput(event) {
-        this.setState({ postcode: event.target.value });
-    }
-
-    findStation() {
-        this.props.findStation(this.state.postcode);
-    }
-
-    handleKeyPress(event) {
-        if (event.key === 'Enter') {
-            this.findStation();
+    function handleSubmit(event) {
+        event.preventDefault();
+        let postcode = formValue;
+        if (isPostcodeValid(postcode)) {
+            props.setSearchInitiated(true);
+            props.lookupGivenPostcode(postcode);
+        } else {
+            setFormValue('');
+            props.setCurrentError(translations['postcode.errors.invalid-postcode']);
+            props.setSearchInitiated(false);
         }
     }
 
-    render() {
-        return (
-            <EmbedCard>
-                <div>
-                    {this.props.error && (
-                        <span id="dc_error" className="dc_error">
-                            {this.props.error}
-                        </span>
-                    )}
-                    <div className="form-group">
-                        <label className="form-label-bold">Enter your postcode</label>
-                        <input
-                            type="text"
-                            id="postcode"
-                            name="postcode"
-                            className="form-control"
-                            onChange={this.handleInput}
-                            onKeyPress={this.handleKeyPress}
-                        />
-                    </div>
-
-                    <button type="submit" onClick={this.findStation}>
-                        Find your polling station
-                    </button>
-                </div>
-
-                <BuiltByDC />
-            </EmbedCard>
-        );
-    }
+    return (
+        <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
+            <div className="form-group">
+                <label className="form-label-bold" htmlFor="postcode">
+                    Enter your postcode
+                </label>
+                <input
+                    value={formValue}
+                    onChange={handleFormChange}
+                    type="text"
+                    id="postcode"
+                    name="postcode"
+                    className="form-control"
+                />
+            </div>
+            <button type="submit">Find your polling station</button>
+        </form>
+    );
 }
-
+export { isPostcodeValid };
 export default PostcodeSelector;

@@ -1,0 +1,200 @@
+{
+  "electoral_services": {
+    "website": "http://www.tunbridgewells.gov.uk/",
+    "name": "Tunbridge Wells Borough Council",
+    "council_id": "E07000116",
+    "phone": "01892 554106",
+    "postcode": "TN1 1RS",
+    "address": "Electoral Registration Officer\nTown Hall\nMount Pleasant Road\nTunbridge Wells",
+    "email": "electoralregistrations@tunbridgewells.gov.uk"
+  },
+  "dates": [],
+  "address_picker": true,
+  "postcode_location": {
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.2438661222222222,
+        51.13019685555555
+      ]
+    },
+    "type": "Feature",
+    "properties": null
+  },
+  "addresses": [
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206788/",
+      "slug": "100061206788",
+      "postcode": "TN48XA",
+      "address": "1 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206789/",
+      "slug": "100061206789",
+      "postcode": "TN48XA",
+      "address": "3 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/10008659973/",
+      "slug": "10008659973",
+      "postcode": "TN48XA",
+      "address": "13 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206794/",
+      "slug": "100061206794",
+      "postcode": "TN48XA",
+      "address": "15 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206796/",
+      "slug": "100061206796",
+      "postcode": "TN48XA",
+      "address": "21 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206797/",
+      "slug": "100061206797",
+      "postcode": "TN48XA",
+      "address": "23 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206798/",
+      "slug": "100061206798",
+      "postcode": "TN48XA",
+      "address": "25 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206799/",
+      "slug": "100061206799",
+      "postcode": "TN48XA",
+      "address": "27 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206800/",
+      "slug": "100061206800",
+      "postcode": "TN48XA",
+      "address": "29 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206802/",
+      "slug": "100061206802",
+      "postcode": "TN48XA",
+      "address": "31 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206803/",
+      "slug": "100061206803",
+      "postcode": "TN48XA",
+      "address": "33 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206804/",
+      "slug": "100061206804",
+      "postcode": "TN48XA",
+      "address": "35 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206805/",
+      "slug": "100061206805",
+      "postcode": "TN48XA",
+      "address": "37 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100062585607/",
+      "slug": "100062585607",
+      "postcode": "TN48XA",
+      "address": "1A LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206791/",
+      "slug": "100061206791",
+      "postcode": "TN48XA",
+      "address": "13A LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206792/",
+      "slug": "100061206792",
+      "postcode": "TN48XA",
+      "address": "13B LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206793/",
+      "slug": "100061206793",
+      "postcode": "TN48XA",
+      "address": "15A LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100062585463/",
+      "slug": "100062585463",
+      "postcode": "TN48XA",
+      "address": "17-19 LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206816/",
+      "slug": "100061206816",
+      "postcode": "TN48XA",
+      "address": "25A LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206801/",
+      "slug": "100061206801",
+      "postcode": "TN48XA",
+      "address": "31A LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100062585952/",
+      "slug": "100062585952",
+      "postcode": "TN48XA",
+      "address": "33A LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206790/",
+      "slug": "100061206790",
+      "postcode": "TN48XA",
+      "address": "5-11 LANGTON ROAD, ROYAL TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206806/",
+      "slug": "100061206806",
+      "postcode": "TN48XA",
+      "address": "BLUE CEDARS, LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206808/",
+      "slug": "100061206808",
+      "postcode": "TN48XA",
+      "address": "CRAMPTON, LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206809/",
+      "slug": "100061206809",
+      "postcode": "TN48XA",
+      "address": "CULVER COTTAGE, LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100061206811/",
+      "slug": "100061206811",
+      "postcode": "TN48XA",
+      "address": "FLORALIES, LANGTON ROAD, TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/10000066465/",
+      "slug": "10000066465",
+      "postcode": "TN48XA",
+      "address": "RUSTHALL CRICKET CLUB COACH ROAD, ROYAL TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/10024136193/",
+      "slug": "10024136193",
+      "postcode": "TN48XA",
+      "address": "YORK HOUSE 1 1A LANGTON ROAD, ROYAL TUNBRIDGE WELLS"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/10024136194/",
+      "slug": "10024136194",
+      "postcode": "TN48XA",
+      "address": "YORK HOUSE 2 1A LANGTON ROAD, ROYAL TUNBRIDGE WELLS"
+    }
+  ]
+}

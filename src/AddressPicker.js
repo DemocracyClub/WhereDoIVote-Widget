@@ -1,5 +1,4 @@
 import React from 'react';
-import { EmbedCard, BuiltByDC } from './Branding';
 import styles from './WidgetStyles';
 
 class AddressPicker extends React.Component {
@@ -26,47 +25,44 @@ class AddressPicker extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.onSelection(this.state.address);
+        if (this.state.address !== '') {
+            this.props.lookupChosenAddress(this.state.address);
+        }
     }
 
     render() {
         const inputProps = { disabled: this.state.address === undefined };
         return (
-            <EmbedCard>
-                <div>
-                    <div styles={styles.FormGroup}>
-                        <label className="form-label-bold">Choose your address</label>
-                        <select
-                            value={this.state.value}
-                            onChange={this.setAddress}
-                            aria-describedby="address_picker"
-                            className="democracy_club_select_multirow"
-                            id="id_address"
-                            name="address"
-                            size="5"
-                        >
-                            {this.props.addressList.map(this.addressOption)}
-                            <option key={this.props.addressList.length} value="">
-                                My address is not in the list
-                            </option>
-                        </select>
-                    </div>
-
-                    <button
-                        {...inputProps}
-                        type="submit"
-                        className="button"
-                        onClick={this.handleSubmit}
+            <form className="AddressPicker" data-testid="address-selector">
+                <div styles={styles.FormGroup}>
+                    <label className="form-label-bold">Choose your address</label>
+                    <select
+                        value={this.state.value}
+                        onChange={this.setAddress}
+                        data-testid="address-select"
+                        aria-describedby="address_picker"
+                        className="democracy_club_select_multirow"
+                        id="id_address"
+                        name="address"
+                        size="5"
                     >
-                        Find my Polling Station
-                    </button>
-                    <br />
-                    <button href="#" onClick={this.props.home}>
-                        Back to postcode search
-                    </button>
+                        {this.props.addressList.map(this.addressOption)}
+                        <option key={this.props.addressList.length} value="not-in-list">
+                            My address is not in the list
+                        </option>
+                    </select>
                 </div>
-                <BuiltByDC />
-            </EmbedCard>
+
+                <button
+                    {...inputProps}
+                    type="submit"
+                    className="button"
+                    data-testid="address-button"
+                    onClick={this.handleSubmit}
+                >
+                    Find my Polling Station
+                </button>
+            </form>
         );
     }
 }

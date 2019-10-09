@@ -1,0 +1,117 @@
+{
+  "electoral_services": {
+    "website": "http://www.tunbridgewells.gov.uk/",
+    "name": "Tunbridge Wells Borough Council",
+    "council_id": "E07000116",
+    "phone": "01892 554106",
+    "postcode": "TN1 1RS",
+    "address": "Electoral Registration Officer\nTown Hall\nMount Pleasant Road\nTunbridge Wells",
+    "email": "electoralregistrations@tunbridgewells.gov.uk"
+  },
+  "dates": [
+    {
+      "date": "2019-05-02",
+      "notifications": [],
+      "ballots": [
+        {
+          "ballot_paper_id": "local.tunbridge-wells.rusthall.2019-05-02",
+          "replaced_by": null,
+          "election_name": "Tunbridge Wells local election",
+          "post_name": "Rusthall",
+          "ballot_title": "Tunbridge Wells local election Rusthall",
+          "elected_role": "Local Councillor",
+          "wcivf_url": "https://whocanivotefor.co.uk/elections/local.tunbridge-wells.rusthall.2019-05-02/rusthall/",
+          "replaces": null,
+          "candidates_verified": true,
+          "candidates": [
+            {
+              "party": {
+                "party_name": "UK Independence Party (UKIP)",
+                "party_id": "party:85"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 39510,
+                "name": "Alun Elder-Brown",
+                "absolute_url": "https://whocanivotefor.co.uk/person/39510/alun-elder-brown"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Labour Party",
+                "party_id": "party:53"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 39472,
+                "name": "Bjorn Sebastian Simpole",
+                "absolute_url": "https://whocanivotefor.co.uk/person/39472/bjorn-sebastian-simpole"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Liberal Democrats",
+                "party_id": "party:90"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 60556,
+                "name": "Dave Funnell",
+                "absolute_url": "https://whocanivotefor.co.uk/person/60556/dave-funnell"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 60557,
+                "name": "Dave Pate",
+                "absolute_url": "https://whocanivotefor.co.uk/person/60557/dave-pate"
+              }
+            }
+          ],
+          "cancelled": false,
+          "poll_open_date": "2019-05-02",
+          "election_id": "local.tunbridge-wells.2019-05-02",
+          "metadata": null
+        }
+      ],
+      "polling_station": {
+        "polling_station_known": true,
+        "station": {
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              0.2328827573183009,
+              51.13564429859268
+            ]
+          },
+          "type": "Feature",
+          "id": "E07000116.PP",
+          "properties": {
+            "postcode": "",
+            "address": "The Rackliff Centre 26 Lower Green Road Royal Tunbridge Wells Kent TN4 8TE"
+          }
+        },
+        "report_problem_url": "https://wheredoivote.co.uk/report_problem/?source=api&source_url=%2Fapi%2Fbeta%2Faddress%2F10000066465%2F",
+        "custom_finder": null
+      }
+    }
+  ],
+  "address_picker": false,
+  "postcode_location": {
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.2438661222222222,
+        51.13019685555555
+      ]
+    },
+    "type": "Feature",
+    "properties": null
+  },
+  "addresses": []
+}

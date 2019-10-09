@@ -1,29 +1,31 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import StationNotFound from './StationNotFound';
-import { IdRequirement } from './Notification';
+import { Notifications, Notification } from './Notifications';
 
-const council = { council_id: 'test', name: 'Example Council' };
+const electoral_services = { council_id: 'test', name: 'Example Council' };
 configure({ adapter: new Adapter() });
 
 describe('StationNotFound', () => {
-    const idPilot = {
-        '2018-05-03-id-pilot': {
-            title: 'foo',
-            url: 'bar',
+    const notifications = [
+        {
+            type: 'voter_id',
+            url: 'https://www.example.com',
+            title: 'You need ID',
+            detail: 'you really will need ID',
         },
-    };
+    ];
 
     it('always renders header', () => {
-        const wrapper = shallow(<StationNotFound />);
+        const wrapper = mount(<StationNotFound />);
 
-        expect(wrapper).toContainReact(<h2 id="dc_header">We couldn't find your station</h2>);
+        expect(wrapper).toContainReact(<h2 id="dc_header">{"We couldn't find your station"}</h2>);
     });
 
     it('should present council to get in touch with', () => {
-        const wrapper = shallow(<StationNotFound council={council} />);
+        const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
         expect(wrapper).toContainReact(
             <span id="dc_get_in_touch">
@@ -32,9 +34,9 @@ describe('StationNotFound', () => {
         );
     });
 
-    it('should present NI Electoral Office for N09 postcodes', () => {
-        const council = { council_id: 'N09 1XA' };
-        const wrapper = shallow(<StationNotFound council={council} />);
+    it('should present NI Electoral Office for N09 GSS codes', () => {
+        const electoral_services = { council_id: 'N09000000' };
+        const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
         expect(wrapper).toContainReact(
             <span id="dc_get_in_touch">
@@ -44,15 +46,15 @@ describe('StationNotFound', () => {
     });
 
     describe('should present contact details', () => {
-        const council = {
-            council_id: 'N09 1XA',
+        const electoral_services = {
+            council_id: 'N09000000',
             website: 'example.com',
             phone: '118 118',
             email: 'test@example.com',
         };
 
         it('via website', () => {
-            const wrapper = shallow(<StationNotFound council={council} />);
+            const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
             expect(wrapper).toContainReact(
                 <li>
@@ -62,13 +64,13 @@ describe('StationNotFound', () => {
         });
 
         it('via phone', () => {
-            const wrapper = shallow(<StationNotFound council={council} />);
+            const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
             expect(wrapper).toContainReact(<li>Phone - 118 118</li>);
         });
 
         it('via email', () => {
-            const wrapper = shallow(<StationNotFound council={council} />);
+            const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
             expect(wrapper).toContainReact(
                 <li>
@@ -78,13 +80,20 @@ describe('StationNotFound', () => {
         });
     });
 
-    it('does not show notification when there is no voter id pilot', () => {
-        const wrapper = shallow(<StationNotFound council={council} metadata={{}} />);
-        expect(wrapper).not.toContainReact(<IdRequirement />);
+    it('does not show notification when there is no event to be aware of', () => {
+        const wrapper = mount(
+            <StationNotFound electoral_services={electoral_services} notifications={[]} />
+        );
+        expect(wrapper).not.toContainReact(<Notification />);
     });
 
     it('shows notification when there is a voter id pilot', () => {
-        const wrapper = shallow(<StationNotFound council={council} metadata={idPilot} />);
-        expect(wrapper).toContainReact(<IdRequirement metadata={idPilot} />);
+        const wrapper = mount(
+            <StationNotFound
+                electoral_services={electoral_services}
+                notifications={notifications}
+            />
+        );
+        expect(wrapper).toContainReact(<Notifications list={notifications} />);
     });
 });
