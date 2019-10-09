@@ -6,11 +6,15 @@ import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
 
+import root from 'react-shadow';
+
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 
 import translations from './translations/en';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
+
+import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line import/no-webpack-loader-syntax
 
 function DemocracyClubWidget() {
     const api = APIClientFactory();
@@ -98,38 +102,41 @@ function DemocracyClubWidget() {
     }
 
     return (
-        <EmbedCard className="DemocracyClubWidget">
-            {currentError && <ErrorMessage currentError={currentError} />}
-            {!searchInitiated && (
-                <PostcodeSelector
-                    lookupGivenPostcode={lookupGivenPostcode}
-                    setSearchInitiated={setSearchInitiated}
-                    setCurrentError={setCurrentError}
-                />
-            )}
-            {loading && <Loader />}
-            {station && <PollingStation station={station} notifications={notifications} />}
-            {addressList && !station && (
-                <AddressPicker
-                    addressList={addressList}
-                    lookupChosenAddress={lookupChosenAddress}
-                />
-            )}
-            {stationNotFound && (
-                <StationNotFound
-                    notifications={notifications}
-                    electoral_services={electoralServices}
-                />
-            )}
-            {noUpcomingElection && (
-                <NoUpcomingElection
-                    notifications={notifications}
-                    electoral_services={electoralServices}
-                />
-            )}
-            {searchInitiated && <StartAgainButton onClick={resetWidget} />}
-            <BuiltByDC />
-        </EmbedCard>
+        <root.div className="DCWidget">
+            <style type="text/css">{styles}</style>
+            <EmbedCard className="DemocracyClubWidget">
+                {currentError && <ErrorMessage currentError={currentError} />}
+                {!searchInitiated && (
+                    <PostcodeSelector
+                        lookupGivenPostcode={lookupGivenPostcode}
+                        setSearchInitiated={setSearchInitiated}
+                        setCurrentError={setCurrentError}
+                    />
+                )}
+                {loading && <Loader />}
+                {station && <PollingStation station={station} notifications={notifications} />}
+                {addressList && !station && (
+                    <AddressPicker
+                        addressList={addressList}
+                        lookupChosenAddress={lookupChosenAddress}
+                    />
+                )}
+                {stationNotFound && (
+                    <StationNotFound
+                        notifications={notifications}
+                        electoral_services={electoralServices}
+                    />
+                )}
+                {noUpcomingElection && (
+                    <NoUpcomingElection
+                        notifications={notifications}
+                        electoral_services={electoralServices}
+                    />
+                )}
+                {searchInitiated && <StartAgainButton onClick={resetWidget} />}
+                <BuiltByDC />
+            </EmbedCard>
+        </root.div>
     );
 }
 
