@@ -27,14 +27,6 @@ describe('WhereDoIVote Widget', () => {
         });
     }
 
-    // it('should not give error message if correct postcode is entered', async () => {
-    //     let enteredPostcode = 'EH3 6AR';
-    //     typePostcode(enteredPostcode);
-    //     submitPostcode();
-    //     const beat = waitFor('.Loader');
-    //     expect(container.querySelector('#dc_error')).toBe(null);
-    // });
-
     it('should give error message when no postcode is entered', async () => {
         submitPostcode();
         const newContent = await waitForElement(() => container.querySelector('#dc_error'));

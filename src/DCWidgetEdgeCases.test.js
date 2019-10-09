@@ -27,10 +27,6 @@ describe('WhereDoIVote Widget', () => {
         fireEvent.submit(getByTestId('postcode-selector'));
     }
 
-    function submitAddress() {
-        fireEvent.submit(getByTestId('address-selector'));
-    }
-
     function mockResponse(endpoint, param) {
         const content = fs.readFileSync(`./public/example-responses/${endpoint}-${param}.json`);
         axiosMock.get.mockResolvedValueOnce({
