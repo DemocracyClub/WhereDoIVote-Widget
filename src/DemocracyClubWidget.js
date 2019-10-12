@@ -103,39 +103,41 @@ function DemocracyClubWidget() {
 
     return (
         <ShadowDomFactory>
-            <style type="text/css">{styles}</style>
-            <EmbedCard className="DemocracyClubWidget">
-                {currentError && <ErrorMessage currentError={currentError} />}
-                {!searchInitiated && (
-                    <PostcodeSelector
-                        lookupGivenPostcode={lookupGivenPostcode}
-                        setSearchInitiated={setSearchInitiated}
-                        setCurrentError={setCurrentError}
-                    />
-                )}
-                {loading && <Loader />}
-                {station && <PollingStation station={station} notifications={notifications} />}
-                {addressList && !station && (
-                    <AddressPicker
-                        addressList={addressList}
-                        lookupChosenAddress={lookupChosenAddress}
-                    />
-                )}
-                {stationNotFound && (
-                    <StationNotFound
-                        notifications={notifications}
-                        electoral_services={electoralServices}
-                    />
-                )}
-                {noUpcomingElection && (
-                    <NoUpcomingElection
-                        notifications={notifications}
-                        electoral_services={electoralServices}
-                    />
-                )}
-                {searchInitiated && <StartAgainButton onClick={resetWidget} />}
-                <BuiltByDC />
-            </EmbedCard>
+            <main>
+                <style type="text/css">{styles}</style>
+                <EmbedCard className="DemocracyClubWidget">
+                    {currentError && <ErrorMessage currentError={currentError} />}
+                    {!searchInitiated && (
+                        <PostcodeSelector
+                            lookupGivenPostcode={lookupGivenPostcode}
+                            setSearchInitiated={setSearchInitiated}
+                            setCurrentError={setCurrentError}
+                        />
+                    )}
+                    {loading && <Loader />}
+                    {station && <PollingStation station={station} notifications={notifications} />}
+                    {addressList && !station && (
+                        <AddressPicker
+                            addressList={addressList}
+                            lookupChosenAddress={lookupChosenAddress}
+                        />
+                    )}
+                    {stationNotFound && (
+                        <StationNotFound
+                            notifications={notifications}
+                            electoral_services={electoralServices}
+                        />
+                    )}
+                    {noUpcomingElection && (
+                        <NoUpcomingElection
+                            notifications={notifications}
+                            electoral_services={electoralServices}
+                        />
+                    )}
+                    {searchInitiated && <StartAgainButton onClick={resetWidget} />}
+                    <BuiltByDC />
+                </EmbedCard>
+            </main>
         </ShadowDomFactory>
     );
 }
