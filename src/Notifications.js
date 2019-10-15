@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './WidgetStyles';
 
 function Notifications(props) {
     if (!props.list) {
@@ -13,7 +12,7 @@ function Notifications(props) {
 
 function Notification(props) {
     return (
-        <div data-testid="notification" role="alert" style={styles.DCNotification}>
+        <div className="Notification" data-testid="notification" role="alert">
             <span role="img">ℹ</span> {props.title}{' '}
             {props.url && (
                 <a target="_blank" rel="noopener noreferrer" href={props.url}>

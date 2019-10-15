@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './WidgetStyles';
 
 class AddressPicker extends React.Component {
     constructor(props) {
@@ -34,7 +33,7 @@ class AddressPicker extends React.Component {
         const inputProps = { disabled: this.state.address === undefined };
         return (
             <form className="AddressPicker" data-testid="address-selector">
-                <div styles={styles.FormGroup}>
+                <div>
                     <label className="form-label-bold">Choose your address</label>
                     <select
                         value={this.state.value}

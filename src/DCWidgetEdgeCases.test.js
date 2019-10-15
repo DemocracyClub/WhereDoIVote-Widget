@@ -3,10 +3,13 @@ import { render, cleanup, fireEvent, waitForElement } from '@testing-library/rea
 import '@testing-library/jest-dom/extend-expect';
 import axiosMock from 'axios';
 import DemocracyClubWidget from './DemocracyClubWidget';
-
 import fs from 'fs';
 
 afterEach(cleanup);
+
+jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+    virtual: true,
+});
 
 describe('WhereDoIVote Widget', () => {
     let container, getByTestId;

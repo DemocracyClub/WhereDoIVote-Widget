@@ -1,17 +1,16 @@
 import React from 'react';
-import styles from './WidgetStyles';
 
 function EmbedCard(props) {
     return (
-        <section style={styles.DCEmbed} className={props.className}>
-            <div style={styles.Card}>{props.children}</div>
+        <section className={props.className}>
+            <div className="Card">{props.children}</div>
         </section>
     );
 }
 
 function ErrorMessage(props) {
     return (
-        <div className="ErrorMessage" id="dc_error" style={styles.DCError} role="alert">
+        <div className="ErrorMessage" id="dc_error" role="alert">
             {props.currentError}
         </div>
     );
@@ -27,7 +26,7 @@ function StartAgainButton(props) {
 
 function Loader() {
     return (
-        <div className="Loader" role="alert" style={styles.Loader}>
+        <div className="Loader" role="alert">
             Loading
         </div>
     );
@@ -40,7 +39,7 @@ function BuiltByDC() {
                 href="https://democracyclub.org.uk/"
                 title="Democracy Club"
                 target="_top"
-                style={styles.DCLogo}
+                className="DCLogo"
             >
                 Built by{' '}
                 <img
