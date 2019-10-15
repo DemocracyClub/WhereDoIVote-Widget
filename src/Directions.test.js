@@ -7,24 +7,22 @@ import { Directions, GoogleMaps, GoogleDirections } from './Directions';
 configure({ adapter: new Adapter() });
 
 describe('Directions', () => {
-    const params = {
-        destination: 456,
-        origin: 123,
-    };
+  const params = {
+    destination: 456,
+    origin: 123,
+  };
 
-    it('renders Google Maps only when no origin present', () => {
-        const wrapper = shallow(<Directions destination={params.destination} />);
+  it('renders Google Maps only when no origin present', () => {
+    const wrapper = shallow(<Directions destination={params.destination} />);
 
-        expect(wrapper).toContainReact(<GoogleMaps destination={456} />);
-        expect(wrapper).not.toContainReact(<GoogleDirections />);
-    });
+    expect(wrapper).toContainReact(<GoogleMaps destination={456} />);
+    expect(wrapper).not.toContainReact(<GoogleDirections />);
+  });
 
-    it('renders Google Directions only when destination and origin present', () => {
-        const wrapper = shallow(
-            <Directions destination={params.destination} origin={params.origin} />
-        );
+  it('renders Google Directions only when destination and origin present', () => {
+    const wrapper = shallow(<Directions destination={params.destination} origin={params.origin} />);
 
-        expect(wrapper).not.toContainReact(<GoogleMaps />);
-        expect(wrapper).toContainReact(<GoogleDirections destination={456} origin={123} />);
-    });
+    expect(wrapper).not.toContainReact(<GoogleMaps />);
+    expect(wrapper).toContainReact(<GoogleDirections destination={456} origin={123} />);
+  });
 });
