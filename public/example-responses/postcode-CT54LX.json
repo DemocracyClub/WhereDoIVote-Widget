@@ -1,0 +1,176 @@
+{
+  "electoral_services": {
+    "website": "http://www.canterbury.gov.uk/",
+    "name": "Canterbury City Council",
+    "council_id": "E07000106",
+    "phone": "01227 862 007",
+    "postcode": "CT1 1YW",
+    "address": "Electoral Registration Officer\nElectoral Services\nMilitary Road",
+    "email": "electoral.services@canterbury.gov.uk"
+  },
+  "dates": [],
+  "address_picker": true,
+  "postcode_location": {
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        1.0214104039999998,
+        51.349771324
+      ]
+    },
+    "type": "Feature",
+    "properties": null
+  },
+  "addresses": [
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841557/",
+      "slug": "100060841557",
+      "postcode": "CT54LX",
+      "address": "1 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841558/",
+      "slug": "100060841558",
+      "postcode": "CT54LX",
+      "address": "2 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841559/",
+      "slug": "100060841559",
+      "postcode": "CT54LX",
+      "address": "3 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841560/",
+      "slug": "100060841560",
+      "postcode": "CT54LX",
+      "address": "4 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841561/",
+      "slug": "100060841561",
+      "postcode": "CT54LX",
+      "address": "5 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841562/",
+      "slug": "100060841562",
+      "postcode": "CT54LX",
+      "address": "6 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841563/",
+      "slug": "100060841563",
+      "postcode": "CT54LX",
+      "address": "7 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841564/",
+      "slug": "100060841564",
+      "postcode": "CT54LX",
+      "address": "8 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841568/",
+      "slug": "100060841568",
+      "postcode": "CT54LX",
+      "address": "9 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/10033173805/",
+      "slug": "10033173805",
+      "postcode": "CT54LX",
+      "address": "12 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/10033162604/",
+      "slug": "10033162604",
+      "postcode": "CT54LX",
+      "address": "14 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841574/",
+      "slug": "100060841574",
+      "postcode": "CT54LX",
+      "address": "16 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841576/",
+      "slug": "100060841576",
+      "postcode": "CT54LX",
+      "address": "18 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841578/",
+      "slug": "100060841578",
+      "postcode": "CT54LX",
+      "address": "20 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841580/",
+      "slug": "100060841580",
+      "postcode": "CT54LX",
+      "address": "22 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841583/",
+      "slug": "100060841583",
+      "postcode": "CT54LX",
+      "address": "24 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841585/",
+      "slug": "100060841585",
+      "postcode": "CT54LX",
+      "address": "26 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841588/",
+      "slug": "100060841588",
+      "postcode": "CT54LX",
+      "address": "28 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841589/",
+      "slug": "100060841589",
+      "postcode": "CT54LX",
+      "address": "30 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841592/",
+      "slug": "100060841592",
+      "postcode": "CT54LX",
+      "address": "32 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841565/",
+      "slug": "100060841565",
+      "postcode": "CT54LX",
+      "address": "9A BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841566/",
+      "slug": "100060841566",
+      "postcode": "CT54LX",
+      "address": "9B BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841567/",
+      "slug": "100060841567",
+      "postcode": "CT54LX",
+      "address": "9C BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100062301773/",
+      "slug": "100062301773",
+      "postcode": "CT54LX",
+      "address": "CRUSADER SERVICE STATION, 10 BORSTAL HILL, WHITSTABLE"
+    },
+    {
+      "url": "https://developers.democracyclub.org.uk/api/v1/address/100060841595/",
+      "slug": "100060841595",
+      "postcode": "CT54LX",
+      "address": "W H CARTER & SON, 34 BORSTAL HILL, WHITSTABLE"
+    }
+  ]
+}

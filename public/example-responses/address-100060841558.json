@@ -1,0 +1,153 @@
+{
+  "electoral_services": {
+    "website": "http://www.canterbury.gov.uk/",
+    "name": "Canterbury City Council",
+    "council_id": "E07000106",
+    "phone": "01227 862 007",
+    "postcode": "CT1 1YW",
+    "address": "Electoral Registration Officer\nElectoral Services\nMilitary Road",
+    "email": "electoral.services@canterbury.gov.uk"
+  },
+  "dates": [
+    {
+      "date": "2019-05-02",
+      "notifications": [],
+      "ballots": [
+        {
+          "ballot_paper_id": "local.canterbury.seasalter.2019-05-02",
+          "replaced_by": null,
+          "election_name": "Canterbury local election",
+          "post_name": "Seasalter",
+          "ballot_title": "Canterbury local election Seasalter",
+          "elected_role": "Local Councillor",
+          "wcivf_url": "https://whocanivotefor.co.uk/elections/local.canterbury.seasalter.2019-05-02/seasalter/",
+          "replaces": null,
+          "candidates_verified": true,
+          "candidates": [
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 67716,
+                "name": "Ashley John Clark",
+                "absolute_url": "https://whocanivotefor.co.uk/person/67716/ashley-john-clark"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Labour Party",
+                "party_id": "party:53"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 67717,
+                "name": "Clare Connerton",
+                "absolute_url": "https://whocanivotefor.co.uk/person/67717/clare-connerton"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 67721,
+                "name": "Colin Gerald Spooner",
+                "absolute_url": "https://whocanivotefor.co.uk/person/67721/colin-gerald-spooner"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Labour Party",
+                "party_id": "party:53"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 49539,
+                "name": "Helen Kirk",
+                "absolute_url": "https://whocanivotefor.co.uk/person/49539/helen-kirk"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Liberal Democrats",
+                "party_id": "party:90"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 67715,
+                "name": "John Winston Brazier",
+                "absolute_url": "https://whocanivotefor.co.uk/person/67715/john-winston-brazier"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Green Party",
+                "party_id": "party:63"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 67720,
+                "name": "Kathy Nalson",
+                "absolute_url": "https://whocanivotefor.co.uk/person/67720/kathy-nalson"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Liberal Democrats",
+                "party_id": "party:90"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 67718,
+                "name": "Yvonne Hawkins",
+                "absolute_url": "https://whocanivotefor.co.uk/person/67718/yvonne-hawkins"
+              }
+            }
+          ],
+          "cancelled": false,
+          "poll_open_date": "2019-05-02",
+          "election_id": "local.canterbury.2019-05-02",
+          "metadata": null
+        }
+      ],
+      "polling_station": {
+        "polling_station_known": true,
+        "station": {
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              1.0007012426666535,
+              51.34440360691884
+            ]
+          },
+          "type": "Feature",
+          "id": "E07000106.WSE3",
+          "properties": {
+            "postcode": "",
+            "address": "Seasalter Christian Centre, 49\u00a0Faversham Road, Seasalter, Whitstable CT5 4AX"
+          }
+        },
+        "report_problem_url": "https://wheredoivote.co.uk/report_problem/?source=api&source_url=%2Fapi%2Fbeta%2Faddress%2F100060841558%2F",
+        "custom_finder": null
+      }
+    }
+  ],
+  "address_picker": false,
+  "postcode_location": {
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        1.0214104039999998,
+        51.349771324
+      ]
+    },
+    "type": "Feature",
+    "properties": null
+  },
+  "addresses": []
+}

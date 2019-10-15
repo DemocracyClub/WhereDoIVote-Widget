@@ -7,28 +7,31 @@ import AddressPicker from './AddressPicker';
 configure({ adapter: new Adapter() });
 
 describe('AddressPicker', () => {
+  it('renders addresses from list', () => {
+    let addresses = [
+      {
+        address: 'foo',
+        url: 'foo.com',
+      },
+      {
+        address: 'bar',
+        url: 'bar.com',
+      },
+    ];
 
-    it('renders addresses from list', () => {
-        let addresses = [{
-            address: 'foo',
-            url: 'foo.com'
-        },{
-            address: 'bar',
-            url: 'bar.com'
-        }];
+    const wrapper = shallow(<AddressPicker addressList={addresses} />);
 
-        const wrapper = shallow(<AddressPicker addressList={addresses}/>);
+    expect(wrapper).toContainReact(<option value="foo.com">foo</option>);
+    expect(wrapper).toContainReact(<option value="bar.com">bar</option>);
+  });
 
-        expect(wrapper).toContainReact(<option value="foo.com">foo</option>);
-        expect(wrapper).toContainReact(<option value="bar.com">bar</option>);
-    });
+  it('renders "My address is not in the list" option', () => {
+    let addresses = [{ address: 'foo', url: 'foo.com' }];
 
-    it('renders option for correct address not being present in list', () => {
-        let addresses = [{ address: 'foo', url: 'foo.com'}];
+    const wrapper = shallow(<AddressPicker addressList={addresses} />);
 
-        const wrapper = shallow(<AddressPicker addressList={addresses}/>);
-
-        expect(wrapper).toContainReact(<option value="">My address is not in the list</option>);
-    });
-
+    expect(wrapper).toContainReact(
+      <option value="not-in-list">My address is not in the list</option>
+    );
+  });
 });

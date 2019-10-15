@@ -1,0 +1,215 @@
+{
+  "electoral_services": {
+    "website": "http://www.broxtowe.gov.uk/",
+    "name": "Broxtowe Borough Council",
+    "council_id": "E07000172",
+    "phone": "0115 917 3250 / 917 3276",
+    "postcode": "NG9 1AB",
+    "address": "Electoral Registration Officer\nCouncil Offices\nFoster Avenue\nBeeston",
+    "email": "elections@broxtowe.gov.uk"
+  },
+  "dates": [
+    {
+      "date": "2019-05-02",
+      "notifications": [
+        {
+          "url": "https://www.broxtowe.gov.uk/for-you/elections-voting/voter-id/",
+          "type": "voter_id",
+          "detail": "Voters in Broxtowe will be required to show one form of photo ID, like a passport or driving licence; or two forms of non-photo ID, like a council tax bill and a bank statement.",
+          "title": "You need to show ID to vote at this election"
+        }
+      ],
+      "ballots": [
+        {
+          "ballot_paper_id": "local.broxtowe.attenborough-chilwell-east.2019-05-02",
+          "replaced_by": null,
+          "election_name": "Broxtowe local election",
+          "post_name": "Attenborough & Chilwell East",
+          "ballot_title": "Broxtowe local election Attenborough & Chilwell East",
+          "elected_role": "Local Councillor",
+          "wcivf_url": "https://whocanivotefor.co.uk/elections/local.broxtowe.attenborough-chilwell-east.2019-05-02/attenborough-chilwell-east/",
+          "replaces": null,
+          "candidates_verified": true,
+          "candidates": [
+            {
+              "party": {
+                "party_name": "Liberal Democrats",
+                "party_id": "party:90"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 59824,
+                "name": "Carmen Silva Flores",
+                "absolute_url": "https://whocanivotefor.co.uk/person/59824/carmen-silva-flores"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Green Party",
+                "party_id": "party:63"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 31480,
+                "name": "David Shipman",
+                "absolute_url": "https://whocanivotefor.co.uk/person/31480/david-shipman"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 25811,
+                "name": "Eric Kerry",
+                "absolute_url": "https://whocanivotefor.co.uk/person/25811/eric-kerry"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Liberal Democrats",
+                "party_id": "party:90"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 59826,
+                "name": "Gary Richardson",
+                "absolute_url": "https://whocanivotefor.co.uk/person/59826/gary-richardson"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Liberal Democrats",
+                "party_id": "party:90"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 24878,
+                "name": "Graham Heal",
+                "absolute_url": "https://whocanivotefor.co.uk/person/24878/graham-heal"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Green Party",
+                "party_id": "party:63"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 25813,
+                "name": "Mary Evelyn Venning",
+                "absolute_url": "https://whocanivotefor.co.uk/person/25813/mary-evelyn-venning"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Labour Party",
+                "party_id": "party:53"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 59822,
+                "name": "Melesia Burchell",
+                "absolute_url": "https://whocanivotefor.co.uk/person/59822/melesia-burchell"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 25810,
+                "name": "Richard Ian Jackson",
+                "absolute_url": "https://whocanivotefor.co.uk/person/25810/richard-ian-jackson"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Labour Party",
+                "party_id": "party:53"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 59823,
+                "name": "Shaun Dannheimer",
+                "absolute_url": "https://whocanivotefor.co.uk/person/59823/shaun-dannheimer"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Labour Party",
+                "party_id": "party:53"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 59825,
+                "name": "Stephen Jeremiah",
+                "absolute_url": "https://whocanivotefor.co.uk/person/59825/stephen-jeremiah"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Conservative and Unionist Party",
+                "party_id": "party:52"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 25795,
+                "name": "Trish Roberts-Thomson",
+                "absolute_url": "https://whocanivotefor.co.uk/person/25795/trish-roberts-thomson"
+              }
+            }
+          ],
+          "cancelled": false,
+          "poll_open_date": "2019-05-02",
+          "election_id": "local.broxtowe.2019-05-02",
+          "metadata": {
+            "2019-05-02-id-pilot": {
+              "url": "https://www.broxtowe.gov.uk/for-you/elections-voting/voter-id/",
+              "type": "voter_id",
+              "detail": "Voters in Broxtowe will be required to show one form of photo ID, like a passport or driving licence; or two forms of non-photo ID, like a council tax bill and a bank statement.",
+              "title": "You need to show ID to vote at this election"
+            }
+          }
+        }
+      ],
+      "polling_station": {
+        "polling_station_known": true,
+        "station": {
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -1.2263440223157183,
+              52.9195519999669
+            ]
+          },
+          "type": "Feature",
+          "id": "E07000172.ACE3",
+          "properties": {
+            "postcode": "",
+            "address": "Chilwell Masonic Hall 145 High Road Chilwell Nottinghamshire NG9 4AT"
+          }
+        },
+        "report_problem_url": "https://wheredoivote.co.uk/report_problem/?source=api&source_url=%2Fapi%2Fbeta%2Faddress%2F100031336416%2F",
+        "custom_finder": null
+      }
+    }
+  ],
+  "address_picker": false,
+  "postcode_location": {
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.2361016919999996,
+        52.91688478600002
+      ]
+    },
+    "type": "Feature",
+    "properties": null
+  },
+  "addresses": []
+}

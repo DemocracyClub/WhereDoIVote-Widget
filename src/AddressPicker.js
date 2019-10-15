@@ -1,60 +1,69 @@
 import React from 'react';
 
 class AddressPicker extends React.Component {
-    constructor(props) {
-        super(props);
-        this.props = props;
-        this.setAddress = this.setAddress.bind(this);
-        this.addressOption = this.addressOption.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {};
+  constructor(props) {
+    super(props);
+    this.props = props;
+    this.setAddress = this.setAddress.bind(this);
+    this.addressOption = this.addressOption.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {};
+  }
+
+  setAddress(event) {
+    this.setState({ address: event.target.value });
+  }
+
+  addressOption(address, index) {
+    return (
+      <option key={index} value={address.url}>
+        {address.address}
+      </option>
+    );
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.state.address !== '') {
+      this.props.lookupChosenAddress(this.state.address);
     }
+  }
 
-    setAddress(event) {
-        this.setState({ address: event.target.value });
-    }
+  render() {
+    const inputProps = { disabled: this.state.address === undefined };
+    return (
+      <form className="AddressPicker" data-testid="address-selector">
+        <div>
+          <label className="form-label-bold">Choose your address</label>
+          <select
+            value={this.state.value}
+            onChange={this.setAddress}
+            data-testid="address-select"
+            aria-describedby="address_picker"
+            className="democracy_club_select_multirow"
+            id="id_address"
+            name="address"
+            size="5"
+          >
+            {this.props.addressList.map(this.addressOption)}
+            <option key={this.props.addressList.length} value="not-in-list">
+              My address is not in the list
+            </option>
+          </select>
+        </div>
 
-    addressOption(address, index) {
-        return <option key={index} value={address.url}>{address.address}</option>;
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        this.props.onSelection(this.state.address);
-    }
-
-    render() {
-        const inputProps = { disabled: this.state.address === undefined }
-        return (
-            <div className="democracy_club_embed">
-                <div className="card">
-                    <div>
-                        <div className="form-group">
-                            <label className="form-label-bold">Choose your address</label>
-                            <select value={this.state.value} onChange={this.setAddress} aria-describedby="address_picker" className="democracy_club_select_multirow" id="id_address" name="address" size="5">
-                            {
-                                this.props.addressList.map(this.addressOption)
-                            }
-                                <option key={this.props.addressList.length} value="">My address is not in the list</option>
-                            </select>
-                        </div>
-
-                        <button {...inputProps} type="submit" className="button" onClick={this.handleSubmit}>
-                            Find my Polling Station
-                        </button>
-                        <br/>
-                         <button href="#" onClick={this.props.home}>Back to postcode search</button>
-                    </div>
-
-                    <div>
-                        <a href="https://democracyclub.org.uk/" target="_top" className="dc_logo">
-                        Built by <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png"/>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+        <button
+          {...inputProps}
+          type="submit"
+          className="button"
+          data-testid="address-button"
+          onClick={this.handleSubmit}
+        >
+          Find my Polling Station
+        </button>
+      </form>
+    );
+  }
 }
 
 export default AddressPicker;
