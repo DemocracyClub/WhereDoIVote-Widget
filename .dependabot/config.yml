@@ -5,7 +5,7 @@ update_configs:
       -
         match:
           dependency_name: react-shadow
-          version_requirement: "<= 17.0.0"
+          version_requirement: 16.3.2
     package_manager: javascript
     update_schedule: daily
 version: 1
