@@ -6,7 +6,7 @@
     "axios": "^0.19.0",
     "es6-shim": "^0.35.5",
     "react": "^16.9.0",
-    "react-app-polyfill": "^1.0.2",
+    "react-app-polyfill": "^1.0.4",
     "react-dom": "^16.9.0",
     "react-shadow": "16.3.2"
   },
