@@ -21,17 +21,23 @@ Add the following lines to your HTML, where you want the widget to appear on the
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
-## Setup
+## Local development
 
 ```
 npm install
-npm run build
 ```
 
-## Running locally
+Run with test data from the [API sandbox](https://developers.democracyclub.org.uk/api/v1/#sandbox-outputs-2):
+```
+npm run start:sandbox
+```
 
-`npm start`
+Run with [local test data](https://github.com/DemocracyClub/WhereDoIVote-Widget/tree/master/public/example-responses):
+```
+npm run start:sandbox
+```
 
-## Notes
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
+Run using the production API with a key:
+```
+npm start
+```
