@@ -1,5 +1,5 @@
 import React from 'react';
-import ShadowDOM from 'react-shadow';
+import root from 'react-shadow';
 
 function ShadowDomFactory(props) {
   function shouldUseShadowDom() {
@@ -11,7 +11,7 @@ function ShadowDomFactory(props) {
 
   return (
     <>
-      {shouldUseShadowDom() ? <ShadowDOM>{props.children}</ShadowDOM> : <div>{props.children}</div>}
+      {shouldUseShadowDom() ? <root.div>{props.children}</root.div> : <div>{props.children}</div>}
     </>
   );
 }
