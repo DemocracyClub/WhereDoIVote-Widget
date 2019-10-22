@@ -55,7 +55,7 @@ class AddressPicker extends React.Component {
         <button
           {...inputProps}
           type="submit"
-          className="button"
+          className="button dc-primary"
           data-testid="address-button"
           onClick={this.handleSubmit}
         >

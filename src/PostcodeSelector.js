@@ -47,7 +47,7 @@ function PostcodeSelector(props) {
           className="form-control"
         />
       </div>
-      <button type="submit">Find your polling station</button>
+      <button className="dc-primary" type="submit">Find your polling station</button>
     </form>
   );
 }
