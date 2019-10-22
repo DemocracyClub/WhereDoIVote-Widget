@@ -26,8 +26,10 @@ function StartAgainButton(props) {
 
 function Loader() {
   return (
-    <div class="loading-spinner" role="alert" aria-live="assertive">
-      <p class="vh" aria-hidden="false">Loading</p>
+    <div className="loading-spinner" role="alert" aria-live="assertive">
+      <p className="vh" aria-hidden="false">
+        Loading
+      </p>
     </div>
   );
 }
