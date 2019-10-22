@@ -29,7 +29,7 @@ describe('StationNotFound', () => {
 
     expect(wrapper).toContainReact(
       <span id="dc_get_in_touch">
-        Get in touch with <b>Example Council</b>:
+        Get in touch with <strong>Example Council</strong>:
       </span>
     );
   });
@@ -40,7 +40,7 @@ describe('StationNotFound', () => {
 
     expect(wrapper).toContainReact(
       <span id="dc_get_in_touch">
-        Get in touch with <b>The Electoral Office for Northern Ireland</b>:
+        Get in touch with <strong>The Electoral Office for Northern Ireland</strong>:
       </span>
     );
   });

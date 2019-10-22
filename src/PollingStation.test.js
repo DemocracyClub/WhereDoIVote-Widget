@@ -36,7 +36,7 @@ describe('PollingStation', () => {
     const wrapper = shallow(<PollingStation station={pollingStation} notifications={[]} />);
 
     expect(wrapper).toContainReact(
-      <div>
+      <div className="address">
         123 Test Street
         <br />
         T3 5TS
