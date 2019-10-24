@@ -2,9 +2,9 @@ import React from 'react';
 
 function EmbedCard(props) {
   return (
-    <section className={props.className}>
+    <div className={props.className}>
       <div className="Card">{props.children}</div>
-    </section>
+    </div>
   );
 }
 
@@ -18,7 +18,12 @@ function ErrorMessage(props) {
 
 function StartAgainButton(props) {
   return (
-    <button aria-label="Start again" title="Start again" onClick={props.onClick}>
+    <button
+      className="dc-secondary"
+      aria-label="Start again"
+      title="Start again"
+      onClick={props.onClick}
+    >
       Back to postcode search
     </button>
   );
@@ -27,7 +32,7 @@ function StartAgainButton(props) {
 function Loader() {
   return (
     <div className="loading-spinner" role="alert" aria-live="assertive">
-      <p className="vh" aria-hidden="false">
+      <p className="screen-reader-text" aria-hidden="false">
         Loading
       </p>
     </div>

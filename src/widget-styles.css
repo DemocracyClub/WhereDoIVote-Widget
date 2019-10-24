@@ -1,5 +1,9 @@
+
+/*--------------------------------------------------------------
+# Core variables
+--------------------------------------------------------------*/
 :host,
-:root {
+:root { /* :host is for Shadow Dom, :root is for older browsers */
   --dc-primary-color: #e6007e;
   --dc-body-text-colour: #58595b;
   --dc-heading-text-colour: #403f41;
@@ -10,6 +14,7 @@
   --dc-darker-blue: #020202;
   --dc-form-grey: #0b0c0c;
   --dc-bright-pink: #ec008c;
+  --dc-error-red: #b10e1e;
   --dc-light-grey: #ddd;
   --dc-darker-grey: #6f777b;
   --dc-outline-focus: #ffbf47;
@@ -20,80 +25,120 @@
   --dc-global-radius: 0;
   --dc-sanserif-font: Avenir, sans-serif;
   --dc-serif-font: 'Adobe Caslon Pro', Cambria, Times, 'Times New Roman', serif;
+  --dc-font-size-heading: 1.3rem;
+  --dc-font-size-default: 1.2rem;
+  --dc-font-size-smaller: 0.85rem;
+  --dc-line-height-default: 1.2;
+  --dc-padding-default: 1rem;
+  --dc-border-width: 2px;
 }
 
-.DemocracyClubWidget {
-  /* Parent container */
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+.screen-reader-text { 
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+/*--------------------------------------------------------------
+# Container styles 
+--------------------------------------------------------------*/
+
+.DemocracyClubWidget { /* Parent container */
   position: relative;
-  font-size: 1rem;
+  font-size: var(--dc-font-size-default);
   color: var(--dc-body-text-colour);
   font-family: var(--dc-sanserif-font);
-}
-
-h2 {
-  margin-top: 0.5rem;
-  font-family: var(--dc-sanserif-font);
+  line-height: var(--dc-line-height-default);
+  padding: 4px; /* Prevent .Card box-shadow clipping in `overflow: hidden` containers */
 }
 
 .Card {
   border-radius: 0 3px;
   clear: both;
-  padding: 1rem;
   background: #fff;
   font-family: var(--dc-serif-font);
-  padding: 1rem 1rem 0.75rem 1rem;
+  padding: var(--dc-padding-default);
+  padding-bottom: 0.75rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
 }
 
-.ErrorMessage {
-  color: var(--dc-primary-color);
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+h2.dc_header,
+.DemocracyClubWidget .form-label-bold {
+  font-weight: bold;
   display: block;
-  border: 2px solid var(--dc-bright-pink);
-  font-size: 19px;
-  font-weight: normal;
-  line-height: 1.25;
-  margin-top: 2px;
-  margin-bottom: 4px;
-  padding: 1rem 2rem 1.0625rem 2rem;
-  text-transform: none;
+  margin: 0.5rem 0 1rem 0;
+  font-family: var(--dc-sanserif-font);
+  color: var(--dc-form-grey);
+  font-size: var(--dc-font-size-heading);
 }
 
-.AddressPicker div {
-  width: 100%;
-  clear: both;
+.DemocracyClubWidget a {
+  color: var(--dc-bright-pink);
+  text-decoration: none;
 }
 
-.Notification {
-  color: var(--dc-darker-grey);
-  display: block;
-  border: 2px solid var(--dc-bright-blue);
-  font-size: 19px;
-  font-weight: normal;
-  line-height: 1.25;
-  margin-top: 2px;
-  padding: 1rem 2rem 1.0625rem 2rem;
-  text-transform: none;
-}
-
-.DemocracyClubWidget .dc_logo img {
-  max-width: 120px;
-  vertical-align: middle;
-}
 .DemocracyClubWidget button.dc-primary,
-.DemocracyClubWidget a.dc-primary {
+.DemocracyClubWidget a.dc-primary,
+button.dc-secondary {
   font-family: var(--dc-sanserif-font);
   background-color: var(--dc-bright-blue);
   border: 0;
   padding: 0.4em 0.6em;
   margin: 0.5em 0;
-  font-size: 1em;
+  font-size: var(--dc-font-size-default);
   color: #fff;
   display: inline-block;
   border-bottom: 3px solid var(--dc-bright-blue-accent);
 }
+
+button.dc-secondary {
+  font-size: var(--dc-font-size-smaller);
+  background-color: var(--dc-darker-grey);
+  border-bottom: none;
+}
+
 .DemocracyClubWidget button.dc-primary:hover,
 .DemocracyClubWidget a.dc-primary:hover {
   background-color: var(--dc-bright-blue-hover);
+}
+
+button.dc-secondary:hover {
+  background-color: var(--dc-darker-blue);
 }
 .DemocracyClubWidget button.dc-primary:disabled,
 .DemocracyClubWidget a.dc-primary:disabled {
@@ -113,19 +158,39 @@ h2 {
 .DemocracyClubWidget .link-button:hover {
   background-color: #f9fdff;
 }
-.DemocracyClubWidget a {
-  color: var(--dc-bright-pink);
-  text-decoration: none;
+
+/*--------------------------------------------------------------
+# Error messages and notifications
+--------------------------------------------------------------*/
+
+.ErrorMessage,
+.Notification {
+  color: var(--dc-form-grey);
+  display: block;
+  font-size: var(--dc-font-size-smaller);
+  border: var(--dc-border-width) solid var(--dc-error-red);
+  margin-top: 2px;
+  margin-bottom: 4px;
+  padding: var(--dc-padding-default);
+  text-transform: none;
 }
+.Notification {
+  border-color: var(--dc-bright-blue);
+}
+
+/*--------------------------------------------------------------
+# Form styles
+--------------------------------------------------------------*/
+
 .form_group {
   width: 100%;
   clear: both;
 }
 .DemocracyClubWidget .form-control {
-  font-size: 19px;
-  line-height: 1.31;
+  font-size: var(--dc-font-size-default);
+  line-height: var(--dc-line-height-default);
   border: 2px solid var(--dc-form-grey);
-  padding: 5px 4px 4px;
+  padding: 0.314em 0.25em 0.25em;
 }
 .DemocracyClubWidget form > .form-group + .form-group {
   margin-top: 1.5em;
@@ -137,43 +202,53 @@ h2 {
   box-sizing: content-box;
 }
 
-.primary:focus,
+.dc-primary:focus,
 .DemocracyClubWidget input:focus,
 .DemocracyClubWidget select:focus {
-  outline: 3px solid var(--dc-outline-focus);
+  outline: 0.156em solid var(--dc-outline-focus);
 }
 
 .DemocracyClubWidget [role='button'],
 .DemocracyClubWidget button,
 .DemocracyClubWidget label,
-.primary {
+.dc-primary {
   cursor: pointer;
 }
-.DemocracyClubWidget .form-label-bold {
-  color: var(--dc-form-grey);
-  display: block;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.3157894737;
-  padding-bottom: 2px;
-}
-.DemocracyClubWidget .form-hint {
-  color: var(--dc-darker-grey);
-  display: block;
-  font-size: 19px;
-  font-weight: normal;
-  line-height: 1.25;
-  margin-top: 2px;
-  padding-bottom: 2px;
-  text-transform: none;
-}
-.democracy_club_select_multirow {
-  height: auto !important;
-}
+
+/*--------------------------------------------------------------
+# Polling Station
+--------------------------------------------------------------*/
 
 .PollingStation .address {
   font-family: var(--dc-serif-font);
 }
+
+#directions {
+  margin-top: var(--dc-padding-default);
+}
+
+/*--------------------------------------------------------------
+# Address finder
+--------------------------------------------------------------*/
+
+.AddressPicker select {
+  font-size: var(--dc-font-size-default);
+}
+
+.AddressPicker option {
+  font-family: var(--dc-serif-font);
+  color: var(--dc-body-text-colour);
+}
+
+
+
+.democracy_club_select_multirow {
+  height: auto !important;
+}
+
+/*--------------------------------------------------------------
+# Footer styles
+--------------------------------------------------------------*/
 
 footer {
   font-family: var(--dc-sanserif-font);
@@ -197,8 +272,12 @@ footer a {
 }
 .DCLogo {
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--dc-font-size-smaller);
 }
+
+/*--------------------------------------------------------------
+# Loading spinner
+--------------------------------------------------------------*/
 
 @keyframes spinner {
   0% {
@@ -231,8 +310,4 @@ footer a {
   transform-origin: center;
   width: 40px;
   will-change: transform;
-}
-
-.vh {
-  display: none;
 }

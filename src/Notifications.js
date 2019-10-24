@@ -12,7 +12,7 @@ function Notifications(props) {
 
 function Notification(props) {
   return (
-    <div className="Notification" data-testid="notification" role="alert">
+    <article className="Notification" data-testid="notification" role="alert">
       <span role="img">ℹ</span> {props.title}{' '}
       {props.url && (
         <a target="_blank" rel="noopener noreferrer" href={props.url}>
@@ -20,7 +20,7 @@ function Notification(props) {
         </a>
       )}
       {props.detail && <p>{props.detail}</p>}
-    </div>
+    </article>
   );
 }
 
