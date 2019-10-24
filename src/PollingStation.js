@@ -12,7 +12,6 @@ function PollingStation(props) {
   });
   return (
     <section className="PollingStation">
-      
       <h2 className="dc-header">Your polling station</h2>
       <div className="address">{splitAddress.slice(0, splitAddress.length - 1)}</div>
       {props.station.coordinates && (

@@ -105,7 +105,6 @@ function DemocracyClubWidget() {
     <ShadowDomFactory>
       <style type="text/css">{styles}</style>
       <EmbedCard className="DemocracyClubWidget">
-        
         {!searchInitiated && (
           <PostcodeSelector
             lookupGivenPostcode={lookupGivenPostcode}
