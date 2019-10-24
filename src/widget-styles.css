@@ -145,6 +145,7 @@ h2.dc-header,
 .dc-btn-seconday:hover,
 a.dc-btn-seconday:hover {
   background-color: var(--dc-darker-blue);
+  text-decoration: none;
 }
 .DemocracyClubWidget button.dc-btn-primary:disabled,
 .DemocracyClubWidget a.dc-btn-primary:disabled {
