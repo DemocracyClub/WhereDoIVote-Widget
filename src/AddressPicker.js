@@ -39,7 +39,7 @@ class AddressPicker extends React.Component {
           onChange={this.setAddress}
           data-testid="address-select"
           aria-describedby="address_picker"
-          className="democracy_club_select_multirow"
+          className="dc-select-multirow"
           id="id_address"
           name="address"
           size="5"
@@ -53,7 +53,7 @@ class AddressPicker extends React.Component {
         <button
           {...inputProps}
           type="submit"
-          className="button dc-primary"
+          className="button dc-btn-primary"
           data-testid="address-button"
           onClick={this.handleSubmit}
         >

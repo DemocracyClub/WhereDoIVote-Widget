@@ -19,7 +19,7 @@ function ErrorMessage(props) {
 function StartAgainButton(props) {
   return (
     <button
-      className="dc-secondary"
+      className="dc-btn-seconday"
       aria-label="Start again"
       title="Start again"
       onClick={props.onClick}

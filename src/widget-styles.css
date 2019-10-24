@@ -4,7 +4,7 @@
 --------------------------------------------------------------*/
 :host,
 :root { /* :host is for Shadow Dom, :root is for older browsers */
-  --dc-primary-color: #e6007e;
+  --dc-btn-primary-color: #e6007e;
   --dc-body-text-colour: #58595b;
   --dc-heading-text-colour: #403f41;
   --dc-off-black: #403f41;
@@ -23,13 +23,13 @@
   --dc-menu-background-hover: #e6007e;
   --dc-menu-text-hover: white;
   --dc-global-radius: 0;
-  --dc-sanserif-font: Avenir, sans-serif;
+  --dc-sanserif-font: 'Avenir', sans-serif;
   --dc-serif-font: 'Adobe Caslon Pro', Cambria, Times, 'Times New Roman', serif;
   --dc-font-size-heading: 1.3rem;
   --dc-font-size-default: 1.2rem;
   --dc-font-size-smaller: 0.85rem;
   --dc-line-height-default: 1.2;
-  --dc-padding-default: 1rem;
+  --dc-spacing-default: 1rem;
   --dc-border-width: 2px;
 }
 
@@ -88,7 +88,7 @@
   clear: both;
   background: #fff;
   font-family: var(--dc-serif-font);
-  padding: var(--dc-padding-default);
+  padding: var(--dc-spacing-default);
   padding-bottom: 0.75rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
 }
@@ -97,7 +97,7 @@
 # Typography
 --------------------------------------------------------------*/
 
-h2.dc_header,
+h2.dc-header,
 .DemocracyClubWidget .form-label-bold {
   font-weight: bold;
   display: block;
@@ -112,9 +112,13 @@ h2.dc_header,
   text-decoration: none;
 }
 
-.DemocracyClubWidget button.dc-primary,
-.DemocracyClubWidget a.dc-primary,
-button.dc-secondary {
+.DemocracyClubWidget a:hover {
+  text-decoration: underline;
+}
+
+.DemocracyClubWidget button.dc-btn-primary,
+.DemocracyClubWidget a.dc-btn-primary,
+.dc-btn-seconday {
   font-family: var(--dc-sanserif-font);
   background-color: var(--dc-bright-blue);
   border: 0;
@@ -126,22 +130,24 @@ button.dc-secondary {
   border-bottom: 3px solid var(--dc-bright-blue-accent);
 }
 
-button.dc-secondary {
+.dc-btn-seconday, a.dc-btn-seconday {
+  color: white;
   font-size: var(--dc-font-size-smaller);
   background-color: var(--dc-darker-grey);
   border-bottom: none;
 }
 
-.DemocracyClubWidget button.dc-primary:hover,
-.DemocracyClubWidget a.dc-primary:hover {
+.DemocracyClubWidget button.dc-btn-primary:hover,
+.DemocracyClubWidget a.dc-btn-primary:hover {
   background-color: var(--dc-bright-blue-hover);
 }
 
-button.dc-secondary:hover {
+.dc-btn-seconday:hover,
+a.dc-btn-seconday:hover {
   background-color: var(--dc-darker-blue);
 }
-.DemocracyClubWidget button.dc-primary:disabled,
-.DemocracyClubWidget a.dc-primary:disabled {
+.DemocracyClubWidget button.dc-btn-primary:disabled,
+.DemocracyClubWidget a.dc-btn-primary:disabled {
   background-color: var(--dc-light-grey);
   border-bottom: 3px solid var(--dc-darker-grey);
 }
@@ -167,15 +173,35 @@ button.dc-secondary:hover {
 .Notification {
   color: var(--dc-form-grey);
   display: block;
-  font-size: var(--dc-font-size-smaller);
+  font-size: var(--dc-font-size-default);
   border: var(--dc-border-width) solid var(--dc-error-red);
   margin-top: 2px;
   margin-bottom: 4px;
-  padding: var(--dc-padding-default);
+  padding: var(--dc-spacing-default);
+  font-family: var(--dc-sanserif-font);
   text-transform: none;
 }
 .Notification {
   border-color: var(--dc-bright-blue);
+  margin-bottom: var(--dc-spacing-default)
+}
+
+.dc-notification-title {
+  display: inline;
+  font-size: var(--dc-font-size-default);
+  font-weight: normal;
+  margin: 0;
+}
+
+.Notification p,
+.ErrorMessage p {
+  margin: 0.5rem 0;
+  font-size: var(--dc-font-size-smaller);
+  font-family: var(--dc-serif-font);
+}
+
+.Notification a {
+  margin: 0;
 }
 
 /*--------------------------------------------------------------
@@ -202,7 +228,7 @@ button.dc-secondary:hover {
   box-sizing: content-box;
 }
 
-.dc-primary:focus,
+.dc-btn-primary:focus,
 .DemocracyClubWidget input:focus,
 .DemocracyClubWidget select:focus {
   outline: 0.156em solid var(--dc-outline-focus);
@@ -211,7 +237,7 @@ button.dc-secondary:hover {
 .DemocracyClubWidget [role='button'],
 .DemocracyClubWidget button,
 .DemocracyClubWidget label,
-.dc-primary {
+.dc-btn-primary {
   cursor: pointer;
 }
 
@@ -223,8 +249,8 @@ button.dc-secondary:hover {
   font-family: var(--dc-serif-font);
 }
 
-#directions {
-  margin-top: var(--dc-padding-default);
+.directions {
+  margin-top: var(--dc-spacing-default);
 }
 
 /*--------------------------------------------------------------
@@ -242,7 +268,7 @@ button.dc-secondary:hover {
 
 
 
-.democracy_club_select_multirow {
+.dc-select-multirow {
   height: auto !important;
 }
 

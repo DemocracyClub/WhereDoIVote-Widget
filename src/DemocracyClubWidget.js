@@ -127,7 +127,7 @@ function DemocracyClubWidget() {
             electoral_services={electoralServices}
           />
         )}
-        {searchInitiated && <StartAgainButton onClick={resetWidget} />}
+        {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <BuiltByDC />
       </EmbedCard>
     </ShadowDomFactory>
