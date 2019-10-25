@@ -105,6 +105,7 @@ function DemocracyClubWidget() {
     <ShadowDomFactory>
       <style type="text/css">{styles}</style>
       <EmbedCard className="DemocracyClubWidget">
+        {currentError && <ErrorMessage currentError={currentError} />}
         {!searchInitiated && (
           <PostcodeSelector
             lookupGivenPostcode={lookupGivenPostcode}
@@ -126,7 +127,7 @@ function DemocracyClubWidget() {
             electoral_services={electoralServices}
           />
         )}
-        {currentError && <ErrorMessage currentError={currentError} />}
+
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <BuiltByDC />
       </EmbedCard>
