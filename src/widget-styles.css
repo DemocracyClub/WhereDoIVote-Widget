@@ -188,6 +188,10 @@ a.dc-btn-seconday:hover {
   margin-bottom: var(--dc-spacing-default)
 }
 
+.Notification span[role=img] {
+  margin: 0 0.5rem 0 auto;
+}
+
 .dc-notification-title {
   display: inline;
   font-size: var(--dc-font-size-default);
@@ -217,7 +221,7 @@ a.dc-btn-seconday:hover {
 .DemocracyClubWidget .form-control {
   font-size: var(--dc-font-size-default);
   line-height: var(--dc-line-height-default);
-  border: var(--dc-border-) solid var(--dc-text-grey);
+  border: var(--dc-border-width) solid var(--dc-text-grey);
   padding: 0.314em 0.25em 0.25em;
 }
 .DemocracyClubWidget form > .form-group + .form-group {
@@ -259,6 +263,10 @@ a.dc-btn-seconday:hover {
 # Address finder
 --------------------------------------------------------------*/
 
+.AddressPicker button.dc-btn-primary {
+  display: block;
+}
+
 .AddressPicker select {
   font-size: var(--dc-font-size-default);
 }
@@ -272,6 +280,7 @@ a.dc-btn-seconday:hover {
 
 .dc-select-multirow {
   height: auto !important;
+  max-width: 100%;
 }
 
 /*--------------------------------------------------------------
