@@ -8,12 +8,7 @@ function Directions(props) {
     gmaps_link = <GoogleMaps destination={props.destination} />;
   }
 
-  return (
-    <div id="directions">
-      <br />
-      {gmaps_link}
-    </div>
-  );
+  return <div className="directions">{gmaps_link}</div>;
 }
 
 function GoogleMaps(props) {
@@ -29,6 +24,7 @@ function GoogleDirections(props) {
     <a
       href={'https://maps.google.com/maps/dir/' + props.origin + '/' + props.destination}
       target="_top"
+      className="dc-btn-primary"
     >
       Show me directions
     </a>

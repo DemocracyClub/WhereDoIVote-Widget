@@ -92,7 +92,7 @@ describe('WhereDoIVote Widget', () => {
       typePostcode(enteredPostcode);
       submitPostcode();
       const notificationContainer = await waitForElement(() =>
-        container.querySelector('.PollingStation div[role=alert]')
+        container.querySelector('.PollingStation article[role=alert]')
       );
       expect(notificationContainer).toHaveTextContent(
         'You need to show ID to vote at this election'

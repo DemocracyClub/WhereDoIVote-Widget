@@ -12,15 +12,16 @@ function Notifications(props) {
 
 function Notification(props) {
   return (
-    <div className="Notification" data-testid="notification" role="alert">
-      <span role="img">ℹ</span> {props.title}{' '}
+    <article className="Notification" data-testid="notification" role="alert">
+      <span role="img">ℹ</span>
+      <h3 className="dc-notification-title">{props.title}</h3>
+      {props.detail && <p>{props.detail}</p>}
       {props.url && (
-        <a target="_blank" rel="noopener noreferrer" href={props.url}>
+        <a className="dc-btn-seconday" target="_blank" rel="noopener noreferrer" href={props.url}>
           Read More
         </a>
       )}
-      {props.detail && <p>{props.detail}</p>}
-    </div>
+    </article>
   );
 }
 

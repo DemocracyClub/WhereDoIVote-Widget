@@ -5,5 +5,11 @@ import 'proxy-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DemocracyClubWidget from './DemocracyClubWidget';
+import cssVars from 'css-vars-ponyfill';
+
+cssVars({
+  include: 'style',
+  exclude: 'link',
+});
 
 ReactDOM.render(<DemocracyClubWidget />, document.getElementById('dc_wdiv'));

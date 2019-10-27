@@ -18,18 +18,12 @@ describe('StationNotFound', () => {
     },
   ];
 
-  it('always renders header', () => {
-    const wrapper = mount(<StationNotFound />);
-
-    expect(wrapper).toContainReact(<h2 id="dc_header">{"We couldn't find your station"}</h2>);
-  });
-
   it('should present council to get in touch with', () => {
     const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
 
     expect(wrapper).toContainReact(
       <span id="dc_get_in_touch">
-        Get in touch with <b>Example Council</b>:
+        Get in touch with <strong>Example Council</strong>:
       </span>
     );
   });
@@ -40,7 +34,7 @@ describe('StationNotFound', () => {
 
     expect(wrapper).toContainReact(
       <span id="dc_get_in_touch">
-        Get in touch with <b>The Electoral Office for Northern Ireland</b>:
+        Get in touch with <strong>The Electoral Office for Northern Ireland</strong>:
       </span>
     );
   });
