@@ -4,7 +4,6 @@ replicating various edge cases cases we need to handle:
 ## Voter ID pilots:
 - DE13GB
 - NG95EH
-- WD991AJ
 
 ## Uncontested elections:
 - SS30AA
@@ -12,7 +11,7 @@ replicating various edge cases cases we need to handle:
 
 ## Address pickers:
 - different polling stations but everything is in the same ward:
-    - NG92AB
+    - NG95EH
        - 1 SCHOOL LANE, BEESTON, NOTTINGHAM
        - 50 SCHOOL LANE, BEESTON, NOTTINGHAM
 
