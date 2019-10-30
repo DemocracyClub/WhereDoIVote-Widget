@@ -8,7 +8,7 @@ function Directions(props) {
     gmaps_link = <GoogleMaps destination={props.destination} />;
   }
 
-  return <div className="directions">{gmaps_link}</div>;
+  return <section className="directions">{gmaps_link}</section>;
 }
 
 function GoogleMaps(props) {

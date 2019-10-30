@@ -104,7 +104,7 @@ function DemocracyClubWidget() {
   return (
     <ShadowDomFactory>
       <style type="text/css">{styles}</style>
-      <main className="DemocracyClubWidget Card">
+      <section className="DemocracyClubWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
         {!searchInitiated && (
           <PostcodeSelector
@@ -130,7 +130,7 @@ function DemocracyClubWidget() {
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <BuiltByDC />
-      </main>
+      </section>
     </ShadowDomFactory>
   );
 }

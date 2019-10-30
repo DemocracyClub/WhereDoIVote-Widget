@@ -11,7 +11,7 @@ function PollingStation(props) {
     splitAddress.push(<br key={index} />);
   });
   return (
-    <section className="PollingStation">
+    <article className="PollingStation">
       <h1 className="dc-header">Your polling station</h1>
       <div className="address">{splitAddress.slice(0, splitAddress.length - 1)}</div>
       {props.station.coordinates && (
@@ -21,7 +21,7 @@ function PollingStation(props) {
         />
       )}
       <Notifications list={props.notifications} />
-    </section>
+    </article>
   );
 }
 
