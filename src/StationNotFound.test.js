@@ -52,7 +52,10 @@ describe('StationNotFound', () => {
 
       expect(wrapper).toContainReact(
         <li>
-          Website - <a href="example.com">example.com</a>
+          Website -{' '}
+          <a href="example.com" title="Visit example.com's website">
+            example.com
+          </a>
         </li>
       );
     });
@@ -68,7 +71,10 @@ describe('StationNotFound', () => {
 
       expect(wrapper).toContainReact(
         <li>
-          Email - <a href="mailto:test@example.com">test@example.com</a>
+          Email -{' '}
+          <a href="mailto:test@example.com" title="Send example.com' an email">
+            test@example.com
+          </a>
         </li>
       );
     });

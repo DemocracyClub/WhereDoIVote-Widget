@@ -14,11 +14,17 @@ function ElectoralServices(props) {
       </span>
       <ul>
         <li>
-          Website - <a href={props.es.website}>{props.es.website}</a>
+          Website -{' '}
+          <a href={props.es.website} title={`Visit ${props.es.website}'s website`}>
+            {props.es.website}
+          </a>
         </li>
         <li>Phone - {props.es.phone}</li>
         <li>
-          Email - <a href={'mailto:' + props.es.email}>{props.es.email}</a>
+          Email -{' '}
+          <a href={'mailto:' + props.es.email} title={`Send ${props.es.website}' an email`}>
+            {props.es.email}
+          </a>
         </li>
       </ul>
     </>

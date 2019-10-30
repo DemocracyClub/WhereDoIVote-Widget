@@ -29,7 +29,7 @@ function GoogleDirections(props) {
       href={'https://maps.google.com/maps/dir/' + props.origin + '/' + props.destination}
       target="_top"
       className="dc-btn-primary"
-      title="Directions on Google Maps"
+      title="View directions to polling station from your postcode on Google Maps"
     >
       Show me directions
     </a>

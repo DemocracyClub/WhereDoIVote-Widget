@@ -13,11 +13,19 @@ function Notifications(props) {
 function Notification(props) {
   return (
     <article className="Notification" data-testid="notification">
-      <span role="img">ℹ</span>
+      <span role="img" alt="information">
+        ℹ
+      </span>
       <h3 className="dc-notification-title">{props.title}</h3>
       {props.detail && <p>{props.detail}</p>}
       {props.url && (
-        <a className="dc-btn-seconday" target="_blank" rel="noopener noreferrer" href={props.url}>
+        <a
+          className="dc-btn-seconday"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Read more information on the relevant authority's website"
+          href={props.url}
+        >
           Read More
         </a>
       )}
