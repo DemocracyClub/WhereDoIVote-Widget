@@ -12,7 +12,7 @@ function Notifications(props) {
 
 function Notification(props) {
   return (
-    <article className="Notification" data-testid="notification" role="alert">
+    <article className="Notification" data-testid="notification">
       <span role="img">ℹ</span>
       <h3 className="dc-notification-title">{props.title}</h3>
       {props.detail && <p>{props.detail}</p>}

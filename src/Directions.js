@@ -13,7 +13,11 @@ function Directions(props) {
 
 function GoogleMaps(props) {
   return (
-    <a href={'https://maps.google.com/maps?q=' + props.destination} target="_top">
+    <a
+      href={'https://maps.google.com/maps?q=' + props.destination}
+      target="_top"
+      title="View polling station on Google Maps"
+    >
       Show me on Google Maps
     </a>
   );
@@ -25,6 +29,7 @@ function GoogleDirections(props) {
       href={'https://maps.google.com/maps/dir/' + props.origin + '/' + props.destination}
       target="_top"
       className="dc-btn-primary"
+      title="Directions on Google Maps"
     >
       Show me directions
     </a>

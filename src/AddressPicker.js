@@ -30,26 +30,32 @@ class AddressPicker extends React.Component {
   }
 
   render() {
-    const inputProps = { disabled: this.state.address === undefined };
+    const isButtonDisabled = this.state.address === undefined;
+    const inputProps = { disabled: isButtonDisabled, 'aria-disabled': isButtonDisabled };
     return (
       <form className="AddressPicker" data-testid="address-selector">
-        <label className="form-label-bold">Choose your address</label>
-        <select
-          value={this.state.value}
-          onChange={this.setAddress}
-          data-testid="address-select"
-          aria-describedby="address_picker"
-          className="dc-select-multirow"
-          id="id_address"
-          name="address"
-          size="5"
-        >
-          {this.props.addressList.map(this.addressOption)}
-          <option key={this.props.addressList.length} value="not-in-list">
-            My address is not in the list
-          </option>
-        </select>
-
+        <div className="form-group">
+          <h1>
+            <label id="choose-address" className="form-label-bold" htmlFor="id_address">
+              Choose your address
+            </label>
+          </h1>
+          <select
+            aria-labelledby="id_address"
+            value={this.state.value}
+            onChange={this.setAddress}
+            data-testid="address-select"
+            className="dc-select-multirow"
+            id="id_address"
+            name="address"
+            size="5"
+          >
+            {this.props.addressList.map(this.addressOption)}
+            <option key={this.props.addressList.length} value="not-in-list">
+              My address is not in the list
+            </option>
+          </select>
+        </div>
         <button
           {...inputProps}
           type="submit"
