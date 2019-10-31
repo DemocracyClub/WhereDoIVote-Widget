@@ -15,7 +15,7 @@ function ElectoralServices(props) {
       <ul>
         <li>
           Website -{' '}
-          <a href={props.es.website} title={`Visit ${props.es.website}'s website`}>
+          <a href={props.es.website} title={`Visit ${props.es.name}'s website`}>
             {props.es.website}
           </a>
         </li>
