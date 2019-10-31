@@ -5,7 +5,7 @@ import 'jest-enzyme';
 import StationNotFound from './StationNotFound';
 import { Notifications, Notification } from './Notifications';
 
-const electoral_services = { council_id: 'test', name: 'Example Council' };
+const electoral_services = { council_id: 'test', name: 'Example council' };
 configure({ adapter: new Adapter() });
 
 describe('StationNotFound', () => {
@@ -23,7 +23,7 @@ describe('StationNotFound', () => {
 
     expect(wrapper).toContainReact(
       <span id="dc_get_in_touch">
-        Get in touch with <strong>Example Council</strong>:
+        Get in touch with <strong>Example council</strong>:
       </span>
     );
   });
@@ -42,6 +42,7 @@ describe('StationNotFound', () => {
   describe('should present contact details', () => {
     const electoral_services = {
       council_id: 'N09000000',
+      name: "Example council",
       website: 'example.com',
       phone: '118 118',
       email: 'test@example.com',
@@ -53,7 +54,7 @@ describe('StationNotFound', () => {
       expect(wrapper).toContainReact(
         <li>
           Website -{' '}
-          <a href="example.com" title="Visit example.com's website">
+          <a href="example.com" title="Visit Example council's website">
             example.com
           </a>
         </li>
@@ -72,7 +73,7 @@ describe('StationNotFound', () => {
       expect(wrapper).toContainReact(
         <li>
           Email -{' '}
-          <a href="mailto:test@example.com" title="Send example.com' an email">
+          <a href="mailto:test@example.com" title="Send Example council an email">
             test@example.com
           </a>
         </li>

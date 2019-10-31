@@ -22,7 +22,7 @@ function ElectoralServices(props) {
         <li>Phone - {props.es.phone}</li>
         <li>
           Email -{' '}
-          <a href={'mailto:' + props.es.email} title={`Send ${props.es.name}' an email`}>
+          <a href={'mailto:' + props.es.email} title={`Send ${props.es.name} an email`}>
             {props.es.email}
           </a>
         </li>
