@@ -23,7 +23,7 @@ function Notification(props) {
           className="dc-btn-seconday"
           target="_blank"
           rel="noopener noreferrer"
-          title="Read more information on the relevant authority's website"
+          title="Read more information about this {props.title}"
           href={props.url}
         >
           Read More
