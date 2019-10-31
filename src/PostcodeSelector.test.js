@@ -3,7 +3,6 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import PostcodeSelector, { isPostcodeValid } from './PostcodeSelector';
-import { childAttributeChecker } from './test-utils/test';
 
 configure({ adapter: new Adapter() });
 
@@ -25,11 +24,9 @@ describe('isPostcodeValid', () => {
 
 describe('PostcodeSelector', function() {
   let postcodeSelectorComponent;
-  let postCodeSelectorContains;
 
   beforeEach(() => {
     postcodeSelectorComponent = shallow(<PostcodeSelector />);
-    postCodeSelectorContains = childAttributeChecker(postcodeSelectorComponent);
   });
 
   it('should be selectable by class "PostcodeSelector"', function() {
