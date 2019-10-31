@@ -42,8 +42,8 @@ describe('StationNotFound', () => {
   describe('should present contact details', () => {
     const electoral_services = {
       council_id: 'N09000000',
-      name: "Example council",
       website: 'example.com',
+      name: 'Example council',
       phone: '118 118',
       email: 'test@example.com',
     };
