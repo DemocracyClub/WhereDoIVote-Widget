@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import translations from './translations/en';
+import { FormattedMessage } from 'react-intl';
 
 function isPostcodeValid(postcode) {
   if (typeof postcode !== 'string') {
@@ -27,7 +27,9 @@ function PostcodeSelector(props) {
       props.lookupGivenPostcode(postcode);
     } else {
       setFormValue('');
-      props.setCurrentError(translations['postcode.errors.invalid-postcode']);
+      props.setCurrentError(
+        <FormattedMessage id="postcode.errors.invalid-postcode" description="Bad postcode" />
+      );
       props.setSearchInitiated(false);
     }
   }
@@ -36,7 +38,7 @@ function PostcodeSelector(props) {
     <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
       <div className="form-group">
         <label className="form-label-bold" htmlFor="postcode">
-          Enter your postcode
+          <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
         </label>
         <input
           value={formValue}
@@ -48,7 +50,7 @@ function PostcodeSelector(props) {
         />
       </div>
       <button className="dc-btn-primary" type="submit">
-        Find your polling station
+        <FormattedMessage id="postcode.submit-postcode" description="Find your polling station" />
       </button>
     </form>
   );

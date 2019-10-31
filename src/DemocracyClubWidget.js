@@ -5,18 +5,18 @@ import { EmbedCard, StartAgainButton, ErrorMessage, BuiltByDC, Loader } from './
 import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
-
+import Footer from './Footer';
 import ShadowDomFactory from './ShadowDomFactory';
-
+import translations from './translations/en.json';
+import { FormattedMessage } from 'react-intl';
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
-
-import translations from './translations/en';
+import withTranslations from './withTranslations';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
-function DemocracyClubWidget() {
+function DemocracyClubWidget(props) {
   const api = APIClientFactory();
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -43,7 +43,9 @@ function DemocracyClubWidget() {
     setSearchInitiated(false);
     if (data.response !== undefined) {
       if (data.response.status === 400) {
-        setCurrentError(translations['api.errors.bad-postcode']);
+        setCurrentError(
+          <FormattedMessage id="api.errors.bad-postcode" description="Bad postcode" />
+        );
       } else {
         setCurrentError(translations['api.errors.voting-location-unknown']);
       }
@@ -129,10 +131,11 @@ function DemocracyClubWidget() {
         )}
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
-        <BuiltByDC />
+
+        <Footer setLanguage={props.setLanguage} locale={props.locale} />
       </EmbedCard>
     </ShadowDomFactory>
   );
 }
 
-export default DemocracyClubWidget;
+export default withTranslations(DemocracyClubWidget);

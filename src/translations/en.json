@@ -1,6 +1,10 @@
 {
-    "api.errors.bad-postcode": "Sorry. We couldn't find that postcode. We don't know where you should vote.",
-    "api.errors.voting-location-unknown": "We don't know where you should vote.",
-    "api.errors.generic-error": "Something went wrong. Please try again later.",
-    "postcode.errors.invalid-postcode": "Please enter a valid postcode."
+  "general.built-by": "Built by",
+  "postcode.enter-postcode": "Enter your postcode",
+  "postcode.submit-postcode": "Find your polling station",
+  "polling-station.your-polling-station": "Your polling station",
+  "api.errors.bad-postcode": "Sorry. We couldn't find that postcode. We don't know where you should vote.",
+  "api.errors.voting-location-unknown": "We don't know where you should vote.",
+  "api.errors.generic-error": "Something went wrong. Please try again later.",
+  "postcode.errors.invalid-postcode": "Please enter a valid postcode."
 }

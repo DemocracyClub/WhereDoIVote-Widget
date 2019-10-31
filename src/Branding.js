@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 function EmbedCard(props) {
   return (
@@ -41,17 +42,17 @@ function Loader() {
 
 function BuiltByDC() {
   return (
-    <footer>
+    <>
       <a
         href="https://democracyclub.org.uk/"
         title="Democracy Club"
         target="_top"
         className="DCLogo"
       >
-        Built by{' '}
+        <FormattedMessage id="general.built-by" description="Built by" />
         <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png" />
       </a>
-    </footer>
+    </>
   );
 }
 
