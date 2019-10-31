@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { EmbedCard, StartAgainButton, ErrorMessage, BuiltByDC, Loader } from './Branding';
+import { EmbedCard, StartAgainButton, ErrorMessage, Loader } from './Branding';
 
 import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
