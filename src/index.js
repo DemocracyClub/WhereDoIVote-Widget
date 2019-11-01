@@ -7,6 +7,11 @@ import ReactDOM from 'react-dom';
 import DemocracyClubWidget from './DemocracyClubWidget';
 import cssVars from 'css-vars-ponyfill';
 
+if (process.env.NODE_ENV !== 'production') {
+  var axe = require('react-axe');
+  axe(React, ReactDOM, 1000);
+}
+
 cssVars({
   include: 'style',
   exclude: 'link',
