@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { EmbedCard, StartAgainButton, ErrorMessage, Loader } from './Branding';
+import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
 import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
@@ -132,7 +132,7 @@ function DemocracyClubWidget(props) {
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <Footer setLanguage={props.setLanguage} locale={props.locale} />
-      </EmbedCard>
+      </section>
     </ShadowDomFactory>
   );
 }
