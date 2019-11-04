@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Notifications } from './Notifications';
 import { Directions } from './Directions';
+import translations from './translations/en';
 
 function PollingStation(props) {
   let splitAddress = [];
@@ -12,7 +13,7 @@ function PollingStation(props) {
   });
   return (
     <article className="PollingStation">
-      <h1 className="dc-header">Your polling station</h1>
+      <h1 className="dc-header">{translations['station.your-station']}</h1>
       <div className="address">{splitAddress.slice(0, splitAddress.length - 1)}</div>
       {props.station.coordinates && (
         <Directions

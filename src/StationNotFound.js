@@ -5,7 +5,7 @@ import ElectoralServices from './ElectoralServices';
 function StationNotFound(props) {
   return (
     <>
-      <h1 className="dc-header">We couldn&#39;t find your station</h1>
+      <h1 className="dc-header">Station not found</h1>
       {props.electoral_services && <ElectoralServices es={props.electoral_services} />}
       <Notifications list={props.notifications} />
     </>

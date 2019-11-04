@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 function ErrorMessage(props) {
   return (
@@ -9,43 +9,54 @@ function ErrorMessage(props) {
   );
 }
 
-function StartAgainButton(props) {
+function StartAgainButtonTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
     <button
       className="dc-btn-seconday"
-      aria-label="Start again"
-      title="Start again"
+      aria-label={formatMessage({ id: 'general.start-again' })}
+      title={formatMessage({ id: 'general.start-again' })}
       onClick={props.onClick}
     >
-      Back to postcode search
+      {formatMessage({ id: 'postcode.back-to-search' })}
     </button>
   );
 }
 
-function Loader() {
+const StartAgainButton = injectIntl(StartAgainButtonTemplate);
+
+function LoaderTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
     <div className="loading-spinner" role="alert" aria-live="assertive">
       <p className="screen-reader-text" aria-hidden="false">
-        Loading
+        {formatMessage({ id: 'general.loading' })}
       </p>
     </div>
   );
 }
 
-function BuiltByDC() {
+const Loader = injectIntl(LoaderTemplate);
+
+function BuiltByDCTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
     <>
       <a
         href="https://democracyclub.org.uk/"
-        title="Democracy Club"
+        title={formatMessage({ id: 'general.start-again' })}
         target="_top"
         className="DCLogo"
       >
-        <FormattedMessage id="general.built-by" description="Built by" />
-        <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png" />
+        {formatMessage({ id: 'general.built-by' })}
+        <img
+          alt={formatMessage({ id: 'general.dc-club' })}
+          src="https://widget.wheredoivote.co.uk/logo-with-text.png"
+        />
       </a>
     </>
   );
 }
+const BuiltByDC = injectIntl(BuiltByDCTemplate);
 
 export { StartAgainButton, BuiltByDC, ErrorMessage, Loader };
