@@ -29,7 +29,7 @@ describe('PollingStation', () => {
   it('always renders header', () => {
     const wrapper = shallow(<PollingStation station={pollingStation} notifications={[]} />);
 
-    expect(wrapper).toContainReact(<h2 className="dc-header">Your polling station</h2>);
+    expect(wrapper).toContainReact(<h1 className="dc-header">Your polling station</h1>);
   });
 
   it('renders address', () => {

@@ -106,7 +106,7 @@ function DemocracyClubWidget(props) {
   return (
     <ShadowDomFactory>
       <style type="text/css">{styles}</style>
-      <EmbedCard className="DemocracyClubWidget">
+      <section className="DemocracyClubWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
         {!searchInitiated && (
           <PostcodeSelector
@@ -131,7 +131,6 @@ function DemocracyClubWidget(props) {
         )}
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
-
         <Footer setLanguage={props.setLanguage} locale={props.locale} />
       </EmbedCard>
     </ShadowDomFactory>

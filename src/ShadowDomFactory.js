@@ -11,11 +11,7 @@ function ShadowDomFactory(props) {
 
   return (
     <>
-      {shouldUseShadowDom() ? (
-        <root.main> {props.children} </root.main>
-      ) : (
-        <div>{props.children}</div>
-      )}
+      {shouldUseShadowDom() ? <root.div> {props.children} </root.div> : <div>{props.children}</div>}
     </>
   );
 }
