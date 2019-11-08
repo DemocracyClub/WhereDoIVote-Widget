@@ -34,6 +34,7 @@ function GoogleDirectionsTemplate(props) {
       href={'https://maps.google.com/maps/dir/' + props.origin + '/' + props.destination}
       target="_top"
       className="dc-btn-primary"
+      data-testid="google-directions"
       title={formatMessage({ id: 'directions.show-google-directions-title' })}
     >
       <FormattedMessage id="directions.show-google-directions" description="Show me directions" />

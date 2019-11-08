@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { FormattedMessage } from 'react-intl';
 import { Notifications } from './Notifications';
 import { Directions } from './Directions';
-import translations from './translations/en';
 
 function PollingStation(props) {
   let splitAddress = [];
@@ -13,8 +13,12 @@ function PollingStation(props) {
   });
   return (
     <article className="PollingStation">
-      <h1 className="dc-header">{translations['station.your-station']}</h1>
-      <div className="address">{splitAddress.slice(0, splitAddress.length - 1)}</div>
+      <h1 className="dc-header">
+        <FormattedMessage id="station.your-station" description="Your station" />
+      </h1>
+      <div data-testid="address" className="address">
+        {splitAddress.slice(0, splitAddress.length - 1)}
+      </div>
       {props.station.coordinates && (
         <Directions
           origin={props.station.coordinates.origin}
