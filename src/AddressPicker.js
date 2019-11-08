@@ -63,7 +63,7 @@ class AddressPicker extends React.Component {
           data-testid="address-button"
           onClick={this.handleSubmit}
         >
-          {formatMessage({ id: 'station.find-station' })}Î{' '}
+          {formatMessage({ id: 'station.find-station' })}{' '}
         </button>
       </form>
     );
