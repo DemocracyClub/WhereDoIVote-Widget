@@ -131,7 +131,7 @@ function DemocracyClubWidget(props) {
         )}
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
-        <Footer setLanguage={props.setLanguage} locale={props.locale} />
+        <Footer {...props} />
       </section>
     </ShadowDomFactory>
   );

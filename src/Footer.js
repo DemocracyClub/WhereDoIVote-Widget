@@ -5,7 +5,7 @@ import LanguageToggle from './LanguageToggle';
 function Footer(props) {
   return (
     <footer>
-      <LanguageToggle {...props} />
+      {props.showLanguageToggle && <LanguageToggle {...props} />}
       <BuiltByDC />
     </footer>
   );
