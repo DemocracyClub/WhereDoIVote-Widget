@@ -68,4 +68,14 @@ describe('WhereDoIVote English Widget', () => {
     const EnterPostcode = await waitForElement(() => getByTestId('postcode-selector'));
     expect(EnterPostcode).toHaveTextContent(en_messages['postcode.enter-postcode']);
   });
+
+  it('should handle incorrect but correctly formatted postcodes gracefully', async () => {
+    let enteredPostcode = 'AA99AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const errorResponse = await waitForElement(() => document.querySelector('.ErrorMessage'));
+
+    expect(errorResponse).toHaveTextContent(en_messages['api.errors.generic-error']);
+  });
 });

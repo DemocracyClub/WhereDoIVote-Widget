@@ -1,31 +1,38 @@
 import React from 'react';
-import translations from './translations/en';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 function ElectoralServices(props) {
+  const { formatMessage } = props.intl;
   return (
     <>
       <span id="dc_get_in_touch">
-        {translations['elections.get-in-touch-with']}{' '}
+        <FormattedMessage id="elections.get-in-touch-with" description="Get in touch with" />{' '}
         <strong>
           {props.es.council_id.startsWith('N09')
-            ? translations['elections.ni-office']
+            ? formatMessage({ id: 'elections.ni-office' })
             : props.es.name}
         </strong>
         :
       </span>
-      <ul>
+      <ul data-testid="council-details">
         <li>
-          {translations['general.website']} -{' '}
-          <a href={props.es.website} title={`Visit ${props.es.name}'s website`}>
+          <FormattedMessage id="general.website" description="Website" /> -{' '}
+          <a
+            href={props.es.website}
+            title={`${formatMessage({ id: 'general.visit-council-website' })} ${props.es.name}`}
+          >
             {props.es.website}
           </a>
         </li>
         <li>
-          {translations['general.phone']} - {props.es.phone}
+          <FormattedMessage id="general.phone" description="Phone" /> - {props.es.phone}
         </li>
         <li>
-          {translations['general.email']} -{' '}
-          <a href={'mailto:' + props.es.email} title={`Send ${props.es.name} an email`}>
+          <FormattedMessage id="general.email" description="Email" /> -{' '}
+          <a
+            href={'mailto:' + props.es.email}
+            title={`${formatMessage({ id: 'general.email-council' })} ${props.es.name}`}
+          >
             {props.es.email}
           </a>
         </li>
@@ -34,4 +41,4 @@ function ElectoralServices(props) {
   );
 }
 
-export default ElectoralServices;
+export default injectIntl(ElectoralServices);

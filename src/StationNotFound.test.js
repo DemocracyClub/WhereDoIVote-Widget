@@ -1,97 +1,40 @@
-import React from 'react';
-import { configure, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import 'jest-enzyme';
-import StationNotFound from './StationNotFound';
-import { Notifications, Notification } from './Notifications';
+import '@testing-library/jest-dom/extend-expect';
+import { cleanup, act, waitForElement } from '@testing-library/react';
+import en_messages from './translations/en';
+import { renderEnglishWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
 
-const electoral_services = { council_id: 'test', name: 'Example council' };
-configure({ adapter: new Adapter() });
+afterEach(cleanup);
 
-describe('StationNotFound', () => {
-  const notifications = [
-    {
-      type: 'voter_id',
-      url: 'https://www.example.com',
-      title: 'You need ID',
-      detail: 'you really will need ID',
-    },
-  ];
+jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+  virtual: true,
+});
 
-  it('should present council to get in touch with', () => {
-    const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
-
-    expect(wrapper).toContainReact(
-      <span id="dc_get_in_touch">
-        Get in touch with <strong>Example council</strong>:
-      </span>
-    );
+describe('Polling station unknown', () => {
+  let getByTestId;
+  beforeEach(async () => {
+    const wrapper = renderEnglishWidget();
+    getByTestId = wrapper.getByTestId;
   });
 
-  it('should present NI Electoral Office for N09 GSS codes', () => {
-    const electoral_services = { council_id: 'N09000000' };
-    const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
-
-    expect(wrapper).toContainReact(
-      <span id="dc_get_in_touch">
-        Get in touch with <strong>The Electoral Office for Northern Ireland</strong>:
-      </span>
-    );
-  });
-
-  describe('should present contact details', () => {
-    const electoral_services = {
-      council_id: 'N09000000',
-      website: 'example.com',
-      name: 'Example council',
-      phone: '118 118',
-      email: 'test@example.com',
-    };
-
-    it('via website', () => {
-      const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
-
-      expect(wrapper).toContainReact(
-        <li>
-          Website -{' '}
-          <a href="example.com" title="Visit Example council's website">
-            example.com
-          </a>
-        </li>
-      );
+  it('should show a station not found page for unknown polling stations', async () => {
+    let enteredPostcode = 'SS30AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    act(() => {
+      submitPostcode();
     });
-
-    it('via phone', () => {
-      const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
-
-      expect(wrapper).toContainReact(<li>Phone - 118 118</li>);
-    });
-
-    it('via email', () => {
-      const wrapper = mount(<StationNotFound electoral_services={electoral_services} />);
-
-      expect(wrapper).toContainReact(
-        <li>
-          Email -{' '}
-          <a href="mailto:test@example.com" title="Send Example council an email">
-            test@example.com
-          </a>
-        </li>
-      );
-    });
+    let stationNotFound = await waitForElement(() => getByTestId('station-not-found'));
+    expect(stationNotFound).toHaveTextContent(en_messages['station.not-found']);
   });
 
-  it('does not show notification when there is no event to be aware of', () => {
-    const wrapper = mount(
-      <StationNotFound electoral_services={electoral_services} notifications={[]} />
-    );
-    expect(wrapper).not.toContainReact(<Notification />);
-  });
-
-  it('shows notification when there is a voter id pilot', () => {
-    const wrapper = mount(
-      <StationNotFound electoral_services={electoral_services} notifications={notifications} />
-    );
-    expect(wrapper).toContainReact(<Notifications list={notifications} />);
+  it("should present council to get in touch with when station isn't found", async () => {
+    let enteredPostcode = 'SS30AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    act(() => {
+      submitPostcode();
+    });
+    let councilDetails = await waitForElement(() => getByTestId('council-details'));
+    expect(councilDetails).toHaveTextContent(en_messages['general.website']);
   });
 });
