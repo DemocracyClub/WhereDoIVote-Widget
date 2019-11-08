@@ -1,4 +1,4 @@
-import { waitForElement } from './test-utils/rtl';
+import { waitForElement } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import cy_messages from './translations/cy';
 import en_messages from './translations/en';
