@@ -117,3 +117,25 @@ describe('WhereDoIVote General Functionality', () => {
     expect(pollingStation).toHaveTextContent('Your polling station');
   });
 });
+
+describe('DemocracyClubWidget Accessibility', () => {
+  let getByTestId;
+  beforeEach(async () => {
+    const wrapper = renderEnglishWidget();
+    getByTestId = wrapper.getByTestId;
+  });
+
+  it('should include an h1 at the top level of the postcode selector', async () => {
+    const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
+    let label = `<h1><label class="form-label-bold" for="postcode">`;
+    expect(PostcodeForm).toContainHTML(label);
+  });
+
+  it('should accept Enter instead of clicking the button', async () => {
+    const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
+    let button = `<button class="dc-btn-primary" type="submit">${
+      en_messages['postcode.submit-postcode']
+    }</button>`;
+    expect(PostcodeForm).toContainHTML(button);
+  });
+});

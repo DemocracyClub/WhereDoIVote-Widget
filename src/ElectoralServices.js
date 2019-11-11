@@ -19,7 +19,7 @@ function ElectoralServices(props) {
           <FormattedMessage id="general.website" description="Website" /> -{' '}
           <a
             href={props.es.website}
-            title={`${formatMessage({ id: 'general.visit-council-website' })} ${props.es.name}`}
+            title={`${formatMessage({ id: 'general.visit-website-of' })} ${props.es.name}`}
           >
             {props.es.website}
           </a>

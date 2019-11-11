@@ -1,4 +1,5 @@
 import { cleanup, waitForElement } from '@testing-library/react';
+import cy_messages from './translations/cy';
 import '@testing-library/jest-dom/extend-expect';
 
 import { renderWelshWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
@@ -34,5 +35,17 @@ describe('Notifications', () => {
     submitPostcode();
     const notification = await waitForElement(() => getByTestId('notification'));
     expect(notification).toHaveTextContent('Uncontested Election');
+  });
+  it('does not show notification when there is no voter id pilot', async () => {
+    let enteredPostcode = 'AA12AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const YourPollingStation = await waitForElement(() =>
+      document.querySelector('.PollingStation')
+    );
+    let notification = document.querySelector('.Notification');
+    expect(YourPollingStation).toHaveTextContent(cy_messages['station.your-station']);
+    expect(notification).toBe(null);
   });
 });

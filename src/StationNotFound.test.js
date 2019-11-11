@@ -36,5 +36,7 @@ describe('Polling station unknown', () => {
     });
     let councilDetails = await waitForElement(() => getByTestId('council-details'));
     expect(councilDetails).toHaveTextContent(en_messages['general.website']);
+    expect(councilDetails).toHaveTextContent(en_messages['general.phone']);
+    expect(councilDetails).toHaveTextContent(en_messages['general.email']);
   });
 });

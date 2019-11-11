@@ -40,11 +40,14 @@ const Loader = injectIntl(LoaderTemplate);
 
 function BuiltByDCTemplate(props) {
   const { formatMessage } = props.intl;
+  const accessibleTitle = `${formatMessage({ id: 'general.visit-website-of' })} ${formatMessage({
+    id: 'general.dc-club',
+  })}`;
   return (
     <>
       <a
         href="https://democracyclub.org.uk/"
-        title={formatMessage({ id: 'general.start-again' })}
+        title={accessibleTitle}
         target="_top"
         className="DCLogo"
       >

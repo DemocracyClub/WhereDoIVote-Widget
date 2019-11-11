@@ -18,9 +18,11 @@ function GoogleMapsTemplate(props) {
     <a
       href={'https://maps.google.com/maps?q=' + props.destination}
       target="_top"
-      title={formatMessage({ id: 'directions.show-google-location-title' })}
+      className="dc-btn-primary"
+      data-testid="google-maps"
+      title={formatMessage({ id: 'directions.show-google-maps-title' })}
     >
-      <FormattedMessage id="directions.show-google-location" description="Show me on Google Maps" />
+      <FormattedMessage id="directions.show-google-maps" description="Show me on Google Maps" />
     </a>
   );
 }
