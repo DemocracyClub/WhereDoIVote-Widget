@@ -53,7 +53,9 @@ class AddressPicker extends React.Component {
             size="5"
           >
             {this.props.addressList.map(this.addressOption)}
-            <option key={this.props.addressList.length} value="not-in-list"></option>
+            <option key={this.props.addressList.length} value="not-in-list">
+              {formatMessage({ id: 'address.not-in-list' })}
+            </option>
           </select>
         </div>
         <button
