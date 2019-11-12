@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Polling station finder – Democracy Club</title>
+  <link href="https://static.democracyclub.org.uk/static/css/styles.0a9653e620f4.css" rel="stylesheet" type="text/css"
+    media="screen,projection,print" />
+
+</head>
+
+<body>
+  <header role="banner">
+    <div class="container">
+      <a href="/">
+        <img src="https://static.democracyclub.org.uk/static/dc_theme/images/logo-with-text.796711d0abf1.png"
+          alt="Democracy Club" style="align:center;width:95%;max-width:300">
+      </a>
+
+      <a href="#" class="buttonNew buttonNew--outline nav-site-ctrl js-nav-site-ctrl">Menu</a>
+      <nav class="nav-site-wrap">
+        <ul class="nav-site js-nav-site">
+          <li class="nav-site__item nav-site__item--home"><a href="/">Home</a></li>
+          <li class="nav-site__item"><a href="/about/">About</a></li>
+          <li class="nav-site__item nav-site__item--active"><a href="/projects/">Our work</a></li>
+          <li class="nav-site__item"><a href="/quests/">Quests</a></li>
+          <li class="nav-site__item"><a href="/blog/">Blog</a></li>
+          <li class="nav-site__item"><a href="/contact/">Contact</a></li>
+          <li class="nav-site__item"><a href="/donate/?utm_source=menu">Donate</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  <main>
+    <div class="container">
+
+
+
+      <div class="site-wrapper__body-text">
+
+
+        <h1>Polling station finder</h1>
+
+        <nav class="inline_page_nav">
+          <ul>
+            <li><a href="/projects/polling-stations/">Overview</a></li>
+            <li class="selected"><a href="/projects/polling-stations/embed/">Use on your website</a></li>
+            <li><a href="/projects/polling-stations/upload/">For councils</a></li>
+          </ul>
+        </nav>
+
+
+        <h3>Customise your widget</h3>
+        <form id="widget-options">
+          <label for="en">
+            <input type="radio" name="language" value="en" checked>Default English</label>
+          <label for="cy">
+            <input type="radio" name="language" value="cy">Default Welsh</label>
+
+          <label for="showToggle">
+            <input type="checkbox" name="showToggle">Show language toggle
+          </label>
+          <button>Generate embed code</button>
+        </form>
+        <p>
+          <figure>
+            <div id="widget-area"></div>
+            <figcaption>
+              Live data varies, so results might not show for example postcodes.
+              We tend not to have data outside of major elections, <a href="/contact/">contact us</a>
+              if you'd like a demo.
+            </figcaption>
+          </figure>
+        </p>
+        <p>We'd love you to use our polling station finder on your web site. If you do, we kindly ask that you:</p>
+        <ol>
+          <li>Credit Democracy Club, linking to our home page at <a
+              href="https://democracyclub.org.uk/">https://democracyclub.org.uk/</a> along side the embedded widget.
+          </li>
+          <li><a href="/contact/">Let us know</a> you're using it. We don't limit use, but it's great to know who has
+            used the embed feature.</li>
+          <li>Give us feedback either from your users or yourselves. We want to learn and iterate, and we can't do that
+            without feedback!</li>
+        </ol>
+        <p>To embed the site, use the following code:</p>
+        <pre><code id="code-area">
+  </code></pre>
+        <h2>Adding your data</h2>
+        <p>Work in a council and want your polling stations to work in the widget?
+          See our <a href="/projects/polling-stations/upload/">plans page</a> for more info.</p>
+        <h2>Custom designs, white label and API</h2>
+        <p>If you would like something other than the default design on your pages, we can
+          provide a white label or custom version. For software developers we have an
+          <a href="https://developers.democracyclub.org.uk/">API</a> that allows you to use our service in
+          your bespoke applications.</p>
+        <p>Please <a href="/contact/">contact us</a> for more information about this.</p>
+
+
+
+
+      </div><!-- /.site-wrapper__body-text -->
+
+    </div>
+  </main>
+</body>
+
+
+<script>
+
+  const form = document.querySelector('#widget-options');
+  if (form) {
+    form.addEventListener('submit', handleWidgetOptions)
+    const [language, showToggle] = getFormValues()
+    createWidgetVersion(language, showToggle)
+  }
+
+  function handleWidgetOptions(event) {
+    event.preventDefault()
+    const [language, showToggle] = getFormValues()
+    createWidgetVersion(language, showToggle)
+  }
+
+  function getFormValues() {
+    return [
+      form.elements['language'].value, 
+      form.elements['showToggle'].checked
+    ]
+  }
+
+  function makeWidget(dl, tg) {
+    const div = document.createElement('div')
+    div.setAttribute('id', 'dc_wdiv')
+    div.setAttribute('data-language', dl)
+    tg ? div.setAttribute('data-language-toggle', true) : null
+    div.setAttribute('aria-live', 'polite')
+    div.setAttribute('role', 'region')
+    return div
+  }
+
+  function makeScript() {
+    let script = document.createElement('script')
+    script.type = "text/javascript"
+    script.src = "https://widget.wheredoivote.co.uk/wdiv.js";
+    return script
+  }
+
+  function makeAttributeList(dl, tg) {
+    return `
+      data-language="${dl}" ${tg ? '\n      data-language-toggle="true"' : ''}
+      aria-live="polite" 
+      role="region"
+      `
+  }
+
+  function getEmbedCode(customAttributes) {
+    return `
+  <code>&lt;noscript&gt;
+    &lt;iframe src="https://wheredoivote.co.uk/embed/"
+      style="width:100%; height:1100px" frameborder="0" scrolling="no"&gt;
+    &lt;/iframe&gt;
+  &lt;/noscript&gt;
+  &lt;div id="dc_wdiv" ${customAttributes}&gt;&lt;/div&gt;
+  &lt;script type="text/javascript"
+    src="https://widget.wheredoivote.co.uk/wdiv.js"&gt;
+  &lt;/script&gt;
+  </code>
+  `;
+  }
+
+  function createWidgetVersion(defaultLanguage, languageToggle) {
+    const widgetArea = document.querySelector('#widget-area')
+    const codeArea = document.querySelector('#code-area')
+    const widget = makeWidget(defaultLanguage, languageToggle)
+    const script = makeScript()
+    const embedCode = getEmbedCode(makeAttributeList(defaultLanguage, languageToggle))
+    widgetArea.innerHTML = ''
+    widgetArea.appendChild(widget)
+    widgetArea.appendChild(script)
+    codeArea.innerHTML = embedCode
+  }
+
+
+
+</script>
+
+</html>
