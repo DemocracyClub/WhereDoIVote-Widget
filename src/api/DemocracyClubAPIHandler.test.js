@@ -55,7 +55,7 @@ describe('Democracy Club API client', () => {
       api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', 'f00b42');
       setLocation({ href: 'https://example.com/foo' });
       api.fetchByPostcode('T3 5TS').catch(err => {});
-      var requestParams = axios.get.getCall(0).args[1].params;;
+      var requestParams = axios.get.getCall(0).args[1].params;
       expect(requestParams.auth_token).toMatch('f00b42');
     });
 
