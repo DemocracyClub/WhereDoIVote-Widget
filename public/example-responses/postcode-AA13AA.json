@@ -1,0 +1,44 @@
+{
+  "address_picker": true,
+  "addresses": [
+    {
+      "address": "42 Leinster Gardens, London",
+      "postcode": "AA13AA",
+      "slug": "e09000033-2282254634585",
+      "url": "https://developers.democracyclub.org.uk/api/v1/sandbox/address/e09000033-2282254634585/"
+    },
+    {
+      "address": "19A Leinster Gardens, London",
+      "postcode": "AA13AA",
+      "slug": "e09000033-8531289123599",
+      "url": "https://developers.democracyclub.org.uk/api/v1/sandbox/address/e09000033-8531289123599/"
+    },
+    {
+      "address": "22 Leinster Gardens, London",
+      "postcode": "AA13AA",
+      "slug": "e09000033-7816246896787",
+      "url": "https://developers.democracyclub.org.uk/api/v1/sandbox/address/e09000033-7816246896787/"
+    }
+  ],
+  "dates": [],
+  "electoral_services": {
+    "council_id": "E09000033",
+    "name": "City of Westminster",
+    "email": "electoralservices@westminster.gov.uk",
+    "phone": "020 7641 2730",
+    "website": "http://www.westminster.gov.uk/",
+    "postcode": "WC2N 5HR",
+    "address": "Electoral Registration Officer\nWestminster City Council\n2nd Floor, City Hall\n5 Strand"
+  },
+  "postcode_location": {
+    "type": "Feature",
+    "properties": null,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.18387315,
+        51.513099069999996
+      ]
+    }
+  }
+}

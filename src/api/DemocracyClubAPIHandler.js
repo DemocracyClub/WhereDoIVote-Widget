@@ -39,11 +39,11 @@ export function APIClient(client, base_url, api_key) {
     } catch (e) {
       utm_source = 'unknown';
     }
-    const headers = api_key ? { Authorization: `Token ${api_key}` } : {};
-    return client.get(url, {
-      params: { utm_source, utm_medium: 'widget' },
-      headers,
-    });
+    const params = { utm_source, utm_medium: 'widget' };
+    if (api_key) {
+      params.auth_token = api_key;
+    }
+    return client.get(url, { params });
   };
 
   return {
