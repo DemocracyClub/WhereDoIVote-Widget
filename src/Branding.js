@@ -1,16 +1,8 @@
 import React from 'react';
 
-function EmbedCard(props) {
-  return (
-    <div className={props.className}>
-      <div className="Card">{props.children}</div>
-    </div>
-  );
-}
-
 function ErrorMessage(props) {
   return (
-    <div className="ErrorMessage" id="dc_error" role="alert">
+    <div className="ErrorMessage" id="dc_error" role="alert" aria-live="assertive">
       {props.currentError}
     </div>
   );
@@ -55,4 +47,4 @@ function BuiltByDC() {
   );
 }
 
-export { EmbedCard, StartAgainButton, BuiltByDC, ErrorMessage, Loader };
+export { StartAgainButton, BuiltByDC, ErrorMessage, Loader };
