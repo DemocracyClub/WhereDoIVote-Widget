@@ -1,4 +1,3 @@
-
 /*--------------------------------------------------------------
 # Core variables
 --------------------------------------------------------------*/
@@ -6,24 +5,28 @@
   --dc-body-text-colour: #58595b;
   --dc-heading-text-colour: #403f41;
   --dc-text-grey: #0b0c0c;
-  --dc-bright-blue: #00aeef;
-  --dc-bright-blue-accent: #0089bc;
-  --dc-bright-blue-hover: #009bd6;
+  --dc-bright-blue-wcag-fff-contrast-3-1: #009CD6;
+  --dc-bright-blue-wcag-fff-contrast-3-5: #0092C8;
+  --dc-bright-blue-accent: #007faf;
+  
   --dc-darker-blue: #020202;
-  --dc-bright-pink: #ec008c;
+  --dc-bright-pink-accent: #ec008c;
+  --dc-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
   --dc-error-red: #b10e1e;
   --dc-light-grey: #ddd;
   --dc-darker-grey: #6f777b;
+  --dc-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --dc-outline-focus: #ffbf47;
   --dc-sanserif-font: 'Avenir', sans-serif;
   --dc-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
-  --dc-font-size-heading: 1.3rem;
+  --dc-font-size-heading: 1.5rem;
   --dc-font-size-default: 1.2rem;
   --dc-font-size-smaller: 0.85rem;
   --dc-line-height-default: 1.2;
   --dc-spacing-default: 1rem;
   --dc-border-width: 2px;
   /* Unused by widget: */
+  --dc-bright-blue-hover: #009bd6;
   --dc-global-radius: 0;
   --dc-btn-primary-color: #e6007e;
   --dc-menu-background: transparent;
@@ -36,24 +39,28 @@
   --dc-body-text-colour: #58595b;
   --dc-heading-text-colour: #403f41;
   --dc-text-grey: #0b0c0c;
-  --dc-bright-blue: #00aeef;
-  --dc-bright-blue-accent: #0089bc;
-  --dc-bright-blue-hover: #009bd6;
+  --dc-bright-blue-wcag-fff-contrast-3-1: #009CD6;
+  --dc-bright-blue-wcag-fff-contrast-3-5: #0092C8;
+  --dc-bright-blue-accent: #007faf;
+  
   --dc-darker-blue: #020202;
-  --dc-bright-pink: #ec008c;
+  --dc-bright-pink-accent: #ec008c;
+  --dc-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
   --dc-error-red: #b10e1e;
   --dc-light-grey: #ddd;
   --dc-darker-grey: #6f777b;
+  --dc-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --dc-outline-focus: #ffbf47;
   --dc-sanserif-font: 'Avenir', sans-serif;
   --dc-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
-  --dc-font-size-heading: 1.3rem;
+  --dc-font-size-heading: 1.5rem;
   --dc-font-size-default: 1.2rem;
   --dc-font-size-smaller: 0.85rem;
   --dc-line-height-default: 1.2;
   --dc-spacing-default: 1rem;
   --dc-border-width: 2px;
   /* Unused by widget: */
+  --dc-bright-blue-hover: #009bd6;
   --dc-global-radius: 0;
   --dc-btn-primary-color: #e6007e;
   --dc-menu-background: transparent;
@@ -63,10 +70,30 @@
   --dc-off-black: #403f41;
 }
 
+/*
+# Helpers
+*/
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
-.screen-reader-text { 
+.DemocracyClubWidget button.dc-btn-primary:focus,
+.DemocracyClubWidget a.dc-btn-primary:focus,
+.dc-btn-primary:focus,
+.dc-btn-seconday:focus,
+.DemocracyClubWidget input:focus,
+.DemocracyClubWidget select:focus,
+*:focus {
+  outline: 4px solid var(--dc-outline-focus);
+}
+
+.screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -104,7 +131,8 @@
 # Container styles 
 --------------------------------------------------------------*/
 
-.DemocracyClubWidget { /* Parent container */
+.DemocracyClubWidget {
+  /* Parent container */
   position: relative;
   font-size: var(--dc-font-size-default);
   color: var(--dc-body-text-colour);
@@ -127,7 +155,7 @@
 # Typography
 --------------------------------------------------------------*/
 
-h2.dc-header,
+h1.dc-header,
 .DemocracyClubWidget .form-label-bold {
   font-weight: bold;
   display: block;
@@ -138,7 +166,7 @@ h2.dc-header,
 }
 
 .DemocracyClubWidget a {
-  color: var(--dc-bright-pink);
+  color: var(--dc-pink-wcag-fff-contrast-8-4-9);
   text-decoration: none;
 }
 
@@ -150,17 +178,19 @@ h2.dc-header,
 .DemocracyClubWidget a.dc-btn-primary,
 .dc-btn-seconday {
   font-family: var(--dc-sanserif-font);
-  background-color: var(--dc-bright-blue);
+  background-color: var(--dc-bright-blue-wcag-fff-contrast-3-1);
   border: 0;
   padding: 0.4em 0.6em;
   margin: 0.5em 0;
-  font-size: var(--dc-font-size-default);
+  font-size: var(--dc-font-size-heading);
   color: #fff;
   display: inline-block;
   border-bottom: 3px solid var(--dc-bright-blue-accent);
+  line-height: 1.2;
 }
 
-.dc-btn-seconday, a.dc-btn-seconday {
+.dc-btn-seconday,
+a.dc-btn-seconday {
   color: white;
   font-size: var(--dc-font-size-smaller);
   background-color: var(--dc-darker-grey);
@@ -169,7 +199,8 @@ h2.dc-header,
 
 .DemocracyClubWidget button.dc-btn-primary:hover,
 .DemocracyClubWidget a.dc-btn-primary:hover {
-  background-color: var(--dc-bright-blue-hover);
+  background-color: var(--dc-bright-blue-wcag-fff-contrast-3-5);
+  text-decoration: none;
 }
 
 .dc-btn-seconday:hover,
@@ -181,6 +212,8 @@ a.dc-btn-seconday:hover {
 .DemocracyClubWidget a.dc-btn-primary:disabled {
   background-color: var(--dc-light-grey);
   border-bottom: 3px solid var(--dc-darker-grey);
+  color: var(--dc-grey-text-wcag-ddd-contrast-3-0-5);
+  cursor: default;
 }
 .DemocracyClubWidget .link-button {
   display: inline-block;
@@ -214,10 +247,10 @@ a.dc-btn-seconday:hover {
 }
 .Notification {
   border-color: var(--dc-bright-blue);
-  margin-bottom: var(--dc-spacing-default)
+  margin-bottom: var(--dc-spacing-default);
 }
 
-.Notification span[role=img] {
+.Notification span[role='img'] {
   margin: 0 0.5rem 0 auto;
 }
 
@@ -243,9 +276,8 @@ a.dc-btn-seconday:hover {
 # Form styles
 --------------------------------------------------------------*/
 
-.form_group {
-  width: 100%;
-  clear: both;
+.form-group h1 {
+  margin: 0;
 }
 .DemocracyClubWidget .form-control {
   font-size: var(--dc-font-size-default);
@@ -258,15 +290,10 @@ a.dc-btn-seconday:hover {
 }
 .DemocracyClubWidget input[type='search'],
 .DemocracyClubWidget input[type='text'] {
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-.dc-btn-primary:focus,
-.DemocracyClubWidget input:focus,
-.DemocracyClubWidget select:focus {
-  outline: 0.156em solid var(--dc-outline-focus);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .DemocracyClubWidget [role='button'],
@@ -304,8 +331,6 @@ a.dc-btn-seconday:hover {
   font-family: var(--dc-serif-font);
   color: var(--dc-body-text-colour);
 }
-
-
 
 .dc-select-multirow {
   height: auto !important;

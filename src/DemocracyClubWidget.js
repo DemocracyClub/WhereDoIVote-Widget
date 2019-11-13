@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { EmbedCard, StartAgainButton, ErrorMessage, BuiltByDC, Loader } from './Branding';
+import { StartAgainButton, ErrorMessage, BuiltByDC, Loader } from './Branding';
 
 import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
@@ -104,7 +104,7 @@ function DemocracyClubWidget() {
   return (
     <ShadowDomFactory>
       <style type="text/css">{styles}</style>
-      <EmbedCard className="DemocracyClubWidget">
+      <section className="DemocracyClubWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
         {!searchInitiated && (
           <PostcodeSelector
@@ -130,7 +130,7 @@ function DemocracyClubWidget() {
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <BuiltByDC />
-      </EmbedCard>
+      </section>
     </ShadowDomFactory>
   );
 }

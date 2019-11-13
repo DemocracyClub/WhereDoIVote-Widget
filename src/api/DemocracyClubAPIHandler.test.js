@@ -55,16 +55,16 @@ describe('Democracy Club API client', () => {
       api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', 'f00b42');
       setLocation({ href: 'https://example.com/foo' });
       api.fetchByPostcode('T3 5TS').catch(err => {});
-      var requestHeaders = axios.get.getCall(0).args[1].headers;
-      expect(requestHeaders.Authorization).toMatch('Token f00b42');
+      var requestParams = axios.get.getCall(0).args[1].params;
+      expect(requestParams.auth_token).toMatch('f00b42');
     });
 
     it('when key is not present', () => {
       api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', null);
       setLocation(undefined);
       api.fetchByPostcode('T3 5TS').catch(err => {});
-      var requestHeaders = axios.get.getCall(0).args[1].headers;
-      expect(requestHeaders).toMatchObject({});
+      var requestParams = axios.get.getCall(0).args[1].params;
+      expect(requestParams.auth_token).toBe(undefined);
     });
   });
 

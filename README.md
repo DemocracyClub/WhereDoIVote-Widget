@@ -17,7 +17,7 @@ Add the following lines to your HTML, where you want the widget to appear on the
           scrolling="no">
   </iframe>
 </noscript>
-<div id="dc_wdiv"></div>
+<div id="dc_wdiv" aria-live="polite" role="region"></div>
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
