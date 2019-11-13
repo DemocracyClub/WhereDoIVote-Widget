@@ -64,7 +64,7 @@ describe('Democracy Club API client', () => {
       setLocation(undefined);
       api.fetchByPostcode('T3 5TS').catch(err => {});
       var requestParams = axios.get.getCall(0).args[1].params;
-      expect(requestParams.auth_token).toBe(null);
+      expect(requestParams.auth_token).toBe(undefined);
     });
   });
 
