@@ -2,8 +2,37 @@
 /*--------------------------------------------------------------
 # Core variables
 --------------------------------------------------------------*/
-:host,
-:root { /* :host is for Shadow Dom, :root is for older browsers */
+:host { /* :host is for Shadow Dom, :root is for older browsers */
+  --dc-body-text-colour: #58595b;
+  --dc-heading-text-colour: #403f41;
+  --dc-text-grey: #0b0c0c;
+  --dc-bright-blue: #00aeef;
+  --dc-bright-blue-accent: #0089bc;
+  --dc-bright-blue-hover: #009bd6;
+  --dc-darker-blue: #020202;
+  --dc-bright-pink: #ec008c;
+  --dc-error-red: #b10e1e;
+  --dc-light-grey: #ddd;
+  --dc-darker-grey: #6f777b;
+  --dc-outline-focus: #ffbf47;
+  --dc-sanserif-font: 'Avenir', sans-serif;
+  --dc-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
+  --dc-font-size-heading: 1.3rem;
+  --dc-font-size-default: 1.2rem;
+  --dc-font-size-smaller: 0.85rem;
+  --dc-line-height-default: 1.2;
+  --dc-spacing-default: 1rem;
+  --dc-border-width: 2px;
+  /* Unused by widget: */
+  --dc-global-radius: 0;
+  --dc-btn-primary-color: #e6007e;
+  --dc-menu-background: transparent;
+  --dc-menu-background-hover: #e6007e;
+  --dc-menu-text-hover: white;
+  --dc-green: #4db314;
+  --dc-off-black: #403f41;
+}
+:root { /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
   --dc-body-text-colour: #58595b;
   --dc-heading-text-colour: #403f41;
   --dc-text-grey: #0b0c0c;
