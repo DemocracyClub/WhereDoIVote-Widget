@@ -11,6 +11,7 @@
         "station": {
           "id": "E09000033.39-york-room-lancaster-hall-hotel",
           "type": "Feature",
+          "geometry": null,
           "properties": {
             "postcode": "W2 3EL",
             "address": "York Room, Lancaster Hall Hotel\n35 Craven Terrace\nLondon"

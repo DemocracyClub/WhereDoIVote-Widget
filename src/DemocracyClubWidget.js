@@ -35,6 +35,7 @@ function DemocracyClubWidget(props) {
     setElectoralServices(undefined);
     setStationNotFound(false);
     setNoUpcomingElection(false);
+    setNotifications(null);
     setCurrentError(undefined);
     setLoading(false);
   }

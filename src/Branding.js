@@ -52,7 +52,10 @@ function BuiltByDCTemplate(props) {
         className="DCLogo"
       >
         {formatMessage({ id: 'general.built-by' })}
-        <img alt={formatMessage({ id: 'general.dc-club' })} src="/img/logo-with-text.png" />
+        <img
+          alt={formatMessage({ id: 'general.dc-club' })}
+          src="https://widget.wheredoivote.co.uk/logo-with-text.png"
+        />
       </a>
     </>
   );
