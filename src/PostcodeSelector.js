@@ -27,9 +27,7 @@ function PostcodeSelector(props) {
       props.lookupGivenPostcode(postcode);
     } else {
       setFormValue('');
-      props.setCurrentError(
-        <FormattedMessage id="postcode.errors.invalid-postcode" description="Bad postcode" />
-      );
+      props.setCurrentError('postcode.errors.invalid-postcode');
       props.setSearchInitiated(false);
     }
   }

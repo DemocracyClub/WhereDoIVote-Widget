@@ -7,7 +7,7 @@ import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
 import Footer from './Footer';
 import ShadowDomFactory from './ShadowDomFactory';
-import { injectIntl } from 'react-intl';
+
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 import withTranslations from './withTranslations';
 import StationNotFound from './StationNotFound';
@@ -16,7 +16,6 @@ import NoUpcomingElection from './NoUpcomingElection';
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
 function DemocracyClubWidget(props) {
-  const { formatMessage } = props.intl;
   const api = APIClientFactory();
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -44,12 +43,12 @@ function DemocracyClubWidget(props) {
     setSearchInitiated(false);
     if (data.response !== undefined) {
       if (data.response.status === 400) {
-        setCurrentError(formatMessage({ id: 'api.errors.bad-postcode' }));
+        setCurrentError('api.errors.bad-postcode');
       } else {
-        setCurrentError(formatMessage({ id: 'api.errors.voting-location-unknown' }));
+        setCurrentError('api.errors.voting-location-unknown');
       }
     } else {
-      setCurrentError(formatMessage({ id: 'api.errors.generic-error' }));
+      setCurrentError('api.errors.generic-error');
     }
     setLoading(false);
   }
@@ -136,4 +135,4 @@ function DemocracyClubWidget(props) {
   );
 }
 
-export default withTranslations(injectIntl(DemocracyClubWidget));
+export default withTranslations(DemocracyClubWidget);

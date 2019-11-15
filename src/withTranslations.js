@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { IntlProvider } from 'react-intl';
 
-import messages_en from './translations/en.json';
-import messages_cy from './translations/cy.json';
+import messages_en from './translations/en';
+import messages_cy from './translations/cy';
 
 function withTranslations(Widget) {
   return function WidgetWithTranslations(props) {

@@ -1,13 +1,16 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
 
-function ErrorMessage(props) {
+function ErrorMessageTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
     <div className="ErrorMessage" id="dc_error" role="alert" aria-live="assertive">
-      {props.currentError}
+      {props.currentError && formatMessage({ id: props.currentError })}
     </div>
   );
 }
+
+const ErrorMessage = injectIntl(ErrorMessageTemplate);
 
 function StartAgainButtonTemplate(props) {
   const { formatMessage } = props.intl;
