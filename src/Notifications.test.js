@@ -1,8 +1,8 @@
 import { cleanup, waitForElement } from '@testing-library/react';
-import cy_messages from './translations/cy';
+import en_messages from './translations/en';
 import '@testing-library/jest-dom/extend-expect';
 
-import { renderWelshWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
+import { renderEnglishWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
 afterEach(cleanup);
 
 jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
@@ -13,7 +13,7 @@ describe('Notifications', () => {
   let getByTestId;
 
   beforeEach(async () => {
-    const wrapper = renderWelshWidget();
+    const wrapper = renderEnglishWidget();
     getByTestId = wrapper.getByTestId;
   });
   it('should show voter ID requirement for DE13GB', async () => {
@@ -45,7 +45,7 @@ describe('Notifications', () => {
       document.querySelector('.PollingStation')
     );
     let notification = document.querySelector('.Notification');
-    expect(YourPollingStation).toHaveTextContent(cy_messages['station.your-station']);
+    expect(YourPollingStation).toHaveTextContent(en_messages['station.your-station']);
     expect(notification).toBe(null);
   });
 });

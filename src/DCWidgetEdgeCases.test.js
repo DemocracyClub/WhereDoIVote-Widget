@@ -1,8 +1,8 @@
 import { cleanup, waitForElement } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import cy_messages from './translations/cy';
+import en_messages from './translations/en';
 
-import { renderWelshWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
+import { renderEnglishWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
 afterEach(cleanup);
 
 jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
@@ -11,7 +11,7 @@ jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
 
 describe('WhereDoIVote Widget', () => {
   beforeEach(async () => {
-    renderWelshWidget();
+    renderEnglishWidget();
   });
 
   it("should display 'No upcoming election' message if there isn't an upcoming date", async () => {
@@ -22,6 +22,6 @@ describe('WhereDoIVote Widget', () => {
     const NoUpcomingElection = await waitForElement(() =>
       document.querySelector('.NoUpcomingElection')
     );
-    expect(NoUpcomingElection).toHaveTextContent(cy_messages['elections.unknown']);
+    expect(NoUpcomingElection).toHaveTextContent(en_messages['elections.unknown']);
   });
 });
