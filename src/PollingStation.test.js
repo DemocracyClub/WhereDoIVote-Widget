@@ -33,13 +33,4 @@ describe('PollingStation', () => {
     const StationAddress = await waitForElement(() => getByTestId('address'));
     expect(StationAddress).toHaveTextContent('York Room');
   });
-
-  it('renders out directions when coordinates are present', async () => {
-    let enteredPostcode = 'AA12AA';
-    mockResponse('postcode', enteredPostcode);
-    typePostcode(enteredPostcode);
-    submitPostcode();
-    const GoogleDirections = await waitForElement(() => getByTestId('google-directions'));
-    expect(GoogleDirections).toHaveTextContent(en_messages['directions.show-google-directions']);
-  });
 });
