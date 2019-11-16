@@ -10,6 +10,10 @@ replicating various standard and edge cases cases we need to handle:
 - AA12AA
   - __uses postcode-AA12AA.json__
 
+## Northern Irish council ID
+- AA15AA
+  - __uses postcode-AA15AA.json__
+
 ## Upcoming election with no coords at all, no notifications
 - AA21AA
   - __uses postcode-AA21AA.json__

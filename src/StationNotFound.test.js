@@ -26,17 +26,24 @@ describe('Polling station unknown', () => {
     let stationNotFound = await waitForElement(() => getByTestId('station-not-found'));
     expect(stationNotFound).toHaveTextContent(en_messages['station.not-found']);
   });
+});
 
-  it("should present council to get in touch with when station isn't found", async () => {
+describe('Polling station unknown accessibility', () => {
+  let getByTestId;
+  beforeEach(async () => {
+    const wrapper = renderEnglishWidget();
+    getByTestId = wrapper.getByTestId;
+  });
+
+  it('should show a station not found page for unknown polling stations', async () => {
     let enteredPostcode = 'SS30AA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     act(() => {
       submitPostcode();
     });
-    let councilDetails = await waitForElement(() => getByTestId('council-details'));
-    expect(councilDetails).toHaveTextContent(en_messages['general.website']);
-    expect(councilDetails).toHaveTextContent(en_messages['general.phone']);
-    expect(councilDetails).toHaveTextContent(en_messages['general.email']);
+    let stationNotFound = await waitForElement(() => getByTestId('station-not-found'));
+    const accessibleTitle = `<h1 class="dc-header">We couldn't find your station</h1>`;
+    expect(stationNotFound).toContainHTML(accessibleTitle);
   });
 });
