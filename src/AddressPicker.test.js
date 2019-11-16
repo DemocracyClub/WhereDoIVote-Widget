@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { cleanup, waitForElement } from '@testing-library/react';
 import en_messages from './translations/en';
-import { renderEnglishWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
+import { renderWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
 
 afterEach(cleanup);
 
@@ -11,7 +11,7 @@ jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
 
 describe('Address picker', () => {
   beforeEach(async () => {
-    renderEnglishWidget();
+    renderWidget();
   });
 
   it('renders "My address is not in the list" option', async () => {

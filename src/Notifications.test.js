@@ -2,7 +2,7 @@ import { cleanup, waitForElement } from '@testing-library/react';
 import en_messages from './translations/en';
 import '@testing-library/jest-dom/extend-expect';
 
-import { renderEnglishWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
+import { renderWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
 afterEach(cleanup);
 
 jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
@@ -13,7 +13,7 @@ describe('Notifications', () => {
   let getByTestId;
 
   beforeEach(async () => {
-    const wrapper = renderEnglishWidget();
+    const wrapper = renderWidget();
     getByTestId = wrapper.getByTestId;
   });
   it('should show voter ID requirement for DE13GB', async () => {

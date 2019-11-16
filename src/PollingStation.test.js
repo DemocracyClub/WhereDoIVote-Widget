@@ -1,7 +1,7 @@
 import { waitForElement } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import en_messages from './translations/en';
-import { renderEnglishWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
+import { renderWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
 
 jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
   virtual: true,
@@ -10,7 +10,7 @@ jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
 describe('PollingStation', () => {
   let getByTestId;
   beforeEach(async () => {
-    const wrapper = renderEnglishWidget();
+    const wrapper = renderWidget();
     getByTestId = wrapper.getByTestId;
   });
 

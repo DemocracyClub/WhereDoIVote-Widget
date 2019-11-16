@@ -31,8 +31,8 @@ export const mockResponse = (endpoint, param) => {
   });
 };
 
-export const renderEnglishWidget = () => {
-  render(<div id="dc_wdiv" data-language="en" aria-live="polite" role="region" />);
+export const renderWidget = () => {
+  render(<div id="dc_wdiv" aria-live="polite" role="region" />);
   const wrapper = render(<DemocracyClubWidget />);
   return wrapper;
 };
@@ -43,30 +43,8 @@ export const renderWelshWidget = () => {
   return wrapper;
 };
 
-export const renderEnglishToggleableWidget = () => {
-  render(
-    <div
-      id="dc_wdiv"
-      data-language="en"
-      data-language-toggle="true"
-      aria-live="polite"
-      role="region"
-    />
-  );
-  const wrapper = render(<DemocracyClubWidget />);
-  return wrapper;
-};
-
-export const renderWelshToggleableWidget = () => {
-  render(
-    <div
-      id="dc_wdiv"
-      data-language="cy"
-      data-language-toggle="true"
-      aria-live="polite"
-      role="region"
-    />
-  );
+export const renderEnglishWidget = () => {
+  render(<div id="dc_wdiv" data-language="en" aria-live="polite" role="region" />);
   const wrapper = render(<DemocracyClubWidget />);
   return wrapper;
 };

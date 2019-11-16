@@ -5,8 +5,7 @@ import cy_messages from './translations/cy';
 import {
   renderWelshWidget,
   typePostcode,
-  renderWelshToggleableWidget,
-  renderEnglishToggleableWidget,
+  renderEnglishWidget,
   submitPostcode,
 } from './test-utils/test';
 
@@ -39,7 +38,7 @@ describe('WhereDoIVote Toggleable English Widget', () => {
   let container, getByTestId;
 
   beforeEach(async () => {
-    const wrapper = renderEnglishToggleableWidget();
+    const wrapper = renderEnglishWidget();
     container = wrapper.container;
     getByTestId = wrapper.getByTestId;
   });
@@ -68,7 +67,7 @@ describe('WhereDoIVote Toggleable Welsh Widget', () => {
   let container, getByTestId;
 
   beforeEach(async () => {
-    const wrapper = renderWelshToggleableWidget();
+    const wrapper = renderWelshWidget();
     container = wrapper.container;
     getByTestId = wrapper.getByTestId;
   });

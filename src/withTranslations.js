@@ -12,9 +12,7 @@ function withTranslations(Widget) {
     };
     const languageOption = document.querySelector('#dc_wdiv').getAttribute('data-language');
     const languageConfig = languageOption ? languageOption : 'en';
-    const showLanguageToggle = document
-      .querySelector('#dc_wdiv')
-      .getAttribute('data-language-toggle');
+    const showLanguageToggle = languageOption ? true : false;
     const [language, setLanguage] = useState(languageConfig);
     return (
       <IntlProvider locale={language} messages={messages[language]}>
