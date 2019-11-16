@@ -17,17 +17,17 @@ describe('WhereDoIVote Widget', () => {
 
   it('should give error message when no postcode is entered', async () => {
     submitPostcode();
-    const newContent = await waitForElement(() => document.querySelector('#dc_error'));
+    const ErrorMessage = await waitForElement(() => document.querySelector('#dc_error'));
 
-    expect(newContent).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
+    expect(ErrorMessage).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
 
   it('should give error message malformed postcode is entered', async () => {
     let enteredPostcode = 'aaaa';
     typePostcode(enteredPostcode);
     submitPostcode();
-    const newContent = await waitForElement(() => document.querySelector('#dc_error'));
-    expect(newContent).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
+    const ErrorMessage = await waitForElement(() => document.querySelector('#dc_error'));
+    expect(ErrorMessage).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
 
   it('should allow user to start again', async () => {
@@ -101,5 +101,10 @@ describe('DemocracyClubWidget Accessibility', () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
     let button = `<button class="dc-btn-primary" type="submit">${en_messages['postcode.submit-postcode']}</button>`;
     expect(PostcodeForm).toContainHTML(button);
+  });
+  it('should have a "for" attribute on the postcode form label', async () => {
+    const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
+    let label = `<label class="form-label-bold" for="postcode">`;
+    expect(PostcodeForm).toContainHTML(label);
   });
 });

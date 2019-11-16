@@ -24,4 +24,24 @@ describe('WhereDoIVote Widget', () => {
     );
     expect(NoUpcomingElection).toHaveTextContent(en_messages['elections.unknown']);
   });
+
+  it("should display 'Cancelled Election' for a countermanded election", async () => {
+    let enteredPostcode = 'CO168EZ';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Notification = await waitForElement(() => document.querySelector('.Notification'));
+    expect(Notification).toHaveTextContent('Cancelled Election');
+  });
+
+  it('should show single polling station for multiple elections on same day', async () => {
+    let enteredPostcode = 'LE42TY';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const YourPollingStation = await waitForElement(() =>
+      document.querySelector('.PollingStation')
+    );
+    expect(YourPollingStation).toHaveTextContent(en_messages['station.your-station']);
+  });
 });
