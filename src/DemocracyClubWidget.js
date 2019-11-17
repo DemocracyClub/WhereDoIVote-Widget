@@ -10,8 +10,10 @@ import ShadowDomFactory from './ShadowDomFactory';
 
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 import withTranslations from './withTranslations';
+import withCandidates from './withCandidates';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
+import Candidates from './Candidates';
 
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
@@ -37,6 +39,7 @@ function DemocracyClubWidget(props) {
     setNotifications(null);
     setCurrentError(undefined);
     setLoading(false);
+    props.resetCandidates && props.resetCandidates();
   }
 
   function handleError(data) {
@@ -57,6 +60,7 @@ function DemocracyClubWidget(props) {
     setCurrentError(undefined);
     let nextBallotDate = resp.data.dates[0];
     let response = resp.data;
+
     if (nextBallotDate && nextBallotDate.notifications) {
       setNotifications(nextBallotDate.notifications);
     }
@@ -75,6 +79,7 @@ function DemocracyClubWidget(props) {
     } else {
       setNoUpcomingElection(true);
     }
+    props.handleCandidates && props.handleCandidates(nextBallotDate);
     setLoading(false);
   }
 
@@ -111,6 +116,7 @@ function DemocracyClubWidget(props) {
             lookupGivenPostcode={lookupGivenPostcode}
             setSearchInitiated={setSearchInitiated}
             setCurrentError={setCurrentError}
+            {...props}
           />
         )}
         {loading && <Loader />}
@@ -127,6 +133,7 @@ function DemocracyClubWidget(props) {
             electoral_services={electoralServices}
           />
         )}
+        {props.showCandidates && props.candidates && <Candidates {...props} />}
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <Footer {...props} />
@@ -135,4 +142,4 @@ function DemocracyClubWidget(props) {
   );
 }
 
-export default withTranslations(DemocracyClubWidget);
+export default withCandidates(withTranslations(DemocracyClubWidget));

@@ -48,3 +48,23 @@ export const renderEnglishWidget = () => {
   const wrapper = render(<DemocracyClubWidget />);
   return wrapper;
 };
+
+export const renderCandidatesWidget = () => {
+  render(<div id="dc_wdiv" data-candidates="true" aria-live="polite" role="region" />);
+  const wrapper = render(<DemocracyClubWidget />);
+  return wrapper;
+};
+
+export const renderCandidatesUntickedWidget = () => {
+  render(
+    <div
+      id="dc_wdiv"
+      data-candidates="true"
+      data-candidates-start-state="unticked"
+      aria-live="polite"
+      role="region"
+    />
+  );
+  const wrapper = render(<DemocracyClubWidget />);
+  return wrapper;
+};

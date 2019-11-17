@@ -48,6 +48,19 @@ function PostcodeSelector(props) {
           name="postcode"
           className="form-control"
         />
+        <br />
+        {props.enableCandidates && (
+          <label htmlFor="showCandidates">
+            <input
+              type="checkbox"
+              checked={props.showCandidates}
+              value={props.showCandidates}
+              onChange={() => props.setShowCandidates(!props.showCandidates)}
+              name="showCandidates"
+            />
+            Show candidates
+          </label>
+        )}
       </div>
       <button className="dc-btn-primary" type="submit">
         <FormattedMessage id="postcode.submit-postcode" description="Find your polling station" />
