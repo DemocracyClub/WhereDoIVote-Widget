@@ -41,16 +41,6 @@ describe('WhereDoIVote Widget', () => {
     expect(EnterPostcode).toHaveTextContent(en_messages['postcode.enter-postcode']);
   });
 
-  it('should handle incorrect but correctly formatted postcodes gracefully', async () => {
-    let enteredPostcode = 'AA99AA';
-    mockResponse('postcode', enteredPostcode);
-    typePostcode(enteredPostcode);
-    submitPostcode();
-    const errorResponse = await waitForElement(() => document.querySelector('.ErrorMessage'));
-
-    expect(errorResponse).toHaveTextContent(en_messages['api.errors.generic-error']);
-  });
-
   it('should load address picker if multiple addresses returned', async () => {
     let enteredPostcode = 'TN48XA';
 

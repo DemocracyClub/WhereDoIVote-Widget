@@ -33,15 +33,4 @@ describe('WhereDoIVote Widget', () => {
     const Notification = await waitForElement(() => document.querySelector('.Notification'));
     expect(Notification).toHaveTextContent('Cancelled Election');
   });
-
-  it('should show single polling station for multiple elections on same day', async () => {
-    let enteredPostcode = 'LE42TY';
-    mockResponse('postcode', enteredPostcode);
-    typePostcode(enteredPostcode);
-    submitPostcode();
-    const YourPollingStation = await waitForElement(() =>
-      document.querySelector('.PollingStation')
-    );
-    expect(YourPollingStation).toHaveTextContent(en_messages['station.your-station']);
-  });
 });
