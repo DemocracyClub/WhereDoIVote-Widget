@@ -16,6 +16,7 @@ describe('Notifications', () => {
     const wrapper = renderWidget();
     getByTestId = wrapper.getByTestId;
   });
+
   it('should show voter ID requirement for DE13GB', async () => {
     let enteredPostcode = 'DE13GB';
 
@@ -36,7 +37,8 @@ describe('Notifications', () => {
     const notification = await waitForElement(() => getByTestId('notification'));
     expect(notification).toHaveTextContent('Uncontested Election');
   });
-  it('does not show notification when there is no voter id pilot', async () => {
+
+  it('does not show notification when there is no event to be aware of', async () => {
     let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
