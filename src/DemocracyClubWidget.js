@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 
-import { StartAgainButton, ErrorMessage, BuiltByDC, Loader } from './Branding';
+import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
 import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
-
+import Footer from './Footer';
 import ShadowDomFactory from './ShadowDomFactory';
 
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
-
-import translations from './translations/en';
+import withTranslations from './withTranslations';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
-function DemocracyClubWidget() {
+function DemocracyClubWidget(props) {
   const api = APIClientFactory();
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -35,6 +34,7 @@ function DemocracyClubWidget() {
     setElectoralServices(undefined);
     setStationNotFound(false);
     setNoUpcomingElection(false);
+    setNotifications(null);
     setCurrentError(undefined);
     setLoading(false);
   }
@@ -43,12 +43,12 @@ function DemocracyClubWidget() {
     setSearchInitiated(false);
     if (data.response !== undefined) {
       if (data.response.status === 400) {
-        setCurrentError(translations['api.errors.bad-postcode']);
+        setCurrentError('api.errors.bad-postcode');
       } else {
-        setCurrentError(translations['api.errors.voting-location-unknown']);
+        setCurrentError('api.errors.voting-location-unknown');
       }
     } else {
-      setCurrentError(translations['api.errors.generic-error']);
+      setCurrentError('api.errors.generic-error');
     }
     setLoading(false);
   }
@@ -129,10 +129,10 @@ function DemocracyClubWidget() {
         )}
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
-        <BuiltByDC />
+        <Footer {...props} />
       </section>
     </ShadowDomFactory>
   );
 }
 
-export default DemocracyClubWidget;
+export default withTranslations(DemocracyClubWidget);

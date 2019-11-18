@@ -346,20 +346,28 @@ footer {
 }
 
 footer a {
-  font-family: var(--dc-sanserif-font);
+  
   display: flex;
   align-items: center;
   justify-content: left;
   text-align: center;
   align-items: center;
 }
+
+.LanguageToggle {
+  float: right;
+  margin: 0.6rem 0.5rem 0 1rem;
+  font-size: var(--dc-font-size-smaller);
+}
+
+
 .DemocracyClubWidget footer {
   display: block;
   padding-top: 0.75rem;
 }
 
 .DemocracyClubWidget footer a img {
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
 }
 .DCLogo {
   text-decoration: none;

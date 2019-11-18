@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 function Directions(props) {
   var gmaps_link;
@@ -11,29 +12,38 @@ function Directions(props) {
   return <section className="directions">{gmaps_link}</section>;
 }
 
-function GoogleMaps(props) {
+function GoogleMapsTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
     <a
       href={'https://maps.google.com/maps?q=' + props.destination}
       target="_top"
-      title="View polling station on Google Maps"
+      className="dc-btn-primary"
+      data-testid="google-maps"
+      title={formatMessage({ id: 'directions.show-google-maps-title' })}
     >
-      Show me on Google Maps
+      <FormattedMessage id="directions.show-google-maps" description="Show me on Google Maps" />
     </a>
   );
 }
 
-function GoogleDirections(props) {
+const GoogleMaps = injectIntl(GoogleMapsTemplate);
+
+function GoogleDirectionsTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
     <a
       href={'https://maps.google.com/maps/dir/' + props.origin + '/' + props.destination}
       target="_top"
       className="dc-btn-primary"
-      title="View directions to polling station from your postcode on Google Maps"
+      data-testid="google-directions"
+      title={formatMessage({ id: 'directions.show-google-directions-title' })}
     >
-      Show me directions
+      <FormattedMessage id="directions.show-google-directions" description="Show me directions" />
     </a>
   );
 }
+
+const GoogleDirections = injectIntl(GoogleDirectionsTemplate);
 
 export { Directions, GoogleMaps, GoogleDirections };

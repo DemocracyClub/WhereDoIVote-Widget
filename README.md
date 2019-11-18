@@ -21,6 +21,36 @@ Add the following lines to your HTML, where you want the widget to appear on the
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
+### English / Welsh language support
+
+Default English with option to toggle to Welsh:
+
+```html
+<noscript>
+  <iframe src="https://wheredoivote.co.uk/embed/"
+          style="width:100%; height:1100px"
+          frameborder="0"
+          scrolling="no">
+  </iframe>
+</noscript>
+<div id="dc_wdiv" data-language="en" aria-live="polite" role="region"></div>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
+```
+
+Default Welsh with option to toggle to English:
+
+```html
+<noscript>
+  <iframe src="https://wheredoivote.co.uk/embed/"
+          style="width:100%; height:1100px"
+          frameborder="0"
+          scrolling="no">
+  </iframe>
+</noscript>
+<div id="dc_wdiv" data-language="cy" aria-live="polite" role="region"></div>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
+```
+
 ## Local development
 
 ```

@@ -1,37 +1,28 @@
-import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import 'jest-enzyme';
-import AddressPicker from './AddressPicker';
+import '@testing-library/jest-dom/extend-expect';
+import { cleanup, waitForElement } from '@testing-library/react';
+import en_messages from './translations/en';
+import { renderWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
 
-configure({ adapter: new Adapter() });
+afterEach(cleanup);
 
-describe('AddressPicker', () => {
-  it('renders addresses from list', () => {
-    let addresses = [
-      {
-        address: 'foo',
-        url: 'foo.com',
-      },
-      {
-        address: 'bar',
-        url: 'bar.com',
-      },
-    ];
+jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+  virtual: true,
+});
 
-    const wrapper = shallow(<AddressPicker addressList={addresses} />);
-
-    expect(wrapper).toContainReact(<option value="foo.com">foo</option>);
-    expect(wrapper).toContainReact(<option value="bar.com">bar</option>);
+describe('Address picker', () => {
+  beforeEach(async () => {
+    renderWidget();
   });
 
-  it('renders "My address is not in the list" option', () => {
-    let addresses = [{ address: 'foo', url: 'foo.com' }];
+  it('renders "My address is not in the list" option', async () => {
+    let enteredPostcode = 'TN48XA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
 
-    const wrapper = shallow(<AddressPicker addressList={addresses} />);
-
-    expect(wrapper).toContainReact(
-      <option value="not-in-list">My address is not in the list</option>
+    const lastAddressPickerOption = await waitForElement(() =>
+      document.querySelector('#id_address option:last-child')
     );
+    expect(lastAddressPickerOption).toHaveTextContent(en_messages['address.not-in-list']);
   });
 });

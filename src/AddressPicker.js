@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 
 class AddressPicker extends React.Component {
   constructor(props) {
@@ -32,12 +33,13 @@ class AddressPicker extends React.Component {
   render() {
     const isButtonDisabled = this.state.address === undefined;
     const inputProps = { disabled: isButtonDisabled, 'aria-disabled': isButtonDisabled };
+    const { formatMessage } = this.props.intl;
     return (
       <form className="AddressPicker" data-testid="address-selector">
         <div className="form-group">
           <h1>
             <label id="choose-address" className="form-label-bold" htmlFor="id_address">
-              Choose your address
+              {formatMessage({ id: 'address.choose-address' })}
             </label>
           </h1>
           <select
@@ -52,7 +54,7 @@ class AddressPicker extends React.Component {
           >
             {this.props.addressList.map(this.addressOption)}
             <option key={this.props.addressList.length} value="not-in-list">
-              My address is not in the list
+              {formatMessage({ id: 'address.not-in-list' })}
             </option>
           </select>
         </div>
@@ -63,11 +65,11 @@ class AddressPicker extends React.Component {
           data-testid="address-button"
           onClick={this.handleSubmit}
         >
-          Find my Polling Station
+          {formatMessage({ id: 'station.find-station' })}{' '}
         </button>
       </form>
     );
   }
 }
 
-export default AddressPicker;
+export default injectIntl(AddressPicker);

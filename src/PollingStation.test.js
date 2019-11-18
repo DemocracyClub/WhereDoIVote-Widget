@@ -1,76 +1,36 @@
-import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import 'jest-enzyme';
-import PollingStation from './PollingStation';
-import { Directions } from './Directions';
-import { Notifications } from './Notifications';
+import { waitForElement } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import en_messages from './translations/en';
+import { renderWidget, typePostcode, submitPostcode, mockResponse } from './test-utils/test';
 
-configure({ adapter: new Adapter() });
+jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+  virtual: true,
+});
 
 describe('PollingStation', () => {
-  const pollingStation = {
-    address: '123 Test Street, T3 5TS',
-    coordinates: {
-      origin: 'foo',
-      destination: 'bar',
-    },
-  };
-
-  const notifications = [
-    {
-      type: 'voter_id',
-      url: 'https://www.example.com',
-      title: 'You need ID',
-      detail: 'you really will need ID',
-    },
-  ];
-
-  it('always renders header', () => {
-    const wrapper = shallow(<PollingStation station={pollingStation} notifications={[]} />);
-
-    expect(wrapper).toContainReact(<h1 className="dc-header">Your polling station</h1>);
+  let getByTestId;
+  beforeEach(async () => {
+    const wrapper = renderWidget();
+    getByTestId = wrapper.getByTestId;
   });
 
-  it('renders address', () => {
-    const wrapper = shallow(<PollingStation station={pollingStation} notifications={[]} />);
-
-    expect(wrapper).toContainReact(
-      <div className="address">
-        123 Test Street
-        <br />
-        T3 5TS
-      </div>
+  it('shows a title if it finds a polling station', async () => {
+    let enteredPostcode = 'AA12AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const YourPollingStation = await waitForElement(() =>
+      document.querySelector('.PollingStation')
     );
+    expect(YourPollingStation).toHaveTextContent(en_messages['station.your-station']);
   });
 
-  it('renders out directions when coordinates are present', () => {
-    const wrapper = shallow(<PollingStation station={pollingStation} notifications={[]} />);
-
-    expect(wrapper).toContainReact(<Directions origin="foo" destination="bar" />);
-  });
-
-  it('does not render out directions when coordinates are not present', () => {
-    var pollingStationWithoutCoordinates = { address: '123 Test Street, T3 5TS' };
-
-    const wrapper = shallow(
-      <PollingStation station={pollingStationWithoutCoordinates} notifications={[]} />
-    );
-
-    expect(wrapper).not.toContainReact(<Directions />);
-  });
-
-  it('does not show notification when there is no voter id pilot', () => {
-    const wrapper = shallow(
-      <PollingStation station={pollingStation} notifications={notifications} />
-    );
-    expect(wrapper).not.toContainReact(<Notifications />);
-  });
-
-  it('shows notification when there is a voter id pilot', () => {
-    const wrapper = shallow(
-      <PollingStation station={pollingStation} notifications={notifications} />
-    );
-    expect(wrapper).toContainReact(<Notifications list={notifications} />);
+  it('renders address', async () => {
+    let enteredPostcode = 'AA12AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const StationAddress = await waitForElement(() => getByTestId('address'));
+    expect(StationAddress).toHaveTextContent('York Room');
   });
 });
