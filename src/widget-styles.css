@@ -86,7 +86,7 @@
 .DemocracyClubWidget button.dc-btn-primary:focus,
 .DemocracyClubWidget a.dc-btn-primary:focus,
 .dc-btn-primary:focus,
-.dc-btn-seconday:focus,
+.dc-btn-secondary:focus,
 .DemocracyClubWidget input:focus,
 .DemocracyClubWidget select:focus,
 *:focus {
@@ -176,7 +176,7 @@ h1.dc-header,
 
 .DemocracyClubWidget button.dc-btn-primary,
 .DemocracyClubWidget a.dc-btn-primary,
-.dc-btn-seconday {
+.dc-btn-secondary {
   font-family: var(--dc-sanserif-font);
   background-color: var(--dc-bright-blue-wcag-fff-contrast-3-1);
   border: 0;
@@ -189,8 +189,8 @@ h1.dc-header,
   line-height: 1.2;
 }
 
-.dc-btn-seconday,
-a.dc-btn-seconday {
+.dc-btn-secondary,
+a.dc-btn-secondary {
   color: white;
   font-size: var(--dc-font-size-smaller);
   background-color: var(--dc-darker-grey);
@@ -203,8 +203,8 @@ a.dc-btn-seconday {
   text-decoration: none;
 }
 
-.dc-btn-seconday:hover,
-a.dc-btn-seconday:hover {
+.dc-btn-secondary:hover,
+a.dc-btn-secondary:hover {
   background-color: var(--dc-darker-blue);
   text-decoration: none;
 }
