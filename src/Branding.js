@@ -16,7 +16,7 @@ function StartAgainButtonTemplate(props) {
   const { formatMessage } = props.intl;
   return (
     <button
-      className="dc-btn-seconday"
+      className="dc-btn-secondary"
       aria-label={formatMessage({ id: 'general.start-again' })}
       title={formatMessage({ id: 'general.start-again' })}
       onClick={props.onClick}
