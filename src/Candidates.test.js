@@ -23,7 +23,7 @@ describe('Standard Widget', () => {
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
-    const Widget = await waitForElement(() => document.querySelector('DemocracyClubWidget'));
+    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
     expect(Widget).not.toHaveTextContent('Candidates for Uxbridge and South Ruislip');
   });
 });
