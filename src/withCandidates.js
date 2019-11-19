@@ -4,14 +4,10 @@ function withCandidates(Widget) {
   return function WidgetWithCandidates(props) {
     const renderTarget = document.getElementById('dc_wdiv');
     const enableCandidates = renderTarget.getAttribute('data-candidates') === 'true' ? true : false;
-    const candidateCheckbox =
-      renderTarget.getAttribute('data-candidates-start-state') === 'unticked' ? false : true;
-
-    const [showCandidates, setShowCandidates] = useState(candidateCheckbox);
     const [candidates, setCandidates] = useState(null);
 
     function handleCandidates(nextBallotDate) {
-      if (showCandidates && nextBallotDate) {
+      if (enableCandidates && nextBallotDate) {
         const geBallot = nextBallotDate.ballots.filter(
           ballot => ballot.election_id === 'parl.2019-12-12'
         );
@@ -25,10 +21,7 @@ function withCandidates(Widget) {
     return (
       <Widget
         {...props}
-        showCandidates={showCandidates}
-        setShowCandidates={setShowCandidates}
         enableCandidates={enableCandidates}
-        candidateCheckbox={candidateCheckbox}
         handleCandidates={handleCandidates}
         resetCandidates={() => setCandidates(null)}
         candidates={candidates}

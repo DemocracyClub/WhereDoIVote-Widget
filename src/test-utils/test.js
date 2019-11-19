@@ -54,17 +54,3 @@ export const renderCandidatesWidget = () => {
   const wrapper = render(<DemocracyClubWidget />);
   return wrapper;
 };
-
-export const renderCandidatesUntickedWidget = () => {
-  render(
-    <div
-      id="dc_wdiv"
-      data-candidates="true"
-      data-candidates-start-state="unticked"
-      aria-live="polite"
-      role="region"
-    />
-  );
-  const wrapper = render(<DemocracyClubWidget />);
-  return wrapper;
-};

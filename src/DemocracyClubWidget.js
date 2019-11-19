@@ -133,7 +133,7 @@ function DemocracyClubWidget(props) {
             electoral_services={electoralServices}
           />
         )}
-        {props.showCandidates && props.candidates && <Candidates {...props} />}
+        {props.enableCandidates && props.candidates && <Candidates {...props} />}
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <Footer {...props} />
