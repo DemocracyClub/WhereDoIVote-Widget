@@ -18,9 +18,13 @@ describe('Standard Widget', () => {
   beforeEach(() => {
     renderWidget();
   });
-  it('should not show candidate option on the default widget', async () => {
-    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
-    expect(Widget).not.toHaveTextContent('Show candidates');
+  it('should not show candidates on the default widget', async () => {
+    let enteredPostcode = 'UB78FA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Widget = await waitForElement(() => document.querySelector('DemocracyClubWidget'));
+    expect(Widget).not.toHaveTextContent('Candidates for Uxbridge and South Ruislip');
   });
 });
 
@@ -31,7 +35,7 @@ describe('Candidates', () => {
     getByTestId = widget.getByTestId;
   });
 
-  it('should show candidates for a postcode', async () => {
+  it('should show candidates section for a postcode', async () => {
     let enteredPostcode = 'UB78FA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
@@ -40,7 +44,7 @@ describe('Candidates', () => {
     expect(Candidates).toHaveTextContent('Candidates for Uxbridge and South Ruislip');
   });
 
-  it('should not show candidates for a postcode if the general election id is not present on the ballot', async () => {
+  it('should only show candidates for ballots with id parl.2019-12-12', async () => {
     let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
