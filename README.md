@@ -51,6 +51,20 @@ Default Welsh with option to toggle to English:
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
+### Candidate support:
+
+```html
+<noscript>
+  <iframe src="https://wheredoivote.co.uk/embed/"
+          style="width:100%; height:1100px"
+          frameborder="0"
+          scrolling="no">
+  </iframe>
+</noscript>
+<div id="dc_wdiv" data-candidates="true" data-language="en" aria-live="polite" role="region"></div>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
+```
+
 ## Local development
 
 ```

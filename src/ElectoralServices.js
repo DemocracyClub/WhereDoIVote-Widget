@@ -5,7 +5,7 @@ function ElectoralServices(props) {
   const { formatMessage } = props.intl;
   return (
     <>
-      <span id="dc_get_in_touch">
+      <p>
         <FormattedMessage id="elections.get-in-touch-with" description="Get in touch with" />{' '}
         <strong>
           {props.es.council_id.startsWith('N09')
@@ -13,7 +13,7 @@ function ElectoralServices(props) {
             : props.es.name}
         </strong>
         :
-      </span>
+      </p>
       <ul data-testid="council-details">
         <li>
           <FormattedMessage id="general.website" description="Website" /> -{' '}

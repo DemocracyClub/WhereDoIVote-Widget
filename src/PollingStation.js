@@ -17,7 +17,7 @@ function PollingStation(props) {
         <FormattedMessage id="station.your-station" description="Your station" />
       </h1>
       <div data-testid="address" className="address">
-        {splitAddress.slice(0, splitAddress.length - 1)}
+        <p>{splitAddress.slice(0, splitAddress.length - 1)}</p>
       </div>
       {props.station.coordinates && (
         <Directions

@@ -39,7 +39,7 @@ function DemocracyClubWidget(props) {
     setNotifications(null);
     setCurrentError(undefined);
     setLoading(false);
-    props.resetCandidates && props.resetCandidates();
+    props.resetBallot && props.resetBallot();
   }
 
   function handleError(data) {
@@ -133,8 +133,7 @@ function DemocracyClubWidget(props) {
             electoral_services={electoralServices}
           />
         )}
-        {props.enableCandidates && props.candidates && <Candidates {...props} />}
-
+        {props.enableCandidates && props.ballot && <Candidates {...props} />}
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <Footer {...props} />
       </section>

@@ -4,7 +4,7 @@ function withCandidates(Widget) {
   return function WidgetWithCandidates(props) {
     const renderTarget = document.getElementById('dc_wdiv');
     const enableCandidates = renderTarget.getAttribute('data-candidates') === 'true' ? true : false;
-    const [candidates, setCandidates] = useState(null);
+    const [ballot, setBallot] = useState(null);
 
     function handleCandidates(nextBallotDate) {
       if (enableCandidates && nextBallotDate) {
@@ -13,7 +13,7 @@ function withCandidates(Widget) {
         );
         const generalElection = geBallot[0];
         if (generalElection) {
-          generalElection.candidates_verified && setCandidates(generalElection);
+          generalElection.candidates_verified && setBallot(generalElection);
         }
       }
     }
@@ -23,8 +23,8 @@ function withCandidates(Widget) {
         {...props}
         enableCandidates={enableCandidates}
         handleCandidates={handleCandidates}
-        resetCandidates={() => setCandidates(null)}
-        candidates={candidates}
+        resetBallot={() => setBallot(null)}
+        ballot={ballot}
       />
     );
   };
