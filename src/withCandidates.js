@@ -13,7 +13,9 @@ function withCandidates(Widget) {
         );
         const generalElection = geBallot[0];
         if (generalElection) {
-          generalElection.candidates_verified && setBallot(generalElection);
+          generalElection.candidates_verified &&
+            !generalElection.cancelled &&
+            setBallot(generalElection);
         }
       }
     }

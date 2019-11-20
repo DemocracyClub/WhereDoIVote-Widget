@@ -44,6 +44,24 @@ describe('Candidates', () => {
     expect(Candidates).toHaveTextContent('Candidates for Uxbridge and South Ruislip');
   });
 
+  it("shouldn't show candidates if candidates_verified is false", async () => {
+    let enteredPostcode = 'UB7XNV';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
+    expect(Widget).not.toHaveTextContent('Candidates for Uxbridge and South Ruislip');
+  });
+
+  it("shouldn't show candidates if election is cancelled", async () => {
+    let enteredPostcode = 'CO168EZ';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
+    expect(Widget).not.toHaveTextContent('Candidates for Tendring local election St Osyth');
+  });
+
   it('should only show candidates for ballots with id parl.2019-12-12', async () => {
     let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
