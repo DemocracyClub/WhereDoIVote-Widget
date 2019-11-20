@@ -20,10 +20,10 @@ function Notification(props) {
       {props.detail && <p>{props.detail}</p>}
       {props.url && (
         <a
-          className="dc-btn-seconday"
+          className="dc-btn-secondary"
           target="_blank"
           rel="noopener noreferrer"
-          title="Read more information about this {props.title}"
+          title={'Read more information about this ' + props.title}
           href={props.url}
         >
           Read More

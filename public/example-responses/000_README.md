@@ -35,13 +35,6 @@ replicating various standard and edge cases cases we need to handle:
 
 ## Address pickers:
 
-- different polling stations but everything is in the same ward:
-
-  - NG95EH
-    - 1 SCHOOL LANE, BEESTON, NOTTINGHAM
-    - 50 SCHOOL LANE, BEESTON, NOTTINGHAM
-    - __uses postcode-NG95EH.json__
-
 - address pickers with different polling stations _and ward_:
   - TN48XA
     - RUSTHALL CRICKET CLUB COACH ROAD, ROYAL TUNBRIDGE WELLS - Tunbridge Wells local election: Rusthall
@@ -50,7 +43,7 @@ replicating various standard and edge cases cases we need to handle:
     - __uses address-10024136194.json__
     - __uses address-10000066465.json__
   - CT54LX 
-    - 1 BORSTAL HILL, WHITSTABLE - Canterbury local election: Gorrell 
+    - 1 BORSTAL HILL, WHITSTABLE - Canterbury local election: Gorrell
     - 2 BORSTAL HILL, WHITSTABLE - Canterbury local election: Seasalter
     - __uses postcode-CT54LX.json__
     - __uses address-100060841558.json__
