@@ -25,6 +25,12 @@ function PollingStation(props) {
           destination={props.station.coordinates.destination}
         />
       )}
+      <p>
+        <FormattedMessage
+          id="station.opening-hours"
+          description="Polling stations are open from 7am to 10pm on polling day."
+        />
+      </p>
       <Notifications list={props.notifications} />
     </article>
   );

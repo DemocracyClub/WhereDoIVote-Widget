@@ -18,6 +18,7 @@
   "station.find-station": "Find your polling station",
   "station.not-found": "We couldn't find your station",
   "station.your-station": "Your polling station",
+  "station.opening-hours": "Polling stations are open from 7am to 10pm on polling day.",
   "elections.unknown":"We don't know of any upcoming elections in your area",
   "elections.get-in-touch-with":"Get in touch with",
   "elections.ni-office": "The Electoral Office for Northern Ireland",
