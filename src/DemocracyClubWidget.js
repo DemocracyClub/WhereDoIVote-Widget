@@ -123,7 +123,11 @@ function DemocracyClubWidget(props) {
         {props.enableCandidates && props.ballot && <Candidates {...props} />}
         {station && <PollingStation station={station} notifications={notifications} />}
         {addressList && !station && (
-          <AddressPicker addressList={addressList} lookupChosenAddress={lookupChosenAddress} />
+          <AddressPicker
+            addressList={addressList}
+            lookupChosenAddress={lookupChosenAddress}
+            {...props}
+          />
         )}
         {stationNotFound && (
           <StationNotFound notifications={notifications} electoral_services={electoralServices} />

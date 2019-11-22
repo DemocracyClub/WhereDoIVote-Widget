@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { cleanup, waitForElement } from '@testing-library/react';
+import en_messages from './translations/en';
 import {
   renderCandidatesWidget,
   renderWidget,
@@ -18,6 +19,10 @@ describe('Standard Widget', () => {
   beforeEach(() => {
     renderWidget();
   });
+  it('should not show general search text on standard widget', async () => {
+    const SearchButton = await waitForElement(() => document.querySelector('.dc-btn-primary'));
+    expect(SearchButton).toHaveTextContent(en_messages['postcode.submit-postcode-polling-station']);
+  });
   it('should not show candidates on the default widget', async () => {
     let enteredPostcode = 'UB78FA';
     mockResponse('postcode', enteredPostcode);
@@ -33,6 +38,11 @@ describe('Candidates', () => {
   beforeEach(() => {
     const widget = renderCandidatesWidget();
     getByTestId = widget.getByTestId;
+  });
+
+  it('should show general search text on candidates-enabled widget', async () => {
+    const SearchButton = await waitForElement(() => document.querySelector('.dc-btn-primary'));
+    expect(SearchButton).toHaveTextContent(en_messages['postcode.submit-postcode-general']);
   });
 
   it('should show candidates section for a postcode', async () => {

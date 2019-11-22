@@ -31,7 +31,7 @@
   --party-colour-party-53: #d50000;
   --party-colour-party-53-119: #d50000;
   --party-colour-party-63: #008066;
-  --party-colour-party-90: #B3009D;
+  --party-colour-party-90: #FDBB30;
   --party-colour-party-77: #3f8428;
   --party-colour-party-102: #fff95d;
   --party-colour-party-85: #b3009d;
@@ -358,8 +358,9 @@ a.dc-btn-primary::after {
 # Polling Station
 --------------------------------------------------------------*/
 
-.PollingStation .address {
+.PollingStation .address p {
   font-family: var(--dc-serif-font);
+  font-size: var(--dc-font-size-default);
 }
 
 .directions {

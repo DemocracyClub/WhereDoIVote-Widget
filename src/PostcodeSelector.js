@@ -35,26 +35,11 @@ function PostcodeSelector(props) {
   return (
     <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
       <div className="form-group">
-        {props.enableCandidates && (
-          <>
-            <h1 className="dc-header">
-              <FormattedMessage
-                id="postcode.general-information"
-                description="Information about elections in your area"
-              />
-            </h1>
-            <label className="form-label-reduced" htmlFor="postcode">
-              <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
-            </label>
-          </>
-        )}
-        {!props.enableCandidates && (
-          <h1>
-            <label className="form-label-bold" htmlFor="postcode">
-              <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
-            </label>
-          </h1>
-        )}
+        <h1>
+          <label className="form-label-bold" htmlFor="postcode">
+            <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
+          </label>
+        </h1>
 
         <input
           value={formValue}
@@ -75,7 +60,7 @@ function PostcodeSelector(props) {
         {props.enableCandidates && (
           <FormattedMessage
             id="postcode.submit-postcode-general"
-            description="Find your polling station"
+            description="Find election information"
           />
         )}
       </button>
