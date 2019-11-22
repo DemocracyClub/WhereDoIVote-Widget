@@ -120,6 +120,7 @@ function DemocracyClubWidget(props) {
           />
         )}
         {loading && <Loader />}
+        {props.enableCandidates && props.ballot && <Candidates {...props} />}
         {station && <PollingStation station={station} notifications={notifications} />}
         {addressList && !station && (
           <AddressPicker addressList={addressList} lookupChosenAddress={lookupChosenAddress} />
@@ -133,7 +134,7 @@ function DemocracyClubWidget(props) {
             electoral_services={electoralServices}
           />
         )}
-        {props.enableCandidates && props.ballot && <Candidates {...props} />}
+
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
         <Footer {...props} />
       </section>
