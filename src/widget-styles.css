@@ -185,6 +185,13 @@ h1.dc-header,
   font-size: var(--dc-font-size-heading);
 }
 
+.DemocracyClubWidget .form-label-reduced {
+  font-weight: normal;
+  display: block;
+  margin: 0.5rem 0;
+  font-family: var(--dc-serif-font);
+}
+
 .DemocracyClubWidget a {
   color: var(--dc-bright-pink-accent);
   text-decoration: none;

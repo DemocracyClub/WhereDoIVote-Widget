@@ -9,12 +9,6 @@ function Candidates(props) {
         <FormattedMessage id="candidates.candidates-for" description="Candidates for" />{' '}
         {props.ballot.ballot_title}
       </h1>
-      <p>
-        <FormattedMessage
-          id="candidates.view-more-info"
-          description="View more information on the candidates:"
-        />
-      </p>
       <ul>
         {props.ballot.candidates.map((candidate, i) => (
           <CandidateItem candidate={candidate} key={`candidate-${i}`} />

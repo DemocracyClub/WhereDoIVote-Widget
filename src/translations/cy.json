@@ -11,8 +11,10 @@
   "general.email-council":"Ebostia",
   "general.read-more": "Darllen rhagor",
   "postcode.enter-postcode": "Rho dy god post",
-  "postcode.submit-postcode": "Dod o hyd i'ch gorsaf bleidleisio",
+  "postcode.submit-postcode-polling-station": "Dod o hyd i'ch gorsaf bleidleisio",
+  "postcode.submit-postcode-general": "Search",
   "postcode.back-to-search":"Yn ôl i Chwilio Cod post",
+  "postcode.general-information":"Information about elections in your area",
   "address.choose-address":"Dewisa dy gyfeiriad",
   "address.not-in-list": "Nid yw fy nghyfeiriad yn y rhestr",
   "station.find-station": "Dod o hyd i fy Ngorsaf Bleidleisio",
@@ -30,6 +32,5 @@
   "api.errors.voting-location-unknown": "Nid ydym yn gwybod ble y dylet bleidleisio.",
   "api.errors.generic-error": "Aeth rhywbeth o'i le. Rho gynnig arni eto'n hwyrach.",
   "postcode.errors.invalid-postcode": "Rhow god post dilys.",
-  "candidates.view-more-info":"View more information on the candidates:",
   "candidates.candidates-for": "Candidates for"
 }

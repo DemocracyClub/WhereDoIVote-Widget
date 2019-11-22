@@ -10,8 +10,10 @@
   "general.visit-website-of": "Visit the website of",
   "general.email-council": "Email",
   "general.read-more": "Read more",
+  "postcode.general-information":"Information about elections in your area",
   "postcode.enter-postcode": "Enter your postcode",
-  "postcode.submit-postcode": "Find your polling station",
+  "postcode.submit-postcode-polling-station": "Find your polling station",
+  "postcode.submit-postcode-general": "Search",
   "postcode.back-to-search": "Back to Postcode search",
   "address.choose-address": "Choose your address",
   "address.not-in-list": "My address is not in the list",
@@ -30,6 +32,5 @@
   "api.errors.voting-location-unknown": "We don't know where you should vote.",
   "api.errors.generic-error": "Something went wrong. Please try again later.",
   "postcode.errors.invalid-postcode": "Please enter a valid postcode.",
-  "candidates.view-more-info": "View more information on the candidates:",
   "candidates.candidates-for": "Candidates for"
 }
