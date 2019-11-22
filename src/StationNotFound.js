@@ -10,6 +10,12 @@ function StationNotFound(props) {
         <FormattedMessage id="station.not-found" description="Station not found" />
       </h1>
       {props.electoral_services && <ElectoralServices es={props.electoral_services} />}
+      <p>
+        <FormattedMessage
+          id="station.opening-hours"
+          description="Polling stations are open from 7am to 10pm on polling day."
+        />
+      </p>
       <Notifications list={props.notifications} />
     </div>
   );
