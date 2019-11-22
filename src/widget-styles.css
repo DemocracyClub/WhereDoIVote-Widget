@@ -35,6 +35,11 @@
   --party-colour-party-77: #3f8428;
   --party-colour-party-102: #fff95d;
   --party-colour-party-85: #b3009d;
+  --party-colour-party-39: #326760;
+  --party-colour-party-70: #D46A4C;
+  --party-colour-party-83:	#48A5EE;
+  --party-colour-party-55: #3A9E84;
+  --party-colour-party-103: #F6CB2F;
   /* Unused by widget: */
   --dc-bright-blue-hover: #009bd6;
   --dc-global-radius: 0;
@@ -54,6 +59,7 @@
   --dc-bright-blue-wcag-fff-contrast-3-5: #0092c8;
   --dc-bright-blue-accent: #007faf;
   --dc-bright-pink-accent: #ec008c;
+  --dc-bright-pink-transparent: rgba(236, 0, 140,0.3);
   --dc-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
   --dc-error-red: #b10e1e;
   --dc-light-grey: #ddd;
@@ -74,10 +80,15 @@
   --party-colour-party-53: #d50000;
   --party-colour-party-53-119: #d50000;
   --party-colour-party-63: #008066;
-  --party-colour-party-90: #B3009D;
+  --party-colour-party-90: #FDBB30;
   --party-colour-party-77: #3f8428;
   --party-colour-party-102: #fff95d;
   --party-colour-party-85: #b3009d;
+  --party-colour-party-39: #326760;
+  --party-colour-party-70: #D46A4C;
+  --party-colour-party-83:	#48A5EE;
+  --party-colour-party-55: #3A9E84;
+  --party-colour-party-103: #F6CB2F;
   /* Unused by widget: */
   --dc-bright-blue-hover: #009bd6;
   --dc-global-radius: 0;
@@ -563,3 +574,19 @@ footer {
 .party-85.party-name::before {
   background: var(--party-colour-party-85);
 }
+
+.party-39.party-name::before {
+  background: var(--party-colour-party-39);
+}
+.party-70.party-name::before {
+  background: var(--party-colour-party-70);
+}
+.party-83.party-name::before {
+  background: var(--party-colour-party-83);
+}
+  .party-55.party-name::before {
+  background: var(--party-colour-party-55);  
+   }  
+.party-103.party-name::before {
+  background: var(--party-colour-party-103);
+ } 
