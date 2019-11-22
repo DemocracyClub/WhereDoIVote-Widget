@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import { cleanup, waitForElement, render } from '@testing-library/react';
+import { cleanup, waitForElement } from '@testing-library/react';
 import CandidateItem from './CandidateItem';
-
+import en_messages from './translations/en';
+import { renderWithReactIntl } from './test-utils/test';
 afterEach(cleanup);
 
 jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
@@ -10,6 +11,7 @@ jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
 });
 
 describe('Candidate item', () => {
+  let getByTestId;
   beforeEach(async () => {
     let candidate = {
       list_position: null,
@@ -23,7 +25,9 @@ describe('Candidate item', () => {
           'https://static-candidates.democracyclub.org.uk/media/cache/18/eb/18eb26d2f07e4275ba247371e35d8eb5.jpg',
       },
     };
-    render(<CandidateItem candidate={candidate} />);
+
+    const candidateItem = renderWithReactIntl(<CandidateItem candidate={candidate} />);
+    getByTestId = candidateItem.getByTestId;
   });
   it('renders name for a given candidate', async () => {
     const CandidateItem = await waitForElement(() => document.querySelector('.CandidateItem'));
@@ -36,6 +40,10 @@ describe('Candidate item', () => {
   it('renders correct class for party with standard ID', async () => {
     const PartyName = await waitForElement(() => document.querySelector('.party-name'));
     expect(PartyName).toHaveClass('party-2');
+  });
+  it('renders an accessible title attribute on each hyperlink', async () => {
+    const CandidateLink = await waitForElement(() => getByTestId('candidate-link'));
+    expect(CandidateLink).toHaveAttribute('title', en_messages['general.read-more-info-candidate']);
   });
 });
 
@@ -53,7 +61,7 @@ describe('Candidate item edge case', () => {
           'https://static-candidates.democracyclub.org.uk/media/cache/bf/a8/bfa88a4a561f6d3fb026e3248255d430.jpg',
       },
     };
-    render(<CandidateItem candidate={coopParty} />);
+    renderWithReactIntl(<CandidateItem candidate={coopParty} />);
   });
   it('renders correct class for cooperative party', async () => {
     const PartyName = await waitForElement(() => document.querySelector('.party-name'));
