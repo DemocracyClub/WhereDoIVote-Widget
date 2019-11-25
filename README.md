@@ -55,11 +55,7 @@ Default Welsh with option to toggle to English:
 
 ```html
 <noscript>
-  <iframe src="https://wheredoivote.co.uk/embed/"
-          style="width:100%; height:1100px"
-          frameborder="0"
-          scrolling="no">
-  </iframe>
+  <a href="https://whocanivotefor.co.uk/">Information about elections in your area</a>
 </noscript>
 <div id="dc_wdiv" data-candidates="true" data-language="en" aria-live="polite" role="region"></div>
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
