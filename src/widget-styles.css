@@ -1,16 +1,16 @@
 /*--------------------------------------------------------------
 # Core variables
 --------------------------------------------------------------*/
-:host { /* :host is for Shadow Dom, :root is for older browsers */
+:host {
+  /* :host is for Shadow Dom, :root is for older browsers */
   --dc-body-text-colour: #58595b;
   --dc-heading-text-colour: #403f41;
-  --dc-text-grey: #0b0c0c;
-  --dc-bright-blue-wcag-fff-contrast-3-1: #009CD6;
-  --dc-bright-blue-wcag-fff-contrast-3-5: #0092C8;
+  --dc-text-black: #0b0c0c;
+  --dc-bright-blue-wcag-fff-contrast-3-1: #009cd6;
+  --dc-bright-blue-wcag-fff-contrast-3-5: #0092c8;
   --dc-bright-blue-accent: #007faf;
-  
-  --dc-darker-blue: #020202;
   --dc-bright-pink-accent: #ec008c;
+  --dc-bright-pink-transparent: rgba(236, 0, 140,0.3);
   --dc-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
   --dc-error-red: #b10e1e;
   --dc-light-grey: #ddd;
@@ -21,10 +21,25 @@
   --dc-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --dc-font-size-heading: 1.5rem;
   --dc-font-size-default: 1.2rem;
-  --dc-font-size-smaller: 0.85rem;
+  --dc-font-size-smaller: 1rem;
+  --dc-font-size-smallest: 0.85rem;
   --dc-line-height-default: 1.2;
   --dc-spacing-default: 1rem;
   --dc-border-width: 2px;
+  --party-colour-independent: #767676;
+  --party-colour-party-52: #0087dc;
+  --party-colour-party-53: #d50000;
+  --party-colour-party-53-119: #d50000;
+  --party-colour-party-63: #008066;
+  --party-colour-party-90: #FDBB30;
+  --party-colour-party-77: #3f8428;
+  --party-colour-party-102: #fff95d;
+  --party-colour-party-85: #b3009d;
+  --party-colour-party-39: #326760;
+  --party-colour-party-70: #D46A4C;
+  --party-colour-party-83: #48A5EE;
+  --party-colour-party-55: #3A9E84;
+  --party-colour-party-103: #F6CB2F;
   /* Unused by widget: */
   --dc-bright-blue-hover: #009bd6;
   --dc-global-radius: 0;
@@ -35,16 +50,16 @@
   --dc-green: #4db314;
   --dc-off-black: #403f41;
 }
-:root { /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
+:root {
+  /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
   --dc-body-text-colour: #58595b;
   --dc-heading-text-colour: #403f41;
-  --dc-text-grey: #0b0c0c;
-  --dc-bright-blue-wcag-fff-contrast-3-1: #009CD6;
-  --dc-bright-blue-wcag-fff-contrast-3-5: #0092C8;
+  --dc-text-black: #0b0c0c;
+  --dc-bright-blue-wcag-fff-contrast-3-1: #009cd6;
+  --dc-bright-blue-wcag-fff-contrast-3-5: #0092c8;
   --dc-bright-blue-accent: #007faf;
-  
-  --dc-darker-blue: #020202;
   --dc-bright-pink-accent: #ec008c;
+  --dc-bright-pink-transparent: rgba(236, 0, 140,0.3);
   --dc-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
   --dc-error-red: #b10e1e;
   --dc-light-grey: #ddd;
@@ -55,10 +70,25 @@
   --dc-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --dc-font-size-heading: 1.5rem;
   --dc-font-size-default: 1.2rem;
-  --dc-font-size-smaller: 0.85rem;
+  --dc-font-size-smaller: 1rem;
+  --dc-font-size-smallest: 0.85rem;
   --dc-line-height-default: 1.2;
   --dc-spacing-default: 1rem;
   --dc-border-width: 2px;
+  --party-colour-independent: #767676;
+  --party-colour-party-52: #0087dc;
+  --party-colour-party-53: #d50000;
+  --party-colour-party-53-119: #d50000;
+  --party-colour-party-63: #008066;
+  --party-colour-party-90: #FDBB30;
+  --party-colour-party-77: #3f8428;
+  --party-colour-party-102: #fff95d;
+  --party-colour-party-85: #b3009d;
+  --party-colour-party-39: #326760;
+  --party-colour-party-70: #D46A4C;
+  --party-colour-party-83: #48A5EE;
+  --party-colour-party-55: #3A9E84;
+  --party-colour-party-103: #F6CB2F;
   /* Unused by widget: */
   --dc-bright-blue-hover: #009bd6;
   --dc-global-radius: 0;
@@ -74,11 +104,12 @@
 # Helpers
 */
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   box-sizing: inherit;
 }
-
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -161,17 +192,44 @@ h1.dc-header,
   display: block;
   margin: 0.5rem 0 1rem 0;
   font-family: var(--dc-sanserif-font);
-  color: var(--dc-text-grey);
+  color: var(--dc-body-text-colour);
   font-size: var(--dc-font-size-heading);
 }
 
+.DemocracyClubWidget .form-label-reduced {
+  font-weight: normal;
+  display: block;
+  margin: 0.5rem 0;
+  font-family: var(--dc-serif-font);
+}
+
 .DemocracyClubWidget a {
-  color: var(--dc-pink-wcag-fff-contrast-8-4-9);
+  color: var(--dc-bright-pink-accent);
+  text-decoration: none;
+  position: relative;
+  font-weight: normal;
+  font-family: var(--dc-serif-font);
+}
+
+.DemocracyClubWidget a::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  border-bottom:solid 1px var(--dc-bright-pink-transparent);
+  bottom: 0.05rem;
+  display: inline-block;
+  left: 0;
+  position: absolute;
+}
+
+.DemocracyClubWidget a:hover,
+.DemocracyClubWidget a:active {
   text-decoration: none;
 }
 
-.DemocracyClubWidget a:hover {
-  text-decoration: underline;
+.DemocracyClubWidget a:hover::after,
+.DemocracyClubWidget a:active::after {
+  border-bottom:solid 1px var(--dc-bright-pink-accent);
 }
 
 .DemocracyClubWidget button.dc-btn-primary,
@@ -192,7 +250,7 @@ h1.dc-header,
 .dc-btn-secondary,
 a.dc-btn-secondary {
   color: white;
-  font-size: var(--dc-font-size-smaller);
+  font-size: var(--dc-font-size-smallest);
   background-color: var(--dc-darker-grey);
   border-bottom: none;
 }
@@ -203,9 +261,9 @@ a.dc-btn-secondary {
   text-decoration: none;
 }
 
-.dc-btn-secondary:hover,
-a.dc-btn-secondary:hover {
-  background-color: var(--dc-darker-blue);
+.dc-btn-seconday:hover,
+a.dc-btn-seconday:hover {
+  background-color: var(--dc-text-black);
   text-decoration: none;
 }
 .DemocracyClubWidget button.dc-btn-primary:disabled,
@@ -235,7 +293,7 @@ a.dc-btn-secondary:hover {
 
 .ErrorMessage,
 .Notification {
-  color: var(--dc-text-grey);
+  color: var(--dc-body-text-colour);
   display: block;
   font-size: var(--dc-font-size-default);
   border: var(--dc-border-width) solid var(--dc-error-red);
@@ -264,7 +322,7 @@ a.dc-btn-secondary:hover {
 .Notification p,
 .ErrorMessage p {
   margin: 0.5rem 0;
-  font-size: var(--dc-font-size-smaller);
+  font-size: var(--dc-font-size-smallest);
   font-family: var(--dc-serif-font);
 }
 
@@ -282,7 +340,7 @@ a.dc-btn-secondary:hover {
 .DemocracyClubWidget .form-control {
   font-size: var(--dc-font-size-default);
   line-height: var(--dc-line-height-default);
-  border: var(--dc-border-width) solid var(--dc-text-grey);
+  border: var(--dc-border-width) solid var(--dc-body-text-colour);
   padding: 0.314em 0.25em 0.25em;
 }
 .DemocracyClubWidget form > .form-group + .form-group {
@@ -303,12 +361,17 @@ a.dc-btn-secondary:hover {
   cursor: pointer;
 }
 
+a.dc-btn-primary::after {
+  display: none;
+}
+
 /*--------------------------------------------------------------
 # Polling Station
 --------------------------------------------------------------*/
 
-.PollingStation .address {
+.PollingStation .address p {
   font-family: var(--dc-serif-font);
+  font-size: var(--dc-font-size-default);
 }
 
 .directions {
@@ -337,6 +400,22 @@ a.dc-btn-secondary:hover {
   max-width: 100%;
 }
 
+/* Station Not Found */
+
+.StationNotFound ul {
+  padding-left: 1rem;
+}
+
+li {
+  color: var(--dc-body-text-colour);
+  font-size: var(--dc-font-size-default);
+  font-family: var(--dc-serif-font);
+  list-style: disc;
+}
+li, p {
+  font-size: var(--dc-font-size-smaller);
+}
+
 /*--------------------------------------------------------------
 # Footer styles
 --------------------------------------------------------------*/
@@ -345,21 +424,32 @@ footer {
   font-family: var(--dc-sanserif-font);
 }
 
-footer a {
-  
+.DemocracyClubWidget footer a {
   display: flex;
   align-items: center;
   justify-content: left;
   text-align: center;
   align-items: center;
+  border-bottom: none;
+  color: var(--dc-bright-pink-accent);  
+  font-family: var(--dc-sanserif-font);
+}
+
+.DemocracyClubWidget footer a::after {
+  display: none;
+}
+.DemocracyClubWidget footer a:hover,
+.DemocracyClubWidget footer a:active {
+  border-bottom: none;
+  text-decoration: underline;
+  color: var(--dc-bright-pink-accent); 
 }
 
 .LanguageToggle {
   float: right;
   margin: 0.6rem 0.5rem 0 1rem;
-  font-size: var(--dc-font-size-smaller);
+  font-size: var(--dc-font-size-smallest);
 }
-
 
 .DemocracyClubWidget footer {
   display: block;
@@ -371,7 +461,7 @@ footer a {
 }
 .DCLogo {
   text-decoration: none;
-  font-size: var(--dc-font-size-smaller);
+  font-size: var(--dc-font-size-smallest);
 }
 
 /*--------------------------------------------------------------
@@ -410,3 +500,93 @@ footer a {
   width: 40px;
   will-change: transform;
 }
+
+/* Candidates */
+
+.Candidates ul,
+.Candidates li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Candidates ul {
+  margin-bottom: 1.5rem;
+}
+
+.Candidates li {
+  margin-bottom: 0.25rem;
+}
+
+.party-name {
+  font-size: var(--dc-font-size-smaller);
+  margin: 0;
+  font-family: var(--dc-serif-font);
+  display: inline;
+  color: var(--dc-body-text-colour);
+  position: relative;
+  font-weight: normal;
+}
+
+.party-name::before {
+  content: '';
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 100%;
+  background: var(--party-colour-independent);
+  display: inline-block;
+  margin: 0 0.3rem 0 0;
+  bottom: 0rem;
+  position: relative;
+}
+
+.candidate-name {
+  font-size: var(--dc-font-size-smaller);
+  margin: 0;
+  display: inline; 
+}
+
+.candidate-name a {
+  font-family: var(--dc-serif-font);
+}
+
+.party-52.party-name::before {
+  background: var(--party-colour-party-52);
+}
+.party-53.party-name::before {
+  background: var(--party-colour-party-53);
+}
+.party-53-119.party-name::before {
+  background: var(--party-colour-party-53-119);
+}
+.party-63.party-name::before {
+  background: var(--party-colour-party-63);
+}
+.party-90.party-name::before {
+  background: var(--party-colour-party-90);
+}
+.party-77.party-name::before {
+  background: var(--party-colour-party-77);
+}
+.party-102.party-name::before {
+  background: var(--party-colour-party-102);
+}
+.party-85.party-name::before {
+  background: var(--party-colour-party-85);
+}
+
+.party-39.party-name::before {
+  background: var(--party-colour-party-39);
+}
+.party-70.party-name::before {
+  background: var(--party-colour-party-70);
+}
+.party-83.party-name::before {
+  background: var(--party-colour-party-83);
+}
+  .party-55.party-name::before {
+  background: var(--party-colour-party-55);  
+   }  
+.party-103.party-name::before {
+  background: var(--party-colour-party-103);
+ } 

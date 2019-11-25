@@ -17,20 +17,21 @@ function PollingStation(props) {
         <FormattedMessage id="station.your-station" description="Your station" />
       </h1>
       <div data-testid="address" className="address">
-        {splitAddress.slice(0, splitAddress.length - 1)}
+        <p>{splitAddress.slice(0, splitAddress.length - 1)}</p>
       </div>
-      {props.station.coordinates && (
-        <Directions
-          origin={props.station.coordinates.origin}
-          destination={props.station.coordinates.destination}
-        />
-      )}
       <p>
         <FormattedMessage
           id="station.opening-hours"
           description="Polling stations are open from 7am to 10pm on polling day."
         />
       </p>
+      {props.station.coordinates && (
+        <Directions
+          origin={props.station.coordinates.origin}
+          destination={props.station.coordinates.destination}
+        />
+      )}
+
       <Notifications list={props.notifications} />
     </article>
   );

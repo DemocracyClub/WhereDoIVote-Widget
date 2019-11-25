@@ -1,5 +1,5 @@
 import React from 'react';
-import { injectIntl } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 class AddressPicker extends React.Component {
   constructor(props) {
@@ -65,7 +65,18 @@ class AddressPicker extends React.Component {
           data-testid="address-button"
           onClick={this.handleSubmit}
         >
-          {formatMessage({ id: 'station.find-station' })}{' '}
+          {!this.props.enableCandidates && (
+            <FormattedMessage
+              id="postcode.submit-postcode-polling-station"
+              description="Find your polling station"
+            />
+          )}
+          {this.props.enableCandidates && (
+            <FormattedMessage
+              id="postcode.submit-postcode-general"
+              description="Find election information"
+            />
+          )}
         </button>
       </form>
     );

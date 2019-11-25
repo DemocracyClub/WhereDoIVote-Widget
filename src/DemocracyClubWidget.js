@@ -10,8 +10,10 @@ import ShadowDomFactory from './ShadowDomFactory';
 
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 import withTranslations from './withTranslations';
+import withCandidates from './withCandidates';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
+import Candidates from './Candidates';
 
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
@@ -37,6 +39,7 @@ function DemocracyClubWidget(props) {
     setNotifications(null);
     setCurrentError(undefined);
     setLoading(false);
+    props.resetBallot && props.resetBallot();
   }
 
   function handleError(data) {
@@ -57,6 +60,7 @@ function DemocracyClubWidget(props) {
     setCurrentError(undefined);
     let nextBallotDate = resp.data.dates[0];
     let response = resp.data;
+
     if (nextBallotDate && nextBallotDate.notifications) {
       setNotifications(nextBallotDate.notifications);
     }
@@ -75,6 +79,7 @@ function DemocracyClubWidget(props) {
     } else {
       setNoUpcomingElection(true);
     }
+    props.handleCandidates && props.handleCandidates(nextBallotDate);
     setLoading(false);
   }
 
@@ -111,12 +116,18 @@ function DemocracyClubWidget(props) {
             lookupGivenPostcode={lookupGivenPostcode}
             setSearchInitiated={setSearchInitiated}
             setCurrentError={setCurrentError}
+            {...props}
           />
         )}
         {loading && <Loader />}
+        {props.enableCandidates && props.ballot && <Candidates {...props} />}
         {station && <PollingStation station={station} notifications={notifications} />}
         {addressList && !station && (
-          <AddressPicker addressList={addressList} lookupChosenAddress={lookupChosenAddress} />
+          <AddressPicker
+            addressList={addressList}
+            lookupChosenAddress={lookupChosenAddress}
+            {...props}
+          />
         )}
         {stationNotFound && (
           <StationNotFound notifications={notifications} electoral_services={electoralServices} />
@@ -135,4 +146,4 @@ function DemocracyClubWidget(props) {
   );
 }
 
-export default withTranslations(DemocracyClubWidget);
+export default withCandidates(withTranslations(DemocracyClubWidget));

@@ -89,7 +89,7 @@ describe('DemocracyClubWidget Accessibility', () => {
 
   it('should accept Enter instead of clicking the button', async () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
-    let button = `<button class="dc-btn-primary" type="submit">${en_messages['postcode.submit-postcode']}</button>`;
+    let button = `<button class="dc-btn-primary" type="submit">${en_messages['postcode.submit-postcode-polling-station']}</button>`;
     expect(PostcodeForm).toContainHTML(button);
   });
   it('should have a "for" attribute on the postcode form label', async () => {

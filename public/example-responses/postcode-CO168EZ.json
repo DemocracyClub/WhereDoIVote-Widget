@@ -94,7 +94,7 @@
           ],
           "cancelled": true,
           "poll_open_date": "2019-05-02",
-          "election_id": "local.tendring.2019-05-02",
+          "election_id": "parl.2019-12-12",
           "metadata": {
             "cancelled_election": {
               "url": null,

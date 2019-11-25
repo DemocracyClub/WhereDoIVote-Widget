@@ -40,6 +40,7 @@ function PostcodeSelector(props) {
             <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
           </label>
         </h1>
+
         <input
           value={formValue}
           onChange={handleFormChange}
@@ -50,7 +51,18 @@ function PostcodeSelector(props) {
         />
       </div>
       <button className="dc-btn-primary" type="submit">
-        <FormattedMessage id="postcode.submit-postcode" description="Find your polling station" />
+        {!props.enableCandidates && (
+          <FormattedMessage
+            id="postcode.submit-postcode-polling-station"
+            description="Find your polling station"
+          />
+        )}
+        {props.enableCandidates && (
+          <FormattedMessage
+            id="postcode.submit-postcode-general"
+            description="Find election information"
+          />
+        )}
       </button>
     </form>
   );
