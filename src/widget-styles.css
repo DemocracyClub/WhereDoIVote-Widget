@@ -170,6 +170,8 @@
   font-family: var(--dc-sanserif-font);
   line-height: var(--dc-line-height-default);
   padding: 4px; /* Prevent .Card box-shadow clipping in `overflow: hidden` containers */
+  text-align:left;
+  max-width: 25rem;
 }
 
 .Card {
@@ -477,9 +479,8 @@ footer {
   }
 }
 .loading-spinner {
-  position: absolute;
-  top: 2.5rem;
-  right: 2.5rem;
+  position: relative;
+  margin: 2rem;
   opacity: 1;
   transition: opacity linear 0.1s;
 }
