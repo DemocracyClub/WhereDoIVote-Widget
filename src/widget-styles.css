@@ -529,6 +529,21 @@ footer {
   font-weight: normal;
 }
 
+@media (min-width: 25em) {
+  .candidate-name::after {
+    content: " – ";
+  }
+}
+
+@media (max-width: 25em) {
+  .Candidates li {
+    margin-bottom: 0.35rem;
+  }
+  .party-name {
+    display: block;
+  }
+}
+
 .party-name::before {
   content: '';
   width: 0.75rem;
