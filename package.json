@@ -17,7 +17,7 @@
     "@baristalabs/react-app-rewire-raw-loader": "^0.1.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "coveralls": "^3.0.8",
+    "coveralls": "^3.0.9",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.7.1",
