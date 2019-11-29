@@ -43,7 +43,7 @@ describe('Polling station unknown accessibility', () => {
       submitPostcode();
     });
     let stationNotFound = await waitForElement(() => getByTestId('station-not-found'));
-    const accessibleTitle = `<h1 class="dc-header">We couldn't find your station</h1>`;
+    const accessibleTitle = `<h1 class="dc-header">We don't know where you should vote</h1>`;
     expect(stationNotFound).toContainHTML(accessibleTitle);
   });
 });
