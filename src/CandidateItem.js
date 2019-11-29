@@ -17,8 +17,7 @@ function CandidateItem(props) {
         >
           {candidate.person.name}
         </a>
-      </h2>
-      {' – '}
+      </h2>{' '}
       <h3 className={`party-name party-${partyId}`}>{candidate.party.party_name}</h3>
     </li>
   );
