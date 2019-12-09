@@ -8,7 +8,7 @@
     "es6-shim": "^0.35.5",
     "proxy-polyfill": "^0.3.0",
     "react": "^16.12.0",
-    "react-app-polyfill": "^1.0.4",
+    "react-app-polyfill": "^1.0.5",
     "react-dom": "^16.12.0",
     "react-intl": "^3.7.0",
     "react-shadow": "^17.1.3"
