@@ -37,7 +37,7 @@ describe('Electoral Services', () => {
     submitPostcode();
     const results = await waitForElement(() => getByTestId('station-not-found'));
     expect(results).toHaveTextContent(
-      'Get in touch with The Electoral Office for Northern Ireland'
+      'get in touch with The Electoral Office for Northern Ireland'
     );
   });
 });
