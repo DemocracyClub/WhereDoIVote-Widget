@@ -74,7 +74,7 @@ npm run start:sandbox
 
 Run with [local test data](https://github.com/DemocracyClub/WhereDoIVote-Widget/tree/master/public/example-responses):
 ```
-npm run start:sandbox
+npm run start:mock
 ```
 
 Run using the production API with a key:
