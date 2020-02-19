@@ -197,6 +197,10 @@ h1.dc-header,
   font-size: var(--dc-font-size-heading);
 }
 
+.dc-secondary-header {
+  font-size: var(--dc-font-size-smaller);
+}
+
 .DemocracyClubWidget .form-label-reduced {
   font-weight: normal;
   display: block;
