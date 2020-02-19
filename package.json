@@ -11,7 +11,7 @@
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.12.0",
     "react-intl": "^3.11.0",
-    "react-shadow": "^17.4.0",
+    "react-shadow": "^17.5.0",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
