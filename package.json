@@ -12,7 +12,7 @@
     "react-dom": "^16.12.0",
     "react-intl": "^3.11.0",
     "react-shadow": "^17.5.0",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "@baristalabs/react-app-rewire-raw-loader": "^0.1.3",
