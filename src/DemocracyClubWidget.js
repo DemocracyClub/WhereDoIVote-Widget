@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
@@ -13,8 +13,8 @@ import withTranslations from './withTranslations';
 import withCandidates from './withCandidates';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
-import Candidates from './Candidates';
 import WarningBanner from './WarningBanner';
+import Ballot from './Ballot';
 
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
@@ -27,6 +27,7 @@ function DemocracyClubWidget(props) {
   const [stationNotFound, setStationNotFound] = useState(false);
   const [noUpcomingElection, setNoUpcomingElection] = useState(false);
   const [notifications, setNotifications] = useState(undefined);
+  const [ballotDate, setBallotDate] = useState(undefined);
   const [addressList, setAddressList] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
   const dataSource = process.env.REACT_APP_API;
@@ -67,6 +68,10 @@ function DemocracyClubWidget(props) {
       setNotifications(nextBallotDate.notifications);
     }
 
+    if (nextBallotDate && nextBallotDate.date) {
+      setBallotDate(nextBallotDate.date);
+    }
+
     if (response.electoral_services) {
       setElectoralServices(response.electoral_services);
     } else {
@@ -93,6 +98,19 @@ function DemocracyClubWidget(props) {
       .then(handleResponse)
       .catch(handleError);
   }
+
+  useEffect(() => {
+    let paramPostcode = window.location.href.split('postcode=')[1]
+      ? window.location.href.split('postcode=')[1].split('&')[0]
+      : null;
+    paramPostcode && lookupGivenPostcode(paramPostcode);
+    paramPostcode && setSearchInitiated(true);
+    if (!paramPostcode) {
+      let localStoragePostcode = localStorage.getItem('dc_postcode');
+      localStoragePostcode && lookupGivenPostcode(localStoragePostcode);
+      localStoragePostcode && setSearchInitiated(true);
+    }
+  }, []);
 
   function lookupChosenAddress(value) {
     setLoading(true);
@@ -123,7 +141,31 @@ function DemocracyClubWidget(props) {
           />
         )}
         {loading && <Loader />}
-        {props.enableCandidates && props.ballot && <Candidates {...props} />}
+        {props.ballots && (
+          <>
+            <h1 className="dc-header">
+              Election{props.ballots.length > 1 ? 's' : null}: Thursday, 7th May, 2020
+            </h1>
+            <p>
+              There {props.ballots.length > 1 ? 'are' : 'is'} {props.ballots.length} election
+              {props.ballots.length > 1 ? 's' : null} on {ballotDate}
+            </p>
+            <p>There may also be town/parish elections.</p>
+            <p>
+              {props.ballots.length > 1
+                ? 'The elections being fought are:'
+                : 'The election being fought is:'}
+            </p>
+            <ul>
+              {props.ballots.map((ballot, i) => (
+                <Ballot key={`Ballot-${i}`} {...props} ballot={ballot} />
+              ))}
+            </ul>
+            <p>
+              <strong>Voting for all elections takes place at the same polling station</strong>
+            </p>
+          </>
+        )}
         {station && <PollingStation station={station} notifications={notifications} />}
         {addressList && !station && (
           <AddressPicker

@@ -7,7 +7,7 @@ function CandidateItem(props) {
   let partyId = candidate.party.party_id.split(':')[1];
   return (
     <li className="CandidateItem">
-      <h2 className={`candidate-name party-${partyId}`}>
+      <h4 className={`candidate-name party-${partyId}`}>
         <a
           data-testid="candidate-link"
           title={formatMessage({ id: 'general.read-more-info-candidate' })}
@@ -17,8 +17,8 @@ function CandidateItem(props) {
         >
           {candidate.person.name}
         </a>
-      </h2>{' '}
-      <h3 className={`party-name party-${partyId}`}>{candidate.party.party_name}</h3>
+      </h4>{' '}
+      <h5 className={`party-name party-${partyId}`}>{candidate.party.party_name}</h5>
     </li>
   );
 }

@@ -12,6 +12,7 @@ function isPostcodeValid(postcode) {
     return true;
   }
 }
+
 function PostcodeSelector(props) {
   let [formValue, setFormValue] = useState('');
 
@@ -22,6 +23,10 @@ function PostcodeSelector(props) {
   function handleSubmit(event) {
     event.preventDefault();
     let postcode = formValue;
+    handlePostcode(postcode);
+  }
+
+  function handlePostcode(postcode) {
     if (isPostcodeValid(postcode)) {
       props.setSearchInitiated(true);
       props.lookupGivenPostcode(postcode);

@@ -61,28 +61,25 @@
     </div>
     <div class="container">
       <div class="column column-one">
-        Phasellus tristique eros ac quam malesuada pulvinar. Ut fringilla hendrerit ultricies. Aliquam bibendum tellus
-        vel turpis vehicula faucibus. Etiam a commodo urna. Ut finibus lacinia orci, sed pellentesque nunc congue ac.
-        Etiam tristique faucibus rhoncus. Cras consequat placerat nisl. Duis placerat convallis nisi, ac tempor ex
-        laoreet ac. Sed volutpat elit non auctor accumsan. Sed dictum luctus lacus, sit amet ullamcorper mauris maximus
-        a.
+        <h2>Widget tester</h2>
+        <p>Host pages can set the widget's postcode programatically using the following JS:</p>
+        <pre>
+  localStorage.setItem('dc_postcode', 'LE42TY')
+        </pre>
+        <p>Alternatively, the widget will pick up a postcode query parameter from the URL:</p>
+        <pre>
+  https://domain.com/?postcode=UB78FA        
+        </pre>
+        <p>For testing purposes, you can set a postcode once so that the dev server's auto-refresh always shows you the ballots/candidates section of the widget:</p>
+        <form method="get" action="/">
+          <label>Set persistent postcode</label>
+          <input type="text" name="postcode" />
+          <button>Set Postcode</button>
+        </form>
+        <p><a href="/">Reset</a></p>
+        <p>You can view <a href="https://github.com/DemocracyClub/WhereDoIVote-Widget/tree/master/public/example-responses" target="_blank">all the postcodes we currently have fixtures for on our Github</a></p>
 
-        Nunc sagittis, urna sed tristique pellentesque, nulla nibh fermentum diam, et sollicitudin libero augue non
-        tortor. Maecenas varius consectetur nisl, sed rhoncus enim volutpat nec. Nulla viverra vitae libero a semper.
-        Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus ac nisl eu metus tempus interdum at sed
-        dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra rutrum mauris, sit amet fermentum
-        sem consectetur mollis. Proin sollicitudin quis ex dapibus porttitor. Sed et turpis interdum, ornare sem
-        tristique, iaculis ante. Suspendisse aliquet a urna non tempor. Vestibulum consequat erat ultrices mattis
-        tempus.
-
-        Suspendisse aliquam mattis nibh id pellentesque. Fusce consectetur auctor sapien, nec iaculis sapien laoreet
-        nec. Aenean ullamcorper ante eget quam cursus bibendum. Quisque facilisis tristique justo. Nulla pellentesque
-        mauris a feugiat congue. Nulla tincidunt, dui id finibus rhoncus, orci massa maximus odio, eget efficitur purus
-        quam sagittis augue. Cras ultrices tellus neque, ac lacinia turpis tempus vel. Aliquam sollicitudin porttitor
-        viverra. Vivamus sed sem a turpis dictum volutpat. Aliquam consectetur ut ligula eu condimentum. Sed arcu massa,
-        auctor nec sem ut, aliquam varius erat. Mauris neque lectus, finibus vitae augue ut, imperdiet congue metus. Nam
-        fermentum nunc urna, at semper mi auctor quis. Sed elementum mauris eget varius rutrum. Praesent id orci ac ex
-        fermentum dapibus.</div>
+      </div>
 
       <div class="column column-two">
         Integer erat ex, tincidunt et mollis at, porttitor ut arcu. Praesent orci mauris, finibus eget placerat non,
@@ -132,5 +129,6 @@
     </div>
   </main>
 </body>
+ 
 
 </html>
