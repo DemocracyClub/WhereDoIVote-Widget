@@ -29,6 +29,7 @@ function DemocracyClubWidget(props) {
   const [notifications, setNotifications] = useState(undefined);
   const [ballotDate, setBallotDate] = useState(undefined);
   const [addressList, setAddressList] = useState(undefined);
+  const [postcode, setPostcode] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
   const dataSource = process.env.REACT_APP_API;
 
@@ -92,6 +93,7 @@ function DemocracyClubWidget(props) {
 
   function lookupGivenPostcode(postcode) {
     setLoading(true);
+    setPostcode(postcode);
     setCurrentError(undefined);
     api
       .fetchByPostcode(postcode)
@@ -126,6 +128,14 @@ function DemocracyClubWidget(props) {
     setAddressList(undefined);
   }
 
+  let electionDate = new Date(ballotDate);
+  let dayMonthYear = electionDate.toLocaleDateString('en-GB', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
   return (
     <ShadowDomFactory>
       <WarningBanner dataSource={dataSource} />
@@ -143,27 +153,19 @@ function DemocracyClubWidget(props) {
         {loading && <Loader />}
         {props.ballots && (
           <>
-            <h1 className="dc-header">
-              Election{props.ballots.length > 1 ? 's' : null}: Thursday, 7th May, 2020
-            </h1>
+            <h1 className="dc-header">{dayMonthYear}</h1>
+
             <p>
-              There {props.ballots.length > 1 ? 'are' : 'is'} {props.ballots.length} election
-              {props.ballots.length > 1 ? 's' : null} on {ballotDate}
+              Voters in <strong className="postcode">{postcode}</strong> can vote in{' '}
+              {props.ballots.length} election{props.ballots.length > 1 ? 's' : null}:
             </p>
-            <p>There may also be town/parish elections.</p>
-            <p>
-              {props.ballots.length > 1
-                ? 'The elections being fought are:'
-                : 'The election being fought is:'}
-            </p>
-            <ul>
+
+            <ul className="inline-list">
               {props.ballots.map((ballot, i) => (
                 <Ballot key={`Ballot-${i}`} {...props} ballot={ballot} />
               ))}
             </ul>
-            <p>
-              <strong>Voting for all elections takes place at the same polling station</strong>
-            </p>
+            <p>There may also be town/parish elections.</p>
           </>
         )}
         {station && <PollingStation station={station} notifications={notifications} />}

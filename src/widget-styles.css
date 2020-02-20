@@ -198,7 +198,9 @@ h1.dc-header,
 }
 
 .dc-secondary-header {
-  font-size: var(--dc-font-size-smaller);
+  font-size: var(--dc-font-size-default);
+  color: var(--dc-body-text-colour);
+  font-family: var(--dc-sanserif-font);
 }
 
 .DemocracyClubWidget .form-label-reduced {
@@ -506,6 +508,79 @@ footer {
 }
 
 /* Candidates */
+
+strong.postcode {
+  text-transform: uppercase;
+  font-family: var(--dc-sanserif-font);
+  color: var(--dc-bright-pink-accent);
+}
+
+ul.inline-list {
+  padding-left: 0rem;
+  margin: 0;
+}
+
+ul.inline-list li {
+  list-style: none;
+  padding: 0;
+  margin:0;
+  clear: both;
+  margin-bottom: 1rem;
+}
+
+ul.inline-list li:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ul.inline-list h2 {
+  float: left;
+  width: calc(100% - 9.5rem);
+  margin: 0;
+}
+
+ul.inline-list button {
+  width: 8.5rem;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  background: none;
+  font-size: var(--dc-font-size-smallest);
+  text-align: right;
+  float: right;
+  color: var(--dc-darker-grey);
+}
+
+button.inline-button::before {
+  position: absolute;
+  top: 0.35em;
+  left:0;
+  transition: all 0.1s ease;
+  width: 0; 
+  height: 0; 
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  content: '';
+  border-top: 0.75em solid var(--dc-bright-blue-accent);
+  border-bottom: none;
+}
+
+button.toggled.inline-button::before {
+  width: 0; 
+  height: 0; 
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-top: none;
+  border-bottom: 0.75em solid var(--dc-bright-blue-accent);
+}
+
+.Candidates {
+  margin: 1rem 0;
+  float: left;
+  width: 100%;
+  clear: both;
+}
 
 .Candidates ul,
 .Candidates li {
