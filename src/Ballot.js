@@ -8,7 +8,12 @@ function Ballot(props) {
     <li className="Ballot" data-testid={props.ballot.election_id}>
       <h2 className="dc-secondary-header">{props.ballot.election_name}</h2>
       {props.enableCandidates && (
-        <button onClick={() => setShowCandidates(!showCandidates)}>Toggle candidates</button>
+        <button
+          className={`inline-button ${showCandidates ? 'toggled' : null} `}
+          onClick={() => setShowCandidates(!showCandidates)}
+        >
+          {showCandidates ? 'Hide' : 'Show'} candidates
+        </button>
       )}
       {showCandidates && props.ballot.candidates_verified && <Candidates {...props} />}
     </li>
