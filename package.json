@@ -39,7 +39,7 @@
     "sinon": "^9.0.0"
   },
   "scripts": {
-    "start:prod": "REACT_APP_API=prod react-app-rewired start",
+    "start:prod": "REACT_APP_API_KEY=mock REACT_APP_API=prod react-app-rewired start",
     "start:sandbox": "REACT_APP_API=sandbox react-app-rewired start",
     "start:mock": "REACT_APP_API=mock react-app-rewired start",
     "start": "npm run start:prod",

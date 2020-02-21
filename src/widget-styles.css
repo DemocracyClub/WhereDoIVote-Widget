@@ -421,6 +421,7 @@ li {
 }
 li, p {
   font-size: var(--dc-font-size-smaller);
+  margin-top: 0;
 }
 
 /*--------------------------------------------------------------
@@ -520,7 +521,7 @@ ul.inline-list {
   margin: 0;
 }
 
-ul.inline-list li {
+ul.inline-list li.Ballot {
   list-style: none;
   padding: 0;
   margin:0;
@@ -528,7 +529,7 @@ ul.inline-list li {
   margin-bottom: 1rem;
 }
 
-ul.inline-list li:after {
+ul.inline-list li.Ballot:after {
   content: "";
   display: table;
   clear: both;
@@ -536,16 +537,18 @@ ul.inline-list li:after {
 
 ul.inline-list h2 {
   float: left;
-  width: calc(100% - 9.5rem);
+  width: calc(100% - 8.5rem);
   margin: 0;
 }
 
 ul.inline-list button {
-  width: 8.5rem;
+  width: 7.5rem;
+  padding:0;
   box-sizing: border-box;
   position: relative;
   border: none;
   background: none;
+  font-family: var(--dc-sanserif-font);
   font-size: var(--dc-font-size-smallest);
   text-align: right;
   float: right;
@@ -554,19 +557,38 @@ ul.inline-list button {
 
 button.inline-button::before {
   position: absolute;
-  top: 0.35em;
+  top: 0.4em;
   left:0;
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
   width: 0; 
   height: 0; 
-  border-left: 0.5em solid transparent;
-  border-right: 0.5em solid transparent;
+  border-left: 0.45em solid transparent;
+  border-right: 0.45em solid transparent;
   content: '';
-  border-top: 0.75em solid var(--dc-bright-blue-accent);
+  border-top: 0.45em solid var(--dc-bright-blue-accent);
   border-bottom: none;
 }
 
+button.toggled.inline-button::before,
+button.toggled.inline-button::after {
+  border: none;
+  position: absolute;
+  left: .35em;
+  top:0.2em;
+  content: ' ';
+  height: 1em;
+  width: 1px;
+  background-color: var(--dc-bright-blue-accent);
+}
+
 button.toggled.inline-button::before {
+  transform: rotate(45deg);
+}
+button.toggled.inline-button::after {
+  transform: rotate(-45deg);
+}
+
+button.toggled.arrow.inline-button::after {
   width: 0; 
   height: 0; 
   border-left: 0.5em solid transparent;
@@ -575,27 +597,49 @@ button.toggled.inline-button::before {
   border-bottom: 0.75em solid var(--dc-bright-blue-accent);
 }
 
-.Candidates {
+.Candidates,
+.BallotTypeList {
   margin: 1rem 0;
   float: left;
   width: 100%;
   clear: both;
 }
 
+.BallotTypeList ol {
+  padding: 0;
+  margin: 0;
+  margin-left: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.BallotTypeList ol li {
+  list-style: decimal;
+  margin-right: 1.8rem;
+  float: left;  
+  clear: none;
+}
+
 .Candidates ul,
+.BallotTypeList ul,
 .Candidates li {
-  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.Candidates ul {
-  margin-bottom: 1.5rem;
+.Candidates li,
+.BallotTypeList li {
+  list-style: none;
+  margin-bottom: 0.25rem;
+  clear: left;
 }
 
-.Candidates li {
-  margin-bottom: 0.25rem;
+.BallotTypeList ol:after {
+  content: "";
+  display: table;
+  clear: both;
 }
+
+ 
 
 .party-name {
   font-size: var(--dc-font-size-smaller);

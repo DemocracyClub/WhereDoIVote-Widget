@@ -64,7 +64,7 @@ function DemocracyClubWidget(props) {
     setCurrentError(undefined);
     let nextBallotDate = resp.data.dates[0];
     let response = resp.data;
-
+    console.log(response);
     if (nextBallotDate && nextBallotDate.notifications) {
       setNotifications(nextBallotDate.notifications);
     }
@@ -156,8 +156,9 @@ function DemocracyClubWidget(props) {
             <h1 className="dc-header">{dayMonthYear}</h1>
 
             <p>
-              Voters in <strong className="postcode">{postcode}</strong> can vote in{' '}
-              {props.ballots.length} election{props.ballots.length > 1 ? 's' : null}:
+              Voters in <strong className="postcode">{postcode}</strong> will have{' '}
+              {props.ballots.length} ballot paper{props.ballots.length > 1 ? 's' : null} to fill
+              out:
             </p>
 
             <ul className="inline-list">
@@ -165,7 +166,7 @@ function DemocracyClubWidget(props) {
                 <Ballot key={`Ballot-${i}`} {...props} ballot={ballot} />
               ))}
             </ul>
-            <p>There may also be town/parish elections.</p>
+            <p>There may also be parish, town or community council elections in some areas.</p>
           </>
         )}
         {station && <PollingStation station={station} notifications={notifications} />}
