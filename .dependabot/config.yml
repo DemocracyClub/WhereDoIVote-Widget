@@ -2,5 +2,5 @@ update_configs:
   -
     directory: /
     package_manager: javascript
-    update_schedule: daily
+    update_schedule: weekly
 version: 1
