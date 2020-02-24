@@ -183,31 +183,15 @@ describe('Democracy Club API client', () => {
 
 describe('API Client Factory', () => {
   it('Constructs APIClient with valid inputs', () => {
-    expect(
-      APIClientFactory({ NODE_ENV: 'production', REACT_APP_API_KEY: 'f00ba2' })
-    ).toBeInstanceOf(Object);
-    expect(APIClientFactory({ NODE_ENV: 'development', REACT_APP_API: 'mock' })).toBeInstanceOf(
+    expect(APIClientFactory({ REACT_APP_API: 'prod', REACT_APP_API_KEY: 'f00ba2' })).toBeInstanceOf(
       Object
     );
-    expect(APIClientFactory({ NODE_ENV: 'development', REACT_APP_API: 'sandbox' })).toBeInstanceOf(
-      Object
-    );
-    expect(
-      APIClientFactory({
-        NODE_ENV: 'development',
-        REACT_APP_API: 'prod',
-        REACT_APP_API_KEY: 'f00ba2',
-      })
-    ).toBeInstanceOf(Object);
+    expect(APIClientFactory({ REACT_APP_API: 'mock' })).toBeInstanceOf(Object);
+    expect(APIClientFactory({ REACT_APP_API: 'sandbox' })).toBeInstanceOf(Object);
   });
 
   it('Throws with valid inputs', () => {
-    expect(() => APIClientFactory({ NODE_ENV: 'production' })).toThrow(Error);
-    expect(() => APIClientFactory({ NODE_ENV: 'development', REACT_APP_API: 'prod' })).toThrow(
-      Error
-    );
-    expect(() => APIClientFactory({ NODE_ENV: 'development', REACT_APP_API: 'cheese' })).toThrow(
-      Error
-    );
+    expect(() => APIClientFactory({ REACT_APP_API: 'prod' })).toThrow(Error);
+    expect(() => APIClientFactory({ REACT_APP_API: 'cheese' })).toThrow(Error);
   });
 });
