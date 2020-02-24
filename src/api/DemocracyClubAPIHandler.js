@@ -6,15 +6,6 @@ export function APIClientFactory(env = process.env) {
 
   // https://create-react-app.dev/docs/adding-custom-environment-variables
 
-  if (env.NODE_ENV === 'production') {
-    // we're building an optimised production build
-    if (!('REACT_APP_API_KEY' in env)) {
-      throw new Error('REACT_APP_API_KEY must be set in order to create a production build.');
-    }
-    return new APIClient(axios, API_BASE, env.REACT_APP_API_KEY);
-  }
-
-  // we're running in dev or under test
   if (env.REACT_APP_API === 'mock') {
     return new APIClient(new MockDCAPI(), API_BASE, null);
   } else if (env.REACT_APP_API === 'sandbox') {
