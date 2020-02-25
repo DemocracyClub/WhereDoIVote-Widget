@@ -1,5 +1,5 @@
 import axios from 'axios';
-import MockDCAPI from '../test-utils/MockDCAPI';
+import MockDCAPI from '../tests/utils/MockDCAPI';
 
 export function APIClientFactory(env = process.env) {
   const API_BASE = 'https://developers.democracyclub.org.uk/api/v1';

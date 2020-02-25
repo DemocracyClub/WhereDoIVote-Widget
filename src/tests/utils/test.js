@@ -1,10 +1,10 @@
 import React from 'react';
-import DemocracyClubWidget from '../DemocracyClubWidget';
+import DemocracyClubWidget from '../../DemocracyClubWidget';
 import { fireEvent, render } from '@testing-library/react';
 import { IntlProvider, createIntl } from 'react-intl';
 import axiosMock from 'axios';
 import fs from 'fs';
-import messages_en from '../translations/en';
+import messages_en from '../../translations/en';
 
 export const childAttributeChecker = shallowComponent => (selector, attribute) => {
   return shallowComponent

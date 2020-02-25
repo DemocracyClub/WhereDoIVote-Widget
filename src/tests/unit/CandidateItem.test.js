@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import { cleanup, waitForElement } from '@testing-library/react';
-import CandidateItem from './CandidateItem';
-import en_messages from './translations/en';
-import { renderWithReactIntl } from './test-utils/test';
+import CandidateItem from '../../CandidateItem';
+import en_messages from '../../translations/en';
+import { renderWithReactIntl } from '../utils/test';
 afterEach(cleanup);
 
 jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
