@@ -14,6 +14,7 @@ import withCandidates from './withCandidates';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import Candidates from './Candidates';
+import WarningBanner from './WarningBanner';
 
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
@@ -28,6 +29,7 @@ function DemocracyClubWidget(props) {
   const [notifications, setNotifications] = useState(undefined);
   const [addressList, setAddressList] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
+  const dataSource = process.env.REACT_APP_API;
 
   function resetWidget() {
     setSearchInitiated(false);
@@ -108,6 +110,7 @@ function DemocracyClubWidget(props) {
 
   return (
     <ShadowDomFactory>
+      <WarningBanner dataSource={dataSource} />
       <style type="text/css">{styles}</style>
       <section className="DemocracyClubWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
