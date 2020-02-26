@@ -6,10 +6,7 @@ function Ballot(props) {
 
   return (
     <li className="Ballot" data-testid={props.ballot.election_id}>
-      <h2 className="dc-secondary-header">
-        🗳️ {props.ballot.election_name}{' '}
-        {props.ballot.election_id.includes('gla.c') && props.ballot.post_name}
-      </h2>
+      <h2 className="dc-secondary-header">🗳️ {props.ballot.ballot_title}</h2>
 
       {props.enableCandidates && props.ballot.candidates.length > 1 && (
         <button
