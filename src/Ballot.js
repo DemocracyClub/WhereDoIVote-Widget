@@ -6,7 +6,7 @@ function Ballot(props) {
   const ballot = props.ballot;
   const willShowCandidates = ballot.candidates.length > 1;
   return (
-    <li className="Ballot" data-testid={ballot.election_id}>
+    <li className="Ballot" data-testid={ballot.ballot_paper_id}>
       <h2 className={`dc-secondary-header ${!willShowCandidates && 'full-width'}`}>
         🗳️{' '}
         <a href={ballot.wcivf_url} target="_blank" rel="noopener noreferrer">
