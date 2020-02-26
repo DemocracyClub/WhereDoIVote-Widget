@@ -613,20 +613,6 @@ button.toggled.arrow.inline-button::after {
   clear: both;
 }
 
-.BallotTypeList ol {
-  padding: 0;
-  margin: 0;
-  margin-left: 2rem;
-  margin-bottom: 0.25rem;
-}
-
-.BallotTypeList ol li {
-  list-style: decimal;
-  margin-right: 1.8rem;
-  float: left;  
-  clear: none;
-}
-
 .Candidates ul,
 .BallotTypeList ul,
 .Candidates li {
@@ -640,14 +626,6 @@ button.toggled.arrow.inline-button::after {
   margin-bottom: 0.25rem;
   clear: left;
 }
-
-.BallotTypeList ol:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
- 
 
 .party-name {
   font-size: var(--dc-font-size-smaller);
