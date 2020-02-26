@@ -5,35 +5,42 @@ import Ballot from './Ballot';
 function Election(props) {
   const election = props.election;
   let electionDate = new Date(election.date);
-  let dayMonthYear = electionDate.toLocaleDateString('en-GB', {
+  let dayMonthYear = electionDate.toLocaleDateString(props.locale, {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
 
+  const activeBallots = election.ballots.filter(b => !b.cancelled);
+
   return (
-    <section className={`Election election-${props.single ? 'single' : 'multiple'}`}>
+    <section
+      data-testid={`election-${election.date}`}
+      className={`Election election-${props.single ? 'single' : 'multiple'}`}
+    >
       {props.single && (
         <>
-          <h1 className="dc-header">{dayMonthYear}</h1>
+          <h1 data-testid={`title-election-${election.date}`} className="dc-header">
+            {dayMonthYear}
+          </h1>
           <p>
             Voters at your address in <strong className="postcode">{props.postcode}</strong> will
-            have {getWordsFromNumber(election.ballots.length, props.messages)} ballot paper
-            {election.ballots.length > 1 && 's'} to fill out:
+            have {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
+            {activeBallots.length > 1 && 's'} to fill out:
           </p>
         </>
       )}
       {!props.single && (
         <p>
           On <strong className="date">{dayMonthYear}</strong> you will have{' '}
-          {getWordsFromNumber(election.ballots.length, props.messages)} ballot paper
-          {election.ballots.length > 1 && 's'} to fill out:
+          {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
+          {activeBallots.length > 1 && 's'} to fill out:
         </p>
       )}
       <ul className="inline-list">
-        {election.ballots.map((ballot, i) => (
-          <>{!ballot.cancelled && <Ballot key={`Ballot-${i}`} {...props} ballot={ballot} />}</>
+        {activeBallots.map((ballot, i) => (
+          <Ballot key={`Ballot-${i}`} {...props} ballot={ballot} />
         ))}
       </ul>
       {props.single && (
