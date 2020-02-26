@@ -9,6 +9,7 @@ import Footer from './Footer';
 import ShadowDomFactory from './ShadowDomFactory';
 
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
+import getWordsFromNumber from './utils';
 import withTranslations from './withTranslations';
 import withCandidates from './withCandidates';
 import StationNotFound from './StationNotFound';
@@ -64,7 +65,6 @@ function DemocracyClubWidget(props) {
     setCurrentError(undefined);
     let nextBallotDate = resp.data.dates[0];
     let response = resp.data;
-    console.log(response);
     if (nextBallotDate && nextBallotDate.notifications) {
       setNotifications(nextBallotDate.notifications);
     }
@@ -157,8 +157,8 @@ function DemocracyClubWidget(props) {
 
             <p>
               Voters in <strong className="postcode">{postcode}</strong> will have{' '}
-              {props.ballots.length} ballot paper{props.ballots.length > 1 ? 's' : null} to fill
-              out:
+              {getWordsFromNumber(props.ballots.length, props.messages)} ballot paper
+              {props.ballots.length > 1 ? 's' : null} to fill out:
             </p>
 
             <ul className="inline-list">
