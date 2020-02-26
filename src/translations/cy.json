@@ -31,5 +31,15 @@
   "api.errors.voting-location-unknown": "Nid ydym yn gwybod ble y dylet bleidleisio.",
   "api.errors.generic-error": "Aeth rhywbeth o'i le. Rho gynnig arni eto'n hwyrach.",
   "postcode.errors.invalid-postcode": "Rhow god post dilys.",
-  "candidates.candidates-for": "Ymgeiswyr"
+  "candidates.candidates-for": "Ymgeiswyr",
+  "numbers.one": "one",
+  "numbers.two": "two",
+  "numbers.three": "tri",
+  "numbers.four":"four",
+  "numbers.five":"five",
+  "numbers.six":"six",
+  "numbers.seven":"seven",
+  "numbers.eight":"eight",
+  "numbers.nine": "nine",
+  "numbers.ten": "ten"
 }

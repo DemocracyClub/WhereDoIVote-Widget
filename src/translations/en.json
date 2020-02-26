@@ -31,5 +31,15 @@
   "api.errors.voting-location-unknown": "We don't know where you should vote.",
   "api.errors.generic-error": "Something went wrong. Please try again later.",
   "postcode.errors.invalid-postcode": "Please enter a valid postcode.",
-  "candidates.candidates-for": "Candidates for"
+  "candidates.candidates-for": "Candidates for",
+  "numbers.one": "one",
+  "numbers.two": "two",
+  "numbers.three": "three",
+  "numbers.four":"four",
+  "numbers.five":"five",
+  "numbers.six":"six",
+  "numbers.seven":"seven",
+  "numbers.eight":"eight",
+  "numbers.nine": "nine",
+  "numbers.ten": "ten"
 }
