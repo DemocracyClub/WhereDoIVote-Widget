@@ -9,13 +9,15 @@ import Footer from './Footer';
 import ShadowDomFactory from './ShadowDomFactory';
 
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
-import getWordsFromNumber from './utils';
+
 import withTranslations from './withTranslations';
 import withCandidates from './withCandidates';
+
+import Election from './Election';
+import MultipleUpcomingElections from './MultipleUpcomingElections';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
-import Ballot from './Ballot';
 
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
@@ -28,9 +30,9 @@ function DemocracyClubWidget(props) {
   const [stationNotFound, setStationNotFound] = useState(false);
   const [noUpcomingElection, setNoUpcomingElection] = useState(false);
   const [notifications, setNotifications] = useState(undefined);
-  const [ballotDate, setBallotDate] = useState(undefined);
   const [addressList, setAddressList] = useState(undefined);
   const [postcode, setPostcode] = useState(undefined);
+  const [dates, setDates] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
   const dataSource = process.env.REACT_APP_API;
 
@@ -44,7 +46,7 @@ function DemocracyClubWidget(props) {
     setNotifications(null);
     setCurrentError(undefined);
     setLoading(false);
-    props.resetBallot && props.resetBallot();
+    setDates(undefined);
   }
 
   function handleError(data) {
@@ -63,16 +65,13 @@ function DemocracyClubWidget(props) {
 
   function handleResponse(resp) {
     setCurrentError(undefined);
-    let nextBallotDate = resp.data.dates[0];
     let response = resp.data;
+    let nextBallotDate = response.dates[0];
+    props.enableCandidates && setDates(response.dates);
+
     if (nextBallotDate && nextBallotDate.notifications) {
       setNotifications(nextBallotDate.notifications);
     }
-
-    if (nextBallotDate && nextBallotDate.date) {
-      setBallotDate(nextBallotDate.date);
-    }
-
     if (response.electoral_services) {
       setElectoralServices(response.electoral_services);
     } else {
@@ -87,7 +86,7 @@ function DemocracyClubWidget(props) {
     } else {
       setNoUpcomingElection(true);
     }
-    props.handleCandidates && props.handleCandidates(nextBallotDate);
+
     setLoading(false);
   }
 
@@ -128,18 +127,10 @@ function DemocracyClubWidget(props) {
     setAddressList(undefined);
   }
 
-  let electionDate = new Date(ballotDate);
-  let dayMonthYear = electionDate.toLocaleDateString('en-GB', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
   return (
     <ShadowDomFactory>
-      <WarningBanner dataSource={dataSource} />
       <style type="text/css">{styles}</style>
+      <WarningBanner dataSource={dataSource} />
       <section className="DemocracyClubWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
         {!searchInitiated && (
@@ -151,23 +142,11 @@ function DemocracyClubWidget(props) {
           />
         )}
         {loading && <Loader />}
-        {props.ballots && (
-          <>
-            <h1 className="dc-header">{dayMonthYear}</h1>
-
-            <p>
-              Voters in <strong className="postcode">{postcode}</strong> will have{' '}
-              {getWordsFromNumber(props.ballots.length, props.messages)} ballot paper
-              {props.ballots.length > 1 ? 's' : null} to fill out:
-            </p>
-
-            <ul className="inline-list">
-              {props.ballots.map((ballot, i) => (
-                <Ballot key={`Ballot-${i}`} {...props} ballot={ballot} />
-              ))}
-            </ul>
-            <p>There may also be parish, town or community council elections in some areas.</p>
-          </>
+        {!addressList && dates && dates.length > 1 && (
+          <MultipleUpcomingElections dates={dates} postcode={postcode} {...props} />
+        )}
+        {!addressList && dates && dates.length === 1 && (
+          <Election single={true} election={dates[0]} postcode={postcode} {...props} />
         )}
         {station && <PollingStation station={station} notifications={notifications} />}
         {addressList && !station && (

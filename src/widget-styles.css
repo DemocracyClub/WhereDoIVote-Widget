@@ -516,6 +516,10 @@ strong.postcode {
   color: var(--dc-bright-pink-accent);
 }
 
+strong.date {
+  font-family: var(--dc-sanserif-font);
+}
+
 ul.inline-list {
   padding-left: 0rem;
   margin: 0;
@@ -539,6 +543,10 @@ ul.inline-list h2 {
   float: left;
   width: calc(100% - 8.5rem);
   margin: 0;
+}
+
+ul.inline-list h2.full-width {
+  width: 100%;
 }
 
 ul.inline-list button {
