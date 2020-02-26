@@ -542,8 +542,8 @@ ul.inline-list h2 {
 }
 
 ul.inline-list button {
-  width: 7.5rem;
-  padding:0;
+  width: 7.75rem;
+  padding:0 0 0 1em;
   box-sizing: border-box;
   position: relative;
   border: none;
