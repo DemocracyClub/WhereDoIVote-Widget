@@ -384,25 +384,27 @@ describe('DemocracyClubWidget Standard Widget', () => {
   });
 });
 
-describe('DemocracyClubWidget Candidates Widget', () => {
+describe('DemocracyClubWidget Everything Widget', () => {
   let getByTestId;
   beforeEach(() => {
     const widget = renderCandidatesWidget();
     getByTestId = widget.getByTestId;
   });
 
-  it('should show general search text on candidates-enabled widget', async () => {
+  it('should show general search text on everything-enabled widget', async () => {
     const SearchButton = await waitForElement(() => document.querySelector('.dc-btn-primary'));
     expect(SearchButton).toHaveTextContent(en_messages['postcode.submit-postcode-general']);
   });
 
-  it('should show candidates section for a postcode', async () => {
-    let enteredPostcode = 'UB78FA';
+  it('should show elections section for a postcode', async () => {
+    let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
-    const Candidates = await waitForElement(() => getByTestId('candidates'));
-    expect(Candidates).toHaveTextContent('Candidates for Uxbridge and South Ruislip');
+    const ElectionInfo = await waitForElement(() => getByTestId('election-2018-11-22'));
+    expect(ElectionInfo).toHaveTextContent(
+      'Voters at your address in AA12AA will have one ballot paper to fill out'
+    );
   });
 
   it("shouldn't show candidates if candidates_verified is false", async () => {
