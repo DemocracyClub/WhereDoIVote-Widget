@@ -15,9 +15,11 @@ function BallotTypeList(props) {
     parties.push(party);
   }
   return (
-    <section data-testid={props.ballot.ballot_paper_id} className="BallotTypeList">
-      <p>You will vote for your preferred party rather than a candidate on this ballot paper</p>
-      <ul>
+    <>
+      <p data-testid={`para-${props.ballot.ballot_paper_id}`}>
+        You will vote for your preferred party rather than a candidate on this ballot paper
+      </p>
+      <ul data-testid={`ul-${props.ballot.ballot_paper_id}`}>
         {parties.map(party => (
           <li className="BallotTypeListItem" key={party.party_id}>
             <h4 className={`candidate-name party-${party.party_id.split(':')[1]}`}>
@@ -26,7 +28,7 @@ function BallotTypeList(props) {
           </li>
         ))}
       </ul>
-    </section>
+    </>
   );
 }
 
