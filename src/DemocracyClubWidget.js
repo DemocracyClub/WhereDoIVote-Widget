@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
@@ -63,42 +63,48 @@ function DemocracyClubWidget(props) {
     setLoading(false);
   }
 
-  function handleResponse(resp) {
-    setCurrentError(undefined);
-    let response = resp.data;
-    let nextBallotDate = response.dates[0];
-    props.enableCandidates && setDates(response.dates);
+  const handleResponse = useCallback(
+    resp => {
+      setCurrentError(undefined);
+      let response = resp.data;
+      let nextBallotDate = response.dates[0];
+      props.enableCandidates && setDates(response.dates);
 
-    if (nextBallotDate && nextBallotDate.notifications) {
-      setNotifications(nextBallotDate.notifications);
-    }
-    if (response.electoral_services) {
-      setElectoralServices(response.electoral_services);
-    } else {
-      setElectoralServices(false);
-    }
-    if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
-      setStation(api.toAddress(resp));
-    } else if (nextBallotDate && nextBallotDate.polling_station.polling_station_known === false) {
-      setStationNotFound(true);
-    } else if (response.address_picker) {
-      setAddressList(response.addresses);
-    } else {
-      setNoUpcomingElection(true);
-    }
+      if (nextBallotDate && nextBallotDate.notifications) {
+        setNotifications(nextBallotDate.notifications);
+      }
+      if (response.electoral_services) {
+        setElectoralServices(response.electoral_services);
+      } else {
+        setElectoralServices(false);
+      }
+      if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
+        setStation(api.toAddress(resp));
+      } else if (nextBallotDate && nextBallotDate.polling_station.polling_station_known === false) {
+        setStationNotFound(true);
+      } else if (response.address_picker) {
+        setAddressList(response.addresses);
+      } else {
+        setNoUpcomingElection(true);
+      }
 
-    setLoading(false);
-  }
+      setLoading(false);
+    },
+    [api, props.enableCandidates]
+  );
 
-  function lookupGivenPostcode(postcode) {
-    setLoading(true);
-    setPostcode(postcode);
-    setCurrentError(undefined);
-    api
-      .fetchByPostcode(postcode)
-      .then(handleResponse)
-      .catch(handleError);
-  }
+  const lookupGivenPostcode = useCallback(
+    postcode => {
+      setLoading(true);
+      setPostcode(postcode);
+      setCurrentError(undefined);
+      api
+        .fetchByPostcode(postcode)
+        .then(handleResponse)
+        .catch(handleError);
+    },
+    [api, handleResponse]
+  );
 
   useEffect(() => {
     let paramPostcode = window.location.href.split('postcode=')[1]
@@ -111,7 +117,7 @@ function DemocracyClubWidget(props) {
       localStoragePostcode && lookupGivenPostcode(localStoragePostcode);
       localStoragePostcode && setSearchInitiated(true);
     }
-  }, []);
+  }, [lookupGivenPostcode]);
 
   function lookupChosenAddress(value) {
     setLoading(true);

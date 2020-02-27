@@ -31,6 +31,8 @@ function getWordsFromNumber(n, translations) {
     case 10:
       word = translations['numbers.ten'];
       break;
+    default:
+      word = 'an unknown number of';
   }
   return word;
 }

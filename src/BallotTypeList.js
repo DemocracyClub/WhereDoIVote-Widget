@@ -5,7 +5,8 @@ function BallotTypeList(props) {
   const allPartiesNames = cddts.map(c => c.party.party_name);
   const partyNames = Array.from(new Set(allPartiesNames));
   const parties = [];
-  for (var i = 0; i < partyNames.length; i++) {
+
+  for (let i = 0; i < partyNames.length; i++) {
     const candidates = cddts.filter(c => c.party.party_name === partyNames[i]);
     const party = {
       party_id: candidates[0].party.party_id,
