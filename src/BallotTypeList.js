@@ -15,7 +15,7 @@ function BallotTypeList(props) {
     parties.push(party);
   }
   return (
-    <section className="BallotTypeList">
+    <section data-testid={props.ballot.ballot_paper_id} className="BallotTypeList">
       <p>You will vote for your preferred party rather than a candidate on this ballot paper</p>
       <ul>
         {parties.map(party => (
