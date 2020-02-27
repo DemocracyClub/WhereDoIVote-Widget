@@ -1,20 +1,11 @@
 import axios from 'axios';
-import MockDCAPI from '../test-utils/MockDCAPI';
+import MockDCAPI from '../tests/utils/MockDCAPI';
 
 export function APIClientFactory(env = process.env) {
   const API_BASE = 'https://developers.democracyclub.org.uk/api/v1';
 
   // https://create-react-app.dev/docs/adding-custom-environment-variables
 
-  if (env.NODE_ENV === 'production') {
-    // we're building an optimised production build
-    if (!('REACT_APP_API_KEY' in env)) {
-      throw new Error('REACT_APP_API_KEY must be set in order to create a production build.');
-    }
-    return new APIClient(axios, API_BASE, env.REACT_APP_API_KEY);
-  }
-
-  // we're running in dev or under test
   if (env.REACT_APP_API === 'mock') {
     return new APIClient(new MockDCAPI(), API_BASE, null);
   } else if (env.REACT_APP_API === 'sandbox') {
@@ -39,11 +30,11 @@ export function APIClient(client, base_url, api_key) {
     } catch (e) {
       utm_source = 'unknown';
     }
-    const headers = api_key ? { Authorization: `Token ${api_key}` } : {};
-    return client.get(url, {
-      params: { utm_source, utm_medium: 'widget' },
-      headers,
-    });
+    const params = { utm_source, utm_medium: 'widget' };
+    if (api_key) {
+      params.auth_token = api_key;
+    }
+    return client.get(url, { params });
   };
 
   return {

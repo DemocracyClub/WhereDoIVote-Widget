@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-import { EmbedCard, StartAgainButton, ErrorMessage, BuiltByDC, Loader } from './Branding';
+import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
 import PostcodeSelector from './PostcodeSelector';
 import PollingStation from './PollingStation';
 import AddressPicker from './AddressPicker';
-
+import Footer from './Footer';
 import ShadowDomFactory from './ShadowDomFactory';
 
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 
-import translations from './translations/en';
+import withTranslations from './withTranslations';
+import withCandidates from './withCandidates';
+
+import Election from './Election';
+import MultipleUpcomingElections from './MultipleUpcomingElections';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
+import WarningBanner from './WarningBanner';
 
 import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
-function DemocracyClubWidget() {
+function DemocracyClubWidget(props) {
   const api = APIClientFactory();
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -26,7 +31,10 @@ function DemocracyClubWidget() {
   const [noUpcomingElection, setNoUpcomingElection] = useState(false);
   const [notifications, setNotifications] = useState(undefined);
   const [addressList, setAddressList] = useState(undefined);
+  const [postcode, setPostcode] = useState(undefined);
+  const [dates, setDates] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
+  const dataSource = process.env.REACT_APP_API;
 
   function resetWidget() {
     setSearchInitiated(false);
@@ -35,56 +43,81 @@ function DemocracyClubWidget() {
     setElectoralServices(undefined);
     setStationNotFound(false);
     setNoUpcomingElection(false);
+    setNotifications(null);
     setCurrentError(undefined);
     setLoading(false);
+    setDates(undefined);
   }
 
   function handleError(data) {
     setSearchInitiated(false);
     if (data.response !== undefined) {
       if (data.response.status === 400) {
-        setCurrentError(translations['api.errors.bad-postcode']);
+        setCurrentError('api.errors.bad-postcode');
       } else {
-        setCurrentError(translations['api.errors.voting-location-unknown']);
+        setCurrentError('api.errors.voting-location-unknown');
       }
     } else {
-      setCurrentError(translations['api.errors.generic-error']);
+      setCurrentError('api.errors.generic-error');
     }
     setLoading(false);
   }
 
-  function handleResponse(resp) {
-    setCurrentError(undefined);
-    let nextBallotDate = resp.data.dates[0];
-    let response = resp.data;
-    if (nextBallotDate && nextBallotDate.notifications) {
-      setNotifications(nextBallotDate.notifications);
-    }
+  const handleResponse = useCallback(
+    resp => {
+      setCurrentError(undefined);
+      let response = resp.data;
+      let nextBallotDate = response.dates[0];
+      props.enableCandidates && setDates(response.dates);
 
-    if (response.electoral_services) {
-      setElectoralServices(response.electoral_services);
-    } else {
-      setElectoralServices(false);
-    }
-    if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
-      setStation(api.toAddress(resp));
-    } else if (nextBallotDate && nextBallotDate.polling_station.polling_station_known === false) {
-      setStationNotFound(true);
-    } else if (response.address_picker) {
-      setAddressList(response.addresses);
-    } else {
-      setNoUpcomingElection(true);
-    }
-    setLoading(false);
-  }
+      if (nextBallotDate && nextBallotDate.notifications) {
+        setNotifications(nextBallotDate.notifications);
+      }
+      if (response.electoral_services) {
+        setElectoralServices(response.electoral_services);
+      } else {
+        setElectoralServices(false);
+      }
+      if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
+        setStation(api.toAddress(resp));
+      } else if (nextBallotDate && nextBallotDate.polling_station.polling_station_known === false) {
+        setStationNotFound(true);
+      } else if (response.address_picker) {
+        setAddressList(response.addresses);
+      } else {
+        setNoUpcomingElection(true);
+      }
 
-  function lookupGivenPostcode(postcode) {
-    setLoading(true);
-    api
-      .fetchByPostcode(postcode)
-      .then(handleResponse)
-      .catch(handleError);
-  }
+      setLoading(false);
+    },
+    [api, props.enableCandidates]
+  );
+
+  const lookupGivenPostcode = useCallback(
+    postcode => {
+      setLoading(true);
+      setPostcode(postcode);
+      setCurrentError(undefined);
+      api
+        .fetchByPostcode(postcode)
+        .then(handleResponse)
+        .catch(handleError);
+    },
+    [api, handleResponse]
+  );
+
+  useEffect(() => {
+    let paramPostcode = window.location.href.split('postcode=')[1]
+      ? window.location.href.split('postcode=')[1].split('&')[0]
+      : null;
+    paramPostcode && lookupGivenPostcode(paramPostcode);
+    paramPostcode && setSearchInitiated(true);
+    if (!paramPostcode) {
+      let localStoragePostcode = localStorage.getItem('dc_postcode');
+      localStoragePostcode && lookupGivenPostcode(localStoragePostcode);
+      localStoragePostcode && setSearchInitiated(true);
+    }
+  }, [lookupGivenPostcode]);
 
   function lookupChosenAddress(value) {
     setLoading(true);
@@ -102,37 +135,48 @@ function DemocracyClubWidget() {
 
   return (
     <ShadowDomFactory>
-      <main>
-        <style type="text/css">{styles}</style>
-        <EmbedCard className="DemocracyClubWidget">
-          {currentError && <ErrorMessage currentError={currentError} />}
-          {!searchInitiated && (
-            <PostcodeSelector
-              lookupGivenPostcode={lookupGivenPostcode}
-              setSearchInitiated={setSearchInitiated}
-              setCurrentError={setCurrentError}
-            />
-          )}
-          {loading && <Loader />}
-          {station && <PollingStation station={station} notifications={notifications} />}
-          {addressList && !station && (
-            <AddressPicker addressList={addressList} lookupChosenAddress={lookupChosenAddress} />
-          )}
-          {stationNotFound && (
-            <StationNotFound notifications={notifications} electoral_services={electoralServices} />
-          )}
-          {noUpcomingElection && (
-            <NoUpcomingElection
-              notifications={notifications}
-              electoral_services={electoralServices}
-            />
-          )}
-          {searchInitiated && <StartAgainButton onClick={resetWidget} />}
-          <BuiltByDC />
-        </EmbedCard>
-      </main>
+      <style type="text/css">{styles}</style>
+      <WarningBanner dataSource={dataSource} />
+      <section className="DemocracyClubWidget Card">
+        {currentError && <ErrorMessage currentError={currentError} />}
+        {!searchInitiated && (
+          <PostcodeSelector
+            lookupGivenPostcode={lookupGivenPostcode}
+            setSearchInitiated={setSearchInitiated}
+            setCurrentError={setCurrentError}
+            {...props}
+          />
+        )}
+        {loading && <Loader />}
+        {!addressList && dates && dates.length > 1 && (
+          <MultipleUpcomingElections dates={dates} postcode={postcode} {...props} />
+        )}
+        {!addressList && dates && dates.length === 1 && (
+          <Election single={true} election={dates[0]} postcode={postcode} {...props} />
+        )}
+        {station && <PollingStation station={station} notifications={notifications} />}
+        {addressList && !station && (
+          <AddressPicker
+            addressList={addressList}
+            lookupChosenAddress={lookupChosenAddress}
+            {...props}
+          />
+        )}
+        {stationNotFound && (
+          <StationNotFound notifications={notifications} electoral_services={electoralServices} />
+        )}
+        {noUpcomingElection && (
+          <NoUpcomingElection
+            notifications={notifications}
+            electoral_services={electoralServices}
+          />
+        )}
+
+        {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
+        <Footer {...props} />
+      </section>
     </ShadowDomFactory>
   );
 }
 
-export default DemocracyClubWidget;
+export default withCandidates(withTranslations(DemocracyClubWidget));

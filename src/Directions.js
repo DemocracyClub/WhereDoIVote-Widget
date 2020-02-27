@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 function Directions(props) {
   var gmaps_link;
@@ -8,31 +9,41 @@ function Directions(props) {
     gmaps_link = <GoogleMaps destination={props.destination} />;
   }
 
-  return (
-    <div id="directions">
-      <br />
-      {gmaps_link}
-    </div>
-  );
+  return <section className="directions">{gmaps_link}</section>;
 }
 
-function GoogleMaps(props) {
+function GoogleMapsTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
-    <a href={'https://maps.google.com/maps?q=' + props.destination} target="_top">
-      Show me on Google Maps
+    <a
+      href={'https://maps.google.com/maps?q=' + props.destination}
+      target="_top"
+      className="dc-btn-primary"
+      data-testid="google-maps"
+      title={formatMessage({ id: 'directions.show-google-maps-title' })}
+    >
+      <FormattedMessage id="directions.show-google-maps" description="Show me on Google Maps" />
     </a>
   );
 }
 
-function GoogleDirections(props) {
+const GoogleMaps = injectIntl(GoogleMapsTemplate);
+
+function GoogleDirectionsTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
     <a
       href={'https://maps.google.com/maps/dir/' + props.origin + '/' + props.destination}
       target="_top"
+      className="dc-btn-primary"
+      data-testid="google-directions"
+      title={formatMessage({ id: 'directions.show-google-directions-title' })}
     >
-      Show me directions
+      <FormattedMessage id="directions.show-google-directions" description="Show me directions" />
     </a>
   );
 }
+
+const GoogleDirections = injectIntl(GoogleDirectionsTemplate);
 
 export { Directions, GoogleMaps, GoogleDirections };

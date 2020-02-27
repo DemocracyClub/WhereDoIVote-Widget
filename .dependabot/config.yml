@@ -1,11 +1,6 @@
 update_configs:
   -
     directory: /
-    ignored_updates:
-      -
-        match:
-          dependency_name: react-shadow
-          version_requirement: "<= 17.0.0"
     package_manager: javascript
-    update_schedule: daily
+    update_schedule: weekly
 version: 1

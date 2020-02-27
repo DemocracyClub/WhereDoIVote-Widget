@@ -1,51 +1,68 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 
-function EmbedCard(props) {
+function ErrorMessageTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
-    <section className={props.className}>
-      <div className="Card">{props.children}</div>
-    </section>
-  );
-}
-
-function ErrorMessage(props) {
-  return (
-    <div className="ErrorMessage" id="dc_error" role="alert">
-      {props.currentError}
+    <div className="ErrorMessage" id="dc_error" role="alert" aria-live="assertive">
+      {props.currentError && formatMessage({ id: props.currentError })}
     </div>
   );
 }
 
-function StartAgainButton(props) {
+const ErrorMessage = injectIntl(ErrorMessageTemplate);
+
+function StartAgainButtonTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
-    <button aria-label="Start again" title="Start again" onClick={props.onClick}>
-      Back to postcode search
+    <button
+      className="dc-btn-secondary"
+      aria-label={formatMessage({ id: 'general.start-again' })}
+      title={formatMessage({ id: 'general.start-again' })}
+      onClick={props.onClick}
+    >
+      {formatMessage({ id: 'postcode.back-to-search' })}
     </button>
   );
 }
 
-function Loader() {
+const StartAgainButton = injectIntl(StartAgainButtonTemplate);
+
+function LoaderTemplate(props) {
+  const { formatMessage } = props.intl;
   return (
-    <div className="Loader" role="alert">
-      Loading
+    <div className="loading-spinner" role="alert" aria-live="assertive">
+      <p className="screen-reader-text" aria-hidden="false">
+        {formatMessage({ id: 'general.loading' })}
+      </p>
     </div>
   );
 }
 
-function BuiltByDC() {
+const Loader = injectIntl(LoaderTemplate);
+
+function BuiltByDCTemplate(props) {
+  const { formatMessage } = props.intl;
+  const accessibleTitle = `${formatMessage({ id: 'general.visit-website-of' })} ${formatMessage({
+    id: 'general.dc-club',
+  })}`;
   return (
-    <footer>
+    <>
       <a
         href="https://democracyclub.org.uk/"
-        title="Democracy Club"
+        title={accessibleTitle}
         target="_top"
         className="DCLogo"
       >
-        Built by{' '}
-        <img alt="Democracy Club" src="https://widget.wheredoivote.co.uk/logo-with-text.png" />
+        {formatMessage({ id: 'general.built-by' })}
+        <img
+          alt={formatMessage({ id: 'general.dc-club' })}
+          src="https://widget.wheredoivote.co.uk/logo-with-text.png"
+        />
       </a>
-    </footer>
+    </>
   );
 }
+const BuiltByDC = injectIntl(BuiltByDCTemplate);
 
-export { EmbedCard, StartAgainButton, BuiltByDC, ErrorMessage, Loader };
+export { StartAgainButton, BuiltByDC, ErrorMessage, Loader };

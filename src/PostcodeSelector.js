@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import translations from './translations/en';
+import { FormattedMessage } from 'react-intl';
 
 function isPostcodeValid(postcode) {
   if (typeof postcode !== 'string') {
@@ -12,6 +12,7 @@ function isPostcodeValid(postcode) {
     return true;
   }
 }
+
 function PostcodeSelector(props) {
   let [formValue, setFormValue] = useState('');
 
@@ -22,12 +23,16 @@ function PostcodeSelector(props) {
   function handleSubmit(event) {
     event.preventDefault();
     let postcode = formValue;
+    handlePostcode(postcode);
+  }
+
+  function handlePostcode(postcode) {
     if (isPostcodeValid(postcode)) {
       props.setSearchInitiated(true);
       props.lookupGivenPostcode(postcode);
     } else {
       setFormValue('');
-      props.setCurrentError(translations['postcode.errors.invalid-postcode']);
+      props.setCurrentError('postcode.errors.invalid-postcode');
       props.setSearchInitiated(false);
     }
   }
@@ -35,9 +40,12 @@ function PostcodeSelector(props) {
   return (
     <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
       <div className="form-group">
-        <label className="form-label-bold" htmlFor="postcode">
-          Enter your postcode
-        </label>
+        <h1>
+          <label className="form-label-bold" htmlFor="postcode">
+            <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
+          </label>
+        </h1>
+
         <input
           value={formValue}
           onChange={handleFormChange}
@@ -47,7 +55,20 @@ function PostcodeSelector(props) {
           className="form-control"
         />
       </div>
-      <button type="submit">Find your polling station</button>
+      <button className="dc-btn-primary" type="submit">
+        {!props.enableCandidates && (
+          <FormattedMessage
+            id="postcode.submit-postcode-polling-station"
+            description="Find your polling station"
+          />
+        )}
+        {props.enableCandidates && (
+          <FormattedMessage
+            id="postcode.submit-postcode-general"
+            description="Find election information"
+          />
+        )}
+      </button>
     </form>
   );
 }

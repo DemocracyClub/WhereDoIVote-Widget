@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { FormattedMessage } from 'react-intl';
 import { Notifications } from './Notifications';
 import { Directions } from './Directions';
 
@@ -11,17 +12,31 @@ function PollingStation(props) {
     splitAddress.push(<br key={index} />);
   });
   return (
-    <section className="PollingStation">
-      <Notifications list={props.notifications} />
-      <h2>Your polling station</h2>
-      <div>{splitAddress.slice(0, splitAddress.length - 1)}</div>
+    <article className="PollingStation">
+      <h1 className="dc-header">
+        <FormattedMessage id="station.your-station" description="Your station" />
+      </h1>
+      <div data-testid="address" className="address">
+        <p>{splitAddress.slice(0, splitAddress.length - 1)}</p>
+      </div>
+      <p>
+        <FormattedMessage
+          id="station.opening-hours"
+          description="Polling stations are open from 7am to 10pm on polling day."
+        />
+      </p>
+      <p>
+        <strong>Voting for all elections takes place at the same polling station</strong>
+      </p>
       {props.station.coordinates && (
         <Directions
           origin={props.station.coordinates.origin}
           destination={props.station.coordinates.destination}
         />
       )}
-    </section>
+
+      <Notifications list={props.notifications} />
+    </article>
   );
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 class AddressPicker extends React.Component {
   constructor(props) {
@@ -30,40 +31,56 @@ class AddressPicker extends React.Component {
   }
 
   render() {
-    const inputProps = { disabled: this.state.address === undefined };
+    const isButtonDisabled = this.state.address === undefined;
+    const inputProps = { disabled: isButtonDisabled, 'aria-disabled': isButtonDisabled };
+    const { formatMessage } = this.props.intl;
     return (
       <form className="AddressPicker" data-testid="address-selector">
-        <div>
-          <label className="form-label-bold">Choose your address</label>
+        <div className="form-group">
+          <h1>
+            <label id="choose-address" className="form-label-bold" htmlFor="id_address">
+              {formatMessage({ id: 'address.choose-address' })}
+            </label>
+          </h1>
           <select
+            aria-labelledby="id_address"
             value={this.state.value}
             onChange={this.setAddress}
             data-testid="address-select"
-            aria-describedby="address_picker"
-            className="democracy_club_select_multirow"
+            className="dc-select-multirow"
             id="id_address"
             name="address"
             size="5"
           >
             {this.props.addressList.map(this.addressOption)}
             <option key={this.props.addressList.length} value="not-in-list">
-              My address is not in the list
+              {formatMessage({ id: 'address.not-in-list' })}
             </option>
           </select>
         </div>
-
         <button
           {...inputProps}
           type="submit"
-          className="button"
+          className="button dc-btn-primary"
           data-testid="address-button"
           onClick={this.handleSubmit}
         >
-          Find my Polling Station
+          {!this.props.enableCandidates && (
+            <FormattedMessage
+              id="postcode.submit-postcode-polling-station"
+              description="Find your polling station"
+            />
+          )}
+          {this.props.enableCandidates && (
+            <FormattedMessage
+              id="postcode.submit-postcode-general"
+              description="Find election information"
+            />
+          )}
         </button>
       </form>
     );
   }
 }
 
-export default AddressPicker;
+export default injectIntl(AddressPicker);

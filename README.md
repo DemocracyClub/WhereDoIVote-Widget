@@ -17,21 +17,67 @@ Add the following lines to your HTML, where you want the widget to appear on the
           scrolling="no">
   </iframe>
 </noscript>
-<div id="dc_wdiv"></div>
+<div id="dc_wdiv" aria-live="polite" role="region"></div>
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
-## Setup
+### English / Welsh language support
+
+Default English with option to toggle to Welsh:
+
+```html
+<noscript>
+  <iframe src="https://wheredoivote.co.uk/embed/"
+          style="width:100%; height:1100px"
+          frameborder="0"
+          scrolling="no">
+  </iframe>
+</noscript>
+<div id="dc_wdiv" data-language="en" aria-live="polite" role="region"></div>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
+```
+
+Default Welsh with option to toggle to English:
+
+```html
+<noscript>
+  <iframe src="https://wheredoivote.co.uk/embed/"
+          style="width:100%; height:1100px"
+          frameborder="0"
+          scrolling="no">
+  </iframe>
+</noscript>
+<div id="dc_wdiv" data-language="cy" aria-live="polite" role="region"></div>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
+```
+
+### Candidate support:
+
+```html
+<noscript>
+  <a href="https://whocanivotefor.co.uk/">Information about elections in your area</a>
+</noscript>
+<div id="dc_wdiv" data-candidates="true" data-language="en" aria-live="polite" role="region"></div>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
+```
+
+## Local development
 
 ```
 npm install
-npm run build
 ```
 
-## Running locally
+Run with test data from the [API sandbox](https://developers.democracyclub.org.uk/api/v1/#sandbox-outputs-2):
+```
+npm run start:sandbox
+```
 
-`npm start`
+Run with [local test data](https://github.com/DemocracyClub/WhereDoIVote-Widget/tree/master/public/example-responses):
+```
+npm run start:mock
+```
 
-## Notes
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
+Run using the production API with a key:
+```
+npm start
+```
