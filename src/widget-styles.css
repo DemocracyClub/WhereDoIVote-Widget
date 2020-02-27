@@ -605,8 +605,7 @@ button.toggled.arrow.inline-button::after {
   border-bottom: 0.75em solid var(--dc-bright-blue-accent);
 }
 
-.Candidates,
-.BallotTypeList {
+.Candidates {
   margin: 1rem 0;
   float: left;
   width: 100%;
@@ -614,14 +613,12 @@ button.toggled.arrow.inline-button::after {
 }
 
 .Candidates ul,
-.BallotTypeList ul,
 .Candidates li {
   padding: 0;
   margin: 0;
 }
 
-.Candidates li,
-.BallotTypeList li {
+.Candidates li {
   list-style: none;
   margin-bottom: 0.25rem;
   clear: left;

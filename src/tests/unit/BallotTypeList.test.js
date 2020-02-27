@@ -47,15 +47,15 @@ describe('BallotTypeList', () => {
     getByTestId = BallotItem.getByTestId;
   });
   it('Should display a message saying that parties are the candidates', async () => {
-    const BallotItem = await waitForElement(() => getByTestId('gla.a.2020-05-07'));
-    expect(BallotItem).toHaveTextContent(
+    const paraItem = await waitForElement(() => getByTestId('para-gla.a.2020-05-07'));
+    expect(paraItem).toHaveTextContent(
       'You will vote for your preferred party rather than a candidate on this ballot paper'
     );
   });
   it('Should derive list of parties from candidate data', async () => {
-    const BallotItem = await waitForElement(() => getByTestId('gla.a.2020-05-07'));
-    expect(BallotItem).toHaveTextContent("Women's Equality Party");
-    expect(BallotItem).toHaveTextContent('Liberal Democrats');
-    expect(BallotItem).not.toHaveTextContent('Green Party');
+    const ulItem = await waitForElement(() => getByTestId('ul-gla.a.2020-05-07'));
+    expect(ulItem).toHaveTextContent("Women's Equality Party");
+    expect(ulItem).toHaveTextContent('Liberal Democrats');
+    expect(ulItem).not.toHaveTextContent('Green Party');
   });
 });
