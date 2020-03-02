@@ -75,9 +75,20 @@ describe('DemocracyClubWidget General', () => {
 
 describe('DemocracyClubWidget PollingStation', () => {
   let getByTestId;
+  let wrapper;
   beforeEach(async () => {
-    const wrapper = renderWidget();
+    wrapper = renderWidget();
     getByTestId = wrapper.getByTestId;
+  });
+
+  it('should show single polling station for multiple ballots on same day', async () => {
+    let enteredPostcode = 'LE42TY';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    await waitForElement(() => document.querySelector('.PollingStation'));
+    const PollingStations = document.querySelectorAll('.PollingStation');
+    expect(PollingStations.length).toBe(1);
   });
 
   it('shows a title if it finds a polling station', async () => {
