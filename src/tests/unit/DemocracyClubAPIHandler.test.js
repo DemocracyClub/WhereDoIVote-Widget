@@ -1,7 +1,7 @@
 import * as sinon from 'sinon';
 import axios from 'axios';
 
-import { APIClient, APIClientFactory } from './DemocracyClubAPIHandler';
+import { APIClient, APIClientFactory } from '../../api/DemocracyClubAPIHandler';
 
 function getDCAPIPollingStationResponseFormat(election) {
   return { data: { dates: [election] } };

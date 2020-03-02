@@ -1,5 +1,5 @@
 import 'jest-enzyme';
-import { isPostcodeValid } from './PostcodeSelector';
+import { isPostcodeValid } from '../../PostcodeSelector';
 
 describe('isPostcodeValid', () => {
   it('should return false if passed an empty string', () => {

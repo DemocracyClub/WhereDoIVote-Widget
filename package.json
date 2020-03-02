@@ -63,10 +63,10 @@
   ],
   "jest": {
     "coveragePathIgnorePatterns": [
-      "<rootDir>/src/test-utils/"
+      "<rootDir>/src/tests/utils/"
     ],
     "watchPathIgnorePatterns": [
-      "<rootDir>/src/test-utils/"
+      "<rootDir>/src/tests/utils/"
     ],
     "moduleFileExtensions": [
       "...defaults.moduleFileExtensions",
