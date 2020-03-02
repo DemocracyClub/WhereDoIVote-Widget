@@ -1,4 +1,4 @@
-import 'jest-enzyme';
+import '@testing-library/jest-dom/extend-expect';
 
 import getWordsFromNumber from '../../utils';
 import en_messages from '../../translations/en';
