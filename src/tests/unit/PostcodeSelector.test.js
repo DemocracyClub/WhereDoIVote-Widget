@@ -1,4 +1,4 @@
-import 'jest-enzyme';
+import '@testing-library/jest-dom/extend-expect';
 import { isPostcodeValid } from '../../PostcodeSelector';
 
 describe('isPostcodeValid', () => {
