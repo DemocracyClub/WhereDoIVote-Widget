@@ -31,6 +31,7 @@
   "api.errors.voting-location-unknown": "We don't know where you should vote.",
   "api.errors.generic-error": "Something went wrong. Please try again later.",
   "postcode.errors.invalid-postcode": "Please enter a valid postcode.",
+  "ballots.list-type-message":"You will vote for your preferred party rather than a candidate on this ballot paper",
   "candidates.candidates-for": "Candidates for",
   "numbers.one": "one",
   "numbers.two": "two",

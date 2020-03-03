@@ -8,7 +8,7 @@ function Ballot(props) {
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>
       <h2 className={`dc-secondary-header ${!willShowCandidates && 'full-width'}`}>
-        <span role="img" alt="Ballot box emoji" aria-label="Ballot box">
+        <span role="img" aria-label="Ballot box">
           🗳️
         </span>{' '}
         <a href={ballot.wcivf_url} target="_blank" rel="noopener noreferrer">
@@ -16,9 +16,11 @@ function Ballot(props) {
         </a>
       </h2>
 
-      {props.enableCandidates && willShowCandidates && (
+      {willShowCandidates && (
         <button
-          className={`inline-button toggle-candidates ${showCandidates ? 'toggled' : null} `}
+          aria-expanded={showCandidates}
+          data-testid={`show-candidates-button-${ballot.ballot_paper_id}`}
+          className={`inline-button ${showCandidates ? 'toggled' : null} `}
           onClick={() => setShowCandidates(!showCandidates)}
         >
           {showCandidates ? 'Hide' : 'Show'} candidates
