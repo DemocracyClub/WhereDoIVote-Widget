@@ -75,7 +75,7 @@ describe('CandidateItem Component edge cases', () => {
 describe('Ballot Component', () => {
   it('should show candidates if candidates_verified is true', async () => {
     const BallotWrapper = renderWithReactIntl(
-      <Ballot enableCandidates={true} ballot={normalBallot} />
+      <Ballot enableElections={true} ballot={normalBallot} />
     );
     const BallotComponent = await waitForElement(() =>
       BallotWrapper.getByTestId(normalBallot.ballot_paper_id)
@@ -86,7 +86,7 @@ describe('Ballot Component', () => {
     const unverifiedCandidatesBallot = Object.assign({}, normalBallot);
     unverifiedCandidatesBallot.candidates_verified = false;
     const BallotWrapper = renderWithReactIntl(
-      <Ballot enableCandidates={true} ballot={unverifiedCandidatesBallot} />
+      <Ballot enableElections={true} ballot={unverifiedCandidatesBallot} />
     );
     const BallotComponent = await waitForElement(() =>
       BallotWrapper.getByTestId(normalBallot.ballot_paper_id)

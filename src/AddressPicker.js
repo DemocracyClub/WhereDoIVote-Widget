@@ -65,13 +65,13 @@ class AddressPicker extends React.Component {
           data-testid="address-button"
           onClick={this.handleSubmit}
         >
-          {!this.props.enableCandidates && (
+          {!this.props.enableElections && (
             <FormattedMessage
               id="postcode.submit-postcode-polling-station"
               description="Find your polling station"
             />
           )}
-          {this.props.enableCandidates && (
+          {this.props.enableElections && (
             <FormattedMessage
               id="postcode.submit-postcode-general"
               description="Find election information"
