@@ -6,7 +6,8 @@ import {
   renderWidget,
   renderWelshWidget,
   renderEnglishWidget,
-  renderCandidatesWidget,
+  renderElectionsWidget,
+  renderLegacyWidget,
   typePostcode,
   submitPostcode,
   mockResponse,
@@ -398,7 +399,7 @@ describe('DemocracyClubWidget Standard Widget', () => {
 describe('DemocracyClubWidget Everything Widget', () => {
   let getByTestId;
   beforeEach(() => {
-    const widget = renderCandidatesWidget();
+    const widget = renderElectionsWidget();
     getByTestId = widget.getByTestId;
   });
 
@@ -426,16 +427,17 @@ describe('DemocracyClubWidget Everything Widget', () => {
     const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
     expect(Widget).not.toHaveTextContent('Candidates for Tendring local election St Osyth');
   });
+});
 
-  it('should only show candidates for ballots with id parl.2019-12-12', async () => {
+describe('DemocracyClubWidget Legacy Candidates Widget', () => {
+  it('should render candidates with legacy candidates data-attribute', async () => {
+    renderLegacyWidget();
     let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
     const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
-    expect(Widget).not.toHaveTextContent(
-      'Candidates for Westminster local election Lancaster Gate by-election'
-    );
+    expect(Widget).toHaveTextContent('Show candidates');
   });
 });
 

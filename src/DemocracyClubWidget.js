@@ -11,7 +11,7 @@ import ShadowDomFactory from './ShadowDomFactory';
 import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 
 import withTranslations from './withTranslations';
-import withCandidates from './withCandidates';
+import withElections from './higher-order-components/withElections';
 
 import Election from './Election';
 import MultipleUpcomingElections from './MultipleUpcomingElections';
@@ -68,7 +68,7 @@ function DemocracyClubWidget(props) {
       setCurrentError(undefined);
       let response = resp.data;
       let nextBallotDate = response.dates[0];
-      props.enableCandidates && setDates(response.dates);
+      props.enableElections && setDates(response.dates);
 
       if (nextBallotDate && nextBallotDate.notifications) {
         setNotifications(nextBallotDate.notifications);
@@ -90,7 +90,7 @@ function DemocracyClubWidget(props) {
 
       setLoading(false);
     },
-    [api, props.enableCandidates]
+    [api, props.enableElections]
   );
 
   const lookupGivenPostcode = useCallback(
@@ -179,4 +179,4 @@ function DemocracyClubWidget(props) {
   );
 }
 
-export default withCandidates(withTranslations(DemocracyClubWidget));
+export default withElections(withTranslations(DemocracyClubWidget));
