@@ -23,6 +23,12 @@
           "wcivf_url": "https://whocanivotefor.co.uk/elections/local.leicester.abbey.2019-05-02/abbey/",
           "replaces": null,
           "candidates_verified": true,
+          "voting_system": {
+            "slug": "FPTP",
+            "name": "First-past-the-post",
+            "uses_party_lists": false
+          },
+          "seats_contested": 3,
           "candidates": [
             {
               "party": {
@@ -184,6 +190,12 @@
           "wcivf_url": "https://whocanivotefor.co.uk/elections/mayor.leicester.2019-05-02/leicester-city-council/",
           "replaces": null,
           "candidates_verified": true,
+          "voting_system": {
+            "slug": "FPTP",
+            "name": "First-past-the-post",
+            "uses_party_lists": false
+          },
+          "seats_contested": 1,
           "candidates": [
             {
               "party": {
