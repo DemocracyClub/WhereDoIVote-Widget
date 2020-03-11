@@ -30,6 +30,12 @@
           "wcivf_url": "https://whocanivotefor.co.uk/elections/local.tendring.st-osyth.2019-05-02/st-osyth/",
           "replaces": null,
           "candidates_verified": true,
+          "voting_system": {
+            "slug": "FPTP",
+            "name": "First-past-the-post",
+            "uses_party_lists": false
+          },
+          "seats_contested": 2,
           "candidates": [
             {
               "party": {
@@ -126,6 +132,12 @@
           "wcivf_url": "https://whocanivotefor.co.uk/elections/local.tendring.st-osyth.by.2019-05-23/st-osyth/",
           "replaces": "local.tendring.st-osyth.2019-05-02",
           "candidates_verified": false,
+          "voting_system": {
+            "slug": "FPTP",
+            "name": "First-past-the-post",
+            "uses_party_lists": false
+          },
+          "seats_contested": 2,
           "candidates": [],
           "cancelled": false,
           "poll_open_date": "2019-05-23",
