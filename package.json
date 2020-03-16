@@ -36,7 +36,7 @@
     "react-axe": "^3.4.1",
     "react-test-renderer": "^16.13.0",
     "rewire": "^4.0.1",
-    "sinon": "^9.0.0"
+    "sinon": "^9.0.1"
   },
   "scripts": {
     "start:prod": "REACT_APP_API=prod react-app-rewired start",
