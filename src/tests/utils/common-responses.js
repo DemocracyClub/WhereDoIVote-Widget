@@ -1,4 +1,4 @@
-export const listBallot = {
+export const partyListBallot = {
   ballot_paper_id: 'gla.a.2020-05-07',
   election_id: 'gla.a.2020-05-07',
   candidates: [
@@ -30,7 +30,7 @@ export const listBallot = {
   ],
 };
 
-export const normalBallot = {
+export const candidateListBallot = {
   ballot_paper_id: 'local.westminster.lancaster-gate.by.2018-11-22',
   ballot_title: 'Westminster local election Lancaster Gate by-election',
   election_id: 'local.westminster.2018-11-22',

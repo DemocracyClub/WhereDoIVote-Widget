@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import { candidate, normalBallot, listBallot } from '../utils/common-responses';
+import { candidate, candidateListBallot, partyListBallot } from '../utils/common-responses';
 import { cleanup, waitForElement, fireEvent } from '@testing-library/react';
 import en_messages from '../../translations/en';
 import Ballot from '../../Ballot';
@@ -17,7 +17,7 @@ jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
 describe('Candidates Component: List Ballot', () => {
   let getByTestId;
   beforeEach(async () => {
-    const CandidatesWrapper = renderWithReactIntl(<Candidates ballot={listBallot} />);
+    const CandidatesWrapper = renderWithReactIntl(<Candidates ballot={partyListBallot} />);
     getByTestId = CandidatesWrapper.getByTestId;
   });
   it('Should display a message saying that parties are the candidates', async () => {
@@ -29,7 +29,7 @@ describe('Candidates Component: List Ballot', () => {
 describe('Candidates Component: Normal Ballot', () => {
   let getByTestId;
   beforeEach(async () => {
-    const CandidatesWrapper = renderWithReactIntl(<Candidates ballot={normalBallot} />);
+    const CandidatesWrapper = renderWithReactIntl(<Candidates ballot={candidateListBallot} />);
     getByTestId = CandidatesWrapper.getByTestId;
   });
   it('Should display a list of the candidates', async () => {
@@ -75,21 +75,21 @@ describe('CandidateItem Component edge cases', () => {
 describe('Ballot Component', () => {
   it('should show candidates if candidates_verified is true', async () => {
     const BallotWrapper = renderWithReactIntl(
-      <Ballot enableElections={true} ballot={normalBallot} />
+      <Ballot enableElections={true} ballot={candidateListBallot} />
     );
     const BallotComponent = await waitForElement(() =>
-      BallotWrapper.getByTestId(normalBallot.ballot_paper_id)
+      BallotWrapper.getByTestId(candidateListBallot.ballot_paper_id)
     );
     expect(BallotComponent).toHaveTextContent('Show candidates');
   });
   it("shouldn't show candidates if candidates_verified is false", async () => {
-    const unverifiedCandidatesBallot = Object.assign({}, normalBallot);
+    const unverifiedCandidatesBallot = Object.assign({}, candidateListBallot);
     unverifiedCandidatesBallot.candidates_verified = false;
     const BallotWrapper = renderWithReactIntl(
       <Ballot enableElections={true} ballot={unverifiedCandidatesBallot} />
     );
     const BallotComponent = await waitForElement(() =>
-      BallotWrapper.getByTestId(normalBallot.ballot_paper_id)
+      BallotWrapper.getByTestId(candidateListBallot.ballot_paper_id)
     );
     expect(BallotComponent).not.toHaveTextContent('Show candidates');
   });
@@ -98,25 +98,25 @@ describe('Ballot Component', () => {
 describe('Ballot Component: Candidates drop-down accessibility', () => {
   let getByTestId;
   beforeEach(async () => {
-    const BallotWrapper = renderWithReactIntl(<Ballot ballot={normalBallot} />);
+    const BallotWrapper = renderWithReactIntl(<Ballot ballot={candidateListBallot} />);
     getByTestId = BallotWrapper.getByTestId;
   });
 
   it('Toggle candidates button should have aria-expanded attribute', async () => {
     const ToggleButton = await waitForElement(() =>
-      getByTestId(`show-candidates-button-${normalBallot.ballot_paper_id}`)
+      getByTestId(`show-candidates-button-${candidateListBallot.ballot_paper_id}`)
     );
     expect(ToggleButton).toHaveAttribute('aria-expanded');
   });
   it('Aria-expanded attr should default to false', async () => {
     const ToggleButton = await waitForElement(() =>
-      getByTestId(`show-candidates-button-${normalBallot.ballot_paper_id}`)
+      getByTestId(`show-candidates-button-${candidateListBallot.ballot_paper_id}`)
     );
     expect(ToggleButton).toHaveAttribute('aria-expanded', 'false');
   });
   it('Clicking button should set aria-expanded to true', async () => {
     const ToggleButton = await waitForElement(() =>
-      getByTestId(`show-candidates-button-${normalBallot.ballot_paper_id}`)
+      getByTestId(`show-candidates-button-${candidateListBallot.ballot_paper_id}`)
     );
     await fireEvent.click(ToggleButton);
     expect(ToggleButton).toHaveAttribute('aria-expanded', 'true');
@@ -126,7 +126,9 @@ describe('Ballot Component: Candidates drop-down accessibility', () => {
 describe('BallotTypeList Component', () => {
   let getByTestId;
   beforeEach(async () => {
-    const BallotWrapper = renderWithReactIntl(<BallotTypeList locale="en" ballot={listBallot} />);
+    const BallotWrapper = renderWithReactIntl(
+      <BallotTypeList locale="en" ballot={partyListBallot} />
+    );
     getByTestId = BallotWrapper.getByTestId;
   });
   it('Should display a message saying that parties are the candidates', async () => {
