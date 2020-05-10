@@ -6,7 +6,7 @@ import en_messages from '../../translations/en';
 import Ballot from '../../Ballot';
 import Candidates from '../../Candidates';
 import CandidateItem from '../../CandidateItem';
-import BallotTypeList from '../../BallotTypeList';
+import PartyList from '../../PartyList';
 import { renderWithReactIntl } from '../utils/test';
 afterEach(cleanup);
 
@@ -123,12 +123,10 @@ describe('Ballot Component: Candidates drop-down accessibility', () => {
   });
 });
 
-describe('BallotTypeList Component', () => {
+describe('PartyList Component', () => {
   let getByTestId;
   beforeEach(async () => {
-    const BallotWrapper = renderWithReactIntl(
-      <BallotTypeList locale="en" ballot={partyListBallot} />
-    );
+    const BallotWrapper = renderWithReactIntl(<PartyList locale="en" ballot={partyListBallot} />);
     getByTestId = BallotWrapper.getByTestId;
   });
   it('Should display a message saying that parties are the candidates', async () => {

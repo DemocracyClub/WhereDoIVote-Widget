@@ -1,6 +1,6 @@
 import React from 'react';
 import CandidateItem from './CandidateItem';
-import BallotTypeList from './BallotTypeList';
+import PartyList from './PartyList';
 
 function Candidates(props) {
   return (
@@ -12,7 +12,7 @@ function Candidates(props) {
           ))}
         </ul>
       )}
-      {props.ballot.election_id.includes('gla.a') && <BallotTypeList {...props} />}
+      {props.ballot.election_id.includes('gla.a') && <PartyList {...props} />}
     </section>
   );
 }
