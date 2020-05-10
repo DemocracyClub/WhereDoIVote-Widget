@@ -423,7 +423,12 @@ describe('DemocracyClubWidget Everything Widget', () => {
     typePostcode(enteredPostcode);
     submitPostcode();
     const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
-    expect(Widget).not.toHaveTextContent('Candidates for Tendring local election St Osyth');
+    expect(Widget).toHaveTextContent('Tendring local election St Osyth');
+    expect(Widget).toHaveTextContent(
+      'The poll for this election has been rescheduled due to the sad death of one of the candidates.'
+    );
+    expect(Widget).not.toHaveTextContent('You will have one ballot paper to fill out');
+    expect(Widget).not.toHaveTextContent('Show candidates');
   });
 });
 
