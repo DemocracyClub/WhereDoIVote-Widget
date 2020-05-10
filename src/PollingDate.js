@@ -2,9 +2,16 @@ import React from 'react';
 import getWordsFromNumber from './utils';
 import Ballot from './Ballot';
 
-function Election(props) {
-  const election = props.election;
-  let electionDate = new Date(election.date);
+/*
+A group of ballots happening on the same date.
+Each object in the dates[] array in the devs.DC API
+maps on to a PollingDate() in the front-end.
+We're calling it PollingDate to avoid the name collision
+with javascript's built-in Date().
+*/
+function PollingDate(props) {
+  const date = props.date;
+  let electionDate = new Date(date.date);
   let dayMonthYear = electionDate.toLocaleDateString(props.locale, {
     weekday: 'long',
     year: 'numeric',
@@ -12,16 +19,16 @@ function Election(props) {
     day: 'numeric',
   });
 
-  const activeBallots = election.ballots.filter(b => !b.cancelled);
+  const activeBallots = date.ballots.filter(b => !b.cancelled);
 
   return (
     <section
-      data-testid={`election-${election.date}`}
-      className={`Election election-${props.single ? 'single' : 'multiple'}`}
+      data-testid={`date-${date.date}`}
+      className={`PollingDate date-${props.single ? 'single' : 'multiple'}`}
     >
       {props.single && (
         <>
-          <h1 data-testid={`title-election-${election.date}`} className="dc-header">
+          <h1 data-testid={`title-date-${date.date}`} className="dc-header">
             {dayMonthYear}
           </h1>
           <p>
@@ -50,4 +57,4 @@ function Election(props) {
   );
 }
 
-export default Election;
+export default PollingDate;

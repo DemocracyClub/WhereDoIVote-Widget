@@ -13,7 +13,7 @@ import { APIClientFactory } from './api/DemocracyClubAPIHandler';
 import withTranslations from './withTranslations';
 import withElections from './higher-order-components/withElections';
 
-import Election from './Election';
+import PollingDate from './PollingDate';
 import MultipleUpcomingElections from './MultipleUpcomingElections';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
@@ -152,7 +152,7 @@ function DemocracyClubWidget(props) {
           <MultipleUpcomingElections dates={dates} postcode={postcode} {...props} />
         )}
         {!addressList && dates && dates.length === 1 && (
-          <Election single={true} election={dates[0]} postcode={postcode} {...props} />
+          <PollingDate single={true} date={dates[0]} postcode={postcode} {...props} />
         )}
         {station && <PollingStation station={station} notifications={notifications} />}
         {addressList && !station && (

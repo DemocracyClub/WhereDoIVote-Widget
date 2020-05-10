@@ -1,5 +1,5 @@
 import React from 'react';
-import Election from './Election';
+import PollingDate from './PollingDate';
 import getWordsFromNumber from './utils';
 
 function MultipleUpcomingElections(props) {
@@ -12,7 +12,7 @@ function MultipleUpcomingElections(props) {
         {props.dates.length > 1 && 's'}:
       </p>
       {props.dates.map((date, i) => (
-        <Election key={`election-${i}`} single={false} election={date} {...props} />
+        <PollingDate key={`date-${i}`} single={false} date={date} {...props} />
       ))}
       <p>There may also be parish, town or community council elections in some areas.</p>
     </>
