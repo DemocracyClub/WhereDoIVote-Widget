@@ -1,6 +1,12 @@
 export const partyListBallot = {
   ballot_paper_id: 'gla.a.2020-05-07',
   election_id: 'gla.a.2020-05-07',
+  voting_system: {
+    slug: 'AMS',
+    name: 'Additional Member System',
+    uses_party_lists: true,
+  },
+  seats_contested: 11,
   candidates: [
     {
       list_position: 9,
@@ -37,6 +43,12 @@ export const candidateListBallot = {
   election_name: 'Westminster local election',
   post_name: 'Lancaster Gate',
   candidates_verified: true,
+  voting_system: {
+    slug: 'FPTP',
+    name: 'First-past-the-post',
+    uses_party_lists: false,
+  },
+  seats_contested: 1,
   candidates: [
     {
       list_position: null,

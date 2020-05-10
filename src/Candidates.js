@@ -5,10 +5,11 @@ import PartyList from './PartyList';
 function Candidates(props) {
   return (
     <section className="Candidates" data-testid="candidates">
-      {!props.ballot.election_id.includes('gla.a') && (
+      {props.ballot.voting_system.uses_party_lists === true ? (
+        <PartyList {...props} />
+      ) : (
         <CandidateList candidates={props.ballot.candidates} />
       )}
-      {props.ballot.election_id.includes('gla.a') && <PartyList {...props} />}
     </section>
   );
 }
