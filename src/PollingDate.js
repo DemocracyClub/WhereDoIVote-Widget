@@ -32,8 +32,7 @@ function PollingDate(props) {
             {dayMonthYear}
           </h1>
           <p>
-            Voters at your address in <strong className="postcode">{props.postcode}</strong> will
-            have {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
+            You will have {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
             {activeBallots.length > 1 && 's'} to fill out:
           </p>
         </>

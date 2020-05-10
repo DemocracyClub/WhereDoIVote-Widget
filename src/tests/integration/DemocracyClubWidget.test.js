@@ -414,9 +414,7 @@ describe('DemocracyClubWidget Everything Widget', () => {
     typePostcode(enteredPostcode);
     submitPostcode();
     const ElectionInfo = await waitForElement(() => getByTestId('date-2018-11-22'));
-    expect(ElectionInfo).toHaveTextContent(
-      'Voters at your address in AA12AA will have one ballot paper to fill out'
-    );
+    expect(ElectionInfo).toHaveTextContent('You will have one ballot paper to fill out');
   });
 
   it("shouldn't show candidates if election is cancelled", async () => {
