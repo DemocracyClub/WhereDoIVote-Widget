@@ -25,9 +25,6 @@ function PollingStation(props) {
           description="Polling stations are open from 7am to 10pm on polling day."
         />
       </p>
-      <p>
-        <strong>Voting for all elections takes place at the same polling station</strong>
-      </p>
       {props.station.coordinates && (
         <Directions
           origin={props.station.coordinates.origin}

@@ -14,7 +14,7 @@ import withTranslations from './withTranslations';
 import withElections from './higher-order-components/withElections';
 
 import PollingDate from './PollingDate';
-import MultipleUpcomingElections from './MultipleUpcomingElections';
+import AdditionalFutureElections from './AdditionalFutureElections';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
@@ -148,13 +148,9 @@ function DemocracyClubWidget(props) {
           />
         )}
         {loading && <Loader />}
-        {!addressList && dates && dates.length > 1 && (
-          <MultipleUpcomingElections dates={dates} postcode={postcode} {...props} />
-        )}
-        {!addressList && dates && dates.length === 1 && (
+        {!addressList && dates && dates.length >= 1 && (
           <PollingDate single={true} date={dates[0]} postcode={postcode} {...props} />
         )}
-        {station && <PollingStation station={station} notifications={notifications} />}
         {addressList && !station && (
           <AddressPicker
             addressList={addressList}
@@ -162,6 +158,7 @@ function DemocracyClubWidget(props) {
             {...props}
           />
         )}
+        {station && <PollingStation station={station} notifications={notifications} />}
         {stationNotFound && (
           <StationNotFound notifications={notifications} electoral_services={electoralServices} />
         )}
@@ -170,6 +167,12 @@ function DemocracyClubWidget(props) {
             notifications={notifications}
             electoral_services={electoralServices}
           />
+        )}
+        {!addressList && dates && dates.length > 1 && (
+          <>
+            <hr />
+            <AdditionalFutureElections dates={dates.slice(1)} postcode={postcode} {...props} />
+          </>
         )}
 
         {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
