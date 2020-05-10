@@ -31,25 +31,32 @@ function PollingDate(props) {
           <h1 data-testid={`title-date-${date.date}`} className="dc-header">
             {dayMonthYear}
           </h1>
-          <p>
-            You will have {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
-            {activeBallots.length > 1 && 's'} to fill out:
-          </p>
+          {activeBallots.length > 0 && (
+            <p>
+              You will have {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
+              {activeBallots.length > 1 && 's'} to fill out:
+            </p>
+          )}
         </>
       )}
-      {!props.single && (
-        <p>
-          On <strong className="date">{dayMonthYear}</strong> you will have{' '}
-          {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
-          {activeBallots.length > 1 && 's'} to fill out:
-        </p>
-      )}
+      {!props.single &&
+        (activeBallots.length ? (
+          <p>
+            On <strong className="date">{dayMonthYear}</strong> you will have{' '}
+            {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
+            {activeBallots.length > 1 && 's'} to fill out:
+          </p>
+        ) : (
+          <p>
+            <strong className="date">{dayMonthYear}</strong>
+          </p>
+        ))}
       <ul className="inline-list">
-        {activeBallots.map((ballot, i) => (
+        {date.ballots.map((ballot, i) => (
           <Ballot key={`Ballot-${i}`} {...props} ballot={ballot} />
         ))}
       </ul>
-      {props.single && (
+      {props.single && activeBallots.length > 0 && (
         <p>There may also be parish, town or community council elections in some areas.</p>
       )}
     </section>

@@ -549,6 +549,11 @@ ul.inline-list h2.full-width {
   width: 100%;
 }
 
+ul.inline-list p {
+  clear: left;
+  padding-top: 1rem;
+}
+
 ul.inline-list button {
   width: 7.75rem;
   padding:0 0 0 1em;

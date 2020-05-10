@@ -16,7 +16,7 @@ function Ballot(props) {
         </a>
       </h2>
 
-      {candidatesVerified && (
+      {candidatesVerified && !ballot.cancelled && (
         <button
           aria-expanded={candidatesVisible}
           data-testid={`show-candidates-button-${ballot.ballot_paper_id}`}
@@ -26,7 +26,15 @@ function Ballot(props) {
           {candidatesVisible ? 'Hide' : 'Show'} candidates
         </button>
       )}
-      {candidatesVisible && candidatesVerified && <Candidates {...props} />}
+      {ballot.cancelled &&
+        (ballot?.metadata?.cancelled_election?.detail ? (
+          <p>{ballot.metadata.cancelled_election.detail}</p>
+        ) : (
+          <p>
+            The poll for <strong>{ballot.ballot_title}</strong> has been cancelled.
+          </p>
+        ))}
+      {candidatesVisible && candidatesVerified && !ballot.cancelled && <Candidates {...props} />}
     </li>
   );
 }
