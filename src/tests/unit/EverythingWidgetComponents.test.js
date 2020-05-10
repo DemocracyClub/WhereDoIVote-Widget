@@ -5,7 +5,7 @@ import { cleanup, waitForElement, fireEvent } from '@testing-library/react';
 import en_messages from '../../translations/en';
 import Ballot from '../../Ballot';
 import Candidates from '../../Candidates';
-import CandidateItem from '../../CandidateItem';
+import CandidateList from '../../CandidateList';
 import PartyList from '../../PartyList';
 import { renderWithReactIntl } from '../utils/test';
 afterEach(cleanup);
@@ -39,19 +39,23 @@ describe('Candidates Component: Normal Ballot', () => {
   });
 });
 
-describe('CandidateItem Component', () => {
+describe('CandidateList Component', () => {
   let getByTestId;
   beforeEach(async () => {
-    const CandidateItemWrapper = renderWithReactIntl(<CandidateItem candidate={candidate} />);
-    getByTestId = CandidateItemWrapper.getByTestId;
+    const CandidateListWrapper = renderWithReactIntl(<CandidateList candidates={[candidate]} />);
+    getByTestId = CandidateListWrapper.getByTestId;
   });
   it('renders name for a given candidate', async () => {
-    const CandidateItem = await waitForElement(() => document.querySelector('.CandidateItem'));
-    expect(CandidateItem).toHaveTextContent(candidate.person.name);
+    const CandidateListItem = await waitForElement(() =>
+      document.querySelector('.CandidateListItem')
+    );
+    expect(CandidateListItem).toHaveTextContent(candidate.person.name);
   });
   it('renders party for a given candidate', async () => {
-    const CandidateItem = await waitForElement(() => document.querySelector('.CandidateItem'));
-    expect(CandidateItem).toHaveTextContent(candidate.party.party_name);
+    const CandidateListItem = await waitForElement(() =>
+      document.querySelector('.CandidateListItem')
+    );
+    expect(CandidateListItem).toHaveTextContent(candidate.party.party_name);
   });
   it('renders correct class for party with standard ID', async () => {
     const PartyName = await waitForElement(() => document.querySelector('.party-name'));
@@ -62,16 +66,18 @@ describe('CandidateItem Component', () => {
     expect(CandidateLink).toHaveAttribute('title', en_messages['general.read-more-info-candidate']);
   });
 });
-describe('CandidateItem Component edge cases', () => {
+
+describe('CandidateList Component edge cases', () => {
   it('renders correct class for cooperative party', async () => {
     let coopPartyCandidate = Object.assign({}, candidate);
     coopPartyCandidate.party.party_id = 'joint-party:53-119';
     coopPartyCandidate.party.party_name = 'Labour Party (joint Co-op)';
-    renderWithReactIntl(<CandidateItem candidate={coopPartyCandidate} />);
+    renderWithReactIntl(<CandidateList candidates={[coopPartyCandidate]} />);
     const PartyName = await waitForElement(() => document.querySelector('.party-name'));
     expect(PartyName).toHaveClass('party-53-119');
   });
 });
+
 describe('Ballot Component', () => {
   it('should show candidates if candidates_verified is true', async () => {
     const BallotWrapper = renderWithReactIntl(
