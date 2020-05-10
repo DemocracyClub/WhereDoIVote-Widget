@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Candidates from './Candidates';
 
 function Ballot(props) {
-  const [showCandidates, setShowCandidates] = useState(false);
+  const [candidatesVisible, setShowCandidates] = useState(false);
   const ballot = props.ballot;
-  const willShowCandidates = ballot.candidates.length > 1 && ballot.candidates_verified;
+  const candidatesVerified = ballot.candidates.length > 1 && ballot.candidates_verified;
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>
-      <h2 className={`dc-secondary-header ${!willShowCandidates && 'full-width'}`}>
+      <h2 className={`dc-secondary-header ${!candidatesVerified && 'full-width'}`}>
         <span role="img" aria-label="Ballot box">
           🗳️
         </span>{' '}
@@ -16,17 +16,17 @@ function Ballot(props) {
         </a>
       </h2>
 
-      {willShowCandidates && (
+      {candidatesVerified && (
         <button
-          aria-expanded={showCandidates}
+          aria-expanded={candidatesVisible}
           data-testid={`show-candidates-button-${ballot.ballot_paper_id}`}
-          className={`inline-button ${showCandidates ? 'toggled' : null} `}
-          onClick={() => setShowCandidates(!showCandidates)}
+          className={`inline-button ${candidatesVisible ? 'toggled' : null} `}
+          onClick={() => setShowCandidates(!candidatesVisible)}
         >
-          {showCandidates ? 'Hide' : 'Show'} candidates
+          {candidatesVisible ? 'Hide' : 'Show'} candidates
         </button>
       )}
-      {showCandidates && willShowCandidates && <Candidates {...props} />}
+      {candidatesVisible && candidatesVerified && <Candidates {...props} />}
     </li>
   );
 }
