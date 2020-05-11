@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import getWordsFromNumber from './utils';
 import Ballot from './Ballot';
 
@@ -33,8 +34,13 @@ function PollingDate(props) {
           </h1>
           {activeBallots.length > 0 && (
             <p>
-              You will have {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
-              {activeBallots.length > 1 && 's'} to fill out:
+              <FormattedMessage
+                id="pollingdate.ballot-papers"
+                values={{
+                  num: getWordsFromNumber(activeBallots.length, props.messages),
+                  bp: activeBallots.length === 1 ? 'ballot paper' : 'ballot papers',
+                }}
+              />
             </p>
           )}
         </>
@@ -42,9 +48,14 @@ function PollingDate(props) {
       {!props.single &&
         (activeBallots.length ? (
           <p>
-            On <strong className="date">{dayMonthYear}</strong> you will have{' '}
-            {getWordsFromNumber(activeBallots.length, props.messages)} ballot paper
-            {activeBallots.length > 1 && 's'} to fill out:
+            <FormattedMessage
+              id="pollingdate.on-date-ballot-papers"
+              values={{
+                date: <strong className="date">{dayMonthYear}</strong>,
+                num: getWordsFromNumber(activeBallots.length, props.messages),
+                bp: activeBallots.length === 1 ? 'ballot paper' : 'ballot papers',
+              }}
+            />
           </p>
         ) : (
           <p>
@@ -57,7 +68,12 @@ function PollingDate(props) {
         ))}
       </ul>
       {props.single && activeBallots.length > 0 && (
-        <p>There may also be parish, town or community council elections in some areas.</p>
+        <p>
+          <FormattedMessage
+            id="pollingdate.parish"
+            description="There may also be parish, town or community council elections in some areas."
+          />
+        </p>
       )}
     </section>
   );

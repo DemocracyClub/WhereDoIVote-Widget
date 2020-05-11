@@ -43,5 +43,8 @@
   "numbers.7": "seven",
   "numbers.8": "eight",
   "numbers.9": "nine",
-  "numbers.10": "ten"
+  "numbers.10": "ten",
+  "pollingdate.ballot-papers": "You will have {num} {bp} to fill out",
+  "pollingdate.on-date-ballot-papers": "On {date} you will have {num} {bp} to fill out",
+  "pollingdate.parish": "There may also be parish, town or community council elections in some areas."
 }
