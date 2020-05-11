@@ -72,5 +72,6 @@ function PostcodeSelector(props) {
     </form>
   );
 }
+
 export { isPostcodeValid };
 export default PostcodeSelector;

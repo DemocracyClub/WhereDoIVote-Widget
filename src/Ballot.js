@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { injectIntl } from 'react-intl';
 import Candidates from './Candidates';
 
 function Ballot(props) {
   const [candidatesVisible, setShowCandidates] = useState(false);
   const ballot = props.ballot;
   const candidatesVerified = ballot.candidates.length > 1 && ballot.candidates_verified;
+  const { formatMessage } = props.intl;
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>
       <h2 className={`dc-secondary-header ${!candidatesVerified && 'full-width'}`}>
@@ -23,7 +25,9 @@ function Ballot(props) {
           className={`inline-button ${candidatesVisible ? 'toggled' : null} `}
           onClick={() => setShowCandidates(!candidatesVisible)}
         >
-          {candidatesVisible ? 'Hide' : 'Show'} candidates
+          {candidatesVisible
+            ? formatMessage({ id: 'ballot.hide-candidates', description: 'Hide candidates' })
+            : formatMessage({ id: 'ballot.show-candidates', description: 'Show candidates' })}
         </button>
       )}
       {ballot.cancelled &&
@@ -39,4 +43,4 @@ function Ballot(props) {
   );
 }
 
-export default Ballot;
+export default injectIntl(Ballot);

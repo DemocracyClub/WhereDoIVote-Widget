@@ -22,7 +22,7 @@ describe('Candidates Component: List Ballot', () => {
   });
   it('Should display a message saying that parties are the candidates', async () => {
     const CandidatesComponent = await waitForElement(() => getByTestId('candidates'));
-    expect(CandidatesComponent).toHaveTextContent(en_messages['ballots.list-type-message']);
+    expect(CandidatesComponent).toHaveTextContent(en_messages['partylist.list-type-message']);
   });
 });
 
@@ -137,7 +137,7 @@ describe('PartyList Component', () => {
   });
   it('Should display a message saying that parties are the candidates', async () => {
     const paraItem = await waitForElement(() => getByTestId('para-gla.a.2020-05-07'));
-    expect(paraItem).toHaveTextContent(en_messages['ballots.list-type-message']);
+    expect(paraItem).toHaveTextContent(en_messages['partylist.list-type-message']);
   });
   it('Should derive list of parties from candidate data', async () => {
     const ulItem = await waitForElement(() => getByTestId('ul-gla.a.2020-05-07'));

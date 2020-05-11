@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 function PartyList(props) {
   const cddts = props.ballot.candidates;
@@ -17,7 +18,10 @@ function PartyList(props) {
   return (
     <>
       <p data-testid={`para-${props.ballot.ballot_paper_id}`}>
-        You will vote for your preferred party rather than a candidate on this ballot paper
+        <FormattedMessage
+          id="partylist.list-type-message"
+          description="You will vote for your preferred party rather than a candidate on this ballot paper"
+        />
       </p>
       <ul data-testid={`ul-${props.ballot.ballot_paper_id}`}>
         {parties.map(party => (
