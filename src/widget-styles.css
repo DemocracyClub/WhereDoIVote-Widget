@@ -695,9 +695,9 @@ button.toggled.arrow.inline-button::after {
 .party-83.candidate-name::before {
   background: var(--party-colour-party-83);
 }
-  .party-55.candidate-name::before {
+.party-55.candidate-name::before {
   background: var(--party-colour-party-55);  
-   }  
+}
 .party-103.candidate-name::before {
   background: var(--party-colour-party-103);
- } 
+}
