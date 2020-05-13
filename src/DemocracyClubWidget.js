@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
@@ -105,19 +105,6 @@ function DemocracyClubWidget(props) {
     },
     [api, handleResponse]
   );
-
-  useEffect(() => {
-    let paramPostcode = window.location.href.split('postcode=')[1]
-      ? window.location.href.split('postcode=')[1].split('&')[0]
-      : null;
-    paramPostcode && lookupGivenPostcode(paramPostcode);
-    paramPostcode && setSearchInitiated(true);
-    if (!paramPostcode) {
-      let localStoragePostcode = localStorage.getItem('dc_postcode');
-      localStoragePostcode && lookupGivenPostcode(localStoragePostcode);
-      localStoragePostcode && setSearchInitiated(true);
-    }
-  }, [lookupGivenPostcode]);
 
   function lookupChosenAddress(value) {
     setLoading(true);

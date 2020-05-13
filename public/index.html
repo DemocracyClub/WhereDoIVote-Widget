@@ -62,22 +62,6 @@
     </div>
     <div class="container">
       <div class="column column-one">
-        <h2>Widget tester</h2>
-        <p>Host pages can set the widget's postcode programatically using the following JS:</p>
-        <pre>
-  localStorage.setItem('dc_postcode', 'LE42TY')
-        </pre>
-        <p>Alternatively, the widget will pick up a postcode query parameter from the URL:</p>
-        <pre>
-  https://domain.com/?postcode=AA12AA        
-        </pre>
-        <p>For testing purposes, you can set a postcode once so that the dev server's auto-refresh always shows you the ballots/candidates section of the widget:</p>
-        <form method="get" action="/">
-          <label>Set persistent postcode</label>
-          <input type="text" name="postcode" />
-          <button>Set Postcode</button>
-        </form>
-        <p><a href="/">Reset</a></p>
         <h3>Test postcodes</h3>
         <p>For <strong>mock</strong> data, you can view <a href="https://github.com/DemocracyClub/WhereDoIVote-Widget/tree/master/public/example-responses" target="_blank">all the postcodes we currently have fixtures for on our Github</a></p>
         <p>For <strong>sandbox</strong> data, you can view <a href="https://developers.democracyclub.org.uk/api/v1/#sandbox-outputs-2" target="_blank">the Sandbox outputs section of the Democracy Club API docs</a></p>
