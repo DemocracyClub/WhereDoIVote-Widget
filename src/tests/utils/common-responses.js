@@ -6,32 +6,55 @@ export const partyListBallot = {
     name: 'Additional Member System',
     uses_party_lists: true,
   },
-  seats_contested: 11,
+  seats_contested: 2,
   candidates: [
     {
-      list_position: 9,
-      party: { party_id: 'party:90', party_name: 'Liberal Democrats' },
-      person: {},
+      list_position: 1,
+      party: {
+        party_id: 'party:63',
+        party_name: 'Green Party',
+      },
+      person: {
+        ynr_id: 34835,
+        name: 'Siân Berry',
+        absolute_url: 'https://whocanivotefor.co.uk/person/34835',
+      },
     },
     {
-      list_position: null,
-      party: { party_id: 'party:2755', party_name: "Women's Equality Party" },
-      person: {},
-    },
-    {
-      list_position: 5,
-      party: { party_id: 'party:90', party_name: 'Liberal Democrats' },
-      person: {},
+      list_position: 2,
+      party: {
+        party_id: 'party:63',
+        party_name: 'Green Party',
+      },
+      person: {
+        ynr_id: 4750,
+        name: 'Caroline Russell',
+        absolute_url: 'https://whocanivotefor.co.uk/person/4750',
+      },
     },
     {
       list_position: 1,
-      party: { party_id: 'party:90', party_name: 'Liberal Democrats' },
-      person: {},
+      party: {
+        party_id: 'party:90',
+        party_name: 'Liberal Democrats',
+      },
+      person: {
+        ynr_id: 7456,
+        name: 'Caroline Pidgeon',
+        absolute_url: 'https://whocanivotefor.co.uk/person/7456',
+      },
     },
     {
-      list_position: null,
-      party: { party_id: 'party:2755', party_name: "Women's Equality Party" },
-      person: {},
+      list_position: 2,
+      party: {
+        party_id: 'party:90',
+        party_name: 'Liberal Democrats',
+      },
+      person: {
+        ynr_id: 47398,
+        name: 'Hina Bokhari',
+        absolute_url: 'https://whocanivotefor.co.uk/person/47398',
+      },
     },
   ],
 };

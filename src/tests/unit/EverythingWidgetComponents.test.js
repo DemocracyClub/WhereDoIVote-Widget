@@ -36,6 +36,7 @@ describe('Candidates Component: Normal Ballot', () => {
     const CandidatesComponent = await waitForElement(() => getByTestId('candidates'));
     expect(CandidatesComponent).toHaveTextContent('Sally Elizabeth Gray');
     expect(CandidatesComponent).toHaveTextContent('Zack Polanski');
+    expect(CandidatesComponent.children[0].children).toHaveLength(2);
   });
 });
 
@@ -141,8 +142,16 @@ describe('PartyList Component', () => {
   });
   it('Should derive list of parties from candidate data', async () => {
     const ulItem = await waitForElement(() => getByTestId('ul-gla.a.2020-05-07'));
-    expect(ulItem).toHaveTextContent("Women's Equality Party");
+
+    // party names should appear only once
     expect(ulItem).toHaveTextContent('Liberal Democrats');
-    expect(ulItem).not.toHaveTextContent('Green Party');
+    expect(ulItem).toHaveTextContent('Green Party');
+    expect(ulItem.children).toHaveLength(2);
+
+    // candidate names should not appear
+    expect(ulItem).not.toHaveTextContent('Siân Berry');
+    expect(ulItem).not.toHaveTextContent('Caroline Russell');
+    expect(ulItem).not.toHaveTextContent('Caroline Pidgeon');
+    expect(ulItem).not.toHaveTextContent('Hina Bokhari');
   });
 });
