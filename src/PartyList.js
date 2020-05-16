@@ -3,12 +3,12 @@ import { FormattedMessage } from 'react-intl';
 
 function PartyList(props) {
   const cddts = props.ballot.candidates;
-  const allPartiesNames = cddts.map(c => c.party.party_name);
+  const allPartiesNames = cddts.map((c) => c.party.party_name);
   const partyNames = Array.from(new Set(allPartiesNames));
   const parties = [];
 
   for (let i = 0; i < partyNames.length; i++) {
-    const candidates = cddts.filter(c => c.party.party_name === partyNames[i]);
+    const candidates = cddts.filter((c) => c.party.party_name === partyNames[i]);
     const party = {
       party_id: candidates[0].party.party_id,
       party_name: partyNames[i],
@@ -24,7 +24,7 @@ function PartyList(props) {
         />
       </p>
       <ul data-testid={`ul-${props.ballot.ballot_paper_id}`}>
-        {parties.map(party => (
+        {parties.map((party) => (
           <li className="PartyListItem" key={party.party_id}>
             <h4 className={`candidate-name party-${party.party_id.split(':')[1]}`}>
               {party.party_name}

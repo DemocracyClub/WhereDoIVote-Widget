@@ -20,7 +20,7 @@ function PollingDate(props) {
     day: 'numeric',
   });
 
-  const activeBallots = date.ballots.filter(b => !b.cancelled);
+  const activeBallots = date.ballots.filter((b) => !b.cancelled);
 
   return (
     <section

@@ -6,7 +6,7 @@ function CandidateList(props) {
   const { candidates } = props;
   return (
     <ul>
-      {candidates.map(candidate => (
+      {candidates.map((candidate) => (
         <li className="CandidateListItem" key={candidate.person.ynr_id}>
           <h4 className={`candidate-name party-${candidate.party.party_id.split(':')[1]}`}>
             <a

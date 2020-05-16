@@ -23,7 +23,7 @@ export function APIClientFactory(env = process.env) {
 export function APIClient(client, base_url, api_key) {
   client.defaults.headers.get['Content-Type'] = 'application/json';
 
-  const fetch = function(url) {
+  const fetch = function (url) {
     let utm_source;
     try {
       utm_source = window.location.href;
@@ -38,15 +38,15 @@ export function APIClient(client, base_url, api_key) {
   };
 
   return {
-    fetchByPostcode: function(postcode) {
+    fetchByPostcode: function (postcode) {
       return fetch(`${base_url}/postcode/${postcode}`);
     },
 
-    fetch: function(url) {
+    fetch: function (url) {
       return fetch(url);
     },
 
-    toAddress: function(response) {
+    toAddress: function (response) {
       let nextBallotDate = response.data.dates[0];
       let stationProperties = nextBallotDate.polling_station.station.properties;
       let address = stationProperties.address.replace(/\n/g, ', ');
