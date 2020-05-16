@@ -19,7 +19,7 @@ describe('Democracy Club API client', () => {
   });
 
   it('makes request for postcode', () => {
-    api.fetchByPostcode('T3 5TS').catch(err => {});
+    api.fetchByPostcode('T3 5TS').catch((err) => {});
     var requestUrl = axios.get.getCall(0).args[0];
     expect(requestUrl).toMatch('https://developers.democracyclub.org.uk/api/v1/postcode/T3 5TS');
   });
@@ -31,7 +31,7 @@ describe('Democracy Club API client', () => {
 
     it('when location is present on window', () => {
       setLocation({ href: 'https://example.com/foo' });
-      api.fetchByPostcode('T3 5TS').catch(err => {});
+      api.fetchByPostcode('T3 5TS').catch((err) => {});
       var requestParams = axios.get.getCall(0).args[1].params;
       expect(requestParams.utm_source).toMatch('https://example.com/foo');
       expect(requestParams.utm_medium).toMatch('widget');
@@ -39,7 +39,7 @@ describe('Democracy Club API client', () => {
 
     it('when location is not present on window', () => {
       setLocation(undefined);
-      api.fetchByPostcode('T3 5TS').catch(err => {});
+      api.fetchByPostcode('T3 5TS').catch((err) => {});
       var requestParams = axios.get.getCall(0).args[1].params;
       expect(requestParams.utm_source).toMatch('unknown');
       expect(requestParams.utm_medium).toMatch('widget');
@@ -54,7 +54,7 @@ describe('Democracy Club API client', () => {
     it('when key is present', () => {
       api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', 'f00b42');
       setLocation({ href: 'https://example.com/foo' });
-      api.fetchByPostcode('T3 5TS').catch(err => {});
+      api.fetchByPostcode('T3 5TS').catch((err) => {});
       var requestParams = axios.get.getCall(0).args[1].params;
       expect(requestParams.auth_token).toMatch('f00b42');
     });
@@ -62,14 +62,14 @@ describe('Democracy Club API client', () => {
     it('when key is not present', () => {
       api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', null);
       setLocation(undefined);
-      api.fetchByPostcode('T3 5TS').catch(err => {});
+      api.fetchByPostcode('T3 5TS').catch((err) => {});
       var requestParams = axios.get.getCall(0).args[1].params;
       expect(requestParams.auth_token).toBe(undefined);
     });
   });
 
   it('requests from selector', () => {
-    api.fetch('https://developers.democracyclub.org.uk/api/v1/some_path/').catch(err => {});
+    api.fetch('https://developers.democracyclub.org.uk/api/v1/some_path/').catch((err) => {});
 
     var requestUrl = axios.get.getCall(0).args[0];
     expect(requestUrl).toEqual('https://developers.democracyclub.org.uk/api/v1/some_path/');

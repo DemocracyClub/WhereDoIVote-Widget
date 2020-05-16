@@ -6,17 +6,11 @@ import axiosMock from 'axios';
 import fs from 'fs';
 import messages_en from '../../translations/en';
 
-export const childAttributeChecker = shallowComponent => (selector, attribute) => {
-  return shallowComponent
-    .find(selector)
-    .first()
-    .html()
-    .indexOf(attribute)
-    ? true
-    : false;
+export const childAttributeChecker = (shallowComponent) => (selector, attribute) => {
+  return shallowComponent.find(selector).first().html().indexOf(attribute) ? true : false;
 };
 
-export const renderWithReactIntl = component => {
+export const renderWithReactIntl = (component) => {
   const intl = createIntl({
     locale: 'en',
     defaultLocale: 'en',
@@ -29,7 +23,7 @@ export const renderWithReactIntl = component => {
   );
 };
 
-export const typePostcode = postcode => {
+export const typePostcode = (postcode) => {
   fireEvent.change(document.querySelector('#postcode'), {
     target: { value: postcode },
   });

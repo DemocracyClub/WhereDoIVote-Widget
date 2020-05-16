@@ -64,7 +64,7 @@ function DemocracyClubWidget(props) {
   }
 
   const handleResponse = useCallback(
-    resp => {
+    (resp) => {
       setCurrentError(undefined);
       let response = resp.data;
       let nextBallotDate = response.dates[0];
@@ -94,14 +94,11 @@ function DemocracyClubWidget(props) {
   );
 
   const lookupGivenPostcode = useCallback(
-    postcode => {
+    (postcode) => {
       setLoading(true);
       setPostcode(postcode);
       setCurrentError(undefined);
-      api
-        .fetchByPostcode(postcode)
-        .then(handleResponse)
-        .catch(handleError);
+      api.fetchByPostcode(postcode).then(handleResponse).catch(handleError);
     },
     [api, handleResponse]
   );
@@ -112,10 +109,7 @@ function DemocracyClubWidget(props) {
       setStationNotFound(true);
       setLoading(false);
     } else {
-      api
-        .fetch(value)
-        .then(handleResponse)
-        .catch(handleError);
+      api.fetch(value).then(handleResponse).catch(handleError);
     }
     setAddressList(undefined);
   }
