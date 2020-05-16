@@ -20,6 +20,7 @@ function withTranslations(Widget) {
           {...props}
           setLanguage={setLanguage}
           locale={language}
+          messages={messages[language]}
           showLanguageToggle={showLanguageToggle}
         />
       </IntlProvider>

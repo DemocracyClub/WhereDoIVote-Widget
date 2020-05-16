@@ -1,19 +1,15 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import CandidateItem from './CandidateItem';
+import CandidateList from './CandidateList';
+import PartyList from './PartyList';
 
 function Candidates(props) {
   return (
     <section className="Candidates" data-testid="candidates">
-      <h1 className="dc-header">
-        <FormattedMessage id="candidates.candidates-for" description="Candidates for" />{' '}
-        {props.ballot.ballot_title}
-      </h1>
-      <ul>
-        {props.ballot.candidates.map((candidate, i) => (
-          <CandidateItem candidate={candidate} key={`candidate-${i}`} />
-        ))}
-      </ul>
+      {props.ballot.voting_system.uses_party_lists === true ? (
+        <PartyList {...props} />
+      ) : (
+        <CandidateList candidates={props.ballot.candidates} />
+      )}
     </section>
   );
 }

@@ -197,6 +197,12 @@ h1.dc-header,
   font-size: var(--dc-font-size-heading);
 }
 
+.dc-secondary-header {
+  font-size: var(--dc-font-size-default);
+  color: var(--dc-body-text-colour);
+  font-family: var(--dc-sanserif-font);
+}
+
 .DemocracyClubWidget .form-label-reduced {
   font-weight: normal;
   display: block;
@@ -415,6 +421,7 @@ li {
 }
 li, p {
   font-size: var(--dc-font-size-smaller);
+  margin-top: 0;
 }
 
 /*--------------------------------------------------------------
@@ -503,19 +510,123 @@ footer {
 
 /* Candidates */
 
+strong.postcode {
+  text-transform: uppercase;
+  font-family: var(--dc-sanserif-font);
+  color: var(--dc-bright-pink-accent);
+}
+
+strong.date {
+  font-family: var(--dc-sanserif-font);
+}
+
+ul.inline-list {
+  padding-left: 0rem;
+  margin: 0;
+}
+
+ul.inline-list li.Ballot {
+  list-style: none;
+  padding: 0;
+  margin:0;
+  clear: both;
+  margin-bottom: 1rem;
+}
+
+ul.inline-list li.Ballot:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ul.inline-list h2 {
+  float: left;
+  width: calc(100% - 8.5rem);
+  margin: 0;
+}
+
+ul.inline-list h2.full-width {
+  width: 100%;
+}
+
+ul.inline-list p {
+  clear: left;
+  padding-top: 1rem;
+}
+
+ul.inline-list button {
+  width: 7.75rem;
+  padding:0 0 0 1em;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  background: none;
+  font-family: var(--dc-sanserif-font);
+  font-size: var(--dc-font-size-smallest);
+  text-align: right;
+  float: right;
+  color: var(--dc-darker-grey);
+}
+
+button.inline-button::before {
+  position: absolute;
+  top: 0.4em;
+  left:0;
+  transition: all 0.2s ease;
+  width: 0; 
+  height: 0; 
+  border-left: 0.45em solid transparent;
+  border-right: 0.45em solid transparent;
+  content: '';
+  border-top: 0.45em solid var(--dc-bright-blue-accent);
+  border-bottom: none;
+}
+
+button.toggled.inline-button::before,
+button.toggled.inline-button::after {
+  border: none;
+  position: absolute;
+  left: .35em;
+  top:0.2em;
+  content: ' ';
+  height: 1em;
+  width: 1px;
+  background-color: var(--dc-bright-blue-accent);
+}
+
+button.toggled.inline-button::before {
+  transform: rotate(45deg);
+}
+button.toggled.inline-button::after {
+  transform: rotate(-45deg);
+}
+
+button.toggled.arrow.inline-button::after {
+  width: 0; 
+  height: 0; 
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-top: none;
+  border-bottom: 0.75em solid var(--dc-bright-blue-accent);
+}
+
+.Candidates {
+  margin: 1rem 0;
+  float: left;
+  width: 100%;
+  clear: both;
+}
+
 .Candidates ul,
 .Candidates li {
-  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.Candidates ul {
-  margin-bottom: 1.5rem;
-}
-
 .Candidates li {
+  list-style: none;
   margin-bottom: 0.25rem;
+  clear: left;
 }
 
 .party-name {
@@ -584,9 +695,9 @@ footer {
 .party-83.candidate-name::before {
   background: var(--party-colour-party-83);
 }
-  .party-55.candidate-name::before {
+.party-55.candidate-name::before {
   background: var(--party-colour-party-55);  
-   }  
+}
 .party-103.candidate-name::before {
   background: var(--party-colour-party-103);
- } 
+}

@@ -57,7 +57,7 @@ Default Welsh with option to toggle to English:
 <noscript>
   <a href="https://whocanivotefor.co.uk/">Information about elections in your area</a>
 </noscript>
-<div id="dc_wdiv" data-candidates="true" data-language="en" aria-live="polite" role="region"></div>
+<div id="dc_wdiv" data-elections="true" data-language="en" aria-live="polite" role="region"></div>
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
@@ -81,3 +81,5 @@ Run using the production API with a key:
 ```
 npm start
 ```
+
+To run the test suite locally, you will need at least node 13 due to the internationalization features required by React-Intl. See https://formatjs.io/docs/runtime-requirements

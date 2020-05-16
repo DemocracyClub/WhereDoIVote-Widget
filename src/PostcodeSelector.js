@@ -12,6 +12,7 @@ function isPostcodeValid(postcode) {
     return true;
   }
 }
+
 function PostcodeSelector(props) {
   let [formValue, setFormValue] = useState('');
 
@@ -22,6 +23,10 @@ function PostcodeSelector(props) {
   function handleSubmit(event) {
     event.preventDefault();
     let postcode = formValue;
+    handlePostcode(postcode);
+  }
+
+  function handlePostcode(postcode) {
     if (isPostcodeValid(postcode)) {
       props.setSearchInitiated(true);
       props.lookupGivenPostcode(postcode);
@@ -51,13 +56,13 @@ function PostcodeSelector(props) {
         />
       </div>
       <button className="dc-btn-primary" type="submit">
-        {!props.enableCandidates && (
+        {!props.enableElections && (
           <FormattedMessage
             id="postcode.submit-postcode-polling-station"
             description="Find your polling station"
           />
         )}
-        {props.enableCandidates && (
+        {props.enableElections && (
           <FormattedMessage
             id="postcode.submit-postcode-general"
             description="Find election information"
@@ -67,5 +72,6 @@ function PostcodeSelector(props) {
     </form>
   );
 }
+
 export { isPostcodeValid };
 export default PostcodeSelector;

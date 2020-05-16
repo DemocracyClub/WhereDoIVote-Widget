@@ -64,7 +64,13 @@ export const renderEnglishWidget = () => {
   return wrapper;
 };
 
-export const renderCandidatesWidget = () => {
+export const renderElectionsWidget = () => {
+  render(<div id="dc_wdiv" data-elections="true" aria-live="polite" role="region" />);
+  const wrapper = render(<DemocracyClubWidget />);
+  return wrapper;
+};
+
+export const renderLegacyWidget = () => {
   render(<div id="dc_wdiv" data-candidates="true" aria-live="polite" role="region" />);
   const wrapper = render(<DemocracyClubWidget />);
   return wrapper;
