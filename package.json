@@ -9,7 +9,7 @@
     "proxy-polyfill": "^0.3.1",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
-    "react-dom": "^16.13.0",
+    "react-dom": "^16.13.1",
     "react-intl": "^4.5.3",
     "react-shadow": "^18.1.0",
     "styled-components": "^5.0.1"
