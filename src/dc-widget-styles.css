@@ -159,7 +159,7 @@
 }
 
 /*--------------------------------------------------------------
-# Container styles 
+# Container styles
 --------------------------------------------------------------*/
 
 .DemocracyClubWidget {
@@ -439,7 +439,7 @@ footer {
   text-align: center;
   align-items: center;
   border-bottom: none;
-  color: var(--dc-bright-pink-accent);  
+  color: var(--dc-bright-pink-accent);
   font-family: var(--dc-sanserif-font);
 }
 
@@ -450,7 +450,7 @@ footer {
 .DemocracyClubWidget footer a:active {
   border-bottom: none;
   text-decoration: underline;
-  color: var(--dc-bright-pink-accent); 
+  color: var(--dc-bright-pink-accent);
 }
 
 .LanguageToggle {
@@ -573,8 +573,8 @@ button.inline-button::before {
   top: 0.4em;
   left:0;
   transition: all 0.2s ease;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 0.45em solid transparent;
   border-right: 0.45em solid transparent;
   content: '';
@@ -602,8 +602,8 @@ button.toggled.inline-button::after {
 }
 
 button.toggled.arrow.inline-button::after {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 0.5em solid transparent;
   border-right: 0.5em solid transparent;
   border-top: none;
@@ -654,7 +654,7 @@ button.toggled.arrow.inline-button::after {
 .candidate-name {
   font-size: var(--dc-font-size-smaller);
   margin: 0;
-  display: inline; 
+  display: inline;
 }
 
 .candidate-name a {
@@ -696,7 +696,7 @@ button.toggled.arrow.inline-button::after {
   background: var(--party-colour-party-83);
 }
 .party-55.candidate-name::before {
-  background: var(--party-colour-party-55);  
+  background: var(--party-colour-party-55);
 }
 .party-103.candidate-name::before {
   background: var(--party-colour-party-103);

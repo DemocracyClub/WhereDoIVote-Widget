@@ -1,0 +1,728 @@
+/*--------------------------------------------------------------
+# Core variables
+--------------------------------------------------------------*/
+:host {
+    /* :host is for Shadow Dom, :root is for older browsers */
+    --dc-body-text-colour: #58595b;
+    --dc-heading-text-colour: #403f41;
+    --dc-text-black: #0b0c0c;
+    --dc-bright-blue-wcag-fff-contrast-3-1: #003057;
+    --dc-bright-blue-wcag-fff-contrast-3-5: #003057;
+    --dc-bright-blue-accent: #25b2d3;
+    --dc-bright-pink-accent: #ec008c;
+    --dc-bright-pink-transparent: rgba(236, 0, 140,0.3);
+    --dc-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
+    --dc-error-red: #b10e1e;
+    --dc-light-grey: #ddd;
+    --dc-darker-grey: #6f777b;
+    --dc-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
+    --dc-outline-focus: #ffbf47;
+    --dc-sanserif-font: 'Arial', sans-serif;
+    --dc-font-size-heading: 1.5rem;
+    --dc-font-size-default: 1.2rem;
+    --dc-font-size-smaller: 1rem;
+    --dc-font-size-smallest: 0.85rem;
+    --dc-line-height-default: 1.2;
+    --dc-spacing-default: 1rem;
+    --dc-border-width: 2px;
+    --party-colour-independent: #767676;
+    --party-colour-party-52: #0087dc;
+    --party-colour-party-53: #d50000;
+    --party-colour-party-53-119: #d50000;
+    --party-colour-party-63: #008066;
+    --party-colour-party-90: #FDBB30;
+    --party-colour-party-77: #3f8428;
+    --party-colour-party-102: #fff95d;
+    --party-colour-party-85: #b3009d;
+    --party-colour-party-39: #326760;
+    --party-colour-party-70: #D46A4C;
+    --party-colour-party-83: #48A5EE;
+    --party-colour-party-55: #3A9E84;
+    --party-colour-party-103: #F6CB2F;
+    /* Unused by widget: */
+    --dc-bright-blue-hover: #009bd6;
+    --dc-global-radius: 0;
+    --dc-btn-primary-color: #003057;
+    --dc-menu-background: transparent;
+    --dc-menu-background-hover: #e6007e;
+    --dc-menu-text-hover: white;
+    --dc-green: #4db314;
+    --dc-off-black: #403f41;
+}
+:root {
+    /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
+    --dc-body-text-colour: #58595b;
+    --dc-heading-text-colour: #403f41;
+    --dc-text-black: #0b0c0c;
+    --dc-bright-blue-wcag-fff-contrast-3-1: #009cd6;
+    --dc-bright-blue-wcag-fff-contrast-3-5: #0092c8;
+    --dc-bright-blue-accent: #007faf;
+    --dc-bright-pink-accent: #ec008c;
+    --dc-bright-pink-transparent: rgba(236, 0, 140,0.3);
+    --dc-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
+    --dc-error-red: #b10e1e;
+    --dc-light-grey: #ddd;
+    --dc-darker-grey: #6f777b;
+    --dc-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
+    --dc-outline-focus: #ffbf47;
+    --dc-sanserif-font: 'Avenir', sans-serif;
+    --dc-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
+    --dc-font-size-heading: 1.5rem;
+    --dc-font-size-default: 1.2rem;
+    --dc-font-size-smaller: 1rem;
+    --dc-font-size-smallest: 0.85rem;
+    --dc-line-height-default: 1.2;
+    --dc-spacing-default: 1rem;
+    --dc-border-width: 2px;
+    --party-colour-independent: #767676;
+    --party-colour-party-52: #0087dc;
+    --party-colour-party-53: #d50000;
+    --party-colour-party-53-119: #d50000;
+    --party-colour-party-63: #008066;
+    --party-colour-party-90: #FDBB30;
+    --party-colour-party-77: #3f8428;
+    --party-colour-party-102: #fff95d;
+    --party-colour-party-85: #b3009d;
+    --party-colour-party-39: #326760;
+    --party-colour-party-70: #D46A4C;
+    --party-colour-party-83: #48A5EE;
+    --party-colour-party-55: #3A9E84;
+    --party-colour-party-103: #F6CB2F;
+    /* Unused by widget: */
+    --dc-bright-blue-hover: #009bd6;
+    --dc-global-radius: 0;
+    --dc-btn-primary-color: #e6007e;
+    --dc-menu-background: transparent;
+    --dc-menu-background-hover: #e6007e;
+    --dc-menu-text-hover: white;
+    --dc-green: #4db314;
+    --dc-off-black: #403f41;
+}
+
+/*
+# Helpers
+*/
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+.DemocracyClubWidget button.dc-btn-primary:focus,
+.DemocracyClubWidget a.dc-btn-primary:focus,
+.dc-btn-primary:focus,
+.dc-btn-secondary:focus,
+.DemocracyClubWidget input:focus,
+.DemocracyClubWidget select:focus,
+*:focus {
+    outline: 4px solid var(--dc-outline-focus);
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+/*--------------------------------------------------------------
+# Container styles
+--------------------------------------------------------------*/
+
+.DemocracyClubWidget {
+    /* Parent container */
+    position: relative;
+    font-size: var(--dc-font-size-default);
+    color: var(--dc-body-text-colour);
+    font-family: var(--dc-sanserif-font);
+    line-height: var(--dc-line-height-default);
+    padding: 4px; /* Prevent .Card box-shadow clipping in `overflow: hidden` containers */
+    text-align:left;
+}
+
+.DemocracyClubWidget > * {
+    border-radius: 0 3px;
+    clear: both;
+    background: #fff;
+    font-family: var(--dc-serif-font);
+    padding: var(--dc-spacing-default);
+    padding-bottom: 0.75rem;
+    border: 1px solid var(--dc-bright-blue-accent);
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+.DemocracyClubWidget div * + * {
+    margin-bottom: 1em;
+}
+h1.dc-header,
+.DemocracyClubWidget .form-label-bold, .DemocracyClubWidget h1 {
+    font-weight: bold;
+    display: block;
+    margin-top:1em;
+    padding-left: var(--dc-spacing-default);
+    line-height:2em;
+    font-family: var(--dc-sanserif-font);
+    color: #003057;
+    font-size: var(--dc-font-size-heading);
+    background-color: #e5f4f8;
+}
+
+.DemocracyClubWidget header h1 label.form-label-bold {
+    margin:0;
+}
+
+.DemocracyClubWidget header h1 {
+    margin-top:0;
+    margin:
+            -0.67em
+            calc(var(--dc-spacing-default) * -1)
+            1em
+            calc(var(--dc-spacing-default) * -1);
+}
+
+.DemocracyClubWidget h1 {
+    margin:
+            1em
+            calc(var(--dc-spacing-default) * -1)
+            1em
+            calc(var(--dc-spacing-default) * -1);
+}
+
+.dc-secondary-header {
+    font-size: var(--dc-font-size-default);
+    color: var(--dc-body-text-colour);
+    font-family: var(--dc-sanserif-font);
+}
+
+.DemocracyClubWidget .form-label-reduced {
+    font-weight: normal;
+    display: block;
+    margin: 0.5rem 0;
+    font-family: var(--dc-serif-font);
+}
+
+.DemocracyClubWidget a {
+    color: var(--dc-bright-blue-wcag-fff-contrast-3-1);
+    text-decoration: none;
+    position: relative;
+    font-weight: normal;
+    font-family: var(--dc-serif-font);
+}
+
+.DemocracyClubWidget a::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    border-bottom:solid 1px var(--dc-bright-blue-accent);
+    bottom: 0.05rem;
+    display: inline-block;
+    left: 0;
+    position: absolute;
+}
+
+.DemocracyClubWidget a:hover,
+.DemocracyClubWidget a:active {
+    text-decoration: none;
+}
+
+.DemocracyClubWidget a:hover::after,
+.DemocracyClubWidget a:active::after {
+    border-bottom:solid 1px var(--dc-bright-pink-accent);
+}
+
+.DemocracyClubWidget button.dc-btn-primary,
+.DemocracyClubWidget a.dc-btn-primary,
+.dc-btn-secondary {
+    font-family: var(--dc-sanserif-font);
+    background-color: var(--dc-bright-blue-wcag-fff-contrast-3-1);
+    border: 0;
+    padding: 0.4em 0.6em;
+    margin: 0.5em 0;
+    font-size: var(--dc-font-size-heading);
+    color: #fff;
+    display: inline-block;
+    border-bottom: 3px solid var(--dc-bright-blue-accent);
+    line-height: 1.2;
+}
+
+.dc-btn-secondary,
+a.dc-btn-secondary {
+    color: white;
+    font-size: var(--dc-font-size-smallest);
+    background-color: var(--dc-darker-grey);
+    border-bottom: none;
+}
+
+.DemocracyClubWidget button.dc-btn-primary:hover,
+.DemocracyClubWidget a.dc-btn-primary:hover {
+    background-color: var(--dc-bright-blue-wcag-fff-contrast-3-5);
+    text-decoration: none;
+}
+
+.dc-btn-seconday:hover,
+a.dc-btn-seconday:hover {
+    background-color: var(--dc-text-black);
+    text-decoration: none;
+}
+.DemocracyClubWidget button.dc-btn-primary:disabled,
+.DemocracyClubWidget a.dc-btn-primary:disabled {
+    background-color: var(--dc-light-grey);
+    border-bottom: 3px solid var(--dc-darker-grey);
+    color: var(--dc-grey-text-wcag-ddd-contrast-3-0-5);
+    cursor: default;
+}
+.DemocracyClubWidget .link-button {
+    display: inline-block;
+    border: var(--dc-border-width) solid var(--dc-bright-blue);
+    color: var(--dc-bright-blue);
+    font-size: 1rem;
+    font-family: Avenir, sans-serif;
+    margin: 0;
+    padding: 1rem 2rem 1.0625rem 2rem;
+    text-decoration: none;
+}
+.DemocracyClubWidget .link-button:hover {
+    background-color: #f9fdff;
+}
+
+/*--------------------------------------------------------------
+# Error messages and notifications
+--------------------------------------------------------------*/
+
+.ErrorMessage,
+.Notification {
+    color: var(--dc-body-text-colour);
+    display: block;
+    font-size: var(--dc-font-size-default);
+    border: var(--dc-border-width) solid var(--dc-error-red);
+    margin-top: 2px;
+    margin-bottom: 4px;
+    padding: var(--dc-spacing-default);
+    font-family: var(--dc-sanserif-font);
+    text-transform: none;
+}
+.Notification {
+    border-color: var(--dc-bright-blue);
+    margin-bottom: var(--dc-spacing-default);
+}
+
+.Notification span[role='img'] {
+    margin: 0 0.5rem 0 auto;
+}
+
+.dc-notification-title {
+    display: inline;
+    font-size: var(--dc-font-size-default);
+    font-weight: normal;
+    margin: 0;
+}
+
+.Notification p,
+.ErrorMessage p {
+    margin: 0.5rem 0;
+    font-size: var(--dc-font-size-smallest);
+    font-family: var(--dc-serif-font);
+}
+
+.Notification a {
+    margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Form styles
+--------------------------------------------------------------*/
+
+.form-group h1 {
+    margin: 0;
+}
+.DemocracyClubWidget .form-control {
+    font-size: var(--dc-font-size-default);
+    line-height: var(--dc-line-height-default);
+    border: var(--dc-border-width) solid var(--dc-body-text-colour);
+    padding: 0.314em 0.25em 0.25em;
+}
+.DemocracyClubWidget form > .form-group + .form-group {
+    margin-top: 1.5em;
+}
+.DemocracyClubWidget input[type='search'],
+.DemocracyClubWidget input[type='text'] {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.DemocracyClubWidget [role='button'],
+.DemocracyClubWidget button,
+.DemocracyClubWidget label,
+.dc-btn-primary {
+    cursor: pointer;
+}
+
+a.dc-btn-primary::after {
+    display: none;
+}
+
+/*--------------------------------------------------------------
+# Polling Station
+--------------------------------------------------------------*/
+
+.PollingStation .address p {
+    font-family: var(--dc-serif-font);
+    font-size: var(--dc-font-size-default);
+}
+
+.directions {
+    margin-top: var(--dc-spacing-default);
+}
+
+/*--------------------------------------------------------------
+# Address finder
+--------------------------------------------------------------*/
+
+.AddressPicker button.dc-btn-primary {
+    display: block;
+}
+
+.AddressPicker select {
+    font-size: var(--dc-font-size-default);
+}
+
+.AddressPicker option {
+    font-family: var(--dc-serif-font);
+    color: var(--dc-body-text-colour);
+}
+
+.dc-select-multirow {
+    height: auto !important;
+    max-width: 100%;
+}
+
+/* Station Not Found */
+
+.StationNotFound ul {
+    padding-left: 1rem;
+}
+
+li {
+    color: var(--dc-body-text-colour);
+    font-size: var(--dc-font-size-default);
+    font-family: var(--dc-serif-font);
+    list-style: disc;
+}
+li, p {
+    font-size: var(--dc-font-size-smaller);
+    margin-top: 0;
+}
+
+/*--------------------------------------------------------------
+# Footer styles
+--------------------------------------------------------------*/
+
+footer {
+    font-family: var(--dc-sanserif-font);
+}
+
+.DemocracyClubWidget footer a {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    text-align: center;
+    align-items: center;
+    border-bottom: none;
+    color: var(--dc-bright-pink-accent);
+    font-family: var(--dc-sanserif-font);
+}
+
+.DemocracyClubWidget footer a::after {
+    display: none;
+}
+.DemocracyClubWidget footer a:hover,
+.DemocracyClubWidget footer a:active {
+    border-bottom: none;
+    text-decoration: underline;
+    color: var(--dc-bright-pink-accent);
+}
+
+.LanguageToggle {
+    float: right;
+    margin: 0.6rem 0.5rem 0 1rem;
+    font-size: var(--dc-font-size-smallest);
+}
+
+.DemocracyClubWidget footer {
+    display: block;
+    padding-top: 0.75rem;
+}
+
+.DemocracyClubWidget footer a img {
+    margin-left: 0.25rem;
+}
+.DCLogo {
+    text-decoration: none;
+    font-size: var(--dc-font-size-smallest);
+}
+
+/*--------------------------------------------------------------
+# Loading spinner
+--------------------------------------------------------------*/
+
+@keyframes spinner {
+    0% {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+}
+.loading-spinner {
+    position: relative;
+    margin: 2rem;
+    opacity: 1;
+    transition: opacity linear 0.1s;
+}
+
+.loading-spinner::before {
+    animation: 2s linear infinite spinner;
+    border: solid 3px #eee;
+    border-bottom-color: var(--dc-bright-blue);
+    border-radius: 50%;
+    content: '';
+    height: 40px;
+    left: 50%;
+    opacity: inherit;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transform-origin: center;
+    width: 40px;
+    will-change: transform;
+}
+
+/* Candidates */
+
+strong.postcode {
+    text-transform: uppercase;
+    font-family: var(--dc-sanserif-font);
+    color: var(--dc-bright-pink-accent);
+}
+
+strong.date {
+    font-family: var(--dc-sanserif-font);
+}
+
+ul.inline-list {
+    padding-left: 0rem;
+    margin: 0;
+}
+
+ul.inline-list li.Ballot {
+    list-style: none;
+    padding: 0;
+    margin:0;
+    clear: both;
+    margin-bottom: 1rem;
+}
+
+ul.inline-list li.Ballot:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ul.inline-list h2 {
+    float: left;
+    width: calc(100% - 8.5rem);
+    margin: 0;
+}
+
+ul.inline-list h2.full-width {
+    width: 100%;
+}
+
+ul.inline-list p {
+    clear: left;
+    padding-top: 1rem;
+}
+
+ul.inline-list button {
+    width: 7.75rem;
+    padding:0 0 0 1em;
+    box-sizing: border-box;
+    position: relative;
+    border: none;
+    background: none;
+    font-family: var(--dc-sanserif-font);
+    font-size: var(--dc-font-size-smallest);
+    text-align: right;
+    float: right;
+    color: var(--dc-darker-grey);
+}
+
+button.inline-button::before {
+    position: absolute;
+    top: 0.4em;
+    left:0;
+    transition: all 0.2s ease;
+    width: 0;
+    height: 0;
+    border-left: 0.45em solid transparent;
+    border-right: 0.45em solid transparent;
+    content: '';
+    border-top: 0.45em solid var(--dc-bright-blue-accent);
+    border-bottom: none;
+}
+
+button.toggled.inline-button::before,
+button.toggled.inline-button::after {
+    border: none;
+    position: absolute;
+    left: .35em;
+    top:0.2em;
+    content: ' ';
+    height: 1em;
+    width: 1px;
+    background-color: var(--dc-bright-blue-accent);
+}
+
+button.toggled.inline-button::before {
+    transform: rotate(45deg);
+}
+button.toggled.inline-button::after {
+    transform: rotate(-45deg);
+}
+
+button.toggled.arrow.inline-button::after {
+    width: 0;
+    height: 0;
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+    border-top: none;
+    border-bottom: 0.75em solid var(--dc-bright-blue-accent);
+}
+
+.Candidates {
+    margin: 1rem 0;
+    float: left;
+    width: 100%;
+    clear: both;
+}
+
+.Candidates ul,
+.Candidates li {
+    padding: 0;
+    margin: 0;
+}
+
+.Candidates li {
+    list-style: none;
+    margin-bottom: 0.25rem;
+    clear: left;
+}
+
+.party-name {
+    font-size: var(--dc-font-size-smaller);
+    margin: 0;
+    font-family: var(--dc-serif-font);
+    display: inline;
+    color: var(--dc-body-text-colour);
+    position: relative;
+    font-weight: normal;
+}
+
+.candidate-name::before {
+    content: '';
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 100%;
+    background: var(--party-colour-independent);
+    display: inline-block;
+    margin: 0 0.3rem 0 0;
+    bottom: 0rem;
+    position: relative;
+}
+
+.candidate-name {
+    font-size: var(--dc-font-size-smaller);
+    margin: 0;
+    display: inline;
+}
+
+.candidate-name a {
+    font-family: var(--dc-serif-font);
+}
+
+.party-52.candidate-name::before {
+    background: var(--party-colour-party-52);
+}
+.party-53.candidate-name::before {
+    background: var(--party-colour-party-53);
+}
+.party-53-119.candidate-name::before {
+    background: var(--party-colour-party-53-119);
+}
+.party-63.candidate-name::before {
+    background: var(--party-colour-party-63);
+}
+.party-90.candidate-name::before {
+    background: var(--party-colour-party-90);
+}
+.party-77.candidate-name::before {
+    background: var(--party-colour-party-77);
+}
+.party-102.candidate-name::before {
+    background: var(--party-colour-party-102);
+}
+.party-85.candidate-name::before {
+    background: var(--party-colour-party-85);
+}
+
+.party-39.candidate-name::before {
+    background: var(--party-colour-party-39);
+}
+.party-70.candidate-name::before {
+    background: var(--party-colour-party-70);
+}
+.party-83.candidate-name::before {
+    background: var(--party-colour-party-83);
+}
+.party-55.candidate-name::before {
+    background: var(--party-colour-party-55);
+}
+.party-103.candidate-name::before {
+    background: var(--party-colour-party-103);
+}

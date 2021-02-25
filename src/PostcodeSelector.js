@@ -38,38 +38,41 @@ function PostcodeSelector(props) {
   }
 
   return (
-    <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
-      <div className="form-group">
+    <div>
+      <header>
         <h1>
           <label className="form-label-bold" htmlFor="postcode">
             <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
           </label>
         </h1>
-
-        <input
-          value={formValue}
-          onChange={handleFormChange}
-          type="text"
-          id="postcode"
-          name="postcode"
-          className="form-control"
-        />
-      </div>
-      <button className="dc-btn-primary" type="submit">
-        {!props.enableElections && (
-          <FormattedMessage
-            id="postcode.submit-postcode-polling-station"
-            description="Find your polling station"
+      </header>
+      <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
+        <div className="form-group">
+          <input
+            value={formValue}
+            onChange={handleFormChange}
+            type="text"
+            id="postcode"
+            name="postcode"
+            className="form-control"
           />
-        )}
-        {props.enableElections && (
-          <FormattedMessage
-            id="postcode.submit-postcode-general"
-            description="Find election information"
-          />
-        )}
-      </button>
-    </form>
+        </div>
+        <button className="dc-btn-primary" type="submit">
+          {!props.enableElections && (
+            <FormattedMessage
+              id="postcode.submit-postcode-polling-station"
+              description="Find your polling station"
+            />
+          )}
+          {props.enableElections && (
+            <FormattedMessage
+              id="postcode.submit-postcode-general"
+              description="Find election information"
+            />
+          )}
+        </button>
+      </form>
+    </div>
   );
 }
 

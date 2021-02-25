@@ -19,7 +19,9 @@ import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
 
-import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
+import ec_styles from '!!raw-loader!./ec-widget-styles.css'; // eslint-disable-line
+import dc_styles from '!!raw-loader!./dc-widget-styles.css'; // eslint-disable-line
+// import styles from '!!raw-loader!./widget-styles.css';
 
 function DemocracyClubWidget(props) {
   const api = APIClientFactory();
@@ -113,51 +115,60 @@ function DemocracyClubWidget(props) {
     }
     setAddressList(undefined);
   }
-
+  var styles, class_name;
+  if (process.env.REACT_APP_BRAND === 'EC') {
+    styles = ec_styles;
+    class_name = 'DemocracyClubWidget';
+  } else {
+    styles = dc_styles;
+    class_name = 'DemocracyClubWidget';
+  }
   return (
     <ShadowDomFactory>
       <style type="text/css">{styles}</style>
       <WarningBanner dataSource={dataSource} />
-      <section className="DemocracyClubWidget Card">
-        {currentError && <ErrorMessage currentError={currentError} />}
-        {!searchInitiated && (
-          <PostcodeSelector
-            lookupGivenPostcode={lookupGivenPostcode}
-            setSearchInitiated={setSearchInitiated}
-            setCurrentError={setCurrentError}
-            {...props}
-          />
-        )}
-        {loading && <Loader />}
-        {!addressList && dates && dates.length >= 1 && (
-          <PollingDate single={true} date={dates[0]} postcode={postcode} {...props} />
-        )}
-        {addressList && !station && (
-          <AddressPicker
-            addressList={addressList}
-            lookupChosenAddress={lookupChosenAddress}
-            {...props}
-          />
-        )}
-        {station && <PollingStation station={station} notifications={notifications} />}
-        {stationNotFound && (
-          <StationNotFound notifications={notifications} electoral_services={electoralServices} />
-        )}
-        {noUpcomingElection && (
-          <NoUpcomingElection
-            notifications={notifications}
-            electoral_services={electoralServices}
-          />
-        )}
-        {!addressList && dates && dates.length > 1 && (
-          <>
-            <hr />
-            <AdditionalFutureElections dates={dates.slice(1)} postcode={postcode} {...props} />
-          </>
-        )}
+      <section className={class_name}>
+        <div>
+          {currentError && <ErrorMessage currentError={currentError} />}
+          {!searchInitiated && (
+            <PostcodeSelector
+              lookupGivenPostcode={lookupGivenPostcode}
+              setSearchInitiated={setSearchInitiated}
+              setCurrentError={setCurrentError}
+              {...props}
+            />
+          )}
+          {loading && <Loader />}
+          {!addressList && dates && dates.length >= 1 && (
+            <PollingDate single={true} date={dates[0]} postcode={postcode} {...props} />
+          )}
+          {addressList && !station && (
+            <AddressPicker
+              addressList={addressList}
+              lookupChosenAddress={lookupChosenAddress}
+              {...props}
+            />
+          )}
+          {station && <PollingStation station={station} notifications={notifications} />}
+          {stationNotFound && (
+            <StationNotFound notifications={notifications} electoral_services={electoralServices} />
+          )}
+          {noUpcomingElection && (
+            <NoUpcomingElection
+              notifications={notifications}
+              electoral_services={electoralServices}
+            />
+          )}
+          {!addressList && dates && dates.length > 1 && (
+            <>
+              <hr />
+              <AdditionalFutureElections dates={dates.slice(1)} postcode={postcode} {...props} />
+            </>
+          )}
 
-        {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
-        <Footer {...props} />
+          {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
+          <Footer {...props} />
+        </div>
       </section>
     </ShadowDomFactory>
   );
