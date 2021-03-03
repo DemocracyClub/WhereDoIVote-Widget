@@ -19,7 +19,7 @@ jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
 
 afterEach(cleanup);
 
-describe('DemocracyClubWidget General', () => {
+describe('ElectionInformationWidget General', () => {
   let getByLabelText, getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -74,7 +74,7 @@ describe('DemocracyClubWidget General', () => {
   });
 });
 
-describe('DemocracyClubWidget PollingStation', () => {
+describe('ElectionInformationWidget PollingStation', () => {
   let getByTestId;
   let wrapper;
   beforeEach(async () => {
@@ -113,7 +113,7 @@ describe('DemocracyClubWidget PollingStation', () => {
   });
 });
 
-describe('DemocracyClubWidget Address picker', () => {
+describe('ElectionInformationWidget Address picker', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -165,7 +165,7 @@ describe('DemocracyClubWidget Address picker', () => {
   });
 });
 
-describe('DemocracyClubWidget Electoral Services', () => {
+describe('ElectionInformationWidget Electoral Services', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -198,7 +198,7 @@ describe('DemocracyClubWidget Electoral Services', () => {
   });
 });
 
-describe('DemocracyClubWidget Welsh Widget', () => {
+describe('ElectionInformationWidget Welsh Widget', () => {
   beforeEach(async () => {
     renderWelshWidget();
   });
@@ -219,7 +219,7 @@ describe('DemocracyClubWidget Welsh Widget', () => {
   });
 });
 
-describe('DemocracyClubWidget Toggleable English Widget', () => {
+describe('ElectionInformationWidget Toggleable English Widget', () => {
   let container, getByTestId;
 
   beforeEach(async () => {
@@ -248,7 +248,7 @@ describe('DemocracyClubWidget Toggleable English Widget', () => {
   });
 });
 
-describe('DemocracyClubWidget Toggleable Welsh Widget', () => {
+describe('ElectionInformationWidget Toggleable Welsh Widget', () => {
   let container, getByTestId;
 
   beforeEach(async () => {
@@ -277,7 +277,7 @@ describe('DemocracyClubWidget Toggleable Welsh Widget', () => {
   });
 });
 
-describe('DemocracyClubWidget Notifications', () => {
+describe('ElectionInformationWidget Notifications', () => {
   let getByTestId;
 
   beforeEach(async () => {
@@ -320,7 +320,7 @@ describe('DemocracyClubWidget Notifications', () => {
   });
 });
 
-describe('DemocracyClubWidget Directions', () => {
+describe('ElectionInformationWidget Directions', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -359,7 +359,7 @@ describe('DemocracyClubWidget Directions', () => {
   });
 });
 
-describe('DemocracyClubWidget Polling station unknown', () => {
+describe('ElectionInformationWidget Polling station unknown', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -378,7 +378,7 @@ describe('DemocracyClubWidget Polling station unknown', () => {
   });
 });
 
-describe('DemocracyClubWidget Standard Widget', () => {
+describe('ElectionInformationWidget Standard Widget', () => {
   beforeEach(() => {
     renderWidget();
   });
@@ -391,12 +391,12 @@ describe('DemocracyClubWidget Standard Widget', () => {
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
-    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
     expect(Widget).not.toHaveTextContent('Show Candidates');
   });
 });
 
-describe('DemocracyClubWidget Everything Widget', () => {
+describe('ElectionInformationWidget Everything Widget', () => {
   let getByTestId;
   beforeEach(() => {
     const widget = renderElectionsWidget();
@@ -422,7 +422,7 @@ describe('DemocracyClubWidget Everything Widget', () => {
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
-    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
     expect(Widget).toHaveTextContent('Tendring local election St Osyth');
     expect(Widget).toHaveTextContent(
       'The poll for this election has been rescheduled due to the sad death of one of the candidates.'
@@ -432,19 +432,19 @@ describe('DemocracyClubWidget Everything Widget', () => {
   });
 });
 
-describe('DemocracyClubWidget Legacy Candidates Widget', () => {
+describe('ElectionInformationWidget Legacy Candidates Widget', () => {
   it('should render candidates with legacy candidates data-attribute', async () => {
     renderLegacyWidget();
     let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
-    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
     expect(Widget).toHaveTextContent('Show candidates');
   });
 });
 
-describe('DemocracyClubWidget Accessibility', () => {
+describe('ElectionInformationWidget Accessibility', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
