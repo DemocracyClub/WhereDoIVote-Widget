@@ -186,6 +186,7 @@ describe('API Client Factory', () => {
     expect(APIClientFactory({ REACT_APP_API: 'prod', REACT_APP_API_KEY: 'f00ba2' })).toBeInstanceOf(
       Object
     );
+    expect(APIClientFactory({ REACT_APP_API: 'mock_ec' })).toBeInstanceOf(Object);
     expect(APIClientFactory({ REACT_APP_API: 'mock' })).toBeInstanceOf(Object);
     expect(APIClientFactory({ REACT_APP_API: 'sandbox' })).toBeInstanceOf(Object);
   });

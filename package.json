@@ -38,6 +38,7 @@
   "scripts": {
     "start:prod": "REACT_APP_API=prod react-app-rewired start",
     "start:sandbox": "REACT_APP_API=sandbox react-app-rewired start",
+    "start:mock_ec": "REACT_APP_API=mock_ec react-app-rewired start",
     "start:mock": "REACT_APP_API=mock react-app-rewired start",
     "start": "npm run start:prod",
     "build:prod": "REACT_APP_API=prod node ./build-without-chunks.js",

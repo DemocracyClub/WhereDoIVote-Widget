@@ -19,7 +19,8 @@ import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
 
-import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
+import EC_styles from '!!raw-loader!./EC-widget-styles.css'; // eslint-disable-line
+import DC_styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
 
 function ElectionInformationWidget(props) {
   const api = APIClientFactory();
@@ -114,9 +115,16 @@ function ElectionInformationWidget(props) {
     setAddressList(undefined);
   }
 
+  function handleStyles() {
+    if (dataSource === 'mock_ec') {
+      return <style type="text/css">{EC_styles}</style>;
+    } else {
+      return <style type="text/css">{DC_styles}</style>;
+    }
+  }
   return (
     <ShadowDomFactory>
-      <style type="text/css">{styles}</style>
+      {handleStyles()}
       <WarningBanner dataSource={dataSource} />
       <section className="ElectionInformationWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
