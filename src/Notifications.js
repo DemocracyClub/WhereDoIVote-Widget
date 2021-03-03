@@ -16,11 +16,11 @@ function Notification(props) {
       <span role="img" alt="information">
         ℹ
       </span>
-      <h3 className="dc-notification-title">{props.title}</h3>
+      <h3 className="notification-title">{props.title}</h3>
       {props.detail && <p>{props.detail}</p>}
       {props.url && (
         <a
-          className="dc-btn-secondary"
+          className="btn-secondary"
           target="_blank"
           rel="noopener noreferrer"
           title={'Read more information about this ' + props.title}

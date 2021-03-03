@@ -4,7 +4,7 @@ import 'es6-shim';
 import 'proxy-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DemocracyClubWidget from './DemocracyClubWidget';
+import ElectionInformationWidget from './ElectionInformationWidget';
 import cssVars from 'css-vars-ponyfill';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -17,4 +17,4 @@ cssVars({
   exclude: 'link',
 });
 
-ReactDOM.render(<DemocracyClubWidget />, document.getElementById('dc_wdiv'));
+ReactDOM.render(<ElectionInformationWidget />, document.getElementById('wdiv'));

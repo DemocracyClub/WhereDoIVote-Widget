@@ -6,7 +6,7 @@ import ElectoralServices from './ElectoralServices';
 function StationNotFound(props) {
   return (
     <div className="StationNotFound" data-testid="station-not-found">
-      <h1 className="dc-header">
+      <h1 className="header">
         <FormattedMessage
           id="station.not-found"
           description="We don't know where you should vote"

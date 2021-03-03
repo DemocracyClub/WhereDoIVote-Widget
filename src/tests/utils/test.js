@@ -1,5 +1,5 @@
 import React from 'react';
-import DemocracyClubWidget from '../../DemocracyClubWidget';
+import ElectionInformationWidget from '../../ElectionInformationWidget';
 import { fireEvent, render } from '@testing-library/react';
 import { IntlProvider, createIntl } from 'react-intl';
 import axiosMock from 'axios';
@@ -41,31 +41,31 @@ export const mockResponse = (endpoint, param) => {
 };
 
 export const renderWidget = () => {
-  render(<div id="dc_wdiv" aria-live="polite" role="region" />);
-  const wrapper = render(<DemocracyClubWidget />);
+  render(<div id="wdiv" aria-live="polite" role="region" />);
+  const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
 
 export const renderWelshWidget = () => {
-  render(<div id="dc_wdiv" data-language="cy" aria-live="polite" role="region" />);
-  const wrapper = render(<DemocracyClubWidget />);
+  render(<div id="wdiv" data-language="cy" aria-live="polite" role="region" />);
+  const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
 
 export const renderEnglishWidget = () => {
-  render(<div id="dc_wdiv" data-language="en" aria-live="polite" role="region" />);
-  const wrapper = render(<DemocracyClubWidget />);
+  render(<div id="wdiv" data-language="en" aria-live="polite" role="region" />);
+  const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
 
 export const renderElectionsWidget = () => {
-  render(<div id="dc_wdiv" data-elections="true" aria-live="polite" role="region" />);
-  const wrapper = render(<DemocracyClubWidget />);
+  render(<div id="wdiv" data-elections="true" aria-live="polite" role="region" />);
+  const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
 
 export const renderLegacyWidget = () => {
-  render(<div id="dc_wdiv" data-candidates="true" aria-live="polite" role="region" />);
-  const wrapper = render(<DemocracyClubWidget />);
+  render(<div id="wdiv" data-candidates="true" aria-live="polite" role="region" />);
+  const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
