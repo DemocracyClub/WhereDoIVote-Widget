@@ -17,4 +17,4 @@ cssVars({
   exclude: 'link',
 });
 
-ReactDOM.render(<DemocracyClubWidget />, document.getElementById('dc_wdiv'));
+ReactDOM.render(<DemocracyClubWidget />, document.getElementById('wdiv'));

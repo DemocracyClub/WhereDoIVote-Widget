@@ -118,7 +118,7 @@ function DemocracyClubWidget(props) {
     <ShadowDomFactory>
       <style type="text/css">{styles}</style>
       <WarningBanner dataSource={dataSource} />
-      <section className="DemocracyClubWidget Card">
+      <section className="ElectionInformationWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
         {!searchInitiated && (
           <PostcodeSelector
