@@ -19,8 +19,8 @@ import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
 
-import EC_styles from '!!raw-loader!./EC-widget-styles.css'; // eslint-disable-line
-import DC_styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
+import EC_styles from '!!raw-loader!./ec-widget-styles.css'; // eslint-disable-line
+import DC_styles from '!!raw-loader!./dc-widget-styles.css'; // eslint-disable-line
 
 function ElectionInformationWidget(props) {
   const api = APIClientFactory();
