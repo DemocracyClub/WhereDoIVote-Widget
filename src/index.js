@@ -17,4 +17,4 @@ cssVars({
   exclude: 'link',
 });
 
-ReactDOM.render(<ElectionInformationWidget />, document.getElementById('wdiv'));
+ReactDOM.render(<ElectionInformationWidget />, document.getElementById('dc_wdiv'));

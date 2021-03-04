@@ -55,7 +55,7 @@ function PostcodeSelector(props) {
           className="form-control"
         />
       </div>
-      <button className="btn-primary" type="submit">
+      <button className="eiw-btn-primary" type="submit">
         {!props.enableElections && (
           <FormattedMessage
             id="postcode.submit-postcode-polling-station"

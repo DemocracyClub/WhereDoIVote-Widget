@@ -4,7 +4,7 @@ import { injectIntl } from 'react-intl';
 function ErrorMessageTemplate(props) {
   const { formatMessage } = props.intl;
   return (
-    <div className="ErrorMessage" id="error" role="alert" aria-live="assertive">
+    <div className="ErrorMessage" id="dc_error" role="alert" aria-live="assertive">
       {props.currentError && formatMessage({ id: props.currentError })}
     </div>
   );
@@ -16,7 +16,7 @@ function StartAgainButtonTemplate(props) {
   const { formatMessage } = props.intl;
   return (
     <button
-      className="btn-secondary"
+      className="eiw-btn-secondary"
       aria-label={formatMessage({ id: 'general.start-again' })}
       title={formatMessage({ id: 'general.start-again' })}
       onClick={props.onClick}
@@ -52,7 +52,7 @@ function BuiltByDCTemplate(props) {
         href="https://democracyclub.org.uk/"
         title={accessibleTitle}
         target="_top"
-        className="DCLogo"
+        className="Logo"
       >
         {formatMessage({ id: 'general.built-by' })}
         <img

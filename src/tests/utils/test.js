@@ -41,31 +41,31 @@ export const mockResponse = (endpoint, param) => {
 };
 
 export const renderWidget = () => {
-  render(<div id="wdiv" aria-live="polite" role="region" />);
+  render(<div id="dc_wdiv" aria-live="polite" role="region" />);
   const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
 
 export const renderWelshWidget = () => {
-  render(<div id="wdiv" data-language="cy" aria-live="polite" role="region" />);
+  render(<div id="dc_wdiv" data-language="cy" aria-live="polite" role="region" />);
   const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
 
 export const renderEnglishWidget = () => {
-  render(<div id="wdiv" data-language="en" aria-live="polite" role="region" />);
+  render(<div id="dc_wdiv" data-language="en" aria-live="polite" role="region" />);
   const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
 
 export const renderElectionsWidget = () => {
-  render(<div id="wdiv" data-elections="true" aria-live="polite" role="region" />);
+  render(<div id="dc_wdiv" data-elections="true" aria-live="polite" role="region" />);
   const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
 
 export const renderLegacyWidget = () => {
-  render(<div id="wdiv" data-candidates="true" aria-live="polite" role="region" />);
+  render(<div id="dc_wdiv" data-candidates="true" aria-live="polite" role="region" />);
   const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
