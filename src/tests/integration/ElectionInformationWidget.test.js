@@ -29,7 +29,7 @@ describe('ElectionInformationWidget General', () => {
 
   it('should give error message when no postcode is entered', async () => {
     submitPostcode();
-    const ErrorMessage = await waitForElement(() => document.querySelector('#error'));
+    const ErrorMessage = await waitForElement(() => document.querySelector('#eiw-error'));
 
     expect(ErrorMessage).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
@@ -38,7 +38,7 @@ describe('ElectionInformationWidget General', () => {
     let enteredPostcode = 'aaaa';
     typePostcode(enteredPostcode);
     submitPostcode();
-    const ErrorMessage = await waitForElement(() => document.querySelector('#error'));
+    const ErrorMessage = await waitForElement(() => document.querySelector('#eiw-error'));
     expect(ErrorMessage).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
 
@@ -205,7 +205,7 @@ describe('ElectionInformationWidget Welsh Widget', () => {
 
   it('should give error message when no postcode is entered', async () => {
     submitPostcode();
-    const newContent = await waitForElement(() => document.querySelector('#error'));
+    const newContent = await waitForElement(() => document.querySelector('#eiw-error'));
 
     expect(newContent).toHaveTextContent(cy_messages['postcode.errors.invalid-postcode']);
   });
@@ -214,7 +214,7 @@ describe('ElectionInformationWidget Welsh Widget', () => {
     let enteredPostcode = 'aaaa';
     typePostcode(enteredPostcode);
     submitPostcode();
-    const newContent = await waitForElement(() => document.querySelector('#error'));
+    const newContent = await waitForElement(() => document.querySelector('#eiw-error'));
     expect(newContent).toHaveTextContent(cy_messages['postcode.errors.invalid-postcode']);
   });
 });
@@ -235,7 +235,7 @@ describe('ElectionInformationWidget Toggleable English Widget', () => {
   it('should let you translate the widget to Welsh', async () => {
     chooseLanguage('cy');
     submitPostcode();
-    const translatedContent = await waitForElement(() => document.querySelector('#error'));
+    const translatedContent = await waitForElement(() => document.querySelector('#eiw-error'));
     expect(translatedContent).toHaveTextContent(cy_messages['postcode.errors.invalid-postcode']);
   });
 
@@ -243,7 +243,7 @@ describe('ElectionInformationWidget Toggleable English Widget', () => {
     chooseLanguage('cy');
     submitPostcode();
     chooseLanguage('en');
-    const translatedContent = await waitForElement(() => container.querySelector('#error'));
+    const translatedContent = await waitForElement(() => container.querySelector('#eiw-error'));
     expect(translatedContent).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
 });
@@ -264,7 +264,7 @@ describe('ElectionInformationWidget Toggleable Welsh Widget', () => {
   it('should let you translate the widget to English', async () => {
     chooseLanguage('en');
     submitPostcode();
-    const translatedContent = await waitForElement(() => document.querySelector('#error'));
+    const translatedContent = await waitForElement(() => document.querySelector('#eiw-error'));
     expect(translatedContent).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
 
@@ -272,7 +272,7 @@ describe('ElectionInformationWidget Toggleable Welsh Widget', () => {
     chooseLanguage('en');
     submitPostcode();
     chooseLanguage('cy');
-    const translatedContent = await waitForElement(() => container.querySelector('#error'));
+    const translatedContent = await waitForElement(() => container.querySelector('#eiw-error'));
     expect(translatedContent).toHaveTextContent(cy_messages['postcode.errors.invalid-postcode']);
   });
 });
