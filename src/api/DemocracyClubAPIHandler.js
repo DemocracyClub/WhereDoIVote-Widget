@@ -8,8 +8,8 @@ export function APIClientFactory(env = process.env) {
 
   if (env.REACT_APP_API === 'mock') {
     return new APIClient(new MockDCAPI(), API_BASE, null);
-  } else if (env.REACT_APP_API === 'mock_ec') {
-    return new APIClient(axios, `${API_BASE}/sandbox`, null);
+  } else if (env.REACT_APP_API === 'ec') {
+    return new APIClient(axios, API_BASE, null);
   } else if (env.REACT_APP_API === 'sandbox') {
     return new APIClient(axios, `${API_BASE}/sandbox`, null);
   } else if (env.REACT_APP_API === 'prod') {
@@ -18,7 +18,7 @@ export function APIClientFactory(env = process.env) {
     }
     return new APIClient(axios, API_BASE, env.REACT_APP_API_KEY);
   } else {
-    throw new Error("REACT_APP_API must be set and one of: ['mock', 'ec_mock', 'sandbox', 'prod']");
+    throw new Error("REACT_APP_API must be set and one of: ['mock', 'ec', 'sandbox', 'prod']");
   }
 }
 

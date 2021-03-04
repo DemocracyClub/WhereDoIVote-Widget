@@ -3,7 +3,7 @@ import { BuiltByDC } from './Branding';
 import LanguageToggle from './LanguageToggle';
 
 function handleLogo(props) {
-  if (process.env.REACT_APP_API === 'mock_ec') {
+  if (process.env.REACT_APP_API === 'ec') {
     return (
       <footer>
         <img

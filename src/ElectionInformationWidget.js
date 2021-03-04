@@ -116,7 +116,7 @@ function ElectionInformationWidget(props) {
   }
 
   function handleStyles() {
-    if (dataSource === 'mock_ec') {
+    if (dataSource === 'ec') {
       return <style type="text/css">{EC_styles}</style>;
     } else {
       return <style type="text/css">{DC_styles}</style>;
