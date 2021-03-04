@@ -17,6 +17,10 @@ jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }'
   virtual: true,
 });
 
+jest.mock(`!!raw-loader!./ec-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+  virtual: true,
+});
+
 afterEach(cleanup);
 
 describe('ElectionInformationWidget General', () => {

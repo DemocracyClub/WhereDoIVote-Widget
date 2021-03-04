@@ -10,6 +10,10 @@ jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }'
   virtual: true,
 });
 
+jest.mock(`!!raw-loader!./ec-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+  virtual: true,
+});
+
 const oneBallot = {
   date: '2020-05-07',
   ballots: [

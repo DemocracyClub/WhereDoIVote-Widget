@@ -14,6 +14,10 @@ jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }'
   virtual: true,
 });
 
+jest.mock(`!!raw-loader!./ec-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+  virtual: true,
+});
+
 describe('Candidates Component: List Ballot', () => {
   let getByTestId;
   beforeEach(async () => {
