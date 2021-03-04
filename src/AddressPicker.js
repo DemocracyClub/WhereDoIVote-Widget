@@ -47,7 +47,7 @@ class AddressPicker extends React.Component {
             value={this.state.value}
             onChange={this.setAddress}
             data-testid="address-select"
-            className="select-multirow"
+            className="eiw-select-multirow"
             id="id_address"
             name="address"
             size="5"
@@ -61,7 +61,7 @@ class AddressPicker extends React.Component {
         <button
           {...inputProps}
           type="submit"
-          className="button btn-primary"
+          className="button eiw-btn-primary"
           data-testid="address-button"
           onClick={this.handleSubmit}
         >

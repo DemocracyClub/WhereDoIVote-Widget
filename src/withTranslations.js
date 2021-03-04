@@ -10,7 +10,7 @@ function withTranslations(Widget) {
       en: messages_en,
       cy: messages_cy,
     };
-    const languageOption = document.querySelector('#wdiv').getAttribute('data-language');
+    const languageOption = document.querySelector('#dc_wdiv').getAttribute('data-language');
     const languageConfig = languageOption ? languageOption : 'en';
     const showLanguageToggle = languageOption ? true : false;
     const [language, setLanguage] = useState(languageConfig);

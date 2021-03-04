@@ -354,7 +354,7 @@ describe('ElectionInformationWidget Directions', () => {
       document.querySelector('.PollingStation')
     );
     expect(YourPollingStation).toHaveTextContent(en_messages['station.your-station']);
-    let GoogleButton = document.querySelector('.btn-primary');
+    let GoogleButton = document.querySelector('.eiw-btn-primary');
     expect(GoogleButton).toBe(null);
   });
 });
@@ -383,7 +383,7 @@ describe('ElectionInformationWidget Standard Widget', () => {
     renderWidget();
   });
   it('should not show general search text on standard widget', async () => {
-    const SearchButton = await waitForElement(() => document.querySelector('.btn-primary'));
+    const SearchButton = await waitForElement(() => document.querySelector('.eiw-btn-primary'));
     expect(SearchButton).toHaveTextContent(en_messages['postcode.submit-postcode-polling-station']);
   });
   it('should not show candidates on the default widget', async () => {
@@ -404,7 +404,7 @@ describe('ElectionInformationWidget Everything Widget', () => {
   });
 
   it('should show general search text on everything-enabled widget', async () => {
-    const SearchButton = await waitForElement(() => document.querySelector('.btn-primary'));
+    const SearchButton = await waitForElement(() => document.querySelector('.eiw-btn-primary'));
     expect(SearchButton).toHaveTextContent(en_messages['postcode.submit-postcode-general']);
   });
 
@@ -459,7 +459,7 @@ describe('ElectionInformationWidget Accessibility', () => {
 
   it('should accept Enter instead of clicking the button', async () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
-    let button = `<button class="btn-primary" type="submit">${en_messages['postcode.submit-postcode-polling-station']}</button>`;
+    let button = `<button class="eiw-btn-primary" type="submit">${en_messages['postcode.submit-postcode-polling-station']}</button>`;
     expect(PostcodeForm).toContainHTML(button);
   });
   it('should have a "for" attribute on the postcode form label', async () => {
@@ -498,7 +498,7 @@ describe('ElectionInformationWidget Accessibility', () => {
       submitPostcode();
     });
     let stationNotFound = await waitForElement(() => getByTestId('station-not-found'));
-    const accessibleTitle = `<h1 class="header">Where to vote</h1>`;
+    const accessibleTitle = `<h1 class="eiw-header">Where to vote</h1>`;
     expect(stationNotFound).toContainHTML(accessibleTitle);
   });
 });

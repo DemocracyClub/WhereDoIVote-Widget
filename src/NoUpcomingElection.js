@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 function NoUpcomingElection(props) {
   return (
     <article className="NoUpcomingElection">
-      <h1 className="header">
+      <h1 className="eiw-header">
         <FormattedMessage
           id="elections.unknown"
           description="We don't know of any upcoming elections in your area"
