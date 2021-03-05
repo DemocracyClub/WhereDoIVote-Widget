@@ -177,13 +177,16 @@
 }
 
 .Card {
-  border: 3px solid var(--eiw-heading-bg-light-blue-25);
+  border: 1px solid var(--eiw-text-light-blue-50);
   border-radius: 0 3px;
   clear: both;
   background: #fff;
   font-family: var(--eiw-serif-font);
   padding: var(--eiw-spacing-default);
   padding-bottom: 0.75rem;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /*--------------------------------------------------------------
@@ -192,9 +195,10 @@
 
 h1.eiw-header,
 .ElectionInformationWidget .form-label-bold {
-  font-weight: normal;
+  font-weight: bold;
   display: block;
-  margin: 0.5rem 0 1rem 0;
+  padding: 1rem 0 1rem 2rem;
+  margin: 0 0 1rem 0;
   font-family: var(--eiw-sanserif-font);
   color: var(--eiw-text-dark-blue);
   background-color:var(--eiw-heading-bg-light-blue-25);
@@ -250,11 +254,11 @@ h1.eiw-header,
   background-color: var(--eiw-text-dark-blue);
   border: 0;
   padding: 0.4em 0.6em;
-  margin: 0.5em 0;
+  margin: 0.5em 0 0 1rem;
   font-size: var(--eiw-font-size-heading);
   color: #fff;
   display: inline-block;
-  border-bottom: 3px solid var(--eiw-bright-blue-accent);
+  border-bottom: 3px solid var(--eiw-text-light-blue-50);
   line-height: 1.2;
 }
 
@@ -268,7 +272,7 @@ a.eiw-btn-secondary {
 
 .ElectionInformationWidget button.eiw-btn-primary:hover,
 .ElectionInformationWidget a.eiw-btn-primary:hover {
-  background-color: var(--eiw-bright-blue-wcag-fff-contrast-3-5);
+  background-color: var(--eiw-text-light-blue-50);
   text-decoration: none;
 }
 
@@ -353,9 +357,11 @@ a.eiw-btn-seconday:hover {
   line-height: var(--eiw-line-height-default);
   border: var(--eiw-border-width) solid var(--eiw-body-text-colour);
   padding: 0.314em 0.25em 0.25em;
+  margin: 0 0 .5rem 1rem;
 }
 .ElectionInformationWidget form > .form-group + .form-group {
   margin-top: 1.5em;
+  padding-top: 0;
 }
 .ElectionInformationWidget input[type='search'],
 .ElectionInformationWidget input[type='text'] {
@@ -474,9 +480,10 @@ footer {
 .Logo {
   text-decoration: none;
   font-size: var(--eiw-font-size-smallest);
-  border: 3px dashed red;
 }
-
+.footer-logo {
+  margin-left: .5rem;
+}
 /*--------------------------------------------------------------
 # Loading spinner
 --------------------------------------------------------------*/

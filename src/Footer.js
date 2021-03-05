@@ -7,6 +7,7 @@ function handleLogo(props) {
     return (
       <footer>
         <img
+          className="footer-logo"
           src={'https://ukelectoralcommission.files.wordpress.com/2014/03/logo2.png'}
           alt="Electoral Commission Logo"
           width={'100px'}
