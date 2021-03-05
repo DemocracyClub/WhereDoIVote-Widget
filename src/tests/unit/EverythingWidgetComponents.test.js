@@ -45,6 +45,11 @@ describe('Candidates Component: Normal Ballot', () => {
 });
 
 describe('CandidateList Component', () => {
+  let getByTestId;
+  beforeEach(async () => {
+    const CandidateListWrapper = renderWithReactIntl(<CandidateList candidates={[candidate]} />);
+    getByTestId = CandidateListWrapper.getByTestId;
+  });
   it('renders name for a given candidate', async () => {
     const CandidateListItem = await waitForElement(() =>
       document.querySelector('.CandidateListItem')
@@ -61,7 +66,12 @@ describe('CandidateList Component', () => {
     const PartyName = await waitForElement(() => document.querySelector('.party-name'));
     expect(PartyName).toHaveClass('party-2');
   });
+  it('renders an accessible title attribute on each hyperlink', async () => {
+    const CandidateLink = await waitForElement(() => getByTestId('candidate-link'));
+    expect(CandidateLink).toHaveAttribute('title', en_messages['general.read-more-info-candidate']);
+  });
 });
+
 describe('CandidateList Component edge cases', () => {
   it('renders correct class for cooperative party', async () => {
     let coopPartyCandidate = Object.assign({}, candidate);
