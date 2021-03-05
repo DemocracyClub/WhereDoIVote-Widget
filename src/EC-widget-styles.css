@@ -5,7 +5,10 @@
   /* :host is for Shadow Dom, :root is for older browsers */
   --eiw-body-text-colour: #58595b;
   --eiw-heading-text-colour: #403f41;
+  --eiw-heading-bg-light-blue-25:#cbe6f2;
   --eiw-text-black: #0b0c0c;
+  --eiw-text-dark-blue: #003057;
+  --eiw-text-light-blue-50:#25b2d3;
   --eiw-bright-blue-wcag-fff-contrast-3-1: #009cd6;
   --eiw-bright-blue-wcag-fff-contrast-3-5: #0092c8;
   --eiw-bright-blue-accent: #007faf;
@@ -174,13 +177,13 @@
 }
 
 .Card {
+  border: 3px solid var(--eiw-heading-bg-light-blue-25);
   border-radius: 0 3px;
   clear: both;
   background: #fff;
   font-family: var(--eiw-serif-font);
   padding: var(--eiw-spacing-default);
   padding-bottom: 0.75rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
 }
 
 /*--------------------------------------------------------------
@@ -189,11 +192,12 @@
 
 h1.eiw-header,
 .ElectionInformationWidget .form-label-bold {
-  font-weight: bold;
+  font-weight: normal;
   display: block;
   margin: 0.5rem 0 1rem 0;
   font-family: var(--eiw-sanserif-font);
-  color: var(--eiw-body-text-colour);
+  color: var(--eiw-text-dark-blue);
+  background-color:var(--eiw-heading-bg-light-blue-25);
   font-size: var(--eiw-font-size-heading);
 }
 
@@ -243,7 +247,7 @@ h1.eiw-header,
 .ElectionInformationWidget a.eiw-btn-primary,
 .eiw-btn-secondary {
   font-family: var(--eiw-sanserif-font);
-  background-color: var(--eiw-bright-pink-accent);
+  background-color: var(--eiw-text-dark-blue);
   border: 0;
   padding: 0.4em 0.6em;
   margin: 0.5em 0;
