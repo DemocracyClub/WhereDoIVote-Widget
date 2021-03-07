@@ -57,7 +57,12 @@ function BuiltByDCTemplate(props) {
         {formatMessage({ id: 'general.built-by' })}
         <img
           alt={formatMessage({ id: 'general.dc-club' })}
-          src="https://widget.wheredoivote.co.uk/logo-with-text.png"
+          src={
+            process.env.REACT_APP_BRAND === 'EC'
+              ? 'https://ukelectoralcommission.files.wordpress.com/2014/03/logo2.png'
+              : 'https://widget.wheredoivote.co.uk/logo-with-text.png'
+          }
+          width="120px"
         />
       </a>
     </>
