@@ -30,7 +30,7 @@ export function APIClient(client, base_url, api_key) {
     } catch (e) {
       utm_source = 'unknown';
     }
-    const utm_medium = `${process.env.REACT_APP_BRAND.toLowerCase()}-widget`;
+    const utm_medium = `${(process.env.REACT_APP_BRAND || '').toLowerCase()}-widget`;
     const params = { utm_source, utm_medium };
     if (api_key) {
       params.auth_token = api_key;
