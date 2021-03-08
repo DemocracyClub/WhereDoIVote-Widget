@@ -4,7 +4,7 @@ import { injectIntl } from 'react-intl';
 function ErrorMessageTemplate(props) {
   const { formatMessage } = props.intl;
   return (
-    <div className="ErrorMessage" id="dc_error" role="alert" aria-live="assertive">
+    <div className="ErrorMessage" id="eiw-error" role="alert" aria-live="assertive">
       {props.currentError && formatMessage({ id: props.currentError })}
     </div>
   );
@@ -62,7 +62,7 @@ function BuiltByTemplate(props) {
         <img
           alt={
             process.env.REACT_APP_BRAND === 'EC'
-              ? 'Electoral Commission'
+              ? formatMessage({ id: 'general.ec' })
               : formatMessage({ id: 'general.dc-club' })
           }
           src={
