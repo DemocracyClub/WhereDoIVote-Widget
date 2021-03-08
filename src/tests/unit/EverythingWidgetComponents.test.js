@@ -10,11 +10,11 @@ import PartyList from '../../PartyList';
 import { renderWithReactIntl } from '../utils/test';
 afterEach(cleanup);
 
-jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+jest.mock(`!!raw-loader!./ec-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
   virtual: true,
 });
 
-jest.mock(`!!raw-loader!./ec-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
   virtual: true,
 });
 
@@ -40,7 +40,6 @@ describe('Candidates Component: Normal Ballot', () => {
     const CandidatesComponent = await waitForElement(() => getByTestId('candidates'));
     expect(CandidatesComponent).toHaveTextContent('Sally Elizabeth Gray');
     expect(CandidatesComponent).toHaveTextContent('Zack Polanski');
-    expect(CandidatesComponent.children[0].children).toHaveLength(2);
   });
 });
 
@@ -66,10 +65,15 @@ describe('CandidateList Component', () => {
     const PartyName = await waitForElement(() => document.querySelector('.party-name'));
     expect(PartyName).toHaveClass('party-2');
   });
-  it('renders an accessible title attribute on each hyperlink', async () => {
-    const CandidateLink = await waitForElement(() => getByTestId('candidate-link'));
-    expect(CandidateLink).toHaveAttribute('title', en_messages['general.read-more-info-candidate']);
-  });
+  if (process.env.REACT_APP_BRAND === 'DC') {
+    it('renders an accessible title attribute on each hyperlink', async () => {
+      const CandidateLink = await waitForElement(() => getByTestId('candidate-link'));
+      expect(CandidateLink).toHaveAttribute(
+        'title',
+        en_messages['general.read-more-info-candidate']
+      );
+    });
+  }
 });
 
 describe('CandidateList Component edge cases', () => {
