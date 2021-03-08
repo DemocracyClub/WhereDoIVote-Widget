@@ -115,16 +115,13 @@ function ElectionInformationWidget(props) {
     setAddressList(undefined);
   }
 
-  function handleStyles() {
-    if (process.env.REACT_APP_BRAND === 'EC') {
-      return <style type="text/css">{EC_styles}</style>;
-    } else {
-      return <style type="text/css">{DC_styles}</style>;
-    }
-  }
   return (
     <ShadowDomFactory>
-      {handleStyles()}
+      {process.env.REACT_APP_BRAND === 'EC' ? (
+        <style type="text/css">{EC_styles}</style>
+      ) : (
+        <style type="text/css">{DC_styles}</style>
+      )}
       <WarningBanner dataSource={dataSource} />
       <section className="ElectionInformationWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
