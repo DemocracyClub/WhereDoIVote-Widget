@@ -41,7 +41,7 @@ function LoaderTemplate(props) {
 
 const Loader = injectIntl(LoaderTemplate);
 
-function BuiltByDCTemplate(props) {
+function BuiltByTemplate(props) {
   const { formatMessage } = props.intl;
   const accessibleTitle = `${formatMessage({ id: 'general.visit-website-of' })} ${formatMessage({
     id: 'general.dc-club',
@@ -49,20 +49,33 @@ function BuiltByDCTemplate(props) {
   return (
     <>
       <a
-        href="https://democracyclub.org.uk/"
-        title={accessibleTitle}
+        href={
+          process.env.REACT_APP_BRAND === 'EC'
+            ? 'https://electoralcommission.org.uk/'
+            : 'https://democracyclub.org.uk/'
+        }
+        title={process.env.REACT_APP_BRAND === 'EC' ? '' : { accessibleTitle }}
         target="_top"
         className="Logo"
       >
-        {formatMessage({ id: 'general.built-by' })}
+        {process.env.REACT_APP_BRAND === 'EC' ? '' : formatMessage({ id: 'general.built-by' })}
         <img
-          alt={formatMessage({ id: 'general.dc-club' })}
-          src="https://widget.wheredoivote.co.uk/logo-with-text.png"
+          alt={
+            process.env.REACT_APP_BRAND === 'EC'
+              ? 'Electoral Commission'
+              : formatMessage({ id: 'general.dc-club' })
+          }
+          src={
+            process.env.REACT_APP_BRAND === 'EC'
+              ? 'https://ukelectoralcommission.files.wordpress.com/2014/03/logo2.png'
+              : 'https://widget.wheredoivote.co.uk/logo-with-text.png'
+          }
+          width="120px"
         />
       </a>
     </>
   );
 }
-const BuiltByDC = injectIntl(BuiltByDCTemplate);
+const BuiltBy = injectIntl(BuiltByTemplate);
 
-export { StartAgainButton, BuiltByDC, ErrorMessage, Loader };
+export { StartAgainButton, BuiltBy, ErrorMessage, Loader };
