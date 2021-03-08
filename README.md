@@ -18,7 +18,7 @@ Add the following lines to your HTML, where you want the widget to appear on the
   </iframe>
 </noscript>
 <div id="dc_wdiv" aria-live="polite" role="region"></div>
-<script type="text/javascript" src="https://widget.wheredoivote.co.uk/dc_wdiv.js"></script>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
 ### English / Welsh language support
@@ -34,7 +34,7 @@ Default English with option to toggle to Welsh:
   </iframe>
 </noscript>
 <div id="dc_wdiv" data-language="en" aria-live="polite" role="region"></div>
-<script type="text/javascript" src="https://widget.wheredoivote.co.uk/dc_wdiv.js"></script>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
 Default Welsh with option to toggle to English:
@@ -48,7 +48,7 @@ Default Welsh with option to toggle to English:
   </iframe>
 </noscript>
 <div id="dc_wdiv" data-language="cy" aria-live="polite" role="region"></div>
-<script type="text/javascript" src="https://widget.wheredoivote.co.uk/dc_wdiv.js"></script>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
 ### Candidate support:
@@ -58,7 +58,7 @@ Default Welsh with option to toggle to English:
   <a href="https://whocanivotefor.co.uk/">Information about elections in your area</a>
 </noscript>
 <div id="dc_wdiv" data-elections="true" data-language="en" aria-live="polite" role="region"></div>
-<script type="text/javascript" src="https://widget.wheredoivote.co.uk/dc_wdiv.js"></script>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
 ## Local development
