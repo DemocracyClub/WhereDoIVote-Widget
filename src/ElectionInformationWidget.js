@@ -116,7 +116,7 @@ function ElectionInformationWidget(props) {
   }
 
   function handleStyles() {
-    if (dataSource === 'ec') {
+    if (process.env.REACT_APP_BRAND === 'EC') {
       return <style type="text/css">{EC_styles}</style>;
     } else {
       return <style type="text/css">{DC_styles}</style>;
