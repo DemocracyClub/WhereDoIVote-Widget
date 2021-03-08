@@ -184,9 +184,6 @@
   font-family: var(--eiw-serif-font);
   padding: var(--eiw-spacing-default);
   padding-bottom: 0.75rem;
-  padding-top: 0;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 /*--------------------------------------------------------------
@@ -198,7 +195,7 @@ h1.eiw-header,
   font-weight: bold;
   display: block;
   padding: 1rem 0 1rem 2rem;
-  margin: 0 0 1rem 0;
+  margin: -1rem -1rem 1rem -1rem;
   font-family: var(--eiw-sanserif-font);
   color: var(--eiw-text-dark-blue);
   background-color:var(--eiw-heading-bg-light-blue-25);
