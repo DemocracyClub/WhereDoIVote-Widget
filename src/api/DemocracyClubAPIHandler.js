@@ -16,7 +16,7 @@ export function APIClientFactory(env = process.env) {
     }
     return new APIClient(axios, API_BASE, env.REACT_APP_API_KEY);
   } else {
-    throw new Error("REACT_APP_API must be set and one of: ['mock', 'ec', 'sandbox', 'prod']");
+    throw new Error("REACT_APP_API must be set and one of: ['mock', 'sandbox', 'prod']");
   }
 }
 
