@@ -8,8 +8,6 @@ export function APIClientFactory(env = process.env) {
 
   if (env.REACT_APP_API === 'mock') {
     return new APIClient(new MockDCAPI(), API_BASE, null);
-  } else if (env.REACT_APP_API === 'ec') {
-    return new APIClient(new MockDCAPI(), API_BASE, null);
   } else if (env.REACT_APP_API === 'sandbox') {
     return new APIClient(axios, `${API_BASE}/sandbox`, null);
   } else if (env.REACT_APP_API === 'prod') {
