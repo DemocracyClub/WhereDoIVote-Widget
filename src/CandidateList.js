@@ -6,7 +6,7 @@ function CandidateList(props) {
   const { candidates } = props;
 
   function handleCandidateList(candidates) {
-    if (process.env.REACT_APP_API === 'ec') {
+    if (process.env.REACT_APP_BRAND === 'EC') {
       return (
         <div>
           {candidates.map((candidate) => (
