@@ -48,7 +48,7 @@
     "ec:build:prod": "REACT_APP_BRAND=EC REACT_APP_API=prod node ./build-without-chunks.js",
     "ec:build:sandbox": "REACT_APP_BRAND=EC REACT_APP_API=sandbox echo '⚠️  creating production build serving sandbox data 🚨' && node ./build-without-chunks.js",
     "ec:build:mock": "REACT_APP_BRAND=EC REACT_APP_API=mock echo '⚠️  creating production build serving mock data 🚨' && node ./build-without-chunks.js",
-    "build": "npm run build:prod",
+    "build:prod": "npm run build:prod",
     "test": "REACT_APP_API=sandbox REACT_APP_TESTING=true react-app-rewired test --env=jsdom",
     "coverage": "REACT_APP_API=sandbox REACT_APP_TESTING=true react-app-rewired test --env=jsdom --coverage",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/.bin/coveralls",
