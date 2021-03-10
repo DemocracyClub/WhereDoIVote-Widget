@@ -29,7 +29,7 @@ function PollingDate(props) {
     >
       {props.single && (
         <>
-          <h1 data-testid={`title-date-${date.date}`} className="dc-header">
+          <h1 data-testid={`title-date-${date.date}`} className="eiw-header">
             {dayMonthYear}
           </h1>
           {activeBallots.length > 0 && (

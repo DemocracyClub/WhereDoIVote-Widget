@@ -13,13 +13,17 @@ import {
   mockResponse,
 } from '../utils/test';
 
-jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+  virtual: true,
+});
+
+jest.mock(`!!raw-loader!./ec-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
   virtual: true,
 });
 
 afterEach(cleanup);
 
-describe('DemocracyClubWidget General', () => {
+describe('ElectionInformationWidget General', () => {
   let getByLabelText, getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -29,7 +33,7 @@ describe('DemocracyClubWidget General', () => {
 
   it('should give error message when no postcode is entered', async () => {
     submitPostcode();
-    const ErrorMessage = await waitForElement(() => document.querySelector('#dc_error'));
+    const ErrorMessage = await waitForElement(() => document.querySelector('#eiw-error'));
 
     expect(ErrorMessage).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
@@ -38,7 +42,7 @@ describe('DemocracyClubWidget General', () => {
     let enteredPostcode = 'aaaa';
     typePostcode(enteredPostcode);
     submitPostcode();
-    const ErrorMessage = await waitForElement(() => document.querySelector('#dc_error'));
+    const ErrorMessage = await waitForElement(() => document.querySelector('#eiw-error'));
     expect(ErrorMessage).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
 
@@ -74,7 +78,7 @@ describe('DemocracyClubWidget General', () => {
   });
 });
 
-describe('DemocracyClubWidget PollingStation', () => {
+describe('ElectionInformationWidget PollingStation', () => {
   let getByTestId;
   let wrapper;
   beforeEach(async () => {
@@ -113,7 +117,7 @@ describe('DemocracyClubWidget PollingStation', () => {
   });
 });
 
-describe('DemocracyClubWidget Address picker', () => {
+describe('ElectionInformationWidget Address picker', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -165,7 +169,7 @@ describe('DemocracyClubWidget Address picker', () => {
   });
 });
 
-describe('DemocracyClubWidget Electoral Services', () => {
+describe('ElectionInformationWidget Electoral Services', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -198,14 +202,14 @@ describe('DemocracyClubWidget Electoral Services', () => {
   });
 });
 
-describe('DemocracyClubWidget Welsh Widget', () => {
+describe('ElectionInformationWidget Welsh Widget', () => {
   beforeEach(async () => {
     renderWelshWidget();
   });
 
   it('should give error message when no postcode is entered', async () => {
     submitPostcode();
-    const newContent = await waitForElement(() => document.querySelector('#dc_error'));
+    const newContent = await waitForElement(() => document.querySelector('#eiw-error'));
 
     expect(newContent).toHaveTextContent(cy_messages['postcode.errors.invalid-postcode']);
   });
@@ -214,12 +218,12 @@ describe('DemocracyClubWidget Welsh Widget', () => {
     let enteredPostcode = 'aaaa';
     typePostcode(enteredPostcode);
     submitPostcode();
-    const newContent = await waitForElement(() => document.querySelector('#dc_error'));
+    const newContent = await waitForElement(() => document.querySelector('#eiw-error'));
     expect(newContent).toHaveTextContent(cy_messages['postcode.errors.invalid-postcode']);
   });
 });
 
-describe('DemocracyClubWidget Toggleable English Widget', () => {
+describe('ElectionInformationWidget Toggleable English Widget', () => {
   let container, getByTestId;
 
   beforeEach(async () => {
@@ -235,7 +239,7 @@ describe('DemocracyClubWidget Toggleable English Widget', () => {
   it('should let you translate the widget to Welsh', async () => {
     chooseLanguage('cy');
     submitPostcode();
-    const translatedContent = await waitForElement(() => document.querySelector('#dc_error'));
+    const translatedContent = await waitForElement(() => document.querySelector('#eiw-error'));
     expect(translatedContent).toHaveTextContent(cy_messages['postcode.errors.invalid-postcode']);
   });
 
@@ -243,12 +247,12 @@ describe('DemocracyClubWidget Toggleable English Widget', () => {
     chooseLanguage('cy');
     submitPostcode();
     chooseLanguage('en');
-    const translatedContent = await waitForElement(() => container.querySelector('#dc_error'));
+    const translatedContent = await waitForElement(() => container.querySelector('#eiw-error'));
     expect(translatedContent).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
 });
 
-describe('DemocracyClubWidget Toggleable Welsh Widget', () => {
+describe('ElectionInformationWidget Toggleable Welsh Widget', () => {
   let container, getByTestId;
 
   beforeEach(async () => {
@@ -264,7 +268,7 @@ describe('DemocracyClubWidget Toggleable Welsh Widget', () => {
   it('should let you translate the widget to English', async () => {
     chooseLanguage('en');
     submitPostcode();
-    const translatedContent = await waitForElement(() => document.querySelector('#dc_error'));
+    const translatedContent = await waitForElement(() => document.querySelector('#eiw-error'));
     expect(translatedContent).toHaveTextContent(en_messages['postcode.errors.invalid-postcode']);
   });
 
@@ -272,12 +276,12 @@ describe('DemocracyClubWidget Toggleable Welsh Widget', () => {
     chooseLanguage('en');
     submitPostcode();
     chooseLanguage('cy');
-    const translatedContent = await waitForElement(() => container.querySelector('#dc_error'));
+    const translatedContent = await waitForElement(() => container.querySelector('#eiw-error'));
     expect(translatedContent).toHaveTextContent(cy_messages['postcode.errors.invalid-postcode']);
   });
 });
 
-describe('DemocracyClubWidget Notifications', () => {
+describe('ElectionInformationWidget Notifications', () => {
   let getByTestId;
 
   beforeEach(async () => {
@@ -320,7 +324,7 @@ describe('DemocracyClubWidget Notifications', () => {
   });
 });
 
-describe('DemocracyClubWidget Directions', () => {
+describe('ElectionInformationWidget Directions', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -354,12 +358,12 @@ describe('DemocracyClubWidget Directions', () => {
       document.querySelector('.PollingStation')
     );
     expect(YourPollingStation).toHaveTextContent(en_messages['station.your-station']);
-    let GoogleButton = document.querySelector('.dc-btn-primary');
+    let GoogleButton = document.querySelector('.eiw-btn-primary');
     expect(GoogleButton).toBe(null);
   });
 });
 
-describe('DemocracyClubWidget Polling station unknown', () => {
+describe('ElectionInformationWidget Polling station unknown', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -378,12 +382,12 @@ describe('DemocracyClubWidget Polling station unknown', () => {
   });
 });
 
-describe('DemocracyClubWidget Standard Widget', () => {
+describe('ElectionInformationWidget Standard Widget', () => {
   beforeEach(() => {
     renderWidget();
   });
   it('should not show general search text on standard widget', async () => {
-    const SearchButton = await waitForElement(() => document.querySelector('.dc-btn-primary'));
+    const SearchButton = await waitForElement(() => document.querySelector('.eiw-btn-primary'));
     expect(SearchButton).toHaveTextContent(en_messages['postcode.submit-postcode-polling-station']);
   });
   it('should not show candidates on the default widget', async () => {
@@ -391,12 +395,12 @@ describe('DemocracyClubWidget Standard Widget', () => {
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
-    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
     expect(Widget).not.toHaveTextContent('Show Candidates');
   });
 });
 
-describe('DemocracyClubWidget Everything Widget', () => {
+describe('ElectionInformationWidget Everything Widget', () => {
   let getByTestId;
   beforeEach(() => {
     const widget = renderElectionsWidget();
@@ -404,7 +408,7 @@ describe('DemocracyClubWidget Everything Widget', () => {
   });
 
   it('should show general search text on everything-enabled widget', async () => {
-    const SearchButton = await waitForElement(() => document.querySelector('.dc-btn-primary'));
+    const SearchButton = await waitForElement(() => document.querySelector('.eiw-btn-primary'));
     expect(SearchButton).toHaveTextContent(en_messages['postcode.submit-postcode-general']);
   });
 
@@ -422,7 +426,7 @@ describe('DemocracyClubWidget Everything Widget', () => {
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
-    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
     expect(Widget).toHaveTextContent('Tendring local election St Osyth');
     expect(Widget).toHaveTextContent(
       'The poll for this election has been rescheduled due to the sad death of one of the candidates.'
@@ -432,19 +436,19 @@ describe('DemocracyClubWidget Everything Widget', () => {
   });
 });
 
-describe('DemocracyClubWidget Legacy Candidates Widget', () => {
+describe('ElectionInformationWidget Legacy Candidates Widget', () => {
   it('should render candidates with legacy candidates data-attribute', async () => {
     renderLegacyWidget();
     let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
-    const Widget = await waitForElement(() => document.querySelector('.DemocracyClubWidget'));
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
     expect(Widget).toHaveTextContent('Show candidates');
   });
 });
 
-describe('DemocracyClubWidget Accessibility', () => {
+describe('ElectionInformationWidget Accessibility', () => {
   let getByTestId;
   beforeEach(async () => {
     const wrapper = renderWidget();
@@ -459,7 +463,7 @@ describe('DemocracyClubWidget Accessibility', () => {
 
   it('should accept Enter instead of clicking the button', async () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
-    let button = `<button class="dc-btn-primary" type="submit">${en_messages['postcode.submit-postcode-polling-station']}</button>`;
+    let button = `<button class="eiw-btn-primary" type="submit">${en_messages['postcode.submit-postcode-polling-station']}</button>`;
     expect(PostcodeForm).toContainHTML(button);
   });
   it('should have a "for" attribute on the postcode form label', async () => {
@@ -498,7 +502,7 @@ describe('DemocracyClubWidget Accessibility', () => {
       submitPostcode();
     });
     let stationNotFound = await waitForElement(() => getByTestId('station-not-found'));
-    const accessibleTitle = `<h1 class="dc-header">Where to vote</h1>`;
+    const accessibleTitle = `<h1 class="eiw-header">Where to vote</h1>`;
     expect(stationNotFound).toContainHTML(accessibleTitle);
   });
 });

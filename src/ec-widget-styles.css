@@ -1,0 +1,712 @@
+/*--------------------------------------------------------------
+# Core variables
+--------------------------------------------------------------*/
+:host {
+  /* :host is for Shadow Dom, :root is for older browsers */
+  --eiw-body-text-colour: #58595b;
+  --eiw-heading-text-colour: #403f41;
+  --eiw-heading-bg-light-blue-25:#cbe6f2;
+  --eiw-text-black: #0b0c0c;
+  --eiw-text-dark-blue: #003057;
+  --eiw-text-light-blue-50:#25b2d3;
+  --eiw-bright-blue-wcag-fff-contrast-3-1: #009cd6;
+  --eiw-bright-blue-wcag-fff-contrast-3-5: #0092c8;
+  --eiw-bright-blue-accent: #007faf;
+  --eiw-bright-pink-accent: #ec008c;
+  --eiw-bright-pink-transparent: rgba(236, 0, 140,0.3);
+  --eiw-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
+  --eiw-error-red: #b10e1e;
+  --eiw-light-grey: #ddd;
+  --eiw-darker-grey: #6f777b;
+  --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
+  --eiw-outline-focus: #ffbf47;
+  --eiw-sanserif-font: 'Swiss 721', sans-serif;
+  --eiw-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
+  --eiw-font-size-heading: 1.5rem;
+  --eiw-font-size-default: 1.2rem;
+  --eiw-font-size-smaller: 1rem;
+  --eiw-font-size-smallest: 0.85rem;
+  --eiw-line-height-default: 1.2;
+  --eiw-spacing-default: 1rem;
+  --eiw-border-width: 2px;
+  --party-colour-independent: #767676;
+  --party-colour-party-52: #0087dc;
+  --party-colour-party-53: #d50000;
+  --party-colour-party-53-119: #d50000;
+  --party-colour-party-63: #008066;
+  --party-colour-party-90: #FDBB30;
+  --party-colour-party-77: #3f8428;
+  --party-colour-party-102: #fff95d;
+  --party-colour-party-85: #b3009d;
+  --party-colour-party-39: #326760;
+  --party-colour-party-70: #D46A4C;
+  --party-colour-party-83: #48A5EE;
+  --party-colour-party-55: #3A9E84;
+  --party-colour-party-103: #F6CB2F;
+  /* Unused by widget: */
+  --eiw-bright-blue-hover: #009bd6;
+  --eiw-global-radius: 0;
+  --eiw-btn-primary-color: #e6007e;
+  --eiw-menu-background: transparent;
+  --eiw-menu-background-hover: #e6007e;
+  --eiw-menu-text-hover: white;
+  --eiw-green: #4db314;
+  --eiw-off-black: #403f41;
+}
+:root {
+  /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
+  --eiw-body-text-colour: #58595b;
+  --eiw-heading-text-colour: #403f41;
+  --eiw-text-black: #0b0c0c;
+  --eiw-bright-blue-wcag-fff-contrast-3-1: #009cd6;
+  --eiw-bright-blue-wcag-fff-contrast-3-5: #0092c8;
+  --eiw-bright-blue-accent: #007faf;
+  --eiw-bright-pink-accent: #ec008c;
+  --eiw-bright-pink-transparent: rgba(236, 0, 140,0.3);
+  --eiw-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
+  --eiw-error-red: #b10e1e;
+  --eiw-light-grey: #ddd;
+  --eiw-darker-grey: #6f777b;
+  --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
+  --eiw-outline-focus: #ffbf47;
+  --eiw-sanserif-font: 'Avenir', sans-serif;
+  --eiw-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
+  --eiw-font-size-heading: 1.5rem;
+  --eiw-font-size-default: 1.2rem;
+  --eiw-font-size-smaller: 1rem;
+  --eiw-font-size-smallest: 0.85rem;
+  --eiw-line-height-default: 1.2;
+  --eiw-spacing-default: 1rem;
+  --eiw-border-width: 2px;
+  --party-colour-independent: #767676;
+  --party-colour-party-52: #0087dc;
+  --party-colour-party-53: #d50000;
+  --party-colour-party-53-119: #d50000;
+  --party-colour-party-63: #008066;
+  --party-colour-party-90: #FDBB30;
+  --party-colour-party-77: #3f8428;
+  --party-colour-party-102: #fff95d;
+  --party-colour-party-85: #b3009d;
+  --party-colour-party-39: #326760;
+  --party-colour-party-70: #D46A4C;
+  --party-colour-party-83: #48A5EE;
+  --party-colour-party-55: #3A9E84;
+  --party-colour-party-103: #F6CB2F;
+  /* Unused by widget: */
+  --eiw-bright-blue-hover: #009bd6;
+  --eiw-global-radius: 0;
+  --eiw-btn-primary-color: #e6007e;
+  --eiw-menu-background: transparent;
+  --eiw-menu-background-hover: #e6007e;
+  --eiw-menu-text-hover: white;
+  --eiw-green: #4db314;
+  --eiw-off-black: #403f41;
+}
+
+/*
+# Helpers
+*/
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+.ElectionInformationWidget button.eiw-btn-primary:focus,
+.ElectionInformationWidget a.eiw-btn-primary:focus,
+.eiw-btn-primary:focus,
+.eiw-btn-secondary:focus,
+.ElectionInformationWidget input:focus,
+.ElectionInformationWidget select:focus,
+*:focus {
+  outline: 4px solid var(--eiw-outline-focus);
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+/*--------------------------------------------------------------
+# Container styles 
+--------------------------------------------------------------*/
+
+.ElectionInformationWidget {
+  /* Parent container */
+  position: relative;
+  font-size: var(--eiw-font-size-default);
+  color: var(--eiw-body-text-colour);
+  font-family: var(--eiw-sanserif-font);
+  line-height: var(--eiw-line-height-default);
+  padding: 4px; /* Prevent .Card box-shadow clipping in `overflow: hidden` containers */
+  text-align:left;
+}
+
+.Card {
+  border: 1px solid var(--eiw-text-light-blue-50);
+  border-radius: 0 3px;
+  clear: both;
+  background: #fff;
+  font-family: var(--eiw-serif-font);
+  padding: var(--eiw-spacing-default);
+  padding-bottom: 0.75rem;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+h1.eiw-header,
+.ElectionInformationWidget .form-label-bold {
+  font-weight: bold;
+  display: block;
+  padding: 1rem 0 1rem 2rem;
+  margin: -1rem -1rem 1rem -1rem;
+  font-family: var(--eiw-sanserif-font);
+  color: var(--eiw-text-dark-blue);
+  background-color:var(--eiw-heading-bg-light-blue-25);
+  font-size: var(--eiw-font-size-heading);
+}
+
+.eiw-secondary-header {
+  font-size: var(--eiw-font-size-default);
+  color: var(--eiw-body-text-colour);
+  font-family: var(--eiw-sanserif-font);
+}
+
+.ElectionInformationWidget .form-label-reduced {
+  font-weight: normal;
+  display: block;
+  margin: 0.5rem 0;
+  font-family: var(--eiw-serif-font);
+}
+
+.ElectionInformationWidget a {
+  color: var(--eiw-bright-pink-accent);
+  text-decoration: none;
+  position: relative;
+  font-weight: normal;
+  font-family: var(--eiw-serif-font);
+}
+
+.ElectionInformationWidget a::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  border-bottom:solid 1px var(--eiw-bright-pink-transparent);
+  bottom: 0.05rem;
+  display: inline-block;
+  left: 0;
+  position: absolute;
+}
+
+.ElectionInformationWidget a:hover,
+.ElectionInformationWidget a:active {
+  text-decoration: none;
+}
+
+.ElectionInformationWidget a:hover::after,
+.ElectionInformationWidget a:active::after {
+  border-bottom:solid 1px var(--eiw-bright-pink-accent);
+}
+
+.ElectionInformationWidget button.eiw-btn-primary,
+.ElectionInformationWidget a.eiw-btn-primary,
+.eiw-btn-secondary {
+  font-family: var(--eiw-sanserif-font);
+  background-color: var(--eiw-text-dark-blue);
+  border: 0;
+  padding: 0.4em 0.6em;
+  margin: 0.5em 0 0 1rem;
+  font-size: var(--eiw-font-size-heading);
+  color: #fff;
+  display: inline-block;
+  border-bottom: 3px solid var(--eiw-text-light-blue-50);
+  line-height: 1.2;
+}
+
+.eiw-btn-secondary,
+a.eiw-btn-secondary {
+  color: white;
+  font-size: var(--eiw-font-size-smallest);
+  background-color: var(--eiw-darker-grey);
+  border-bottom: none;
+}
+
+.ElectionInformationWidget button.eiw-btn-primary:hover,
+.ElectionInformationWidget a.eiw-btn-primary:hover {
+  background-color: var(--eiw-text-light-blue-50);
+  text-decoration: none;
+}
+
+.eiw-btn-seconday:hover,
+a.eiw-btn-seconday:hover {
+  background-color: var(--eiw-text-black);
+  text-decoration: none;
+}
+.ElectionInformationWidget button.eiw-btn-primary:disabled,
+.ElectionInformationWidget a.eiw-btn-primary:disabled {
+  background-color: var(--eiw-light-grey);
+  border-bottom: 3px solid var(--eiw-darker-grey);
+  color: var(--eiw-grey-text-wcag-ddd-contrast-3-0-5);
+  cursor: default;
+}
+.ElectionInformationWidget .link-button {
+  display: inline-block;
+  border: var(--eiw-border-width) solid var(--eiw-bright-blue);
+  color: var(--eiw-bright-blue);
+  font-size: 1rem;
+  font-family: Avenir, sans-serif;
+  margin: 0;
+  padding: 1rem 2rem 1.0625rem 2rem;
+  text-decoration: none;
+}
+.ElectionInformationWidget .link-button:hover {
+  background-color: #f9fdff;
+}
+
+/*--------------------------------------------------------------
+# Error messages and notifications
+--------------------------------------------------------------*/
+
+.ErrorMessage,
+.Notification {
+  color: var(--eiw-body-text-colour);
+  display: block;
+  font-size: var(--eiw-font-size-default);
+  border: var(--eiw-border-width) solid var(--eiw-error-red);
+  margin-top: 2px;
+  margin-bottom: 4px;
+  padding: var(--eiw-spacing-default);
+  font-family: var(--eiw-sanserif-font);
+  text-transform: none;
+}
+.Notification {
+  border-color: var(--eiw-bright-blue);
+  margin-bottom: var(--eiw-spacing-default);
+}
+
+.Notification span[role='img'] {
+  margin: 0 0.5rem 0 auto;
+}
+
+.eiw-notification-title {
+  display: inline;
+  font-size: var(--eiw-font-size-default);
+  font-weight: normal;
+  margin: 0;
+}
+
+.Notification p,
+.ErrorMessage p {
+  margin: 0.5rem 0;
+  font-size: var(--eiw-font-size-smallest);
+  font-family: var(--eiw-serif-font);
+}
+
+.Notification a {
+  margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Form styles
+--------------------------------------------------------------*/
+
+.form-group h1 {
+  margin: 0;
+}
+.ElectionInformationWidget .form-control {
+  font-size: var(--eiw-font-size-default);
+  line-height: var(--eiw-line-height-default);
+  border: var(--eiw-border-width) solid var(--eiw-body-text-colour);
+  padding: 0.314em 0.25em 0.25em;
+  margin: 0 0 .5rem 1rem;
+}
+.ElectionInformationWidget form > .form-group + .form-group {
+  margin-top: 1.5em;
+  padding-top: 0;
+}
+.ElectionInformationWidget input[type='search'],
+.ElectionInformationWidget input[type='text'] {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.ElectionInformationWidget [role='button'],
+.ElectionInformationWidget button,
+.ElectionInformationWidget label,
+.eiw-btn-primary {
+  cursor: pointer;
+}
+
+a.eiw-btn-primary::after {
+  display: none;
+}
+
+/*--------------------------------------------------------------
+# Polling Station
+--------------------------------------------------------------*/
+
+.PollingStation .address p {
+  font-family: var(--eiw-serif-font);
+  font-size: var(--eiw-font-size-default);
+}
+
+.directions {
+  margin-top: var(--eiw-spacing-default);
+}
+
+/*--------------------------------------------------------------
+# Address finder
+--------------------------------------------------------------*/
+
+.AddressPicker button.eiw-btn-primary {
+  display: block;
+}
+
+.AddressPicker select {
+  font-size: var(--eiw-font-size-default);
+}
+
+.AddressPicker option {
+  font-family: var(--eiw-serif-font);
+  color: var(--eiw-body-text-colour);
+}
+
+.eiw-select-multirow {
+  height: auto !important;
+  max-width: 100%;
+}
+
+/* Station Not Found */
+
+.StationNotFound ul {
+  padding-left: 1rem;
+}
+
+li {
+  color: var(--eiw-body-text-colour);
+  font-size: var(--eiw-font-size-default);
+  font-family: var(--eiw-serif-font);
+  list-style: disc;
+}
+li, p {
+  font-size: var(--eiw-font-size-smaller);
+  margin-top: 0;
+}
+
+/*--------------------------------------------------------------
+# Footer styles
+--------------------------------------------------------------*/
+
+footer {
+  font-family: var(--eiw-sanserif-font);
+}
+
+.ElectionInformationWidget footer a {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: center;
+  align-items: center;
+  border-bottom: none;
+  color: var(--eiw-bright-pink-accent);  
+  font-family: var(--eiw-sanserif-font);
+}
+
+.ElectionInformationWidget footer a::after {
+  display: none;
+}
+.ElectionInformationWidget footer a:hover,
+.ElectionInformationWidget footer a:active {
+  border-bottom: none;
+  text-decoration: underline;
+  color: var(--eiw-bright-pink-accent); 
+}
+
+.LanguageToggle {
+  float: right;
+  margin: 0.6rem 0.5rem 0 1rem;
+  font-size: var(--eiw-font-size-smallest);
+}
+
+.ElectionInformationWidget footer {
+  display: block;
+  padding-top: 0.75rem;
+}
+
+.ElectionInformationWidget footer a img {
+  margin-left: 0.25rem;
+}
+.Logo {
+  text-decoration: none;
+  font-size: var(--eiw-font-size-smallest);
+}
+.footer-logo {
+  margin-left: .5rem;
+}
+/*--------------------------------------------------------------
+# Loading spinner
+--------------------------------------------------------------*/
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+.loading-spinner {
+  position: relative;
+  margin: 2rem;
+  opacity: 1;
+  transition: opacity linear 0.1s;
+}
+
+.loading-spinner::before {
+  animation: 2s linear infinite spinner;
+  border: solid 3px #eee;
+  border-bottom-color: var(--eiw-bright-blue);
+  border-radius: 50%;
+  content: '';
+  height: 40px;
+  left: 50%;
+  opacity: inherit;
+  position: absolute;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transform-origin: center;
+  width: 40px;
+  will-change: transform;
+}
+
+/* Candidates */
+
+strong.postcode {
+  text-transform: uppercase;
+  font-family: var(--eiw-sanserif-font);
+  color: var(--eiw-bright-pink-accent);
+}
+
+strong.date {
+  font-family: var(--eiw-sanserif-font);
+}
+
+ul.inline-list {
+  padding-left: 0rem;
+  margin: 0;
+}
+
+ul.inline-list li.Ballot {
+  list-style: none;
+  padding: 0;
+  margin:0;
+  clear: both;
+  margin-bottom: 1rem;
+}
+
+ul.inline-list li.Ballot:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ul.inline-list h2 {
+  float: left;
+  width: calc(100% - 8.5rem);
+  margin: 0;
+}
+
+ul.inline-list h2.full-width {
+  width: 100%;
+}
+
+ul.inline-list p {
+  clear: left;
+  padding-top: 1rem;
+}
+
+ul.inline-list button {
+  width: 7.75rem;
+  padding:0 0 0 1em;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  background: none;
+  font-family: var(--eiw-sanserif-font);
+  font-size: var(--eiw-font-size-smallest);
+  text-align: right;
+  float: right;
+  color: var(--eiw-darker-grey);
+}
+
+button.inline-button::before {
+  position: absolute;
+  top: 0.4em;
+  left:0;
+  transition: all 0.2s ease;
+  width: 0; 
+  height: 0; 
+  border-left: 0.45em solid transparent;
+  border-right: 0.45em solid transparent;
+  content: '';
+  border-top: 0.45em solid var(--eiw-bright-blue-accent);
+  border-bottom: none;
+}
+
+button.toggled.inline-button::before,
+button.toggled.inline-button::after {
+  border: none;
+  position: absolute;
+  left: .35em;
+  top:0.2em;
+  content: ' ';
+  height: 1em;
+  width: 1px;
+  background-color: var(--eiw-bright-blue-accent);
+}
+
+button.toggled.inline-button::before {
+  transform: rotate(45deg);
+}
+button.toggled.inline-button::after {
+  transform: rotate(-45deg);
+}
+
+button.toggled.arrow.inline-button::after {
+  width: 0; 
+  height: 0; 
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-top: none;
+  border-bottom: 0.75em solid var(--eiw-bright-blue-accent);
+}
+
+.Candidates {
+  margin: 1rem 0;
+  float: left;
+  width: 100%;
+  clear: both;
+}
+
+.Candidates ul,
+.Candidates li {
+  padding: 0;
+  margin: 0;
+}
+
+.Candidates li {
+  list-style: none;
+  margin-bottom: 0.25rem;
+  clear: left;
+}
+
+.party-name {
+  font-size: var(--eiw-font-size-smaller);
+  margin: 0;
+  font-family: var(--eiw-serif-font);
+  display: inline;
+  color: var(--eiw-body-text-colour);
+  position: relative;
+  font-weight: normal;
+}
+
+.candidate-name::before {
+  content: '';
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 100%;
+  background: var(--party-colour-independent);
+  display: inline-block;
+  margin: 0 0.3rem 0 0;
+  bottom: 0rem;
+  position: relative;
+}
+
+.candidate-name {
+  font-size: var(--eiw-font-size-smaller);
+  margin: 0;
+  display: inline; 
+}
+
+.candidate-name a {
+  font-family: var(--eiw-serif-font);
+}
+
+.party-52.candidate-name::before {
+  background: var(--party-colour-party-52);
+}
+.party-53.candidate-name::before {
+  background: var(--party-colour-party-53);
+}
+.party-53-119.candidate-name::before {
+  background: var(--party-colour-party-53-119);
+}
+.party-63.candidate-name::before {
+  background: var(--party-colour-party-63);
+}
+.party-90.candidate-name::before {
+  background: var(--party-colour-party-90);
+}
+.party-77.candidate-name::before {
+  background: var(--party-colour-party-77);
+}
+.party-102.candidate-name::before {
+  background: var(--party-colour-party-102);
+}
+.party-85.candidate-name::before {
+  background: var(--party-colour-party-85);
+}
+
+.party-39.candidate-name::before {
+  background: var(--party-colour-party-39);
+}
+.party-70.candidate-name::before {
+  background: var(--party-colour-party-70);
+}
+.party-83.candidate-name::before {
+  background: var(--party-colour-party-83);
+}
+.party-55.candidate-name::before {
+  background: var(--party-colour-party-55);  
+}
+.party-103.candidate-name::before {
+  background: var(--party-colour-party-103);
+}

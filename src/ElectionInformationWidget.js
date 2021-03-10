@@ -19,9 +19,10 @@ import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
 
-import styles from '!!raw-loader!./widget-styles.css'; // eslint-disable-line
+import EC_styles from '!!raw-loader!./ec-widget-styles.css'; // eslint-disable-line
+import DC_styles from '!!raw-loader!./dc-widget-styles.css'; // eslint-disable-line
 
-function DemocracyClubWidget(props) {
+function ElectionInformationWidget(props) {
   const api = APIClientFactory();
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -116,9 +117,13 @@ function DemocracyClubWidget(props) {
 
   return (
     <ShadowDomFactory>
-      <style type="text/css">{styles}</style>
+      {process.env.REACT_APP_BRAND === 'EC' ? (
+        <style type="text/css">{EC_styles}</style>
+      ) : (
+        <style type="text/css">{DC_styles}</style>
+      )}
       <WarningBanner dataSource={dataSource} />
-      <section className="DemocracyClubWidget Card">
+      <section className="ElectionInformationWidget Card">
         {currentError && <ErrorMessage currentError={currentError} />}
         {!searchInitiated && (
           <PostcodeSelector
@@ -163,4 +168,4 @@ function DemocracyClubWidget(props) {
   );
 }
 
-export default withElections(withTranslations(DemocracyClubWidget));
+export default withElections(withTranslations(ElectionInformationWidget));
