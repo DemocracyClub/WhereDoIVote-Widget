@@ -13,11 +13,11 @@ import {
   mockResponse,
 } from '../utils/test';
 
-jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+jest.mock(`!!raw-loader!./DC-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
   virtual: true,
 });
 
-jest.mock(`!!raw-loader!./ec-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+jest.mock(`!!raw-loader!./EC-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
   virtual: true,
 });
 

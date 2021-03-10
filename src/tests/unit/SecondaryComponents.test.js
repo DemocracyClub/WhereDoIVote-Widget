@@ -5,7 +5,7 @@ import { cleanup, render } from '@testing-library/react';
 import WarningBanner from '../../WarningBanner';
 afterEach(cleanup);
 
-jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+jest.mock(`!!raw-loader!./DC-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
   virtual: true,
 });
 
