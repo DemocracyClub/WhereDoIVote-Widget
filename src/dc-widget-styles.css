@@ -482,6 +482,16 @@ footer {
   text-align: left;
   padding-right: 0.5rem;
 }
+.DCLogoText {
+  font-size: var(--dc-font-size-smallest);
+  font-weight: 300;
+  line-height: 1;
+  margin-left: 0.25rem;
+  color:black;
+  text-align: left;
+  padding-right: 0.5rem;
+}
+
 
 /*--------------------------------------------------------------
 # Loading spinner
