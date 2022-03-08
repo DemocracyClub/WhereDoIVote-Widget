@@ -6,7 +6,11 @@ import en_messages from '../../translations/en';
 import { renderWithReactIntl } from '../utils/test';
 afterEach(cleanup);
 
-jest.mock(`!!raw-loader!./widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+jest.mock(`!!raw-loader!./dc-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
+  virtual: true,
+});
+
+jest.mock(`!!raw-loader!./ec-widget-styles.css`, () => '.DCWidget {margin: 0; }', {
   virtual: true,
 });
 

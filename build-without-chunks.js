@@ -2,6 +2,11 @@ const rewire = require('rewire');
 const defaults = rewire('react-scripts/scripts/build.js');
 let config = defaults.__get__('config');
 
+const allowed_brands = ['DC', 'EC'];
+if (!allowed_brands.includes(process.env.REACT_APP_BRAND)) {
+  throw new Error(`REACT_APP_BRAND must be one of ${JSON.stringify(allowed_brands)}`);
+}
+
 if (
   process.env.NODE_ENV === 'production' &&
   process.env.REACT_APP_API === 'prod' &&

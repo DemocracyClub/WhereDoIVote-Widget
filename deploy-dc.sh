@@ -8,7 +8,7 @@ die() {
 
 if [ $# -eq 0 ]
   then
-    die "No env supplied. Call with ./deploy.sh [dev|prod]"
+    die "No env supplied. Call with ./deploy-dc.sh [dev|prod]"
 fi
 
 CACHE_HEADERS="max-age=600"
@@ -31,10 +31,10 @@ deploy-to-s3() {
     aws s3 cp --cache-control ${CACHE_HEADERS} --acl ${ACL} $1 s3://${BUCKET}/$2
 }
 
-npm run build
+rm -rf build
 
 JS_FILE=$(cat build/asset-manifest.json | jq -r '.files."main.js"')
 
-deploy-to-s3 ./build/${JS_FILE} wdiv.js
+deploy-to-s3 ./build/${JS_FILE} dc_wdiv.js
 deploy-to-s3 ./demo.html demo.html
 deploy-to-s3 ./public/img/logo-with-text.png logo-with-text.png

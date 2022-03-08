@@ -5,7 +5,7 @@ import PollingDate from './PollingDate';
 function AdditionalFutureElections(props) {
   return (
     <>
-      <h1 className="dc-header">
+      <h1 className="eiw-header">
         <FormattedMessage id="future.more-elections" description="More elections in your area" />
       </h1>
       {props.dates.map((date, i) => (

@@ -18,7 +18,7 @@ function GoogleMapsTemplate(props) {
     <a
       href={'https://maps.google.com/maps?q=' + props.destination}
       target="_top"
-      className="dc-btn-primary"
+      className="eiw-btn-primary"
       data-testid="google-maps"
       title={formatMessage({ id: 'directions.show-google-maps-title' })}
     >
@@ -35,7 +35,7 @@ function GoogleDirectionsTemplate(props) {
     <a
       href={'https://maps.google.com/maps/dir/' + props.origin + '/' + props.destination}
       target="_top"
-      className="dc-btn-primary"
+      className="eiw-btn-primary"
       data-testid="google-directions"
       title={formatMessage({ id: 'directions.show-google-directions-title' })}
     >

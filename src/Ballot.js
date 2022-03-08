@@ -9,7 +9,7 @@ function Ballot(props) {
   const { formatMessage } = props.intl;
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>
-      <h2 className={`dc-secondary-header ${!candidatesVerified && 'full-width'}`}>
+      <h2 className={`eiw-secondary-header ${!candidatesVerified && 'full-width'}`}>
         {ballot.cancelled ? (
           <span role="img" aria-label="Red cross">
             ❌

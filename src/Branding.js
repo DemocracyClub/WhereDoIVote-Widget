@@ -4,7 +4,7 @@ import { injectIntl } from 'react-intl';
 function ErrorMessageTemplate(props) {
   const { formatMessage } = props.intl;
   return (
-    <div className="ErrorMessage" id="dc_error" role="alert" aria-live="assertive">
+    <div className="ErrorMessage" id="eiw-error" role="alert" aria-live="assertive">
       {props.currentError && formatMessage({ id: props.currentError })}
     </div>
   );
@@ -16,7 +16,7 @@ function StartAgainButtonTemplate(props) {
   const { formatMessage } = props.intl;
   return (
     <button
-      className="dc-btn-secondary"
+      className="eiw-btn-secondary"
       aria-label={formatMessage({ id: 'general.start-again' })}
       title={formatMessage({ id: 'general.start-again' })}
       onClick={props.onClick}
@@ -41,7 +41,7 @@ function LoaderTemplate(props) {
 
 const Loader = injectIntl(LoaderTemplate);
 
-function BuiltByDCTemplate(props) {
+function BuiltByTemplate(props) {
   const { formatMessage } = props.intl;
   const accessibleTitle = `${formatMessage({ id: 'general.visit-website-of' })} ${formatMessage({
     id: 'general.dc-club',
@@ -49,20 +49,33 @@ function BuiltByDCTemplate(props) {
   return (
     <>
       <a
-        href="https://democracyclub.org.uk/"
-        title={accessibleTitle}
+        href={
+          process.env.REACT_APP_BRAND === 'EC'
+            ? 'https://electoralcommission.org.uk/'
+            : 'https://democracyclub.org.uk/'
+        }
+        title={process.env.REACT_APP_BRAND === 'EC' ? '' : { accessibleTitle }}
         target="_top"
-        className="DCLogo"
+        className="Logo"
       >
-        {formatMessage({ id: 'general.built-by' })}
+        {process.env.REACT_APP_BRAND === 'EC' ? '' : formatMessage({ id: 'general.built-by' })}
         <img
-          alt={formatMessage({ id: 'general.dc-club' })}
-          src="https://widget.wheredoivote.co.uk/logo-with-text.png"
+          alt={
+            process.env.REACT_APP_BRAND === 'EC'
+              ? formatMessage({ id: 'general.ec' })
+              : formatMessage({ id: 'general.dc-club' })
+          }
+          src={
+            process.env.REACT_APP_BRAND === 'EC'
+              ? 'https://ukelectoralcommission.files.wordpress.com/2014/03/logo2.png'
+              : 'https://widget.wheredoivote.co.uk/logo-with-text.png'
+          }
+          width="120px"
         />
       </a>
     </>
   );
 }
-const BuiltByDC = injectIntl(BuiltByDCTemplate);
+const BuiltBy = injectIntl(BuiltByTemplate);
 
-export { StartAgainButton, BuiltByDC, ErrorMessage, Loader };
+export { StartAgainButton, BuiltBy, ErrorMessage, Loader };

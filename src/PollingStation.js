@@ -13,7 +13,7 @@ function PollingStation(props) {
   });
   return (
     <article className="PollingStation">
-      <h1 className="dc-header">
+      <h1 className="eiw-header">
         <FormattedMessage id="station.your-station" description="Your station" />
       </h1>
       <div data-testid="address" className="address">
