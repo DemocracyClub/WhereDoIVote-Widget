@@ -69,7 +69,7 @@ npm install
 
 Run with test data from the [API sandbox](https://developers.democracyclub.org.uk/api/v1/#sandbox-outputs-2):
 ```
-npm run start:sandbox
+dc:start:sandbox
 ```
 
 Run with [local test data](https://github.com/DemocracyClub/WhereDoIVote-Widget/tree/master/public/example-responses):
