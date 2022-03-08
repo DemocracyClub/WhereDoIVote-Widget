@@ -470,6 +470,17 @@ footer {
 .Logo {
   text-decoration: none;
   font-size: var(--eiw-font-size-smallest);
+  text-align: left;
+}
+
+.LogoText {
+  font-size: var(--dc-font-size-smallest);
+  font-weight: 300;
+  line-height: 1;
+  margin-left: 0.25rem;
+  color:black;
+  text-align: left;
+  padding-right: 0.5rem;
 }
 
 /*--------------------------------------------------------------

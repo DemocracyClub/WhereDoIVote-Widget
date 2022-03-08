@@ -47,7 +47,7 @@ function BuiltByTemplate(props) {
     id: 'general.dc-club',
   })}`;
   return (
-    <>
+    <div>
       <a
         href={
           process.env.REACT_APP_BRAND === 'EC'
@@ -68,12 +68,17 @@ function BuiltByTemplate(props) {
           src={
             process.env.REACT_APP_BRAND === 'EC'
               ? 'https://ukelectoralcommission.files.wordpress.com/2014/03/logo2.png'
-              : 'https://widget.wheredoivote.co.uk/logo-with-text.png'
+              : 'https://widget.wheredoivote.co.uk/logo.svg'
           }
-          width="120px"
+          width={process.env.REACT_APP_BRAND === 'EC' ? '120px' : '40px'}
         />
+        {process.env.REACT_APP_BRAND === 'EC' ? (
+          ''
+        ) : (
+          <span className="LogoText">democracy club</span>
+        )}
       </a>
-    </>
+    </div>
   );
 }
 const BuiltBy = injectIntl(BuiltByTemplate);
