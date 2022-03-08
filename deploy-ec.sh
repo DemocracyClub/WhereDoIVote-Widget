@@ -32,6 +32,7 @@ deploy-to-s3() {
 }
 
 rm -rf build
+npm run ec:build:prod
 
 JS_FILE=$(cat build/asset-manifest.json | jq -r '.files."main.js"')
 
