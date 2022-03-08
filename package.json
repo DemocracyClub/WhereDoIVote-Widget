@@ -71,7 +71,8 @@
     ],
     "moduleFileExtensions": [
       "...defaults.moduleFileExtensions",
-      "css"
+      "css",
+      "js"
     ]
   },
   "husky": {
