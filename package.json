@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.26.0",
     "css-vars-ponyfill": "^2.2.1",
     "es6-shim": "^0.35.5",
     "proxy-polyfill": "^0.3.1",
@@ -36,14 +36,18 @@
     "sinon": "^9.0.2"
   },
   "scripts": {
-    "start:prod": "REACT_APP_API=prod react-app-rewired start",
-    "start:sandbox": "REACT_APP_API=sandbox react-app-rewired start",
-    "start:mock": "REACT_APP_API=mock react-app-rewired start",
-    "start": "npm run start:prod",
-    "build:prod": "REACT_APP_API=prod node ./build-without-chunks.js",
-    "build:sandbox": "REACT_APP_API=sandbox echo '⚠️  creating production build serving sandbox data 🚨' && node ./build-without-chunks.js",
-    "build:mock": "REACT_APP_API=mock echo '⚠️  creating production build serving mock data 🚨' && node ./build-without-chunks.js",
-    "build": "npm run build:prod",
+    "dc:start:prod": "REACT_APP_BRAND=DC REACT_APP_API=prod react-app-rewired start",
+    "dc:start:sandbox": "REACT_APP_BRAND=DC REACT_APP_API=sandbox react-app-rewired start",
+    "dc:start:mock": "REACT_APP_BRAND=DC REACT_APP_API=mock react-app-rewired start",
+    "dc:build:prod": "REACT_APP_BRAND=DC REACT_APP_API=prod node ./build-without-chunks.js",
+    "dc:build:sandbox": "REACT_APP_BRAND=DC REACT_APP_API=sandbox echo '⚠️  creating production build serving sandbox data 🚨' && node ./build-without-chunks.js",
+    "dc:build:mock": "REACT_APP_BRAND=DC REACT_APP_API=mock echo '⚠️  creating production build serving mock data 🚨' && node ./build-without-chunks.js",
+    "ec:start:prod": "REACT_APP_BRAND=EC REACT_APP_API=prod react-app-rewired start",
+    "ec:start:sandbox": "REACT_APP_BRAND=EC REACT_APP_API=sandbox react-app-rewired start",
+    "ec:start:mock": "REACT_APP_BRAND=EC REACT_APP_API=mock react-app-rewired start",
+    "ec:build:prod": "REACT_APP_BRAND=EC REACT_APP_API=prod node ./build-without-chunks.js",
+    "ec:build:sandbox": "REACT_APP_BRAND=EC REACT_APP_API=sandbox echo '⚠️  creating production build serving sandbox data 🚨' && node ./build-without-chunks.js",
+    "ec:build:mock": "REACT_APP_BRAND=EC REACT_APP_API=mock echo '⚠️  creating production build serving mock data 🚨' && node ./build-without-chunks.js",
     "test": "REACT_APP_API=sandbox REACT_APP_TESTING=true react-app-rewired test --env=jsdom",
     "coverage": "REACT_APP_API=sandbox REACT_APP_TESTING=true react-app-rewired test --env=jsdom --coverage",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/.bin/coveralls",
@@ -67,7 +71,8 @@
     ],
     "moduleFileExtensions": [
       "...defaults.moduleFileExtensions",
-      "css"
+      "css",
+      "js"
     ]
   },
   "husky": {
