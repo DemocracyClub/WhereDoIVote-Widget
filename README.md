@@ -1,6 +1,5 @@
 # WhereDoIVote-Widget
 
-[![Build Status](https://travis-ci.org/DemocracyClub/WhereDoIVote-Widget.svg?branch=master)](https://travis-ci.org/DemocracyClub/WhereDoIVote-Widget)
 [![Coverage Status](https://coveralls.io/repos/github/DemocracyClub/WhereDoIVote-Widget/badge.svg?branch=master)](https://coveralls.io/github/DemocracyClub/WhereDoIVote-Widget?branch=master)
 
 An embeddable widget to find your nearest polling station, for upcoming elections in the UK.
