@@ -74,6 +74,22 @@ describe('CandidateList Component', () => {
       );
     });
   }
+  if (process.env.REACT_APP_BRAND === 'DC') {
+    it('displays previous party affiliations if they exist', async () => {
+      const ListPrevPartyAffiliations = await waitForElement(() =>
+        getByTestId('previous-party-affiliations')
+      );
+      expect(ListPrevPartyAffiliations).toHaveTextContent(
+        en_messages['candidate.previous_party_affiliations']
+      );
+    });
+    it('Should derive list of previous parties from candidate data', async () => {
+      const ListPrevPartyAffiliations = await waitForElement(() =>
+        document.querySelector('.previous-party-list')
+      );
+      expect(ListPrevPartyAffiliations).toHaveTextContent('Democrat');
+    });
+  }
 });
 
 describe('CandidateList Component edge cases', () => {

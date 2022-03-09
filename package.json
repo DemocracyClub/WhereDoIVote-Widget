@@ -12,6 +12,7 @@
     "react-dom": "^16.13.0",
     "react-intl": "^4.5.3",
     "react-shadow": "^18.1.0",
+    "react-tooltip": "^4.2.21",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
+import PartyToolTip from './PartyToolTip.js';
 
 function CandidateList(props) {
   const { formatMessage } = props.intl;
@@ -39,6 +40,7 @@ function CandidateList(props) {
               </h4>{' '}
               <h5 className={`party-name party-${candidate.party.party_id.split(':')[1]}`}>
                 {candidate.party.party_name}
+                <PartyToolTip candidate={candidate} />
               </h5>
             </li>
           ))}

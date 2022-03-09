@@ -700,3 +700,24 @@ button.toggled.arrow.inline-button::after {
 .party-103.candidate-name::before {
   background: var(--party-colour-party-103);
 }
+
+#ToolTipContainer {
+  position: absolute;
+  display: inline-block;
+  padding: 0.075em 0 0.075em 0.25em;
+}
+
+#ToolTipContainer button {
+  padding: 0 !important;
+  text-align: center;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  background: #bbb;
+  color: #fff; 
+  font-weight: bold;
+}
+
+#PartyToolTip {
+  width:100px;
+}
