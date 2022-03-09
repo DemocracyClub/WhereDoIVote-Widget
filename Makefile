@@ -1,11 +1,8 @@
-REACT_APP_API_KEY ?= "fakekey"
+REACT_APP_API_KEY ?= "demo-"$(PR_SLUG)
 
 STAGE_URL = $(PUBLIC_URL)/$(PR_SLUG)
 
-foo:
-	echo $(STAGE_URL)
-
-.PHONY: build
+.PHONY: stage_build
 stage_build: clean stage_build_dc stage_build_ec
 
 clean:
@@ -26,4 +23,4 @@ stage_build_ec: dist_dir
 	mv build dist/ec
 
 stage_sync_to_s3:
-	aws s3 sync dist/ s3://${S3_BUCKET}/$(PR_SLUG)/ --acl public-read --cache-control "max-age=0"
+	aws s3 sync dist/ s3://${S3_BUCKET}/${PR_SLUG}/ --acl public-read --cache-control "max-age=0"
