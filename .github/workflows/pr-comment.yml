@@ -1,0 +1,23 @@
+name: PR deployment comment
+
+on:
+  pull_request:
+
+env:
+  PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    name: Comment on PR
+    environment: stage_deploy
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Write comment file
+        run: bash ./.github/write-comment.sh
+      - uses: harupy/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          filename: deployment_comment.md
