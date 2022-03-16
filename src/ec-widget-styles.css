@@ -21,7 +21,6 @@
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
   --eiw-sanserif-font: "Swis721LtBTW05-Medium","helvetica","arial",sans-serif;
-  --eiw-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --eiw-font-size-heading: 1.5rem;
   --eiw-font-size-default: 1.2rem;
   --eiw-font-size-smaller: 1rem;
@@ -70,7 +69,7 @@
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
   --eiw-sanserif-font: 'Avenir', sans-serif;
-  --eiw-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
+  --eiw-sanserif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --eiw-font-size-heading: 1.5rem;
   --eiw-font-size-default: 1.2rem;
   --eiw-font-size-smaller: 1rem;
@@ -335,7 +334,7 @@ a.eiw-btn-seconday:hover {
 .ErrorMessage p {
   margin: 0.5rem 0;
   font-size: var(--eiw-font-size-smallest);
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
 }
 
 .Notification a {
@@ -384,7 +383,7 @@ a.eiw-btn-primary::after {
 --------------------------------------------------------------*/
 
 .PollingStation .address p {
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   font-size: var(--eiw-font-size-default);
 }
 
@@ -405,7 +404,7 @@ a.eiw-btn-primary::after {
 }
 
 .AddressPicker option {
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   color: var(--eiw-body-text-colour);
 }
 
@@ -423,7 +422,7 @@ a.eiw-btn-primary::after {
 li {
   color: var(--eiw-body-text-colour);
   font-size: var(--eiw-font-size-default);
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   list-style: disc;
 }
 li, p {
@@ -641,7 +640,7 @@ button.toggled.arrow.inline-button::after {
 .party-name {
   font-size: var(--eiw-font-size-smaller);
   margin: 0;
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   display: inline;
   color: var(--eiw-body-text-colour);
   position: relative;
@@ -667,7 +666,7 @@ button.toggled.arrow.inline-button::after {
 }
 
 .candidate-name a {
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
 }
 
 .party-52.candidate-name::before {
