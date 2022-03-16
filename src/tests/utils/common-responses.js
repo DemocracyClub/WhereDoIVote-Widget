@@ -7,6 +7,7 @@ export const partyListBallot = {
     uses_party_lists: true,
   },
   seats_contested: 2,
+  candidates_verified: true,
   candidates: [
     {
       list_position: 1,

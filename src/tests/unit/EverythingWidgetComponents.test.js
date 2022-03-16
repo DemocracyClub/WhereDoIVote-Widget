@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import { candidate, candidateListBallot, partyListBallot } from '../utils/common-responses';
-import { cleanup, waitForElement, fireEvent } from '@testing-library/react';
+import { cleanup, waitForElement } from '@testing-library/react';
 import en_messages from '../../translations/en';
 import Ballot from '../../Ballot';
 import Candidates from '../../Candidates';
@@ -95,7 +95,7 @@ describe('Ballot Component', () => {
     const BallotComponent = await waitForElement(() =>
       BallotWrapper.getByTestId(candidateListBallot.ballot_paper_id)
     );
-    expect(BallotComponent).toHaveTextContent('Show candidates');
+    expect(BallotComponent).toHaveTextContent('Candidates');
   });
   it("shouldn't show candidates if candidates_verified is false", async () => {
     const unverifiedCandidatesBallot = Object.assign({}, candidateListBallot);
@@ -106,35 +106,7 @@ describe('Ballot Component', () => {
     const BallotComponent = await waitForElement(() =>
       BallotWrapper.getByTestId(candidateListBallot.ballot_paper_id)
     );
-    expect(BallotComponent).not.toHaveTextContent('Show candidates');
-  });
-});
-
-describe('Ballot Component: Candidates drop-down accessibility', () => {
-  let getByTestId;
-  beforeEach(async () => {
-    const BallotWrapper = renderWithReactIntl(<Ballot ballot={candidateListBallot} />);
-    getByTestId = BallotWrapper.getByTestId;
-  });
-
-  it('Toggle candidates button should have aria-expanded attribute', async () => {
-    const ToggleButton = await waitForElement(() =>
-      getByTestId(`show-candidates-button-${candidateListBallot.ballot_paper_id}`)
-    );
-    expect(ToggleButton).toHaveAttribute('aria-expanded');
-  });
-  it('Aria-expanded attr should default to false', async () => {
-    const ToggleButton = await waitForElement(() =>
-      getByTestId(`show-candidates-button-${candidateListBallot.ballot_paper_id}`)
-    );
-    expect(ToggleButton).toHaveAttribute('aria-expanded', 'false');
-  });
-  it('Clicking button should set aria-expanded to true', async () => {
-    const ToggleButton = await waitForElement(() =>
-      getByTestId(`show-candidates-button-${candidateListBallot.ballot_paper_id}`)
-    );
-    await fireEvent.click(ToggleButton);
-    expect(ToggleButton).toHaveAttribute('aria-expanded', 'true');
+    expect(BallotComponent).not.toHaveTextContent('Candidates');
   });
 });
 

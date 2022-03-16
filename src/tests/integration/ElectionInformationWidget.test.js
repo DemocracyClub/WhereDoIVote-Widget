@@ -396,7 +396,7 @@ describe('ElectionInformationWidget Standard Widget', () => {
     typePostcode(enteredPostcode);
     submitPostcode();
     const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
-    expect(Widget).not.toHaveTextContent('Show Candidates');
+    expect(Widget).not.toHaveTextContent('Candidates');
   });
 });
 
@@ -432,7 +432,6 @@ describe('ElectionInformationWidget Everything Widget', () => {
       'The poll for this election has been rescheduled due to the sad death of one of the candidates.'
     );
     expect(Widget).not.toHaveTextContent('You will have one ballot paper to fill out');
-    expect(Widget).not.toHaveTextContent('Show candidates');
   });
 });
 
@@ -444,7 +443,7 @@ describe('ElectionInformationWidget Legacy Candidates Widget', () => {
     typePostcode(enteredPostcode);
     submitPostcode();
     const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
-    expect(Widget).toHaveTextContent('Show candidates');
+    expect(Widget).toHaveTextContent('Candidates');
   });
 });
 

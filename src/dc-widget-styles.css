@@ -612,19 +612,20 @@ button.toggled.inline-button::after {
 }
 
 button.toggled.arrow.inline-button::after {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 0.5em solid transparent;
   border-right: 0.5em solid transparent;
   border-top: none;
   border-bottom: 0.75em solid var(--eiw-bright-blue-accent);
 }
 
+.BallotInfo {
+    margin-left:1.5rem;
+    padding-top: 1.5rem;
+}
 .Candidates {
   margin: 1rem 0;
-  float: left;
-  width: 100%;
-  clear: both;
 }
 
 .Candidates ul,
