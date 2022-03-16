@@ -5,7 +5,7 @@ import ElectoralServices from './ElectoralServices';
 
 function StationNotFound(props) {
   return (
-    <div className="StationNotFound" data-testid="station-not-found">
+    <section className="StationNotFound" data-testid="station-not-found">
       <h1 className="eiw-header">
         <FormattedMessage
           id="station.not-found"
@@ -20,7 +20,7 @@ function StationNotFound(props) {
         />
       </p>
       <Notifications list={props.notifications} />
-    </div>
+    </section>
   );
 }
 

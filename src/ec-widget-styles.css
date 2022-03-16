@@ -20,7 +20,7 @@
   --eiw-darker-grey: #6f777b;
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
-  --eiw-sanserif-font: 'Swiss 721', sans-serif;
+  --eiw-sanserif-font: "Swis721LtBTW05-Medium","helvetica","arial",sans-serif;
   --eiw-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --eiw-font-size-heading: 1.5rem;
   --eiw-font-size-default: 1.2rem;
@@ -162,7 +162,7 @@
 }
 
 /*--------------------------------------------------------------
-# Container styles 
+# Container styles
 --------------------------------------------------------------*/
 
 .ElectionInformationWidget {
@@ -181,7 +181,7 @@
   border-radius: 0 3px;
   clear: both;
   background: #fff;
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   padding: var(--eiw-spacing-default);
   padding-bottom: 0.75rem;
 }
@@ -194,7 +194,7 @@ h1.eiw-header,
 .ElectionInformationWidget .form-label-bold {
   font-weight: bold;
   display: block;
-  padding: 1rem 0 1rem 2rem;
+  padding: 1rem 0 1rem 1rem;
   margin: -1rem -1rem 1rem -1rem;
   font-family: var(--eiw-sanserif-font);
   color: var(--eiw-text-dark-blue);
@@ -212,7 +212,7 @@ h1.eiw-header,
   font-weight: normal;
   display: block;
   margin: 0.5rem 0;
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
 }
 
 .ElectionInformationWidget a {
@@ -220,7 +220,7 @@ h1.eiw-header,
   text-decoration: none;
   position: relative;
   font-weight: normal;
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
 }
 
 .ElectionInformationWidget a::after {
@@ -251,7 +251,7 @@ h1.eiw-header,
   background-color: var(--eiw-text-dark-blue);
   border: 0;
   padding: 0.4em 0.6em;
-  margin: 0.5em 0 0 1rem;
+  margin: 0.5em 0 0 0;
   font-size: var(--eiw-font-size-heading);
   color: #fff;
   display: inline-block;
@@ -354,7 +354,7 @@ a.eiw-btn-seconday:hover {
   line-height: var(--eiw-line-height-default);
   border: var(--eiw-border-width) solid var(--eiw-body-text-colour);
   padding: 0.314em 0.25em 0.25em;
-  margin: 0 0 .5rem 1rem;
+  margin: 0 0 .5rem 0;
 }
 .ElectionInformationWidget form > .form-group + .form-group {
   margin-top: 1.5em;
@@ -446,7 +446,7 @@ footer {
   text-align: center;
   align-items: center;
   border-bottom: none;
-  color: var(--eiw-bright-pink-accent);  
+  color: var(--eiw-bright-pink-accent);
   font-family: var(--eiw-sanserif-font);
 }
 
@@ -457,7 +457,7 @@ footer {
 .ElectionInformationWidget footer a:active {
   border-bottom: none;
   text-decoration: underline;
-  color: var(--eiw-bright-pink-accent); 
+  color: var(--eiw-bright-pink-accent);
 }
 
 .LanguageToggle {
@@ -472,7 +472,7 @@ footer {
 }
 
 .ElectionInformationWidget footer a img {
-  margin-left: 0.25rem;
+  margin-left: -0.5rem;
 }
 .Logo {
   text-decoration: none;
@@ -582,8 +582,8 @@ button.inline-button::before {
   top: 0.4em;
   left:0;
   transition: all 0.2s ease;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 0.45em solid transparent;
   border-right: 0.45em solid transparent;
   content: '';
@@ -611,8 +611,8 @@ button.toggled.inline-button::after {
 }
 
 button.toggled.arrow.inline-button::after {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 0.5em solid transparent;
   border-right: 0.5em solid transparent;
   border-top: none;
@@ -663,7 +663,7 @@ button.toggled.arrow.inline-button::after {
 .candidate-name {
   font-size: var(--eiw-font-size-smaller);
   margin: 0;
-  display: inline; 
+  display: inline;
 }
 
 .candidate-name a {
@@ -705,8 +705,12 @@ button.toggled.arrow.inline-button::after {
   background: var(--party-colour-party-83);
 }
 .party-55.candidate-name::before {
-  background: var(--party-colour-party-55);  
+  background: var(--party-colour-party-55);
 }
 .party-103.candidate-name::before {
   background: var(--party-colour-party-103);
+}
+
+section + section {
+    margin-top: 2rem;
 }

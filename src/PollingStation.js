@@ -12,7 +12,7 @@ function PollingStation(props) {
     splitAddress.push(<br key={index} />);
   });
   return (
-    <article className="PollingStation">
+    <section className="PollingStation">
       <h1 className="eiw-header">
         <FormattedMessage id="station.your-station" description="Your station" />
       </h1>
@@ -33,7 +33,7 @@ function PollingStation(props) {
       )}
 
       <Notifications list={props.notifications} />
-    </article>
+    </section>
   );
 }
 

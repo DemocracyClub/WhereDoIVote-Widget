@@ -15,14 +15,16 @@ const ErrorMessage = injectIntl(ErrorMessageTemplate);
 function StartAgainButtonTemplate(props) {
   const { formatMessage } = props.intl;
   return (
-    <button
-      className="eiw-btn-secondary"
-      aria-label={formatMessage({ id: 'general.start-again' })}
-      title={formatMessage({ id: 'general.start-again' })}
-      onClick={props.onClick}
-    >
-      {formatMessage({ id: 'postcode.back-to-search' })}
-    </button>
+    <section>
+      <button
+        className="eiw-btn-secondary"
+        aria-label={formatMessage({ id: 'general.start-again' })}
+        title={formatMessage({ id: 'general.start-again' })}
+        onClick={props.onClick}
+      >
+        {formatMessage({ id: 'postcode.back-to-search' })}
+      </button>
+    </section>
   );
 }
 
