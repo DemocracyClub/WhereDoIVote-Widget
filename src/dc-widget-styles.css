@@ -540,7 +540,7 @@ ul.inline-list li.Ballot {
   padding: 0;
   margin:0;
   clear: both;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 ul.inline-list li.Ballot:after {
@@ -549,19 +549,8 @@ ul.inline-list li.Ballot:after {
   clear: both;
 }
 
-ul.inline-list h2 {
-  float: left;
-  width: calc(100% - 8.5rem);
-  margin: 0;
-}
-
 ul.inline-list h2.full-width {
   width: 100%;
-}
-
-ul.inline-list p {
-  clear: left;
-  padding-top: 1rem;
 }
 
 ul.inline-list button {
@@ -622,7 +611,6 @@ button.toggled.arrow.inline-button::after {
 
 .BallotInfo {
     margin-left:1.5rem;
-    padding-top: 1.5rem;
 }
 .Candidates {
   margin: 1rem 0;
