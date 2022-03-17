@@ -38,4 +38,3 @@ JS_FILE=$(cat build/asset-manifest.json | jq -r '.files."main.js"')
 
 deploy-to-s3 ./build/${JS_FILE} ec_widget.js
 deploy-to-s3 ./demo.html demo.html
-deploy-to-s3 ./public/img/logo-with-text.png logo-with-text.png

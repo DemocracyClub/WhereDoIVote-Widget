@@ -1,0 +1,43 @@
+name: DC Production deploy
+
+on:
+  push:
+      branches:
+        - 'master'
+
+env:
+  S3_BUCKET: ${{ secrets.S3_BUCKET }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+  AWS_REGION: eu-west-2
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    name: Install and test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: npm install
+      - run: npm test a
+
+  build:
+    needs: install
+    runs-on: ubuntu-latest
+    environment: dc_prod_deploy
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - uses: actions/setup-node@v2
+      - run: npm install
+
+      - name: Deploy to production
+        run: ./deploy-dc.sh prod
