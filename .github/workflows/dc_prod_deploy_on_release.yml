@@ -3,7 +3,7 @@ name: DC Production deploy
 on:
   push:
       branches:
-        - 'master'
+        - 'various-design-changes'
 
 env:
   S3_BUCKET: ${{ secrets.S3_BUCKET }}
