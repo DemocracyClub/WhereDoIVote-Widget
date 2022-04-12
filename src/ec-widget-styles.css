@@ -20,8 +20,7 @@
   --eiw-darker-grey: #6f777b;
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
-  --eiw-sanserif-font: 'Swiss 721', sans-serif;
-  --eiw-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
+  --eiw-sanserif-font: "Swis721LtBTW05-Medium","helvetica","arial",sans-serif;
   --eiw-font-size-heading: 1.5rem;
   --eiw-font-size-default: 1.2rem;
   --eiw-font-size-smaller: 1rem;
@@ -70,7 +69,7 @@
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
   --eiw-sanserif-font: 'Avenir', sans-serif;
-  --eiw-serif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
+  --eiw-sanserif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --eiw-font-size-heading: 1.5rem;
   --eiw-font-size-default: 1.2rem;
   --eiw-font-size-smaller: 1rem;
@@ -162,7 +161,7 @@
 }
 
 /*--------------------------------------------------------------
-# Container styles 
+# Container styles
 --------------------------------------------------------------*/
 
 .ElectionInformationWidget {
@@ -181,7 +180,7 @@
   border-radius: 0 3px;
   clear: both;
   background: #fff;
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   padding: var(--eiw-spacing-default);
   padding-bottom: 0.75rem;
 }
@@ -194,7 +193,7 @@ h1.eiw-header,
 .ElectionInformationWidget .form-label-bold {
   font-weight: bold;
   display: block;
-  padding: 1rem 0 1rem 2rem;
+  padding: 1rem 0 1rem 1rem;
   margin: -1rem -1rem 1rem -1rem;
   font-family: var(--eiw-sanserif-font);
   color: var(--eiw-text-dark-blue);
@@ -212,36 +211,22 @@ h1.eiw-header,
   font-weight: normal;
   display: block;
   margin: 0.5rem 0;
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
 }
 
 .ElectionInformationWidget a {
-  color: var(--eiw-bright-pink-accent);
-  text-decoration: none;
-  position: relative;
+  color: var(--eiw-text-dark-blue);
+  text-decoration: underline;
   font-weight: normal;
-  font-family: var(--eiw-serif-font);
+  cursor: pointer;
 }
 
-.ElectionInformationWidget a::after {
-  content: "";
-  width: 100%;
-  height: 1px;
-  border-bottom:solid 1px var(--eiw-bright-pink-transparent);
-  bottom: 0.05rem;
-  display: inline-block;
-  left: 0;
-  position: absolute;
-}
 
-.ElectionInformationWidget a:hover,
-.ElectionInformationWidget a:active {
-  text-decoration: none;
-}
+
 
 .ElectionInformationWidget a:hover::after,
 .ElectionInformationWidget a:active::after {
-  border-bottom:solid 1px var(--eiw-bright-pink-accent);
+  border-bottom:solid 1px var(--eiw-text-dark-blue);
 }
 
 .ElectionInformationWidget button.eiw-btn-primary,
@@ -251,7 +236,7 @@ h1.eiw-header,
   background-color: var(--eiw-text-dark-blue);
   border: 0;
   padding: 0.4em 0.6em;
-  margin: 0.5em 0 0 1rem;
+  margin: 0.5em 0 0 0;
   font-size: var(--eiw-font-size-heading);
   color: #fff;
   display: inline-block;
@@ -335,7 +320,7 @@ a.eiw-btn-seconday:hover {
 .ErrorMessage p {
   margin: 0.5rem 0;
   font-size: var(--eiw-font-size-smallest);
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
 }
 
 .Notification a {
@@ -354,7 +339,7 @@ a.eiw-btn-seconday:hover {
   line-height: var(--eiw-line-height-default);
   border: var(--eiw-border-width) solid var(--eiw-body-text-colour);
   padding: 0.314em 0.25em 0.25em;
-  margin: 0 0 .5rem 1rem;
+  margin: 0 0 .5rem 0;
 }
 .ElectionInformationWidget form > .form-group + .form-group {
   margin-top: 1.5em;
@@ -384,7 +369,7 @@ a.eiw-btn-primary::after {
 --------------------------------------------------------------*/
 
 .PollingStation .address p {
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   font-size: var(--eiw-font-size-default);
 }
 
@@ -405,7 +390,7 @@ a.eiw-btn-primary::after {
 }
 
 .AddressPicker option {
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   color: var(--eiw-body-text-colour);
 }
 
@@ -423,7 +408,7 @@ a.eiw-btn-primary::after {
 li {
   color: var(--eiw-body-text-colour);
   font-size: var(--eiw-font-size-default);
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   list-style: disc;
 }
 li, p {
@@ -446,7 +431,7 @@ footer {
   text-align: center;
   align-items: center;
   border-bottom: none;
-  color: var(--eiw-bright-pink-accent);  
+  color: var(--eiw-bright-pink-accent);
   font-family: var(--eiw-sanserif-font);
 }
 
@@ -457,7 +442,7 @@ footer {
 .ElectionInformationWidget footer a:active {
   border-bottom: none;
   text-decoration: underline;
-  color: var(--eiw-bright-pink-accent); 
+  color: var(--eiw-bright-pink-accent);
 }
 
 .LanguageToggle {
@@ -472,7 +457,7 @@ footer {
 }
 
 .ElectionInformationWidget footer a img {
-  margin-left: 0.25rem;
+  margin-left: -0.5rem;
 }
 .Logo {
   text-decoration: none;
@@ -539,7 +524,7 @@ ul.inline-list li.Ballot {
   padding: 0;
   margin:0;
   clear: both;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 ul.inline-list li.Ballot:after {
@@ -548,19 +533,8 @@ ul.inline-list li.Ballot:after {
   clear: both;
 }
 
-ul.inline-list h2 {
-  float: left;
-  width: calc(100% - 8.5rem);
-  margin: 0;
-}
-
 ul.inline-list h2.full-width {
   width: 100%;
-}
-
-ul.inline-list p {
-  clear: left;
-  padding-top: 1rem;
 }
 
 ul.inline-list button {
@@ -582,8 +556,8 @@ button.inline-button::before {
   top: 0.4em;
   left:0;
   transition: all 0.2s ease;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 0.45em solid transparent;
   border-right: 0.45em solid transparent;
   content: '';
@@ -611,17 +585,19 @@ button.toggled.inline-button::after {
 }
 
 button.toggled.arrow.inline-button::after {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 0.5em solid transparent;
   border-right: 0.5em solid transparent;
   border-top: none;
   border-bottom: 0.75em solid var(--eiw-bright-blue-accent);
 }
 
+.BallotInfo {
+    margin-left:1.5rem;
+}
 .Candidates {
   margin: 1rem 0;
-  float: left;
   width: 100%;
   clear: both;
 }
@@ -641,7 +617,7 @@ button.toggled.arrow.inline-button::after {
 .party-name {
   font-size: var(--eiw-font-size-smaller);
   margin: 0;
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
   display: inline;
   color: var(--eiw-body-text-colour);
   position: relative;
@@ -663,11 +639,11 @@ button.toggled.arrow.inline-button::after {
 .candidate-name {
   font-size: var(--eiw-font-size-smaller);
   margin: 0;
-  display: inline; 
+  display: inline;
 }
 
 .candidate-name a {
-  font-family: var(--eiw-serif-font);
+  font-family: var(--eiw-sanserif-font);
 }
 
 .party-52.candidate-name::before {
@@ -705,8 +681,12 @@ button.toggled.arrow.inline-button::after {
   background: var(--party-colour-party-83);
 }
 .party-55.candidate-name::before {
-  background: var(--party-colour-party-55);  
+  background: var(--party-colour-party-55);
 }
 .party-103.candidate-name::before {
   background: var(--party-colour-party-103);
+}
+
+section + section {
+    margin-top: 2rem;
 }

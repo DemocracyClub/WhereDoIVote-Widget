@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 
 function NoUpcomingElection(props) {
   return (
-    <article className="NoUpcomingElection">
+    <div className="NoUpcomingElection">
       <h1 className="eiw-header">
         <FormattedMessage
           id="elections.unknown"
@@ -12,7 +12,7 @@ function NoUpcomingElection(props) {
         />
       </h1>
       <Notifications list={props.notifications} />
-    </article>
+    </div>
   );
 }
 

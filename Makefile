@@ -14,12 +14,12 @@ dist_dir:
 	mkdir -p dist
 
 stage_build_dc: dist_dir
-	PUBLIC_URL=$(STAGE_URL)/dc REACT_APP_API_KEY=$(REACT_APP_API_KEY) npm run dc:build:prod
+	PUBLIC_URL=$(STAGE_URL)/dc REACT_APP_API_KEY=$(REACT_APP_API_KEY) npm run dc:build:sandbox
 	mv build dist/dc
 
 
 stage_build_ec: dist_dir
-	PUBLIC_URL=$(STAGE_URL)/ec REACT_APP_API_KEY=$(REACT_APP_API_KEY) npm run ec:build:prod
+	PUBLIC_URL=$(STAGE_URL)/ec REACT_APP_API_KEY=$(REACT_APP_API_KEY) npm run ec:build:sandbox
 	mv build dist/ec
 
 stage_sync_to_s3:

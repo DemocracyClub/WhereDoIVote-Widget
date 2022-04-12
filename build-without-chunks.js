@@ -15,6 +15,10 @@ if (
   throw new Error('REACT_APP_API_KEY must be set to create a production build');
 }
 
+if (process.env.NODE_ENV === 'production' && !('PUBLIC_URL' in process.env)) {
+  throw new Error('PUBLIC_URL must be set to create a production build');
+}
+
 config.optimization.splitChunks = {
   cacheGroups: {
     default: false,

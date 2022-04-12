@@ -1,125 +1,149 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <link rel="icon" href="data:;base64,=">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="robots" content="noindex" />
-  <meta name="theme-color" content="#000000">
-  <style>
-    .column {
-      width: auto;
-      box-sizing: border-box;
-      float: left;
-      position: relative;
-    }
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="data:;base64,=">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#000000">
+    <style>
+        .column {
+            width: auto;
+            box-sizing: border-box;
+            float: left;
+            position: relative;
+        }
 
-    @media only screen and (min-width: 800px) {
-      .column {
-        float: left;
-        position: relative;
-        width: 33%;
+        @media only screen and (min-width: 800px) {
+            .column {
+                float: left;
+                position: relative;
+                width: 33%;
 
-        box-sizing: border-box;
-        padding: 10px;
-      }
+                box-sizing: border-box;
+                padding: 10px;
+            }
 
-      .column-offset-1 {
-        left: 33%;
-      }
+            .column-offset-1 {
+                left: 33%;
+            }
 
-      .column-offset-2 {
-        left: 66%;
-      }
+            .column-offset-2 {
+                left: 66%;
+            }
 
-      .column-inset-1 {
-        left: -33%;
-      }
+            .column-inset-1 {
+                left: -33%;
+            }
 
-      .column-inset-2 {
-        left: -66%;
-      }
-    }
+            .column-inset-2 {
+                left: -66%;
+            }
+        }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif
+        }
 
-    .header {
-      width: auto;
-      padding: 20px;
-      border: 1px solid black;
-    }
-  </style>
+        .header {
+            width: auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
 
-  <title>WhereDoIVote-Widget-Demo</title>
-</head>
+    <title>WhereDoIVote-Widget-Demo</title>
+  </head>
 
-<body>
-  <main>
-    <div class="header">
-      <h1>Lorem Ipsum Town Council</h1>
-    </div>
-    <div class="container">
-      <div class="column column-one">
-        <h3>Test postcodes</h3>
-        <p>For <strong>mock</strong> data, you can view <a
-            href="https://github.com/DemocracyClub/WhereDoIVote-Widget/tree/master/public/example-responses"
-            target="_blank">all the postcodes we currently have fixtures for on our Github</a></p>
-        <p>For <strong>sandbox</strong> data, you can view <a
-            href="https://developers.democracyclub.org.uk/api/v1/#sandbox-outputs-2" target="_blank">the Sandbox outputs
+  <body>
+    <main>
+      <div class="header">
+        <h1>Lorem Ipsum Town Council</h1>
+      </div>
+      <div class="container">
+        <div class="column column-one">
+          <h2>Test postcodes</h2>
+          <h3>Mock data</h3>
+          <p><a
+          href="https://github.com/DemocracyClub/WhereDoIVote-Widget/tree/master/public/example-responses"
+          target="_blank">All the postcodes we currently have fixtures for on our Github</a></p>
+          <h3>Sandbox data</h3>
+          <p><a
+          href="https://developers.democracyclub.org.uk/api/v1/#sandbox-outputs-2" target="_blank">Sandbox outputs
             section of the Democracy Club API docs</a></p>
+          <ul>
+            <li>AA11AA - No upcoming ballots</li>
+            <li>AA12AA - One upcoming ballot, station known, with candidates</li>
+            <li>AA12AB - One upcoming ballot, station not known, with candidates</li>
+            <li>AA13AA - We need to show the user an address picker. Each of the following <code>/address</code> calls has different polling station info:
+              <ul>
+                <li>address slug <a href="http://developers.democracyclub.org.uk/api/v1/sandbox/address/10035187881">10035187881</a></li>
+                <li>address slug <a href="http://developers.democracyclub.org.uk/api/v1/sandbox/address/10035187882">10035187882</a></li>
+                <li>address slug <a href="http://developers.democracyclub.org.uk/api/v1/sandbox/address/10035187883">10035187883</a></li>
+              </ul>
+            </li>
+            <li>AA14AA - Four upcoming ballots across 3 future dates with a cancellation:
+              <ul>
+                <li><code>mayor.lewisham.2018-05-03</code> - Mayoral election</li>
+                <li><code>local.lewisham.blackheath.2018-05-03</code> - This election is cancelled and rescheduled on 2018-05-10</li>
+                <li><code>local.lewisham.blackheath.2018-05-10</code> - This election replaces the cancelled <code>local.lewisham.blackheath.2018-05-03</code></li>
+                <li><code>parl.lewisham-east.by.2018-06-14</code> - This election is scheduled but we don't know of any candidates yet</li></ul></li>
+            <li>
+              AA15AA - Northern Ireland. This example shows the <code>custom_finder</code> key in use. We can use this to redirect users to Electoral Office for Northern Ireland's website for polling station data.</li>
+            <li>EH11YJ - Scotland. This example shows different registration and electoral services contact details.</li>
+           </ul>
+
+        </div>
+
+        <div class="column column-two">
+          Integer erat ex, tincidunt et mollis at, porttitor ut arcu. Praesent orci mauris, finibus eget placerat non,
+          aliquet pharetra lectus. Duis imperdiet nulla a dui mattis vulputate. Proin quis vestibulum elit. Proin eget
+          lorem leo. Praesent semper nisl ac ornare elementum. Suspendisse non ipsum eget ex malesuada eleifend ac commodo
+          purus. Curabitur semper tellus magna, sed cursus ex feugiat et. Aenean ut est sed elit dictum semper. Sed sit
+          amet velit nec dui elementum vestibulum.
+          <br /><br />
+          <noscript>
+            <iframe src="https://wheredoivote.co.uk/embed/" style="width:100%; height:1100px" frameborder="0"
+                    scrolling="no"></iframe>
+          </noscript>
+          <div id="dc_wdiv" data-elections="true" data-language="en" aria-live="polite" role="region"></div>
+          <br />
+          Aliquam libero tortor, fermentum ut nibh quis, rutrum venenatis nisi. Cras aliquet dictum mollis. Aenean gravida
+          dui nec nisl aliquam porttitor. Donec vitae egestas lacus. Integer malesuada tellus non semper eleifend. Cras
+          varius tellus at venenatis laoreet. Maecenas lobortis ex ac nisl eleifend posuere. Aliquam auctor odio at
+          fermentum volutpat. Vestibulum nec feugiat ipsum. Nam non tincidunt dolor. Mauris ac odio id purus elementum
+          tempor. Sed venenatis eu nisl eu eleifend.
+        </div>
+
+        <div class="column column-three">
+                  Phasellus tristique eros ac quam malesuada pulvinar. Ut fringilla hendrerit ultricies. Aliquam bibendum tellus
+                  vel turpis vehicula faucibus. Etiam a commodo urna. Ut finibus lacinia orci, sed pellentesque nunc congue ac.
+                  Etiam tristique faucibus rhoncus. Cras consequat placerat nisl. Duis placerat convallis nisi, ac tempor ex
+                  laoreet ac. Sed volutpat elit non auctor accumsan. Sed dictum luctus lacus, sit amet ullamcorper mauris maximus
+                  a.
+
+                  Nunc sagittis, urna sed tristique pellentesque, nulla nibh fermentum diam, et sollicitudin libero augue non
+                  tortor. Maecenas varius consectetur nisl, sed rhoncus enim volutpat nec. Nulla viverra vitae libero a semper.
+                  Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus ac nisl eu metus tempus interdum at sed
+                  dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra rutrum mauris, sit amet fermentum
+                  sem consectetur mollis. Proin sollicitudin quis ex dapibus porttitor. Sed et turpis interdum, ornare sem
+                  tristique, iaculis ante. Suspendisse aliquet a urna non tempor. Vestibulum consequat erat ultrices mattis
+                  tempus.
+
+                  Suspendisse aliquam mattis nibh id pellentesque. Fusce consectetur auctor sapien, nec iaculis sapien laoreet
+                  nec. Aenean ullamcorper ante eget quam cursus bibendum. Quisque facilisis tristique justo. Nulla pellentesque
+                  mauris a feugiat congue. Nulla tincidunt, dui id finibus rhoncus, orci massa maximus odio, eget efficitur purus
+                  quam sagittis augue. Cras ultrices tellus neque, ac lacinia turpis tempus vel. Aliquam sollicitudin porttitor
+                  viverra. Vivamus sed sem a turpis dictum volutpat. Aliquam consectetur ut ligula eu condimentum. Sed arcu massa,
+                  auctor nec sem ut, aliquam varius erat. Mauris neque lectus, finibus vitae augue ut, imperdiet congue metus. Nam
+                  fermentum nunc urna, at semper mi auctor quis. Sed elementum mauris eget varius rutrum. Praesent id orci ac ex
+                  fermentum dapibus.
+
+        </div>
       </div>
-
-      <div class="column column-two">
-        Integer erat ex, tincidunt et mollis at, porttitor ut arcu. Praesent orci mauris, finibus eget placerat non,
-        aliquet pharetra lectus. Duis imperdiet nulla a dui mattis vulputate. Proin quis vestibulum elit. Proin eget
-        lorem leo. Praesent semper nisl ac ornare elementum. Suspendisse non ipsum eget ex malesuada eleifend ac commodo
-        purus. Curabitur semper tellus magna, sed cursus ex feugiat et. Aenean ut est sed elit dictum semper. Sed sit
-        amet velit nec dui elementum vestibulum.
-        <br /><br />
-        <noscript>
-          <iframe src="https://wheredoivote.co.uk/embed/" style="width:100%; height:1100px" frameborder="0"
-            scrolling="no"></iframe>
-        </noscript>
-        <div id="dc_wdiv" data-elections="true" data-language="en" aria-live="polite" role="region"></div>
-        <br />
-        Aliquam libero tortor, fermentum ut nibh quis, rutrum venenatis nisi. Cras aliquet dictum mollis. Aenean gravida
-        dui nec nisl aliquam porttitor. Donec vitae egestas lacus. Integer malesuada tellus non semper eleifend. Cras
-        varius tellus at venenatis laoreet. Maecenas lobortis ex ac nisl eleifend posuere. Aliquam auctor odio at
-        fermentum volutpat. Vestibulum nec feugiat ipsum. Nam non tincidunt dolor. Mauris ac odio id purus elementum
-        tempor. Sed venenatis eu nisl eu eleifend.
-      </div>
-
-      <div class="column column-three">
-        Phasellus tristique eros ac quam malesuada pulvinar. Ut fringilla hendrerit ultricies. Aliquam bibendum tellus
-        vel turpis vehicula faucibus. Etiam a commodo urna. Ut finibus lacinia orci, sed pellentesque nunc congue ac.
-        Etiam tristique faucibus rhoncus. Cras consequat placerat nisl. Duis placerat convallis nisi, ac tempor ex
-        laoreet ac. Sed volutpat elit non auctor accumsan. Sed dictum luctus lacus, sit amet ullamcorper mauris maximus
-        a.
-
-        Nunc sagittis, urna sed tristique pellentesque, nulla nibh fermentum diam, et sollicitudin libero augue non
-        tortor. Maecenas varius consectetur nisl, sed rhoncus enim volutpat nec. Nulla viverra vitae libero a semper.
-        Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus ac nisl eu metus tempus interdum at sed
-        dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra rutrum mauris, sit amet fermentum
-        sem consectetur mollis. Proin sollicitudin quis ex dapibus porttitor. Sed et turpis interdum, ornare sem
-        tristique, iaculis ante. Suspendisse aliquet a urna non tempor. Vestibulum consequat erat ultrices mattis
-        tempus.
-
-        Suspendisse aliquam mattis nibh id pellentesque. Fusce consectetur auctor sapien, nec iaculis sapien laoreet
-        nec. Aenean ullamcorper ante eget quam cursus bibendum. Quisque facilisis tristique justo. Nulla pellentesque
-        mauris a feugiat congue. Nulla tincidunt, dui id finibus rhoncus, orci massa maximus odio, eget efficitur purus
-        quam sagittis augue. Cras ultrices tellus neque, ac lacinia turpis tempus vel. Aliquam sollicitudin porttitor
-        viverra. Vivamus sed sem a turpis dictum volutpat. Aliquam consectetur ut ligula eu condimentum. Sed arcu massa,
-        auctor nec sem ut, aliquam varius erat. Mauris neque lectus, finibus vitae augue ut, imperdiet congue metus. Nam
-        fermentum nunc urna, at semper mi auctor quis. Sed elementum mauris eget varius rutrum. Praesent id orci ac ex
-        fermentum dapibus.
-
-      </div>
-    </div>
-  </main>
-</body>
+    </main>
+  </body>
 
 
 </html>

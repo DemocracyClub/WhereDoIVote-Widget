@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 die() {
     echo >&2 "$@"
@@ -34,8 +35,9 @@ deploy-to-s3() {
 rm -rf build
 npm run dc:build:prod
 
-JS_FILE=$(cat build/asset-manifest.json | jq -r '.files."main.js"')
+JS_PATH=$(cat build/asset-manifest.json | jq -r '.files."main.js"')
+JS_FILE=$(basename $JS_PATH)
 
-deploy-to-s3 ./build/${JS_FILE} wdiv.js
+deploy-to-s3 ./build/static/js/${JS_FILE} wdiv.js
 deploy-to-s3 ./demo.html demo.html
-deploy-to-s3 ./public/img/logo-with-text.png logo-with-text.png
+deploy-to-s3 ./build/img/logo.svg img/logo.svg

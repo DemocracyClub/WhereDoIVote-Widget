@@ -1,17 +1,26 @@
 import React from 'react';
 import CandidateList from './CandidateList';
 import PartyList from './PartyList';
+import { injectIntl } from 'react-intl';
 
 function Candidates(props) {
+  const ballot = props.ballot;
+  const candidatesVerified = ballot.candidates.length > 1 && ballot.candidates_verified;
+  const { formatMessage } = props.intl;
   return (
-    <section className="Candidates" data-testid="candidates">
-      {props.ballot.voting_system.uses_party_lists === true ? (
-        <PartyList {...props} />
-      ) : (
-        <CandidateList candidates={props.ballot.candidates} />
+    <>
+      {candidatesVerified && !ballot.cancelled && (
+        <section className="Candidates" data-testid="candidates">
+          <h3>{formatMessage({ id: 'elections.candidates_heading' })}</h3>
+          {props.ballot.voting_system.uses_party_lists === true ? (
+            <PartyList {...props} />
+          ) : (
+            <CandidateList candidates={props.ballot.candidates} />
+          )}
+        </section>
       )}
-    </section>
+    </>
   );
 }
 
-export default Candidates;
+export default injectIntl(Candidates);

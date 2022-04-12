@@ -15,14 +15,16 @@ const ErrorMessage = injectIntl(ErrorMessageTemplate);
 function StartAgainButtonTemplate(props) {
   const { formatMessage } = props.intl;
   return (
-    <button
-      className="eiw-btn-secondary"
-      aria-label={formatMessage({ id: 'general.start-again' })}
-      title={formatMessage({ id: 'general.start-again' })}
-      onClick={props.onClick}
-    >
-      {formatMessage({ id: 'postcode.back-to-search' })}
-    </button>
+    <section>
+      <button
+        className="eiw-btn-secondary"
+        aria-label={formatMessage({ id: 'general.start-again' })}
+        title={formatMessage({ id: 'general.start-again' })}
+        onClick={props.onClick}
+      >
+        {formatMessage({ id: 'postcode.back-to-search' })}
+      </button>
+    </section>
   );
 }
 
@@ -43,9 +45,6 @@ const Loader = injectIntl(LoaderTemplate);
 
 function BuiltByTemplate(props) {
   const { formatMessage } = props.intl;
-  const accessibleTitle = `${formatMessage({ id: 'general.visit-website-of' })} ${formatMessage({
-    id: 'general.dc-club',
-  })}`;
   return (
     <div>
       <a
@@ -54,11 +53,9 @@ function BuiltByTemplate(props) {
             ? 'https://electoralcommission.org.uk/'
             : 'https://democracyclub.org.uk/'
         }
-        title={process.env.REACT_APP_BRAND === 'EC' ? '' : { accessibleTitle }}
         target="_top"
         className="Logo"
       >
-        {process.env.REACT_APP_BRAND === 'EC' ? '' : formatMessage({ id: 'general.built-by' })}
         <img
           alt={
             process.env.REACT_APP_BRAND === 'EC'
@@ -68,7 +65,7 @@ function BuiltByTemplate(props) {
           src={
             process.env.REACT_APP_BRAND === 'EC'
               ? 'https://ukelectoralcommission.files.wordpress.com/2014/03/logo2.png'
-              : 'https://widget.wheredoivote.co.uk/logo.svg'
+              : process.env.PUBLIC_URL + '/img/logo.svg'
           }
           width={process.env.REACT_APP_BRAND === 'EC' ? '120px' : '40px'}
         />
