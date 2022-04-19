@@ -24,6 +24,7 @@
           }
         }
       },
+      "advance_voting_station": null,
       "notifications": [],
       "ballots": [
         {

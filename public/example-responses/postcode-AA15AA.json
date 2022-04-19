@@ -10,6 +10,7 @@
         "report_problem_url": null,
         "station": null
       },
+      "advance_voting_station": null,
       "notifications": [
         {
           "type": "voter_id",

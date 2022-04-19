@@ -68,7 +68,8 @@
         "station": null,
         "report_problem_url": null,
         "custom_finder": null
-      }
+      },
+      "advance_voting_station": null
     }
   ],
   "address_picker": false,

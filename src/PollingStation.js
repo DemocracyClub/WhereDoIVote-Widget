@@ -13,12 +13,12 @@ function PollingStation(props) {
   });
   return (
     <section className="PollingStation">
-      <h1 className="eiw-header">
-        <FormattedMessage id="station.your-station" description="Your station" />
-      </h1>
-      <div data-testid="address" className="address">
+      <h2 className="eiw-secondary-header">
+        <FormattedMessage id="station.your-station" description="Vote on Polling Day" />
+      </h2>
+      <address data-testid="address" className="address">
         <p>{splitAddress.slice(0, splitAddress.length - 1)}</p>
-      </div>
+      </address>
       <p>
         <FormattedMessage
           id="station.opening-hours"

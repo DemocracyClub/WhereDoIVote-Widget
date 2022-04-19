@@ -165,7 +165,7 @@ describe('ElectionInformationWidget Address picker', () => {
     mockResponse('address', addressId);
     fireEvent.click(button);
     const pollingStation = await waitForElement(() => document.querySelector('.PollingStation'));
-    expect(pollingStation).toHaveTextContent('Your polling station');
+    expect(pollingStation).toHaveTextContent('Vote on polling day');
   });
 });
 

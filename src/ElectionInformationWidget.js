@@ -18,6 +18,7 @@ import AdditionalFutureElections from './AdditionalFutureElections';
 import StationNotFound from './StationNotFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
+import AdvanceVoting from './AdvanceVoting';
 
 import EC_styles from '!!raw-loader!./ec-widget-styles.css'; // eslint-disable-line
 import DC_styles from '!!raw-loader!./dc-widget-styles.css'; // eslint-disable-line
@@ -29,6 +30,7 @@ function ElectionInformationWidget(props) {
   const [currentError, setCurrentError] = useState(undefined);
   const [station, setStation] = useState(undefined);
   const [stationNotFound, setStationNotFound] = useState(false);
+  const [advanceVotingStation, setAdvanceVotingStation] = useState(undefined);
   const [noUpcomingElection, setNoUpcomingElection] = useState(false);
   const [notifications, setNotifications] = useState(undefined);
   const [addressList, setAddressList] = useState(undefined);
@@ -43,6 +45,7 @@ function ElectionInformationWidget(props) {
     setAddressList(undefined);
     setElectoralServices(undefined);
     setStationNotFound(false);
+    setAdvanceVotingStation(undefined);
     setNoUpcomingElection(false);
     setNotifications(null);
     setCurrentError(undefined);
@@ -88,7 +91,17 @@ function ElectionInformationWidget(props) {
       } else {
         setNoUpcomingElection(true);
       }
+      setLoading(false);
 
+      if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
+        setAdvanceVotingStation(nextBallotDate.advance_voting_station);
+      } else if (nextBallotDate && nextBallotDate.polling_station.polling_station_known === false) {
+        setStationNotFound(true);
+      } else if (response.address_picker) {
+        setAddressList(response.addresses);
+      } else {
+        setNoUpcomingElection(true);
+      }
       setLoading(false);
     },
     [api, props.enableElections]
@@ -142,6 +155,12 @@ function ElectionInformationWidget(props) {
             addressList={addressList}
             lookupChosenAddress={lookupChosenAddress}
             {...props}
+          />
+        )}
+        {advanceVotingStation && (
+          <AdvanceVoting
+            advance_voting_station={advanceVotingStation}
+            notifications={notifications}
           />
         )}
         {station && <PollingStation station={station} notifications={notifications} />}

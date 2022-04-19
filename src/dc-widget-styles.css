@@ -8,6 +8,7 @@
   --eiw-text-black: #0b0c0c;
   --eiw-bright-blue-wcag-fff-contrast-3-1: #009cd6;
   --eiw-bright-blue-wcag-fff-contrast-3-5: #0092c8;
+  --eiw-light-blue-table-row: #e4f3fb;
   --eiw-bright-blue-accent: #007CAD;
   --eiw-bright-pink-accent: #E6007C;
   --eiw-bright-pink-transparent: rgba(236, 0, 140,0.3);
@@ -377,12 +378,79 @@ a.eiw-btn-primary::after {
 
 .PollingStation .address p {
   font-family: var(--eiw-sanserif-font);
-  font-size: var(--eiw-font-size-default);
+  font-size: var(--eiw-font-size-smaller);
 }
 
 .directions {
   margin-top: var(--eiw-spacing-default);
 }
+
+/*--------------------------------------------------------------
+# Advance Voting Station
+--------------------------------------------------------------*/
+
+.AdvancePollingStation .address p {
+  font-family: var(--eiw-sanserif-font);
+  font-size: var(--eiw-font-size-smaller);
+}
+
+.directions {
+  margin-top: var(--eiw-spacing-default);
+}
+
+.ds-table {
+  overflow-x: auto;
+  border-bottom: 1px solid;
+  margin-bottom: 2em; 
+}
+
+.ds-table table {
+  position: relative;
+  border-top: 0;
+  border-collapse: collapse;
+  min-width: 100%;
+  text-align: left;
+}
+
+.ds-table th, .ds-table td, .ds-table caption {
+  padding: 0.5rem;
+}
+
+.ds-table caption {
+  padding-left: 0;
+}
+
+.ds-table td {
+  font-family: var(--eiw-sanserif-font);
+}
+
+.ds-table tr:nth-child(even) {
+  background-color: var(--eiw-light-blue-table-row);
+  border-bottom: 1px solid; 
+}
+
+.ds-table caption {
+  font-size: var(--eiw-font-size-default);
+  text-align: left;
+  border-bottom: 1px solid; 
+}
+
+.ds-table caption > * {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.ds-table td + td,
+.ds-table th + th,
+.ds-table th + td {
+  border-left: 1px solid;
+}
+
+.ds-table th:not([scope="row"]) {
+  border-bottom: 1px solid;
+}
+
+
 
 /*--------------------------------------------------------------
 # Address finder
@@ -720,4 +788,57 @@ button.toggled.arrow.inline-button::after {
 
 #PartyToolTip {
   width:100px;
+}
+/* dc-design system table styles  */
+.ds-table {
+  overflow-x: auto;
+  border-bottom: 1px solid;
+  margin-bottom: 2em; 
+}
+
+.ds-table table {
+  position: relative;
+  border-top: 0;
+  border-collapse: collapse;
+  min-width: 100%;
+  text-align: left;
+}
+
+.ds-table th, .ds-table td, .ds-table caption {
+  padding: 0.5rem;
+}
+
+.ds-table caption {
+  padding-left: 0;
+}
+
+.ds-table td {
+  font-family: var(--eiw-sanserif-font);
+}
+
+.ds-table tr:nth-child(even) {
+  background-color: var(--eiw-light-blue-table-row);
+  border-bottom: 1px solid; 
+}
+
+.ds-table caption {
+  font-size: var(--eiw-font-size-default);
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid; 
+}
+
+.ds-table caption > * {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.ds-table td + td,
+.ds-table th + th,
+.ds-table th + td {
+  border-left: 1px solid;
+}
+
+.ds-table th:not([scope="row"]) {
+  border-bottom: 1px solid;
 }

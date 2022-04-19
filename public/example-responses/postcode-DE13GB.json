@@ -118,7 +118,8 @@
         },
         "report_problem_url": "https://wheredoivote.co.uk/report_problem/?source=api&source_url=%2Fapi%2Fbeta%2Fpostcode%2FDE13GB%2F",
         "custom_finder": null
-      }
+      },
+      "advance_voting_station": null
     }
   ],
   "address_picker": false,
