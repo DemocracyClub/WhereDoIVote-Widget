@@ -8,7 +8,7 @@ function CandidateList(props) {
   function handleCandidateList(candidates) {
     if (process.env.REACT_APP_BRAND === 'EC') {
       return (
-        <div>
+        <ul>
           {candidates.map((candidate) => (
             <li className="CandidateListItem" key={candidate.person.ynr_id}>
               <h4 className={`candidate-name party-${candidate.party.party_id.split(':')[1]}`}>
@@ -19,11 +19,11 @@ function CandidateList(props) {
               </h5>
             </li>
           ))}
-        </div>
+        </ul>
       );
     } else {
       return (
-        <div>
+        <ul>
           {candidates.map((candidate) => (
             <li className="CandidateListItem" key={candidate.person.ynr_id}>
               <h4 className={`candidate-name party-${candidate.party.party_id.split(':')[1]}`}>
@@ -42,12 +42,12 @@ function CandidateList(props) {
               </h5>
             </li>
           ))}
-        </div>
+        </ul>
       );
     }
   }
 
-  return <ul>{handleCandidateList(candidates)}</ul>;
+  return <div>{handleCandidateList(candidates)}</div>;
 }
 
 export default injectIntl(CandidateList);
