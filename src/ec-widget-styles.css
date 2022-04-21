@@ -4,8 +4,10 @@
 :host {
   /* :host is for Shadow Dom, :root is for older browsers */
   --eiw-body-text-colour: #58595b;
+  --eiw-text-white: #fff;
   --eiw-heading-text-colour: #403f41;
   --eiw-heading-bg-light-blue-25:#cbe6f2;
+  --eiw-table-bg-light-blue: #E5F3F7;
   --eiw-text-black: #0b0c0c;
   --eiw-text-dark-blue: #003057;
   --eiw-text-light-blue-50:#25b2d3;
@@ -246,7 +248,7 @@ h1.eiw-header,
 
 .eiw-btn-secondary,
 a.eiw-btn-secondary {
-  color: white;
+  color: var(--eiw-text-white);
   font-size: var(--eiw-font-size-smallest);
   background-color: var(--eiw-darker-grey);
   border-bottom: none;
@@ -370,14 +372,85 @@ a.eiw-btn-primary::after {
 
 .PollingStation .address p {
   font-family: var(--eiw-sanserif-font);
-  font-size: var(--eiw-font-size-default);
-  text-align: left;
-  border-bottom: 1px solid white;
+  font-size: var(--eiw-font-size-smaller);
 }
 
 .directions {
   margin-top: var(--eiw-spacing-default);
 }
+
+
+/*--------------------------------------------------------------
+# Advance Voting Station
+--------------------------------------------------------------*/
+.AdvancePollingStation .address p {
+  font-family: var(--eiw-sanserif-font);
+  font-size: var(--eiw-font-size-smaller);
+}
+
+.directions {
+  margin-top: var(--eiw-spacing-default);
+}
+
+.ds-table {
+  overflow-x: auto;
+  border-bottom: 1px solid white;
+  margin-bottom: 2em; 
+}
+
+.ds-table table {
+  position: relative;
+  border-top: 0;
+  border-collapse: collapse;
+  min-width: 100%;
+  text-align: left;
+}
+
+.ds-table th, .ds-table td, .ds-table caption { 
+  padding: 0.5rem;
+}
+
+.ds-table caption {
+  padding-left: 0;
+}
+
+.ds-table td {
+  font-family: var(--eiw-sanserif-font);
+  background-color: var(--eiw-table-bg-light-blue);
+  color: var(--eiw-text-dark-blue)
+}
+
+.ds-table th {
+  background-color: var(--eiw-text-dark-blue); 
+  color: var(--eiw-text-white);
+}
+
+.ds-table tr:nth-child(even) {
+  border-bottom: 1px solid white; 
+}
+
+.ds-table caption {
+  font-size: var(--eiw-font-size-default);
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid white;
+}
+
+.ds-table caption > * {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.ds-table td + td,
+.ds-table th + th,
+.ds-table th + td {
+  border-left: 1px solid white;
+}
+
+.ds-table th:not([scope="row"]) {
+  border-bottom: 1px solid white;
+}
+
 
 /*--------------------------------------------------------------
 # Address finder
