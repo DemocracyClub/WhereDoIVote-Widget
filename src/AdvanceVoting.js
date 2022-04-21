@@ -61,7 +61,7 @@ function AdvanceVoting(props) {
           description="Your council is trialling a system that allows you to vote in person before polling day. You can vote in advance at this location, or vote at your polling station as normal on polling day."
         />
       </p>
-      <h2 className="eiw-secondary-header">
+      <h2 className="eiw-secondary-header" data-testid="advance-voting-station">
         <FormattedMessage id="advance-voting-station.found" description="Vote before polling day" />
       </h2>
       <p>
