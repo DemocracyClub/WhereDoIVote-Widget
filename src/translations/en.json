@@ -24,6 +24,7 @@
   "advance-voting-station.date": "Date",
   "advance-voting-station.open": "Open",
   "station.not-found": "Where to vote",
+  "station.found": "Where to vote",
   "station.your-station": "Vote on polling day",
   "station.opening-hours": "Polling stations are open from 7am to 10pm on polling day",
   "elections.unknown":"We don't know of any upcoming elections in your area",

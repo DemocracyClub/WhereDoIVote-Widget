@@ -16,6 +16,7 @@ import withElections from './higher-order-components/withElections';
 import PollingDate from './PollingDate';
 import AdditionalFutureElections from './AdditionalFutureElections';
 import StationNotFound from './StationNotFound';
+import StationFound from './StationFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
 import AdvanceVoting from './AdvanceVoting';
@@ -157,6 +158,8 @@ function ElectionInformationWidget(props) {
             {...props}
           />
         )}
+
+        {station && <StationFound />}
         {advanceVotingStation && (
           <AdvanceVoting
             advance_voting_station={advanceVotingStation}
