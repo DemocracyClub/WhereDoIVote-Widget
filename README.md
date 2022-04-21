@@ -82,3 +82,7 @@ npm start
 ```
 
 To run the test suite locally, you will need at least node 13 due to the internationalization features required by React-Intl. See https://formatjs.io/docs/runtime-requirements
+
+```
+npm test
+```

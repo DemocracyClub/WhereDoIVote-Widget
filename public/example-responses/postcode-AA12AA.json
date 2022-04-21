@@ -53,6 +53,16 @@
                 "party_id": "party:53",
                 "party_name": "Labour Party"
               },
+              "previous_party_affiliations": [
+                {
+                  "party_id": "party:90",
+                  "party_name": "Liberal Democrats"
+                }, 
+                {
+                  "party_id": "party:52",
+                  "party_name": "Conservative and Unionist Party"
+                }
+              ],
               "person": {
                 "ynr_id": 42253,
                 "name": "Angela Patricia Piddock",

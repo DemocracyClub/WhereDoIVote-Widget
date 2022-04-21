@@ -12,6 +12,7 @@
     "react-dom": "^16.13.0",
     "react-intl": "^4.5.3",
     "react-shadow": "^18.1.0",
+    "react-tooltip": "^4.2.21",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "react-scripts": "3.4.1",
     "react-axe": "^3.4.1",
     "react-test-renderer": "^16.13.0",
+    "react-tooltip": "^4.2.21",
     "rewire": "^5.0.0",
     "sinon": "^9.0.2"
   },
