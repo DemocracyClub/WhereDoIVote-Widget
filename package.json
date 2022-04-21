@@ -13,7 +13,7 @@
     "react-intl": "^4.5.3",
     "react-shadow": "^18.1.0",
     "react-tooltip": "^4.2.21",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@baristalabs/react-app-rewire-raw-loader": "^0.1.3",
