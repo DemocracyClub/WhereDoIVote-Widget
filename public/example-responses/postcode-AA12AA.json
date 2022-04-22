@@ -24,6 +24,30 @@
           }
         }
       },
+      "advance_voting_station": {
+        "name": "Test",
+        "address": "Test",
+        "postcode": "AA12AA",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            -3.119229,
+            51.510885
+          ]
+        },
+        "opening_times": [
+          [
+            "2018-11-20",
+            "10:00:00",
+            "16:00:00"
+          ],
+          [
+            "2018-11-21",
+            "10:00:00",
+            "16:00:00"
+          ]
+        ]
+      },
       "notifications": [],
       "ballots": [
         {

@@ -116,7 +116,8 @@
         "station": null,
         "report_problem_url": null,
         "custom_finder": null
-      }
+      },
+      "advance_voting_station": null
     },
     {
       "date": "2019-05-23",
@@ -150,7 +151,8 @@
         "station": null,
         "report_problem_url": null,
         "custom_finder": null
-      }
+      },
+      "advance_voting_station": null
     }
   ],
   "address_picker": false,

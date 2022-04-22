@@ -165,7 +165,7 @@ describe('ElectionInformationWidget Address picker', () => {
     mockResponse('address', addressId);
     fireEvent.click(button);
     const pollingStation = await waitForElement(() => document.querySelector('.PollingStation'));
-    expect(pollingStation).toHaveTextContent('Your polling station');
+    expect(pollingStation).toHaveTextContent('Vote on polling day');
   });
 });
 
@@ -503,5 +503,23 @@ describe('ElectionInformationWidget Accessibility', () => {
     let stationNotFound = await waitForElement(() => getByTestId('station-not-found'));
     const accessibleTitle = `<h1 class="eiw-header">Where to vote</h1>`;
     expect(stationNotFound).toContainHTML(accessibleTitle);
+  });
+
+  it('should render the advance voting station when the station is known and the advance polling station exists', async () => {
+    let enteredPostcode = 'AA12AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const AdvanceVotingStation = await waitForElement(() => getByTestId('advance-voting-station'));
+    expect(AdvanceVotingStation).toHaveTextContent(en_messages['advance-voting-station.found']);
+  });
+
+  it('should not render the advance voting station when the station is not known', async () => {
+    let enteredPostcode = 'AA15AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
+    expect(Widget).not.toHaveTextContent(en_messages['advance-voting-station.found']);
   });
 });

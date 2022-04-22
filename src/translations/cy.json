@@ -16,6 +16,12 @@
   "address.choose-address":"Dewisa dy gyfeiriad",
   "address.not-in-list": "Nid yw fy nghyfeiriad yn y rhestr",
   "future.more-elections": "More elections in your area",
+  "advance-voting-station.trial": "Your council is trialling a system that allows you to vote in person before polling day. You can vote in advance at this location, or vote at your polling station as normal on polling day.",
+  "advance-voting-station.found": "Vote before polling day",
+  "advance-voting-station.your-station": "Your advance voting station is:",
+  "advance-voting-station.opening-hours": "Advance polling stations opening times",
+  "advance-voting-station.date": "Date",
+  "advance-voting-station.open": "Open",
   "station.not-found": "Ble i bleidleisio",
   "station.your-station": "Dy orsaf bleidleisio",
   "station.opening-hours": "Mae gorsafoedd pleidleisio ar agor o 7y.b. tan 10y.h. ar ddiwrnod y bleidlais",
@@ -44,5 +50,6 @@
   "numbers.10": "10",
   "pollingdate.ballot-papers": "You will have {num} {bp} to fill out",
   "pollingdate.on-date-ballot-papers": "On {date} you will have {num} {bp} to fill out",
-  "pollingdate.parish": "There may also be parish, town or community council elections in some areas."
+  "pollingdate.parish": "There may also be parish, town or community council elections in some areas.",
+  "candidate.previous_party_affiliations": "Previous party affiliations"
 }
