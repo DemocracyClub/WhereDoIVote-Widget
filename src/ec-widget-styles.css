@@ -23,12 +23,12 @@
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
   --eiw-sanserif-font: "Swis721LtBTW05-Medium","helvetica","arial",sans-serif;
-  --eiw-font-size-heading: 1.5rem;
-  --eiw-font-size-default: 1.2rem;
-  --eiw-font-size-smaller: 1rem;
-  --eiw-font-size-smallest: 0.85rem;
-  --eiw-line-height-default: 1.2;
-  --eiw-spacing-default: 1rem;
+  --eiw-font-size-heading: 1.2em;
+  --eiw-font-size-default: 1em;
+  --eiw-font-size-smaller: 0.875em;
+  --eiw-font-size-smallest: 0.5em;
+  --eiw-line-height-default: 1.2em;
+  --eiw-spacing-default: 1em;
   --eiw-border-width: 2px;
   --party-colour-independent: #767676;
   --party-colour-party-52: #0087dc;
@@ -72,12 +72,12 @@
   --eiw-outline-focus: #ffbf47;
   --eiw-sanserif-font: 'Avenir', sans-serif;
   --eiw-sanserif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
-  --eiw-font-size-heading: 1.5rem;
-  --eiw-font-size-default: 1.2rem;
-  --eiw-font-size-smaller: 1rem;
-  --eiw-font-size-smallest: 0.85rem;
-  --eiw-line-height-default: 1.2;
-  --eiw-spacing-default: 1rem;
+  --eiw-font-size-heading: 1em;
+  --eiw-font-size-default: 1.2em;
+  --eiw-font-size-smaller: 1em;
+  --eiw-font-size-smallest: 0.85em;
+  --eiw-line-height-default: 1.2em;
+  --eiw-spacing-default: 1em;
   --eiw-border-width: 2px;
   --party-colour-independent: #767676;
   --party-colour-party-52: #0087dc;
@@ -115,6 +115,9 @@
   box-sizing: inherit;
 }
 
+.WidgetContainer{
+  font-size:16px
+}
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -149,8 +152,7 @@
   clip-path: none;
   color: #21759b;
   display: block;
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: var(--eiw-font-size-smaller);
   font-weight: bold;
   height: auto;
   left: 5px;
@@ -184,7 +186,7 @@
   background: #fff;
   font-family: var(--eiw-sanserif-font);
   padding: var(--eiw-spacing-default);
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.75em;
 }
 
 /*--------------------------------------------------------------
@@ -195,7 +197,7 @@ h1.eiw-header,
 .ElectionInformationWidget .form-label-bold {
   font-weight: bold;
   display: block;
-  padding: 1rem 0 1rem 1rem;
+  padding: 1em 0 1rem 1rem;
   margin: -1rem -1rem 1rem -1rem;
   font-family: var(--eiw-sanserif-font);
   color: var(--eiw-text-dark-blue);
@@ -237,8 +239,8 @@ h1.eiw-header,
   font-family: var(--eiw-sanserif-font);
   background-color: var(--eiw-text-dark-blue);
   border: 0;
-  padding: 0.4em 0.6em;
-  margin: 0.5em 0 0 0;
+  padding: 0.4rem 0.6rem;
+  margin: 0.5rem 0 0 0;
   font-size: var(--eiw-font-size-heading);
   color: #fff;
   display: inline-block;
@@ -276,7 +278,7 @@ a.eiw-btn-seconday:hover {
   display: inline-block;
   border: var(--eiw-border-width) solid var(--eiw-bright-blue);
   color: var(--eiw-bright-blue);
-  font-size: 1rem;
+  font-size: var(--eiw-font-size-default);
   font-family: Avenir, sans-serif;
   margin: 0;
   padding: 1rem 2rem 1.0625rem 2rem;
@@ -297,7 +299,7 @@ a.eiw-btn-seconday:hover {
   font-size: var(--eiw-font-size-default);
   border: var(--eiw-border-width) solid var(--eiw-error-red);
   margin-top: 2px;
-  margin-bottom: 4px;
+  margin-bottom: 2rem;
   padding: var(--eiw-spacing-default);
   font-family: var(--eiw-sanserif-font);
   text-transform: none;
@@ -321,7 +323,7 @@ a.eiw-btn-seconday:hover {
 .Notification p,
 .ErrorMessage p {
   margin: 0.5rem 0;
-  font-size: var(--eiw-font-size-smallest);
+  font-size: var(--eiw-font-size-smaller);
   font-family: var(--eiw-sanserif-font);
 }
 
@@ -340,11 +342,11 @@ a.eiw-btn-seconday:hover {
   font-size: var(--eiw-font-size-default);
   line-height: var(--eiw-line-height-default);
   border: var(--eiw-border-width) solid var(--eiw-body-text-colour);
-  padding: 0.314em 0.25em 0.25em;
+  padding: 0.314rem 0.25rem 0.25rem;
   margin: 0 0 .5rem 0;
 }
 .ElectionInformationWidget form > .form-group + .form-group {
-  margin-top: 1.5em;
+  margin-top: 1.5rem;
   padding-top: 0;
 }
 .ElectionInformationWidget input[type='search'],
@@ -395,7 +397,7 @@ a.eiw-btn-primary::after {
 .ds-table {
   overflow-x: auto;
   border-bottom: 1px solid white;
-  margin-bottom: 2em; 
+  margin-bottom: 2rem; 
 }
 
 .ds-table table {
@@ -522,24 +524,24 @@ footer {
 
 .LanguageToggle {
   float: right;
-  margin: 0.6rem 0.5rem 0 1rem;
-  font-size: var(--eiw-font-size-smallest);
+  margin: 0.6em 0.5em 0 1em;
+  font-size: var(--eiw-font-size-smaller);
 }
 
 .ElectionInformationWidget footer {
   display: block;
-  padding-top: 0.75rem;
+  padding-top: 0.75em;
 }
 
 .ElectionInformationWidget footer a img {
-  margin-left: -0.5rem;
+  margin-left: -0.5em;
 }
 .Logo {
   text-decoration: none;
   font-size: var(--eiw-font-size-smallest);
 }
 .footer-logo {
-  margin-left: .5rem;
+  margin-left: .5em;
 }
 /*--------------------------------------------------------------
 # Loading spinner
@@ -555,7 +557,7 @@ footer {
 }
 .loading-spinner {
   position: relative;
-  margin: 2rem;
+  margin: 2em;
   opacity: 1;
   transition: opacity linear 0.1s;
 }
@@ -590,7 +592,7 @@ strong.date {
 }
 
 ul.inline-list {
-  padding-left: 0rem;
+  padding-left: 0em;
   margin: 0;
 }
 
@@ -599,7 +601,7 @@ ul.inline-list li.Ballot {
   padding: 0;
   margin:0;
   clear: both;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 }
 
 ul.inline-list li.Ballot:after {
@@ -613,7 +615,7 @@ ul.inline-list h2.full-width {
 }
 
 ul.inline-list button {
-  width: 7.75rem;
+  width: 7.75em;
   padding:0 0 0 1em;
   box-sizing: border-box;
   position: relative;
@@ -669,10 +671,10 @@ button.toggled.arrow.inline-button::after {
 }
 
 .BallotInfo {
-    margin-left:1.5rem;
+    margin-left:1.5em;
 }
 .Candidates {
-  margin: 1rem 0;
+  margin: 1em 0;
   width: 100%;
   clear: both;
 }
@@ -685,7 +687,7 @@ button.toggled.arrow.inline-button::after {
 
 .Candidates li {
   list-style: none;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.25em;
   clear: left;
 }
 
@@ -701,13 +703,13 @@ button.toggled.arrow.inline-button::after {
 
 .candidate-name::before {
   content: '';
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.75em;
+  height: 0.75em;
   border-radius: 100%;
   background: var(--party-colour-independent);
   display: inline-block;
-  margin: 0 0.3rem 0 0;
-  bottom: 0rem;
+  margin: 0 0.3em 0 0;
+  bottom: 0em;
   position: relative;
 }
 
@@ -763,5 +765,5 @@ button.toggled.arrow.inline-button::after {
 }
 
 section + section {
-    margin-top: 2rem;
+    margin-top: 2em;
 }
