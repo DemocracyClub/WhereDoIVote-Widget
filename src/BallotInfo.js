@@ -1,8 +1,10 @@
 import React from 'react';
 import Candidates from './Candidates';
+import { FormattedMessage } from 'react-intl';
 
 function BallotInfo(props) {
   const ballot = props.ballot;
+  const { formatMessage } = props.intl;
   return (
     <section className="BallotInfo" data-testid="ballot-info">
       {ballot.cancelled &&
@@ -14,7 +16,12 @@ function BallotInfo(props) {
           </p>
         ))}
       <Candidates {...props} />
-      <a href={ballot.wcivf_url}>Find out more at WhoCanIVoteFor</a>
+      <a href={ballot.wcivf_url} title={formatMessage({ id: 'elections.find-out-more' })}>
+        <FormattedMessage
+          id="elections.find-out-more"
+          description="Find out more at WhoCanIVoteFor"
+        />
+      </a>
     </section>
   );
 }
