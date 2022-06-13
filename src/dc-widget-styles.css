@@ -19,12 +19,12 @@
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
   --eiw-sanserif-font: 'Avenir', sans-serif;
-  --eiw-font-size-heading: 1.2rem;
-  --eiw-font-size-default: 1rem;
-  --eiw-font-size-smaller: 0.875rem;
-  --eiw-font-size-smallest: 0.5rem;
+  --eiw-font-size-heading: 1.5rem;
+  --eiw-font-size-default: 1.2rem;
+  --eiw-font-size-smaller: 1rem;
+  --eiw-font-size-smallest: 0.875rem;
   --eiw-line-height-default: 1.2em;
-  --eiw-spacing-default: 1em;
+  --eiw-spacing-default: 1.2em;
   --eiw-border-width: 2px;
   --party-colour-independent: #767676;
   --party-colour-party-52: #0087dc;
