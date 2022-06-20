@@ -137,55 +137,57 @@ function ElectionInformationWidget(props) {
         <style type="text/css">{DC_styles}</style>
       )}
       <WarningBanner dataSource={dataSource} />
-      <section className="ElectionInformationWidget Card">
-        {currentError && <ErrorMessage currentError={currentError} />}
-        {!searchInitiated && (
-          <PostcodeSelector
-            lookupGivenPostcode={lookupGivenPostcode}
-            setSearchInitiated={setSearchInitiated}
-            setCurrentError={setCurrentError}
-            {...props}
-          />
-        )}
-        {loading && <Loader />}
-        {!addressList && dates && dates.length >= 1 && (
-          <PollingDate single={true} date={dates[0]} postcode={postcode} {...props} />
-        )}
-        {addressList && !station && (
-          <AddressPicker
-            addressList={addressList}
-            lookupChosenAddress={lookupChosenAddress}
-            {...props}
-          />
-        )}
+      <div className="WidgetContainer">
+        <section className="ElectionInformationWidget Card">
+          {currentError && <ErrorMessage currentError={currentError} />}
+          {!searchInitiated && (
+            <PostcodeSelector
+              lookupGivenPostcode={lookupGivenPostcode}
+              setSearchInitiated={setSearchInitiated}
+              setCurrentError={setCurrentError}
+              {...props}
+            />
+          )}
+          {loading && <Loader />}
+          {!addressList && dates && dates.length >= 1 && (
+            <PollingDate single={true} date={dates[0]} postcode={postcode} {...props} />
+          )}
+          {addressList && !station && (
+            <AddressPicker
+              addressList={addressList}
+              lookupChosenAddress={lookupChosenAddress}
+              {...props}
+            />
+          )}
 
-        {station && <StationFound />}
-        {advanceVotingStation && (
-          <AdvanceVoting
-            advance_voting_station={advanceVotingStation}
-            notifications={notifications}
-          />
-        )}
-        {station && <PollingStation station={station} notifications={notifications} />}
-        {stationNotFound && (
-          <StationNotFound notifications={notifications} electoral_services={electoralServices} />
-        )}
-        {noUpcomingElection && (
-          <NoUpcomingElection
-            notifications={notifications}
-            electoral_services={electoralServices}
-          />
-        )}
-        {!addressList && dates && dates.length > 1 && (
-          <>
-            <hr />
-            <AdditionalFutureElections dates={dates.slice(1)} postcode={postcode} {...props} />
-          </>
-        )}
+          {station && <StationFound />}
+          {advanceVotingStation && (
+            <AdvanceVoting
+              advance_voting_station={advanceVotingStation}
+              notifications={notifications}
+            />
+          )}
+          {station && <PollingStation station={station} notifications={notifications} />}
+          {stationNotFound && (
+            <StationNotFound notifications={notifications} electoral_services={electoralServices} />
+          )}
+          {noUpcomingElection && (
+            <NoUpcomingElection
+              notifications={notifications}
+              electoral_services={electoralServices}
+            />
+          )}
+          {!addressList && dates && dates.length > 1 && (
+            <>
+              <hr />
+              <AdditionalFutureElections dates={dates.slice(1)} postcode={postcode} {...props} />
+            </>
+          )}
 
-        {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
-        <Footer {...props} />
-      </section>
+          {searchInitiated && !loading && <StartAgainButton onClick={resetWidget} />}
+          <Footer {...props} />
+        </section>
+      </div>
     </ShadowDomFactory>
   );
 }
