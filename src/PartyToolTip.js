@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 
 function PartyToolTip(props) {
@@ -20,7 +21,10 @@ function PartyToolTip(props) {
         </button>
 
         <ReactTooltip id="PartyToolTip" effect="solid" type="info">
-          Affiliated with the following parties in the last 12 months:
+          <FormattedMessage
+            id="candidate.affiliations"
+            description="Affiliated with the following parties in the last 12 months:"
+          />
           {prevParties.map((party, i) => (
             <span key={i}>
               {' '}

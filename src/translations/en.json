@@ -29,6 +29,7 @@
   "station.opening-hours": "Polling stations are open from 7am to 10pm on polling day",
   "elections.unknown":"We don't know of any upcoming elections in your area",
   "elections.candidates_heading":"Candidates",
+  "elections.find-out-more": "Find out more at WhoCanIVoteFor",
   "elections.get-in-touch-with": "Your polling station address should be on your poll card, delivered by post before the election. If you haven't received one, or aren't sure where you should vote, you should get in touch with",
   "elections.ni-office": "The Electoral Office for Northern Ireland",
   "directions.show-google-maps": "Show me on Google Maps",
@@ -53,5 +54,6 @@
   "pollingdate.ballot-papers": "You will have {num} {bp} to fill out",
   "pollingdate.on-date-ballot-papers": "On {date} you will have {num} {bp} to fill out",
   "pollingdate.parish": "There may also be parish, town or community council elections in some areas.", 
-  "candidate.previous_party_affiliations": "Previous party affiliations"
+  "candidate.previous_party_affiliations": "Previous party affiliations", 
+  "candidate.affiliations": "Affiliated with the following parties in the last 12 months:"
 }
