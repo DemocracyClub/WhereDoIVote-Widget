@@ -8,7 +8,7 @@ import ElectionInformationWidget from './ElectionInformationWidget';
 import cssVars from 'css-vars-ponyfill';
 
 if (process.env.NODE_ENV !== 'production') {
-  var axe = require('react-axe');
+  var axe = require('@axe-core/react');
   axe(React, ReactDOM, 1000);
 }
 
