@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^1.2.1",
     "css-vars-ponyfill": "^2.2.1",
     "es6-shim": "^0.35.5",
     "nvm": "^0.0.4",
