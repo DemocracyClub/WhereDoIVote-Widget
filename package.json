@@ -11,7 +11,7 @@
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
-    "react-intl": "^4.5.3",
+    "react-intl": "^5.0.2",
     "react-shadow": "^18.1.0",
     "react-tooltip": "^4.2.21",
     "styled-components": "^5.0.1"
@@ -31,9 +31,8 @@
     "lint-staged": "^10.0.8",
     "prettier": "^2.0.5",
     "raw-loader": "^4.0.0",
-    "react-app-rewired": "^2.1.5",
-    "react-scripts": "3.4.1",
-    "react-axe": "^3.4.1",
+    "react-app-rewired": "^2.2.1",
+    "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.0",
     "rewire": "^5.0.0",
     "sinon": "^9.0.2"
