@@ -60,6 +60,23 @@ Default Welsh with option to toggle to English:
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
+## Node Verion Manager (NVM)
+
+Similarly to pyenv, nvm is a tool to manage multiple versions of node. 
+Using nvm is recommended to avoid conflicts between different projects
+or to test out upgrades.
+
+To install:  `npm install nvm`
+
+How to use nvm:
+* To install lastest release of node: `nvm install node`
+* To install a specific version of node: `nvm install [version]`
+* To uninstall one version of node: `nvm uninstall [version]`
+* List all installed versions of node: `nvm ls`
+* List all remote versions of node: `nvm ls-remote`
+* Switch the installed version of node: `nvm use node` or `nvm use [version]`
+* Show where the node of specific version was installed: `nvm which [version]`
+
 ## Local development
 
 ```

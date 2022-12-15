@@ -453,13 +453,11 @@ describe('ElectionInformationWidget Accessibility', () => {
     const wrapper = renderWidget();
     getByTestId = wrapper.getByTestId;
   });
-
   it('should include an h1 at the top level of the postcode selector', async () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
-    let label = `<h1><label class="form-label-bold" for="postcode">`;
-    expect(PostcodeForm).toContainHTML(label);
+    let h1 = PostcodeForm.querySelector('h1');
+    expect(PostcodeForm).toContainElement(h1);
   });
-
   it('should accept Enter instead of clicking the button', async () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
     let button = `<button class="eiw-btn-primary" type="submit">${en_messages['postcode.submit-postcode-polling-station']}</button>`;
@@ -467,8 +465,9 @@ describe('ElectionInformationWidget Accessibility', () => {
   });
   it('should have a "for" attribute on the postcode form label', async () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
-    let label = `<label class="form-label-bold" for="postcode">`;
-    expect(PostcodeForm).toContainHTML(label);
+    // find the label using ID
+    let label = PostcodeForm.querySelector('label');
+    expect(label).toHaveAttribute('for', 'postcode');
   });
   it('includes descriptive titles on Google Directions link', async () => {
     let enteredPostcode = 'AA12AA';
