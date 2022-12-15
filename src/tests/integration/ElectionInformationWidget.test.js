@@ -309,7 +309,22 @@ describe('ElectionInformationWidget Notifications', () => {
     const notification = await waitForElement(() => getByTestId('notification'));
     expect(notification).toHaveTextContent('Uncontested Election');
   });
-
+  it('should show an uncontested election for SS30AB', async () => {
+    let enteredPostcode = 'SS30AB';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const notification = await waitForElement(() => getByTestId('notification'));
+    expect(notification).toHaveTextContent('Uncontested Election');
+  });
+  it('should show an uncontested election for SS30AC', async () => {
+    let enteredPostcode = 'SS30AC';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const notification = await waitForElement(() => getByTestId('notification'));
+    expect(notification).toHaveTextContent('Uncontested Election');
+  });
   it('does not show notification when there is no event to be aware of', async () => {
     let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
@@ -421,7 +436,7 @@ describe('ElectionInformationWidget Everything Widget', () => {
     expect(ElectionInfo).toHaveTextContent('You will have one ballot paper to fill out');
   });
 
-  it("shouldn't show candidates if election is cancelled", async () => {
+  it("shouldn't show candidates if election is cancelled for extraordinary reasons", async () => {
     let enteredPostcode = 'CO168EZ';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
