@@ -60,7 +60,7 @@
   "uncontested.header": "Uncontested Election",
   "uncontested.equal_candidates": "This election was uncontested because the number of candidates who stood was equal to the number of available seats. There {is_or_are} {seats_contested} {seat_or_seats} in {post}, and only {num_candidates} {candidate_or_candidates}.", 
   "uncontested.fewer_candidates": "This election was uncontested because the number of candidates who stood was fewer than the number of available seats. There {is_or_are} {seats_contested} {seat_or_seats} in {post}, and {num_candidates} {candidate_or_candidates}.",
-  "uncontested.fewer_candidates.not_zero": "No votes will be cast, and the {candidate_or_candidates} below {has_or_have} been automatically declared the {winner_or_winners}. A new election to fill the unclaimed {seat_or_seats} will be held within 35 working days of the original election date.",
+  "uncontested.fewer_candidates.not_zero": "A new election to fill the unclaimed {seat_or_seats} will be held within 35 working days of the original election date.",
   "cancelled.header": "Cancelled Election",
   "cancelled.message": "This election was cancelled.",
   "cancelled.rescheduled.header":"Uncontested and Rescheduled Election"

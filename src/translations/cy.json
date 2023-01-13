@@ -60,7 +60,7 @@
   "uncontested.header": "Etholiad Un Ymgeisydd",
   "uncontested.equal_candidates": "Ni chafwyd cystadleuaeth yn yr etholiad hwn, oherwydd roedd nifer yr ymgeiswyr a'r seddi ar gael yn gyfartal. Roedd {is_or_are} {seats_contested} {seat_or_seats} yn {post}, a {num_candidates} {candidate_or_candidates}.", 
   "uncontested.fewer_candidates": "Ni chafwyd cystadleuaeth yn yr etholiad hwn, oherwydd roedd nifer yr ymgeiswyr a'r yn llai na seddi ar gael. Roedd {is_or_are} {seats_contested} {seat_or_seats} yn {post}, a {num_candidates} {candidate_or_candidates}.", 
-  "uncontested.fewer_candidates.not_zero": "Ni fydd unrhyw bleidleisau'n cael eu bwrw, a datganwyd yn awtomatig mae'r {candidate_or_candidates} {has_or_have} yw'r {winner_or_winners}. Bydd etholiad newydd i lenwi'r {seat_or_seats} na hawliwyd yn cael ei gynnal o fewn 35 diwrnod gwaith i ddyddiad gwreiddiol yr etholiad.",
+  "uncontested.fewer_candidates.not_zero": "Bydd etholiad newydd i lenwi'r {seat_or_seats} na hawliwyd yn cael ei gynnal o fewn 35 diwrnod gwaith i ddyddiad gwreiddiol yr etholiad.",
   "cancelled.header": "Etholiad Wedi'i Ganslo",
   "cancelled.message": "Canslwyd yr etholiad hwn.",
   "cancelled.rescheduled.header":"Etholiad Heb Ymgeisydd ac Etholiad wedi'i Aildrefnu"
