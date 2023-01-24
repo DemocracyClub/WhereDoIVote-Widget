@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Install and test
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
           cache: 'npm'
@@ -31,12 +31,12 @@ jobs:
     environment: ec_prod_deploy
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
           cache: 'npm'
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
       - run: npm install
 
       - name: Deploy to production

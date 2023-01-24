@@ -23,8 +23,8 @@
   "advance-voting-station.opening-hours": "Advance polling stations opening times",
   "advance-voting-station.date": "Date",
   "advance-voting-station.open": "Open",
-  "station.not-found": "Where to vote",
   "station.found": "Where to vote",
+  "station.not-found": "Where to vote",
   "station.your-station": "Vote on polling day",
   "station.opening-hours": "Polling stations are open from 7am to 10pm on polling day",
   "elections.unknown":"We don't know of any upcoming elections in your area",
@@ -41,6 +41,7 @@
   "api.errors.generic-error": "Something went wrong. Please try again later.",
   "postcode.errors.invalid-postcode": "Please enter a valid postcode.",
   "partylist.list-type-message":"You will vote for your preferred party rather than a candidate on this ballot paper",
+  "numbers.0": "zero",
   "numbers.1": "one",
   "numbers.2": "two",
   "numbers.3": "three",
@@ -55,5 +56,12 @@
   "pollingdate.on-date-ballot-papers": "On {date} you will have {num} {bp} to fill out",
   "pollingdate.parish": "There may also be parish, town or community council elections in some areas.", 
   "candidate.previous_party_affiliations": "Previous party affiliations", 
-  "candidate.affiliations": "Affiliated with the following parties in the last 12 months:"
+  "candidate.affiliations": "Affiliated with the following parties in the last 12 months:",
+  "uncontested.header": "Uncontested Election",
+  "uncontested.equal_candidates": "This election was uncontested because the number of candidates who stood was equal to the number of available seats. There {is_or_are} {seats_contested} {seat_or_seats} in {post}, and only {num_candidates} {candidate_or_candidates}.", 
+  "uncontested.fewer_candidates": "This election was uncontested because the number of candidates who stood was fewer than the number of available seats. There {is_or_are} {seats_contested} {seat_or_seats} in {post}, and {num_candidates} {candidate_or_candidates}.",
+  "uncontested.fewer_candidates.not_zero": "A new election to fill the unclaimed {seat_or_seats} will be held within 35 working days of the original election date.",
+  "cancelled.header": "Cancelled Election",
+  "cancelled.message": "This election was cancelled.",
+  "cancelled.rescheduled.header":"Uncontested and Rescheduled Election"
 }

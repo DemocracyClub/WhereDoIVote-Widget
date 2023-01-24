@@ -36,7 +36,14 @@ replicating various standard and edge cases cases we need to handle:
 ## Uncontested elections:
 
 - SS30AA
+  - equal numbers of candidates and seats
   - **uses postcode-SS30AA.json**
+- SS30AB
+  - fewer candidates than seats
+  - **uses postcode-SS30AB.json**
+- SS30AC
+  - zero candidates
+  - **uses postcode-SS30AC.json**
 
 ## Address pickers:
 
