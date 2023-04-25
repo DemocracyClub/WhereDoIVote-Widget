@@ -44,6 +44,10 @@
   --party-colour-party-83: #48A5EE;
   --party-colour-party-55: #3A9E84;
   --party-colour-party-103: #F6CB2F;
+  --party-colour-party-7931: #44bbd6;
+  --party-colour-party-804: #e11f7e;
+  --party-colour-party-130: #008066;
+  --party-colour-party-305 : #008066;
   /* Unused by widget: */
   --eiw-bright-blue-hover: #009bd6;
   --eiw-global-radius: 0;
@@ -93,6 +97,10 @@
   --party-colour-party-83: #48A5EE;
   --party-colour-party-55: #3A9E84;
   --party-colour-party-103: #F6CB2F;
+  --party-colour-party-7931: #44bbd6;
+  --party-colour-party-804: #e11f7e;
+  --party-colour-party-130: #008066;
+  --party-colour-party-305 : #008066;
   /* Unused by widget: */
   --eiw-bright-blue-hover: #009bd6;
   --eiw-global-radius: 0;
@@ -747,7 +755,6 @@ button.toggled.arrow.inline-button::after {
 .party-85.candidate-name::before {
   background: var(--party-colour-party-85);
 }
-
 .party-39.candidate-name::before {
   background: var(--party-colour-party-39);
 }
@@ -762,6 +769,18 @@ button.toggled.arrow.inline-button::after {
 }
 .party-103.candidate-name::before {
   background: var(--party-colour-party-103);
+}
+.party-7931.candidate-name::before {
+  background: var(--party-colour-party-7931);
+}
+.party-804.candidate-name::before {
+  background: var(--party-colour-party-804);
+}
+.party-130.candidate-name::before {
+  background: var(--party-colour-party-130);
+}
+.party-305.candidate-name::before {
+  background: var(--party-colour-party-305);
 }
 
 section + section {

@@ -1,0 +1,154 @@
+{
+  "address_picker": false,
+  "addresses": [],
+  "dates": [
+    {
+      "date": "2018-11-22",
+      "polling_station": {
+        "polling_station_known": true,
+        "custom_finder": null,
+        "report_problem_url": "http://wheredoivote.co.uk/report_problem/?source=testing&source_url=testing",
+        "station": {
+          "id": "E09000033.39-york-room-lancaster-hall-hotel",
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -0.1785134375,
+              51.512779025
+            ]
+          },
+          "properties": {
+            "postcode": "W2 3EL",
+            "address": "York Room, Lancaster Hall Hotel\n35 Craven Terrace\nLondon"
+          }
+        }
+      },
+      "advance_voting_station": {
+        "name": "Test",
+        "address": "Test",
+        "postcode": "AA12AC",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            -3.119229,
+            51.510885
+          ]
+        },
+        "opening_times": [
+          [
+            "2018-11-20",
+            "10:00:00",
+            "16:00:00"
+          ],
+          [
+            "2018-11-21",
+            "10:00:00",
+            "16:00:00"
+          ]
+        ]
+      },
+      "notifications": [],
+      "ballots": [
+        {
+          "ballot_paper_id": "local.westminster.lancaster-gate.by.2018-11-22",
+          "ballot_title": "Westminster local election Lancaster Gate by-election",
+          "ballot_url": "https://developers.democracyclub.org.uk/api/v1/sandbox/elections/local.westminster.lancaster-gate.by.2018-11-22/",
+          "poll_open_date": "2018-11-22",
+          "elected_role": "Local Councillor",
+          "metadata": null,
+          "cancelled": false,
+          "replaced_by": null,
+          "replaces": null,
+          "election_id": "local.westminster.2018-11-22",
+          "election_name": "Westminster local election",
+          "post_name": "Lancaster Gate",
+          "candidates_verified": true,
+          "voting_system": {
+            "slug": "FPTP",
+            "name": "First-past-the-post",
+            "uses_party_lists": false
+          },
+          "seats_contested": 1,
+          "candidates": [
+            {
+              "list_position": null,
+              "party": {
+                "party_id": "party:305",
+                "party_name": "Green Party"
+              },
+              "previous_party_affiliations": [
+                {
+                  "party_id": "party:53",
+                  "party_name": "Labour Party"
+                }
+              ],
+              "person": {
+                "ynr_id": 42253,
+                "name": "Angela Patricia Piddock",
+                "absolute_url": "https://whocanivotefor.co.uk/person/42253/angela-patricia-piddock"
+              }
+            },
+            {
+              "list_position": null,
+              "party": {
+                "party_id": "party:130",
+                "party_name": "Scottish Green Party"
+              },
+              "person": {
+                "ynr_id": 42681,
+                "name": "Margot Joan Bright",
+                "absolute_url": "https://whocanivotefor.co.uk/person/42681/margot-joan-bright"
+              }
+            },
+            {
+              "list_position": null,
+              "party": {
+                "party_id": "party:804",
+                "party_name": "Trade Unionist and Socialist Coalition"
+              },
+              "person": {
+                "ynr_id": 42252,
+                "name": "Sally Elizabeth Gray",
+                "absolute_url": "https://whocanivotefor.co.uk/person/42252/sally-elizabeth-gray"
+              }
+            },
+            {
+              "list_position": null,
+              "party": {
+                "party_id": "party:7931",
+                "party_name": "Reform UK"
+              },
+              "person": {
+                "ynr_id": 7505,
+                "name": "Zack Polanski",
+                "absolute_url": "https://whocanivotefor.co.uk/person/7505/zack-polanski"
+              }
+            }
+          ],
+          "wcivf_url": "https://whocanivotefor.co.uk/elections/local.westminster.2018-11-22/post-LBW:E05000638/lancaster-gate"
+        }
+      ]
+    }
+  ],
+  "electoral_services": {
+    "council_id": "E09000033",
+    "name": "City of Westminster",
+    "email": "electoralservices@westminster.gov.uk",
+    "phone": "020 7641 2730",
+    "website": "http://www.westminster.gov.uk/",
+    "postcode": "WC2N 5HR",
+    "address": "Electoral Registration Officer\nWestminster City Council\n2nd Floor, City Hall\n5 Strand"
+  },
+  "postcode_location": {
+    "type": "Feature",
+    "properties": null,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.1804843,
+        51.5113775
+      ]
+    }
+  }
+}
