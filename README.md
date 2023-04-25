@@ -103,3 +103,14 @@ To run the test suite locally, you will need at least node 13 due to the interna
 ```
 npm test
 ```
+
+
+# Add new party colours
+
+1. Add the party to `src/dc-widget-styles.css` and `src/ec-widget-styles.css` both in the `root` and `host` sections. 
+2. Create a new class for the party in `src/dc-widget-styles.css` and `src/ec-widget-styles.css` both in the `root` and `host` sections, such as:
+```
+party-305.candidate-name::before {
+  background: var(--party-colour-party-305);
+} 
+```
