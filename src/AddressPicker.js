@@ -13,11 +13,14 @@ class AddressPicker extends React.Component {
 
   setAddress(event) {
     this.setState({ address: event.target.value });
+    if (event.target.selectedOptions.length > 0) {
+      this.props.setUPRN(event.target.selectedOptions[0].dataset.uprn);
+    }
   }
 
   addressOption(address, index) {
     return (
-      <option key={index} value={address.url}>
+      <option key={index} value={address.url} data-uprn={address.slug}>
         {address.address}
       </option>
     );
