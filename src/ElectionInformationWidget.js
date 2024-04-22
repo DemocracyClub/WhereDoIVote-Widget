@@ -36,6 +36,7 @@ function ElectionInformationWidget(props) {
   const [notifications, setNotifications] = useState(undefined);
   const [addressList, setAddressList] = useState(undefined);
   const [postcode, setPostcode] = useState(undefined);
+  const [uprn, setUPRN] = useState(undefined);
   const [dates, setDates] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
   const dataSource = process.env.REACT_APP_API;
@@ -156,6 +157,7 @@ function ElectionInformationWidget(props) {
             <AddressPicker
               addressList={addressList}
               lookupChosenAddress={lookupChosenAddress}
+              setUPRN={setUPRN}
               {...props}
             />
           )}
@@ -167,7 +169,15 @@ function ElectionInformationWidget(props) {
               notifications={notifications}
             />
           )}
-          {station && <PollingStation station={station} notifications={notifications} />}
+          {station && (
+            <PollingStation
+              station={station}
+              notifications={notifications}
+              postcode={postcode}
+              uprn={uprn}
+              electoralServices={electoralServices}
+            />
+          )}
           {stationNotFound && (
             <StationNotFound notifications={notifications} electoral_services={electoralServices} />
           )}
