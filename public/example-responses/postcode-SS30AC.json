@@ -25,6 +25,8 @@
           "replaced_by": null,
           "election_name": "Rochford local election",
           "post_name": "Foulness & The Wakerings",
+          "postal_voting_requirements": "EA-2022",
+          "requires_voter_id": "EA-2022",
           "ballot_title": "Rochford local election Foulness & The Wakerings",
           "elected_role": "Local Councillor",
           "wcivf_url": "https://whocanivotefor.co.uk/elections/local.rochford.foulness-the-wakerings.2019-05-02/foulness-the-wakerings/",

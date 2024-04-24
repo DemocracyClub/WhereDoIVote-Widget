@@ -25,6 +25,8 @@
           "replaced_by": null,
           "election_name": "Derby local election",
           "post_name": "Darley",
+          "postal_voting_requirements": "EA-2022",
+          "requires_voter_id": "EA-2022",
           "ballot_title": "Derby local election Darley",
           "elected_role": "Local Councillor",
           "wcivf_url": "https://whocanivotefor.co.uk/elections/local.derby.darley.2019-05-02/darley/",
