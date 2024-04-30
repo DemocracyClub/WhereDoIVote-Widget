@@ -22,6 +22,19 @@ function PollingDate(props) {
 
   const activeBallots = date.ballots.filter((b) => !b.cancelled);
 
+  // Loop through all ballots and see if any of the requires_voter_id
+  // values are set. If so, set next_date_requires_voter_id to that value
+  // This is because if any ballot requires voter ID, we need to tell the user
+  // to bring ID
+  let voter_id_requirements = false;
+  date.ballots.every(function (ballot) {
+    if (ballot.requires_voter_id) {
+      voter_id_requirements = ballot.requires_voter_id;
+      return voter_id_requirements;
+    }
+    return voter_id_requirements;
+  });
+
   return (
     <section
       data-testid={`date-${date.date}`}
@@ -73,6 +86,25 @@ function PollingDate(props) {
             id="pollingdate.parish"
             description="There may also be parish, town or community council elections in some areas."
           />
+        </p>
+      )}
+      {voter_id_requirements && <h3>Voter ID</h3>}
+      {voter_id_requirements === 'EA-2022' && (
+        <p>
+          {' '}
+          You’ll need to take photo ID with you if you’re voting in person.
+          <a href="https://www.electoralcommission.org.uk/voting-and-elections/voter-id/accepted-forms-photo-id">
+            Check the list of accepted forms of photo ID.
+          </a>
+        </p>
+      )}
+      {voter_id_requirements === 'EFA-2002' && (
+        <p>
+          {' '}
+          You’ll need to take photo ID with you if you’re voting in person.
+          <a href="https://www.eoni.org.uk/Vote/Voting-at-a-polling-place">
+            Check the list of accepted forms of photo ID.
+          </a>
         </p>
       )}
     </section>
