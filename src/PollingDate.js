@@ -92,7 +92,7 @@ function PollingDate(props) {
       {voter_id_requirements === 'EA-2022' && (
         <p>
           {' '}
-          You’ll need to take photo ID with you if you’re voting in person.
+          You’ll need to take photo ID with you if you’re voting in person.{' '}
           <a href="https://www.electoralcommission.org.uk/voting-and-elections/voter-id/accepted-forms-photo-id">
             Check the list of accepted forms of photo ID.
           </a>
@@ -101,7 +101,7 @@ function PollingDate(props) {
       {voter_id_requirements === 'EFA-2002' && (
         <p>
           {' '}
-          You’ll need to take photo ID with you if you’re voting in person.
+          You’ll need to take photo ID with you if you’re voting in person.{' '}
           <a href="https://www.eoni.org.uk/Vote/Voting-at-a-polling-place">
             Check the list of accepted forms of photo ID.
           </a>
