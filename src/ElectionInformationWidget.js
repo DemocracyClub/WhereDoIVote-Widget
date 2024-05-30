@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
@@ -130,6 +130,16 @@ function ElectionInformationWidget(props) {
     }
     setAddressList(undefined);
   }
+
+  useEffect(() => {
+    const el = document.getElementById('dc_wdiv');
+    const initPostcode = el.getAttribute('data-postcode');
+
+    if (initPostcode) {
+      setSearchInitiated(true);
+      lookupGivenPostcode(initPostcode);
+    }
+  }, [lookupGivenPostcode]);
 
   return (
     <ShadowDomFactory>
