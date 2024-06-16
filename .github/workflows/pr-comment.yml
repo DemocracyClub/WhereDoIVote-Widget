@@ -6,6 +6,9 @@ on:
 env:
   PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
 
+permissions:
+  pull-requests: write
+
 jobs:
   comment:
     runs-on: ubuntu-latest
