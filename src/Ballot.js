@@ -17,7 +17,7 @@ function Ballot(props) {
             🗳️
           </span>
         )}{' '}
-        {ballot.ballot_title}
+        {ballot.election_name}: {ballot.post_name}
       </h2>
       <BallotInfo {...props} />
     </li>

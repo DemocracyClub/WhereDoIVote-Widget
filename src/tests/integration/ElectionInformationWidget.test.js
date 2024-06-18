@@ -442,7 +442,7 @@ describe('ElectionInformationWidget Everything Widget', () => {
     typePostcode(enteredPostcode);
     submitPostcode();
     const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
-    expect(Widget).toHaveTextContent('Tendring local election St Osyth');
+    expect(Widget).toHaveTextContent('Tendring local election: St Osyth');
     expect(Widget).toHaveTextContent(
       'The poll for this election has been rescheduled due to the sad death of one of the candidates.'
     );
