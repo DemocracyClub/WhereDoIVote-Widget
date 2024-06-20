@@ -144,7 +144,7 @@ describe('Ballot Component', () => {
 
   it('should render the ballot information for a constituency', () => {
     const ballot = {
-      ballot_paper_id: 'senedd.2022-05-06',
+      ballot_paper_id: 'senedd.c.2022-05-06',
       cancelled: false,
       election_name: 'Welsh Election',
       post_name: 'Cardiff Central',
@@ -154,7 +154,7 @@ describe('Ballot Component', () => {
 
     const { getByTestId, getByText } = renderWithReactIntl(<Ballot ballot={ballot} />);
 
-    expect(getByTestId('senedd.2022-05-06')).toBeInTheDocument();
+    expect(getByTestId('senedd.c.2022-05-06')).toBeInTheDocument();
     expect(getByText('🗳️ Welsh Election: Cardiff Central Constituency')).toBeInTheDocument();
     expect(getByText('Constituency')).toBeInTheDocument();
   });
