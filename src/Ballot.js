@@ -5,10 +5,16 @@ import BallotInfo from './BallotInfo';
 function Ballot(props) {
   const ballot = props.ballot;
   const candidatesVerified = ballot.candidates.length > 1 && ballot.candidates_verified;
-  const isConstituency = ['parl', 'senedd', 'sp.c'].some((prefix) =>
+  const isConstituency = ['parl', 'senedd.c', 'sp.c'].some((prefix) =>
     ballot.ballot_paper_id.startsWith(prefix)
   );
   const isRegion = ['senedd.r', 'sp.r'].some((prefix) => ballot.ballot_paper_id.startsWith(prefix));
+  let divisionType = '';
+  if (isConstituency) {
+    divisionType = 'Constituency';
+  } else if (isRegion) {
+    divisionType = 'Region';
+  }
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>
       <h2 className={`eiw-secondary-header ${!candidatesVerified && 'full-width'}`}>
@@ -21,9 +27,7 @@ function Ballot(props) {
             🗳️
           </span>
         )}{' '}
-        {ballot.election_name}: {ballot.post_name}
-        {isConstituency ? ' Constituency' : ''}
-        {isRegion ? ' Region' : ''}
+        {ballot.election_name + ': ' + ballot.post_name + ' ' + divisionType}
       </h2>
       <BallotInfo {...props} />
     </li>
