@@ -23,7 +23,7 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm install
-      - run: npm test a
+      - run: npm test
 
   build:
     needs: install

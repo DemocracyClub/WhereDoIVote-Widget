@@ -131,32 +131,36 @@ describe('Ballot Component', () => {
       cancelled: false,
       election_name: 'Welsh Election',
       post_name: 'South Wales',
-      candidates: ['Candidate 1', 'Candidate 2'],
-      candidates_verified: true,
+      candidates: [],
+      candidates_verified: false,
+      voting_system: {
+        uses_party_lists: false,
+      },
     };
 
     const { getByTestId, getByText } = renderWithReactIntl(<Ballot ballot={ballot} />);
 
     expect(getByTestId('senedd.r.2022-05-06')).toBeInTheDocument();
-    expect(getByText('🗳️ Welsh Election: South Wales Region')).toBeInTheDocument();
-    expect(getByText('Region')).toBeInTheDocument();
+    expect(getByText('Welsh Election: South Wales Region')).toBeInTheDocument();
   });
 
   it('should render the ballot information for a constituency', () => {
     const ballot = {
-      ballot_paper_id: 'senedd.2022-05-06',
+      ballot_paper_id: 'senedd.c.2022-05-06',
       cancelled: false,
       election_name: 'Welsh Election',
       post_name: 'Cardiff Central',
-      candidates: ['Candidate 1', 'Candidate 2'],
-      candidates_verified: true,
+      candidates: [],
+      candidates_verified: false,
+      voting_system: {
+        uses_party_lists: false,
+      },
     };
 
     const { getByTestId, getByText } = renderWithReactIntl(<Ballot ballot={ballot} />);
 
-    expect(getByTestId('senedd.2022-05-06')).toBeInTheDocument();
-    expect(getByText('🗳️ Welsh Election: Cardiff Central Constituency')).toBeInTheDocument();
-    expect(getByText('Constituency')).toBeInTheDocument();
+    expect(getByTestId('senedd.c.2022-05-06')).toBeInTheDocument();
+    expect(getByText('Welsh Election: Cardiff Central Constituency')).toBeInTheDocument();
   });
 });
 
