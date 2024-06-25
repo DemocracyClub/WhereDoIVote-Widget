@@ -8,6 +8,7 @@ import {
   renderEnglishWidget,
   renderElectionsWidget,
   renderLegacyWidget,
+  renderWidgetWithPostcode,
   typePostcode,
   submitPostcode,
   mockResponse,
@@ -459,6 +460,18 @@ describe('ElectionInformationWidget Legacy Candidates Widget', () => {
     submitPostcode();
     const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
     expect(Widget).toHaveTextContent('Candidates');
+  });
+});
+
+describe('ElectionInformationWidget with pre-populated postcode', () => {
+  it('should skip stright to result if postcode pre-populated', async () => {
+    const postcode = 'AA12AA';
+    mockResponse('postcode', postcode);
+    renderWidgetWithPostcode(postcode);
+    const YourPollingStation = await waitForElement(() =>
+      document.querySelector('.PollingStation')
+    );
+    expect(YourPollingStation).toHaveTextContent(en_messages['station.your-station']);
   });
 });
 

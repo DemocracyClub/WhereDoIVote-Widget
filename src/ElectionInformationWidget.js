@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
@@ -24,8 +24,9 @@ import AdvanceVoting from './AdvanceVoting';
 import EC_styles from '!!raw-loader!./ec-widget-styles.css'; // eslint-disable-line
 import DC_styles from '!!raw-loader!./dc-widget-styles.css'; // eslint-disable-line
 
+const api = APIClientFactory();
+
 function ElectionInformationWidget(props) {
-  const api = APIClientFactory();
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [currentError, setCurrentError] = useState(undefined);
@@ -106,7 +107,7 @@ function ElectionInformationWidget(props) {
       }
       setLoading(false);
     },
-    [api, props.enableElections]
+    [props.enableElections]
   );
 
   const lookupGivenPostcode = useCallback(
@@ -116,7 +117,7 @@ function ElectionInformationWidget(props) {
       setCurrentError(undefined);
       api.fetchByPostcode(postcode).then(handleResponse).catch(handleError);
     },
-    [api, handleResponse]
+    [handleResponse]
   );
 
   function lookupChosenAddress(value) {
@@ -129,6 +130,16 @@ function ElectionInformationWidget(props) {
     }
     setAddressList(undefined);
   }
+
+  useEffect(() => {
+    const el = document.getElementById('dc_wdiv');
+    const initPostcode = el.getAttribute('data-postcode');
+
+    if (initPostcode) {
+      setSearchInitiated(true);
+      lookupGivenPostcode(initPostcode);
+    }
+  }, [lookupGivenPostcode]);
 
   return (
     <ShadowDomFactory>
