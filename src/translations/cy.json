@@ -63,5 +63,9 @@
   "uncontested.fewer_candidates.not_zero": "Bydd etholiad newydd i lenwi'r {seat_or_seats} na hawliwyd yn cael ei gynnal o fewn 35 diwrnod gwaith i ddyddiad gwreiddiol yr etholiad.",
   "cancelled.header": "Etholiad Wedi'i Ganslo",
   "cancelled.message": "Canslwyd yr etholiad hwn.",
-  "cancelled.rescheduled.header":"Etholiad Heb Ymgeisydd ac Etholiad wedi'i Aildrefnu"
+  "cancelled.rescheduled.header":"Etholiad Heb Ymgeisydd ac Etholiad wedi'i Aildrefnu",
+  "voter_id_requirements.header": "ID Pleidleisiwr",
+  "voter_id_requirements.instructions": "Bydd angen i chi dynnu llun ID i bleidleisio mewn gorsaf bleidleisio yn yr etholiad hwn. Nid oes angen eich cerdyn pleidleisio arnoch i bleidleisio. Rhaid i chi bleidleisio yn eich gorsaf bleidleisio benodedig. ",
+  "voter_id_requirements.acceptable-id": "Gwiriwch y rhestr o ffurfiau derbyniol o ID llun. ",
+  "voter_id_requirements.how-to-vote": "Darllenwch fwy am bleidleisio ym Mhrydain Fawr."
 }
