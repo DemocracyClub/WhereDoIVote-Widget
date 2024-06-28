@@ -63,5 +63,9 @@
   "uncontested.fewer_candidates.not_zero": "A new election to fill the unclaimed {seat_or_seats} will be held within 35 working days of the original election date.",
   "cancelled.header": "Cancelled Election",
   "cancelled.message": "This election was cancelled.",
-  "cancelled.rescheduled.header":"Uncontested and Rescheduled Election"
+  "cancelled.rescheduled.header":"Uncontested and Rescheduled Election",
+  "voter_id_requirements.header": "Voter ID",
+  "voter_id_requirements.instructions": "You will need to take photo ID to vote at a polling station in this election. You do not need your poll card to vote. You must vote at your assigned polling station. ",
+  "voter_id_requirements.acceptable-id": "Check the list of accepted forms of photo ID. ",
+  "voter_id_requirements.how-to-vote": "Read more about voting in Great Britain."
 }

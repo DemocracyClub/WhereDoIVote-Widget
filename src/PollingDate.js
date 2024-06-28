@@ -41,7 +41,7 @@ function PollingDate(props) {
       className={`PollingDate date-${props.single ? 'single' : 'multiple'}`}
     >
       {props.single && (
-        <>
+        <div>
           <h1 data-testid={`title-date-${date.date}`} className="eiw-header">
             {dayMonthYear}
           </h1>
@@ -56,7 +56,7 @@ function PollingDate(props) {
               />
             </p>
           )}
-        </>
+        </div>
       )}
       {!props.single &&
         (activeBallots.length ? (
@@ -88,24 +88,36 @@ function PollingDate(props) {
           />
         </p>
       )}
-      {voter_id_requirements && <h3>Voter ID</h3>}
-      {voter_id_requirements === 'EA-2022' && (
-        <p>
-          {' '}
-          You’ll need to take photo ID with you if you’re voting in person.{' '}
-          <a href="https://www.electoralcommission.org.uk/voting-and-elections/voter-id/accepted-forms-photo-id">
-            Check the list of accepted forms of photo ID.
-          </a>
-        </p>
+      {voter_id_requirements && (
+        <div>
+          <h3>
+            <FormattedMessage id="voter_id_requirements.header" description="Voter ID" />
+          </h3>
+        </div>
       )}
-      {voter_id_requirements === 'EFA-2002' && (
-        <p>
-          {' '}
-          You’ll need to take photo ID with you if you’re voting in person.{' '}
-          <a href="https://www.eoni.org.uk/Vote/Voting-at-a-polling-place">
-            Check the list of accepted forms of photo ID.
-          </a>
-        </p>
+      {voter_id_requirements === 'EA-2022' && (
+        <div>
+          <p>
+            <FormattedMessage
+              id="voter_id_requirements.instructions"
+              description="You will need to take photo ID to vote at a polling station in this election. You do not need your poll card to vote. You must vote at your assigned polling station."
+            />
+            <a href="https://www.electoralcommission.org.uk/voting-and-elections/voter-id/accepted-forms-photo-id">
+              <FormattedMessage
+                id="voter_id_requirements.acceptable-id"
+                description="Check the list of accepted forms of photo ID."
+              />
+            </a>
+          </p>
+          <p>
+            <a href="https://www.gov.uk/how-to-vote">
+              <FormattedMessage
+                id="voter_id_requirements.how-to-vote"
+                description="Read more about voting in Great Britain."
+              />
+            </a>
+          </p>
+        </div>
       )}
     </section>
   );
