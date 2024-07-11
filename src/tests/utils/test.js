@@ -69,3 +69,9 @@ export const renderLegacyWidget = () => {
   const wrapper = render(<ElectionInformationWidget />);
   return wrapper;
 };
+
+export const renderWidgetWithPostcode = (postcode) => {
+  render(<div id="dc_wdiv" data-postcode={postcode} aria-live="polite" role="region" />);
+  const wrapper = render(<ElectionInformationWidget />);
+  return wrapper;
+};
