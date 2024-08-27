@@ -60,6 +60,19 @@ Default Welsh with option to toggle to English:
 <script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
 ```
 
+### Pre-populate a postcode
+
+If you already know the user's postcode, you can render the widget div with the postcode pre-populated.
+This will take the user straight to their results (or an address picker).
+
+```html
+<noscript>
+  <a href="https://whocanivotefor.co.uk/">Information about elections in your area</a>
+</noscript>
+<div id="dc_wdiv" data-postcode="SW1A 1AA" data-language="en" aria-live="polite" role="region"></div>
+<script type="text/javascript" src="https://widget.wheredoivote.co.uk/wdiv.js"></script>
+```
+
 ## Node Verion Manager (NVM)
 
 Similarly to pyenv, nvm is a tool to manage multiple versions of node. 
