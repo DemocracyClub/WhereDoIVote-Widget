@@ -398,6 +398,43 @@ describe('ElectionInformationWidget Polling station unknown', () => {
   });
 });
 
+describe('Polling Station Opening Times', () => {
+  let getByTestId;
+  beforeEach(async () => {
+    const wrapper = renderWidget();
+    getByTestId = wrapper.getByTestId;
+  });
+
+  it('should show opening times, when station is not known', async () => {
+    let enteredPostcode = 'AA12AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    let openingHours = await waitForElement(() => getByTestId('station-found'));
+    expect(openingHours).toHaveTextContent('Polling stations are open from 7am to 10pm');
+  });
+
+  it('should show opening times, even when station is not known', async () => {
+    let enteredPostcode = 'SS30AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    act(() => {
+      submitPostcode();
+    });
+    let openingHours = await waitForElement(() => getByTestId('station-not-found'));
+    expect(openingHours).toHaveTextContent('Polling stations are open from 7am to 10pm');
+  });
+
+  it('should show custom opening times for City of London local elections', async () => {
+    let enteredPostcode = 'EC2Y8BT';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    let openingHours = await waitForElement(() => getByTestId('station-not-found'));
+    expect(openingHours).toHaveTextContent('Polling stations are open from 8am to 8pm');
+  });
+});
+
 describe('ElectionInformationWidget Standard Widget', () => {
   beforeEach(() => {
     renderWidget();

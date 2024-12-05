@@ -13,12 +13,17 @@ function StationNotFound(props) {
         />
       </h1>
       {props.electoral_services && <ElectoralServices es={props.electoral_services} />}
-      <p>
-        <FormattedMessage
-          id="station.opening-hours"
-          description="Polling stations are open from 7am to 10pm on polling day"
-        />
-      </p>
+      {props.openingTimes && (
+        <p>
+          <FormattedMessage
+            id="station.opening-hours"
+            values={{
+              start: props.openingTimes.start,
+              end: props.openingTimes.end,
+            }}
+          />
+        </p>
+      )}
       <Notifications list={props.notifications} />
     </section>
   );

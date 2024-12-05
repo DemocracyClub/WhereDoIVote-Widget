@@ -26,6 +26,15 @@ import DC_styles from '!!raw-loader!./dc-widget-styles.css'; // eslint-disable-l
 
 const api = APIClientFactory();
 
+function getOpeningTimes(ballots) {
+  for (const ballot of ballots) {
+    if (ballot.election_id.startsWith('local.city-of-london.')) {
+      return { start: 8, end: 8 };
+    }
+  }
+  return { start: 7, end: 10 };
+}
+
 function ElectionInformationWidget(props) {
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -40,6 +49,7 @@ function ElectionInformationWidget(props) {
   const [uprn, setUPRN] = useState(undefined);
   const [dates, setDates] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
+  const [openingTimes, setOpeningTimes] = useState(undefined);
   const dataSource = process.env.REACT_APP_API;
 
   function resetWidget() {
@@ -54,6 +64,7 @@ function ElectionInformationWidget(props) {
     setCurrentError(undefined);
     setLoading(false);
     setDates(undefined);
+    setOpeningTimes(undefined);
   }
 
   function handleError(data) {
@@ -105,6 +116,11 @@ function ElectionInformationWidget(props) {
       } else {
         setNoUpcomingElection(true);
       }
+
+      if (nextBallotDate && nextBallotDate.ballots) {
+        setOpeningTimes(getOpeningTimes(nextBallotDate.ballots));
+      }
+
       setLoading(false);
     },
     [props.enableElections]
@@ -187,10 +203,15 @@ function ElectionInformationWidget(props) {
               postcode={postcode}
               uprn={uprn}
               electoralServices={electoralServices}
+              openingTimes={openingTimes}
             />
           )}
           {stationNotFound && (
-            <StationNotFound notifications={notifications} electoral_services={electoralServices} />
+            <StationNotFound
+              notifications={notifications}
+              electoral_services={electoralServices}
+              openingTimes={openingTimes}
+            />
           )}
           {noUpcomingElection && (
             <NoUpcomingElection

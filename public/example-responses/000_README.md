@@ -72,6 +72,17 @@ replicating various standard and edge cases cases we need to handle:
   - **uses postcode-CO168EZ.json**
   - edited to have parl.2019-12-12 as primary ballot ID for testing cancelled election
 
+## City of London
+
+- EC2Y8BT
+  - **uses postcode-EC2Y8BT.json**
+  - Single City of London local election ballot
+
+City of London local elections are different from other local elections in England in several ways. For example:
+  - Voter ID requirements 
+  - Polling station opening hours
+  - Election timetable (registration date, SOPN publish date, etc)
+
 # Candidates
 
 ## Lots of candidates for General Election
