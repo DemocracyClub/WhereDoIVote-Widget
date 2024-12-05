@@ -5,10 +5,12 @@ import BallotInfo from './BallotInfo';
 function Ballot(props) {
   const ballot = props.ballot;
   const candidatesVerified = ballot.candidates.length > 1 && ballot.candidates_verified;
-  const isConstituency = ['parl', 'nia', 'gla.c', 'senedd.c', 'sp.c'].some((prefix) =>
+  const isConstituency = ['parl.', 'nia.', 'gla.c.', 'senedd.c.', 'sp.c.'].some((prefix) =>
     ballot.ballot_paper_id.startsWith(prefix)
   );
-  const isRegion = ['senedd.r', 'sp.r'].some((prefix) => ballot.ballot_paper_id.startsWith(prefix));
+  const isRegion = ['senedd.r.', 'sp.r.'].some((prefix) =>
+    ballot.ballot_paper_id.startsWith(prefix)
+  );
   let divisionType = '';
   if (isConstituency) {
     divisionType = 'Constituency';
