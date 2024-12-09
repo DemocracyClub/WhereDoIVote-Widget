@@ -1,0 +1,80 @@
+{
+  "address_picker": false,
+  "addresses": [],
+  "dates": [
+    {
+      "date": "2025-03-20",
+      "polling_station": {
+        "polling_station_known": false,
+        "custom_finder": null,
+        "report_problem_url": null,
+        "station": null
+      },
+      "advance_voting_station": null,
+      "notifications": [],
+      "ballots": [
+        {
+          "ballot_paper_id": "local.city-of-london.aldersgate.2025-03-20",
+          "ballot_title": "City of London local election Aldersgate",
+          "poll_open_date": "2025-03-20",
+          "elected_role": "Local Councillor",
+          "metadata": null,
+          "cancelled": false,
+          "cancellation_reason": null,
+          "replaced_by": null,
+          "replaces": null,
+          "requires_voter_id": null,
+          "ballot_url": "https://developers.democracyclub.org.uk/api/v1/elections/local.city-of-london.aldersgate.2025-03-20/",
+          "election_id": "local.city-of-london.2025-03-20",
+          "election_name": "City of London local election",
+          "post_name": "Aldersgate",
+          "candidates_verified": false,
+          "candidates": [],
+          "wcivf_url": "http://whocanivotefor.co.uk/elections/local.city-of-london.aldersgate.2025-03-20/aldersgate/",
+          "voting_system": {
+            "slug": "FPTP",
+            "name": "First-past-the-post",
+            "uses_party_lists": false
+          },
+          "seats_contested": 6,
+          "hustings": null,
+          "postal_voting_requirements": "EA-2022"
+        }
+      ]
+    }
+  ],
+  "electoral_services": {
+    "council_id": "LND",
+    "name": "City of London Corporation",
+    "email": "electoralservices@cityoflondon.gov.uk",
+    "phone": "0800 587 5537",
+    "website": "http://www.cityoflondon.gov.uk/",
+    "postcode": "EC2P 2EJ",
+    "address": "Electoral Registration Officer\nPO Box 270\nGuildhall",
+    "identifiers": [
+      "E09000001"
+    ],
+    "nation": "England"
+  },
+  "registration": {
+    "email": "electoralservices@cityoflondon.gov.uk",
+    "phone": "0800 587 5537",
+    "website": "http://www.cityoflondon.gov.uk/",
+    "postcode": "EC2P 2EJ",
+    "address": "Electoral Registration Officer\nPO Box 270\nGuildhall",
+    "identifiers": [
+      "E09000001"
+    ]
+  },
+  "postcode_location": {
+    "type": "Feature",
+    "properties": null,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.0960009,
+        51.5190294
+      ]
+    }
+  }
+}
