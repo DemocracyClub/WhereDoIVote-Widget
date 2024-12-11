@@ -28,7 +28,7 @@ const api = APIClientFactory();
 
 function getOpeningTimes(ballots) {
   for (const ballot of ballots) {
-    if (ballot.election_id.startsWith('local.city-of-london.')) {
+    if (ballot.election_id.startsWith('local.city-of-london')) {
       return { start: 8, end: 8 };
     }
   }
