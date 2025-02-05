@@ -9,7 +9,9 @@ function BallotInfo(props) {
 
   return (
     <section className="BallotInfo">
-      {ballot.cancelled && ballot.candidates.length === ballot.seats_contested ? (
+      {!ballot.metadata &&
+      ballot.cancelled &&
+      ballot.candidates.length === ballot.seats_contested ? (
         <p data-testid="ballot-info">
           <FormattedMessage
             id="uncontested.equal_candidates"
@@ -24,7 +26,9 @@ function BallotInfo(props) {
             }}
           />
         </p>
-      ) : ballot.cancelled && ballot.candidates.length < ballot.seats_contested ? (
+      ) : !ballot.metadata &&
+        ballot.cancelled &&
+        ballot.candidates.length < ballot.seats_contested ? (
         <p data-testid="ballot-info">
           <FormattedMessage
             id="uncontested.fewer_candidates"
@@ -41,7 +45,8 @@ function BallotInfo(props) {
         </p>
       ) : null}
 
-      {ballot.cancelled &&
+      {!ballot.metadata &&
+      ballot.cancelled &&
       ballot.candidates.length < ballot.seats_contested &&
       ballot.candidates.length !== 0 ? (
         <p data-testid="automatic-winner">
