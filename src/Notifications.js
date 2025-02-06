@@ -17,7 +17,7 @@ function Notification(props) {
         ℹ
       </span>
       <h3 className="eiw-notification-title">{props.title}</h3>
-      {props.detail && <p>{props.detail}</p>}
+      {props.detail && <p style={{ whiteSpace: 'pre-wrap' }}>{props.detail}</p>}
       {props.url && (
         <a
           className="eiw-btn-secondary"

@@ -66,7 +66,22 @@ function BallotInfo(props) {
       ) : null}
 
       {ballot.cancelled && ballot.metadata ? (
-        <p data-testid="election-metadata">{ballot.metadata.cancelled_election.detail}</p>
+        <div>
+          <p style={{ whiteSpace: 'pre-wrap' }} data-testid="election-metadata">
+            {ballot.metadata.cancelled_election.detail}
+          </p>
+          {ballot.cancelled && ballot.metadata && ballot.metadata.cancelled_election.url ? (
+            <a
+              className="eiw-btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              title={'Read more information'}
+              href={ballot.metadata.cancelled_election.url}
+            >
+              Read More
+            </a>
+          ) : null}
+        </div>
       ) : null}
 
       <Candidates {...props} />
