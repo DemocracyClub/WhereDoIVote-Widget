@@ -80,7 +80,7 @@ function PollingDate(props) {
           <Ballot key={`Ballot-${i}`} {...props} ballot={ballot} />
         ))}
       </ul>
-      {props.single && activeBallots.length > 0 && (
+      {props.single && activeBallots.length > 0 && props.showParishText && (
         <p>
           <FormattedMessage
             id="pollingdate.parish"

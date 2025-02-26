@@ -50,6 +50,7 @@ function ElectionInformationWidget(props) {
   const [dates, setDates] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
   const [openingTimes, setOpeningTimes] = useState(undefined);
+  const [showParishText, setShowParishText] = useState(true);
   const dataSource = process.env.REACT_APP_API;
 
   function resetWidget() {
@@ -65,6 +66,7 @@ function ElectionInformationWidget(props) {
     setLoading(false);
     setDates(undefined);
     setOpeningTimes(undefined);
+    setShowParishText(true);
   }
 
   function handleError(data) {
@@ -119,6 +121,13 @@ function ElectionInformationWidget(props) {
 
       if (nextBallotDate && nextBallotDate.ballots) {
         setOpeningTimes(getOpeningTimes(nextBallotDate.ballots));
+      }
+      // Hide parish notifications for Northern Ireland and London
+      if (
+        response.electoral_services.postcode.startsWith('BT') ||
+        response.electoral_services.identifiers.some((id) => id.startsWith('E09'))
+      ) {
+        setShowParishText(false);
       }
 
       setLoading(false);
@@ -178,7 +187,13 @@ function ElectionInformationWidget(props) {
           )}
           {loading && <Loader />}
           {!addressList && dates && dates.length >= 1 && (
-            <PollingDate single={true} date={dates[0]} postcode={postcode} {...props} />
+            <PollingDate
+              single={true}
+              date={dates[0]}
+              postcode={postcode}
+              showParishText={showParishText}
+              {...props}
+            />
           )}
           {addressList && !station && (
             <AddressPicker
