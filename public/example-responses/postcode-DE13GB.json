@@ -2,11 +2,14 @@
   "electoral_services": {
     "website": "http://www.derby.gov.uk/",
     "name": "Derby City Council",
-    "council_id": "E06000015",
+    "council_id": "DER",
     "phone": "01332 640837",
     "postcode": "DE1 2FS",
     "address": "Electoral Registration Officer\nDerby City Council\nThe Council House\nCorporation Street",
-    "email": "elections@derby.gov.uk"
+    "email": "elections@derby.gov.uk",
+    "identifiers": [
+      "E06000015"
+    ]
   },
   "dates": [
     {

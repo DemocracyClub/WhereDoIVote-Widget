@@ -83,7 +83,7 @@
                 {
                   "party_id": "party:90",
                   "party_name": "Liberal Democrats"
-                }, 
+                },
                 {
                   "party_id": "party:52",
                   "party_name": "Conservative and Unionist Party"
@@ -144,7 +144,10 @@
     "phone": "020 7641 2730",
     "website": "http://www.westminster.gov.uk/",
     "postcode": "WC2N 5HR",
-    "address": "Electoral Registration Officer\nWestminster City Council\n2nd Floor, City Hall\n5 Strand"
+    "address": "Electoral Registration Officer\nWestminster City Council\n2nd Floor, City Hall\n5 Strand",
+    "identifiers": [
+      "E09000033"
+    ]
   },
   "postcode_location": {
     "type": "Feature",

@@ -3,13 +3,16 @@
   "addresses": [],
   "dates": [],
   "electoral_services": {
-    "council_id": "E09000033",
+    "council_id": "WAE",
     "name": "City of Westminster",
     "email": "electoralservices@westminster.gov.uk",
     "phone": "020 7641 2730",
     "website": "http://www.westminster.gov.uk/",
     "postcode": "WC2N 5HR",
-    "address": "Electoral Registration Officer\nWestminster City Council\n2nd Floor, City Hall\n5 Strand"
+    "address": "Electoral Registration Officer\nWestminster City Council\n2nd Floor, City Hall\n5 Strand",
+    "identifiers": [
+      "E09000033"
+    ]
   },
   "postcode_location": {
     "type": "Feature",

@@ -55,13 +55,16 @@
     }
   ],
   "electoral_services": {
-    "council_id": "N09000007",
-    "name": "",
+    "council_id": "LBC",
+    "name": "Lisburn and Castlereagh",
     "email": "info@eoni.org.uk",
     "phone": "",
     "website": "http://www.eoni.org.uk/",
     "postcode": "BT1 1ER",
-    "address": "The Electoral Office Headquarters\nSt Anne's House\n15 Church Street\nBelfast"
+    "address": "The Electoral Office Headquarters\nSt Anne's House\n15 Church Street\nBelfast",
+    "identifiers": [
+      "N09000007"
+    ]
   },
   "postcode_location": {
     "type": "Feature",

@@ -2,11 +2,14 @@
   "electoral_services": {
     "website": "http://www.tunbridgewells.gov.uk/",
     "name": "Tunbridge Wells Borough Council",
-    "council_id": "E07000116",
+    "council_id": "TUN",
     "phone": "01892 554106",
     "postcode": "TN1 1RS",
     "address": "Electoral Registration Officer\nTown Hall\nMount Pleasant Road\nTunbridge Wells",
-    "email": "electoralregistrations@tunbridgewells.gov.uk"
+    "email": "electoralregistrations@tunbridgewells.gov.uk",
+    "identifiers": [
+      "E07000116"
+    ]
   },
   "dates": [
     {

@@ -2,11 +2,14 @@
   "electoral_services": {
     "website": "http://www.tendringdc.gov.uk/",
     "name": "Tendring District Council",
-    "council_id": "E07000076",
+    "council_id": "TEN",
     "phone": "01255 686586",
     "postcode": "CO15 1SE",
     "address": "Electoral Registration Officer\nTown Hall\nStation Road\nClacton-on-Sea",
-    "email": "elections@tendringdc.gov.uk"
+    "email": "elections@tendringdc.gov.uk",
+    "identifiers": [
+      "E07000076"
+    ]
   },
   "dates": [
     {
