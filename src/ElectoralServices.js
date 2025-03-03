@@ -8,7 +8,7 @@ function ElectoralServices(props) {
       <p>
         <FormattedMessage id="elections.get-in-touch-with" description="Get in touch with" />{' '}
         <strong>
-          {props.es.identifiers.some((id) => id.startsWith('N09'))
+          {props.es.identifiers && props.es.identifiers.some((id) => id.startsWith('N09'))
             ? formatMessage({ id: 'elections.ni-office' })
             : props.es.name}
         </strong>

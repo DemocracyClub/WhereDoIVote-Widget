@@ -124,8 +124,9 @@ function ElectionInformationWidget(props) {
       }
       // Hide parish notifications for Northern Ireland and London
       if (
-        response.electoral_services.postcode.startsWith('BT') ||
-        response.electoral_services.identifiers.some((id) => id.startsWith('E09'))
+        response.electoral_services.identifiers &&
+        (response.electoral_services.postcode.startsWith('BT') ||
+          response.electoral_services.identifiers.some((id) => id.startsWith('E09')))
       ) {
         setShowParishText(false);
       }
