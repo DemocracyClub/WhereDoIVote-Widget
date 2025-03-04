@@ -2,11 +2,14 @@
   "electoral_services": {
     "website": "http://www.leicester.gov.uk/homepage.aspx",
     "name": "Leicester City Council",
-    "council_id": "E06000016",
+    "council_id": "LCE",
     "phone": "0116 4542000",
     "postcode": "LE1 6FB",
     "address": "Electoral Registration Officer\n91 Granby Street\n4th Floor\nLeicester\nYork House",
-    "email": "electoral.services@leicester.gov.uk"
+    "email": "electoral.services@leicester.gov.uk",
+    "identifiers": [
+      "E06000016"
+    ]
   },
   "dates": [
     {

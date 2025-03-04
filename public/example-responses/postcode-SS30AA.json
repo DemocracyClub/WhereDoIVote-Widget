@@ -2,11 +2,14 @@
   "electoral_services": {
     "website": "http://www.rochford.gov.uk/",
     "name": "Rochford District Council",
-    "council_id": "E07000075",
+    "council_id": "ROC",
     "phone": "01702 318187",
     "postcode": "SS4 1BW",
     "address": "Electoral Registration Officer\nCouncil Offices\nSouth Street\nRochford",
-    "email": "elections@rochford.gov.uk"
+    "email": "elections@rochford.gov.uk",
+    "identifiers": [
+      "E07000075"
+    ]
   },
   "dates": [
     {

@@ -2,11 +2,14 @@
   "electoral_services": {
     "website": "http://www.canterbury.gov.uk/",
     "name": "Canterbury City Council",
-    "council_id": "E07000106",
+    "council_id": "CAT",
     "phone": "01227 862 007",
     "postcode": "CT1 1YW",
     "address": "Electoral Registration Officer\nElectoral Services\nMilitary Road",
-    "email": "electoral.services@canterbury.gov.uk"
+    "email": "electoral.services@canterbury.gov.uk",
+    "identifiers": [
+      "E07000106"
+    ]
   },
   "dates": [
     {
