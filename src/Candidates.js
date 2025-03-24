@@ -11,7 +11,9 @@ function Candidates(props) {
     <>
       {candidatesVerified && !ballot.cancelled && (
         <section className="Candidates" data-testid="candidates">
-          <h3>{formatMessage({ id: 'elections.candidates_heading' })}</h3>
+          <h4 className="eiw-secondary-header">
+            {formatMessage({ id: 'elections.candidates_heading' })}
+          </h4>
           {props.ballot.voting_system.uses_party_lists === true ? (
             <PartyList {...props} />
           ) : (

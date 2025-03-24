@@ -12,12 +12,12 @@ function CandidateList(props) {
         <ul>
           {candidates.map((candidate) => (
             <li className="CandidateListItem" key={candidate.person.ynr_id}>
-              <h4 className={`candidate-name party-${candidate.party.party_id.split(':')[1]}`}>
+              <h5 className={`candidate-name party-${candidate.party.party_id.split(':')[1]}`}>
                 {candidate.person.name}
-              </h4>{' '}
-              <h5 className={`party-name party-${candidate.party.party_id.split(':')[1]}`}>
+              </h5>{' '}
+              <h6 className={`party-name party-${candidate.party.party_id.split(':')[1]}`}>
                 {candidate.party.party_name}
-              </h5>
+              </h6>
             </li>
           ))}
         </ul>
@@ -27,7 +27,7 @@ function CandidateList(props) {
         <ul>
           {candidates.map((candidate) => (
             <li className="CandidateListItem" key={candidate.person.ynr_id}>
-              <h4 className={`candidate-name party-${candidate.party.party_id.split(':')[1]}`}>
+              <h5 className={`candidate-name party-${candidate.party.party_id.split(':')[1]}`}>
                 <a
                   data-testid="candidate-link"
                   title={formatMessage({ id: 'general.read-more-info-candidate' })}
@@ -37,11 +37,11 @@ function CandidateList(props) {
                 >
                   {candidate.person.name}
                 </a>
-              </h4>{' '}
-              <h5 className={`party-name party-${candidate.party.party_id.split(':')[1]}`}>
+              </h5>{' '}
+              <h6 className={`party-name party-${candidate.party.party_id.split(':')[1]}`}>
                 {candidate.party.party_name}
                 <PartyToolTip candidate={candidate} />
-              </h5>
+              </h6>
             </li>
           ))}
         </ul>

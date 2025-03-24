@@ -19,7 +19,7 @@ function Ballot(props) {
   }
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>
-      <h2 className={`eiw-secondary-header ${!candidatesVerified && 'full-width'}`}>
+      <h3 className={`eiw-secondary-header ${!candidatesVerified && 'full-width'}`}>
         {ballot.cancelled ? (
           <span role="img" aria-label="Red cross">
             ❌
@@ -30,7 +30,7 @@ function Ballot(props) {
           </span>
         )}{' '}
         {ballot.election_name + ': ' + ballot.post_name + ' ' + divisionType}
-      </h2>
+      </h3>
       <BallotInfo {...props} />
     </li>
   );

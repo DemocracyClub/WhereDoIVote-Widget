@@ -42,9 +42,9 @@ function PollingDate(props) {
     >
       {props.single && (
         <div>
-          <h1 data-testid={`title-date-${date.date}`} className="eiw-header">
+          <h2 data-testid={`title-date-${date.date}`} className="eiw-header">
             {dayMonthYear}
-          </h1>
+          </h2>
           {activeBallots.length > 0 && (
             <p>
               <FormattedMessage
@@ -90,9 +90,9 @@ function PollingDate(props) {
       )}
       {voter_id_requirements && (
         <div>
-          <h3>
+          <h4 className="eiw-secondary-header">
             <FormattedMessage id="voter_id_requirements.header" description="Voter ID" />
-          </h3>
+          </h4>
         </div>
       )}
       {voter_id_requirements === 'EA-2022' && (

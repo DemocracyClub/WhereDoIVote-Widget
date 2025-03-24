@@ -40,11 +40,11 @@ function PostcodeSelector(props) {
   return (
     <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
       <div className="form-group">
-        <h1>
+        <h2>
           <label className="form-label-bold" htmlFor="postcode">
             <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
           </label>
-        </h1>
+        </h2>
 
         <input
           value={formValue}

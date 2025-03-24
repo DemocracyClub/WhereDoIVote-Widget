@@ -40,11 +40,11 @@ class AddressPicker extends React.Component {
     return (
       <form className="AddressPicker" data-testid="address-selector">
         <div className="form-group">
-          <h1>
+          <h2>
             <label id="choose-address" className="form-label-bold" htmlFor="id_address">
               {formatMessage({ id: 'address.choose-address' })}
             </label>
-          </h1>
+          </h2>
           <select
             aria-labelledby="id_address"
             value={this.state.value}
