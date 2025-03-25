@@ -6,12 +6,12 @@ import ElectoralServices from './ElectoralServices';
 function StationNotFound(props) {
   return (
     <section className="StationNotFound" data-testid="station-not-found">
-      <h1 className="eiw-header">
+      <h2 className="eiw-header">
         <FormattedMessage
           id="station.not-found"
           description="We don't know where you should vote"
         />
-      </h1>
+      </h2>
       {props.electoral_services && <ElectoralServices es={props.electoral_services} />}
       {props.openingTimes && (
         <p>

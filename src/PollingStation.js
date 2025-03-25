@@ -24,9 +24,9 @@ function PollingStation(props) {
   });
   return (
     <section className="PollingStation" data-testid="station-found">
-      <h2 className="eiw-secondary-header">
+      <h3 className="eiw-secondary-header">
         <FormattedMessage id="station.your-station" description="Vote on Polling Day" />
-      </h2>
+      </h3>
       <address data-testid="address" className="address">
         <p>{splitAddress.slice(0, splitAddress.length - 1)}</p>
       </address>

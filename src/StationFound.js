@@ -3,9 +3,9 @@ import { FormattedMessage } from 'react-intl';
 
 function StationFound() {
   return (
-    <h1 className="eiw-header">
+    <h2 className="eiw-header">
       <FormattedMessage id="station.found" description="Where to vote" />
-    </h1>
+    </h2>
   );
 }
 

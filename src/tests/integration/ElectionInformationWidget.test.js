@@ -518,10 +518,10 @@ describe('ElectionInformationWidget Accessibility', () => {
     const wrapper = renderWidget();
     getByTestId = wrapper.getByTestId;
   });
-  it('should include an h1 at the top level of the postcode selector', async () => {
+  it('should include an h2 at the top level of the postcode selector', async () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
-    let h1 = PostcodeForm.querySelector('h1');
-    expect(PostcodeForm).toContainElement(h1);
+    let h2 = PostcodeForm.querySelector('h2');
+    expect(PostcodeForm).toContainElement(h2);
   });
   it('should accept Enter instead of clicking the button', async () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
@@ -565,7 +565,7 @@ describe('ElectionInformationWidget Accessibility', () => {
       submitPostcode();
     });
     let stationNotFound = await waitForElement(() => getByTestId('station-not-found'));
-    const accessibleTitle = `<h1 class="eiw-header">Where to vote</h1>`;
+    const accessibleTitle = `<h2 class="eiw-header">Where to vote</h2>`;
     expect(stationNotFound).toContainHTML(accessibleTitle);
   });
 

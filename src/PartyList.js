@@ -26,9 +26,9 @@ function PartyList(props) {
       <ul data-testid={`ul-${props.ballot.ballot_paper_id}`}>
         {parties.map((party) => (
           <li className="PartyListItem" key={party.party_id}>
-            <h4 className={`candidate-name party-${party.party_id.split(':')[1]}`}>
+            <h5 className={`candidate-name party-${party.party_id.split(':')[1]}`}>
               {party.party_name}
-            </h4>
+            </h5>
           </li>
         ))}
       </ul>

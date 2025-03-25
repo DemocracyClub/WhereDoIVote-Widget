@@ -16,7 +16,7 @@ function Notification(props) {
       <span role="img" alt="information">
         ℹ
       </span>
-      <h3 className="eiw-notification-title">{props.title}</h3>
+      <h4 className="eiw-notification-title">{props.title}</h4>
       {props.detail && <p style={{ whiteSpace: 'pre-wrap' }}>{props.detail}</p>}
       {props.url && (
         <a

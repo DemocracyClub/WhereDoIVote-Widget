@@ -199,7 +199,7 @@
 # Typography
 --------------------------------------------------------------*/
 
-h1.eiw-header,
+h2.eiw-header,
 .ElectionInformationWidget .form-label-bold {
   font-weight: bold;
   display: block;
@@ -213,6 +213,8 @@ h1.eiw-header,
   font-size: var(--eiw-font-size-default);
   color: var(--eiw-body-text-colour);
   font-family: var(--eiw-sanserif-font);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .ElectionInformationWidget .form-label-reduced {
@@ -353,7 +355,7 @@ a.eiw-btn-seconday:hover {
 # Form styles
 --------------------------------------------------------------*/
 
-.form-group h1 {
+.form-group h2 {
   margin: 0;
 }
 .ElectionInformationWidget .form-control {
@@ -629,7 +631,7 @@ ul.inline-list li.Ballot:after {
   clear: both;
 }
 
-ul.inline-list h2.full-width {
+ul.inline-list h3.full-width {
   width: 100%;
 }
 
