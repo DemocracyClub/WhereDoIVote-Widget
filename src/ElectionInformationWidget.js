@@ -63,10 +63,10 @@ function ElectionInformationWidget(props) {
     setNoUpcomingElection(false);
     setNotifications(null);
     setCurrentError(undefined);
-    setLoading(false);
     setDates(undefined);
     setOpeningTimes(undefined);
     setShowParishText(true);
+    setLoading(false);
   }
 
   function handleError(data) {
@@ -107,7 +107,6 @@ function ElectionInformationWidget(props) {
       } else {
         setNoUpcomingElection(true);
       }
-      setLoading(false);
 
       if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
         setAdvanceVotingStation(nextBallotDate.advance_voting_station);
