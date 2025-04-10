@@ -625,6 +625,10 @@ ul.inline-list li.Ballot {
   margin-bottom: 2em;
 }
 
+ul.inline-list li.Ballot:not(:first-child) {
+  margin-top: 3em;
+}
+
 ul.inline-list li.Ballot:after {
   content: "";
   display: table;
@@ -694,6 +698,7 @@ button.toggled.arrow.inline-button::after {
 .BallotInfo {
     margin-left:1.5em;
 }
+
 .Candidates {
   margin: 1em 0;
 }

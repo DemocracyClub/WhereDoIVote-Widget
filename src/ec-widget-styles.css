@@ -614,6 +614,10 @@ ul.inline-list li.Ballot {
   margin-bottom: 2em;
 }
 
+ul.inline-list li.Ballot:not(:first-child) {
+  margin-top: 3em;
+}
+
 ul.inline-list li.Ballot:after {
   content: "";
   display: table;
