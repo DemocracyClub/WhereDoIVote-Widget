@@ -11,11 +11,16 @@ function Ballot(props) {
   const isRegion = ['senedd.r.', 'sp.r.'].some((prefix) =>
     ballot.ballot_paper_id.startsWith(prefix)
   );
+  const isByElection = ballot.ballot_paper_id.includes('.by.');
   let divisionType = '';
   if (isConstituency) {
     divisionType = 'Constituency';
   } else if (isRegion) {
     divisionType = 'Region';
+  }
+  let bySuffix = '';
+  if (isByElection) {
+    bySuffix = 'by-election';
   }
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>
@@ -29,7 +34,7 @@ function Ballot(props) {
             🗳️
           </span>
         )}{' '}
-        {ballot.election_name + ': ' + ballot.post_name + ' ' + divisionType}
+        {ballot.election_name + ': ' + ballot.post_name + ' ' + divisionType + ' ' + bySuffix}
       </h3>
       <BallotInfo {...props} />
     </li>
