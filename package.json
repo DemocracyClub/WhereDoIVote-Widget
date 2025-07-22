@@ -32,13 +32,13 @@
     "prettier": "^2.0.5",
     "raw-loader": "^4.0.0",
     "react-app-rewired": "^2.2.1",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^5.0.1",
     "react-test-renderer": "^16.13.0",
     "rewire": "^5.0.0",
     "sinon": "^9.0.2"
   },
   "engines": {
-    "node": "^16.18.1"
+    "node": ">=18"
   },
   "scripts": {
     "dc:start:prod": "REACT_APP_BRAND=DC REACT_APP_API=prod react-app-rewired start",
