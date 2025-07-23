@@ -159,7 +159,7 @@ describe('ElectionInformationWidget Address picker', () => {
       document.querySelector('#id_address option:nth-child(27)')
     );
     fireEvent.change(getByTestId('address-select'), {
-      target: { value: rusthall.innerHTML },
+      target: { value: rusthall.value },
     });
     const button = await waitForElement(() => getByTestId('address-button'));
     let addressId = '10000066465';
