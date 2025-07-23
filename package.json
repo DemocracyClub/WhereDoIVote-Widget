@@ -71,11 +71,6 @@
     ],
     "watchPathIgnorePatterns": [
       "<rootDir>/src/tests/utils/"
-    ],
-    "moduleFileExtensions": [
-      "...defaults.moduleFileExtensions",
-      "css",
-      "js"
     ]
   },
   "husky": {
