@@ -37,7 +37,6 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-      - uses: actions/setup-node@v2
       - run: npm install
 
       - name: Make

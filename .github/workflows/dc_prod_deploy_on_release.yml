@@ -36,7 +36,6 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-      - uses: actions/setup-node@v3
       - run: npm install
 
       - name: Deploy to production
