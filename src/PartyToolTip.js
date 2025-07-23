@@ -9,7 +9,6 @@ function PartyToolTip(props) {
     return (
       <div id="ToolTipContainer">
         <button
-          clickable="true"
           data-tip="Other party affiliations"
           data-event="click"
           data-for="PartyToolTip"
