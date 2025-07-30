@@ -12,10 +12,10 @@ function PollingStation(props) {
   } else {
     wdiv_link = `https://wheredoivote.co.uk/postcode/${props.postcode}/`;
   }
-  var show_i18n_link = false;
-  const i18n_councils = ['CGN', 'CMN', 'COV', 'CRF', 'NTL', 'NWP', 'STY', 'VGL', 'WAE'];
-  if (i18n_councils.indexOf(props.electoralServices.council_id) > -1) {
-    show_i18n_link = true;
+  var show_a11y_link = false;
+  const a11y_councils = ['CGN', 'CMN', 'COV', 'CRF', 'NTL', 'NWP', 'STY', 'VGL', 'WAE'];
+  if (a11y_councils.indexOf(props.electoralServices.council_id) > -1) {
+    show_a11y_link = true;
   }
 
   props.station.address.split(',').forEach(function (line, index) {
@@ -41,7 +41,7 @@ function PollingStation(props) {
           />
         </p>
       )}
-      {show_i18n_link && (
+      {show_a11y_link && (
         <p>
           For detailed information on accessibility, see <a href={wdiv_link}>WhereDoIVote.co.uk</a>
         </p>
