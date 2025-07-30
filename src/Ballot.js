@@ -3,17 +3,17 @@ import { injectIntl } from 'react-intl';
 import BallotInfo from './BallotInfo';
 
 function isConstituency(ballot_paper_id) {
-  if (ballot_paper_id.startsWith('senedd.r.')) {
-    return false;
+  if (ballot_paper_id.startsWith('senedd.')) {
+    if (ballot_paper_id.startsWith('senedd.r.')) {
+      return false;
+    }
+    return true;
   }
   if (
     ['parl.', 'nia.', 'gla.c.', 'senedd.c.', 'sp.c.'].some((prefix) =>
       ballot_paper_id.startsWith(prefix)
     )
   ) {
-    return true;
-  }
-  if (/^senedd\.[a-z-]+.\d{4}-\d{2}-\d{2}$/.test(ballot_paper_id)) {
     return true;
   }
   return false;
