@@ -57,11 +57,7 @@ function BuiltByTemplate(props) {
         className="Logo"
       >
         <img
-          alt={
-            process.env.REACT_APP_BRAND === 'EC'
-              ? formatMessage({ id: 'general.ec' })
-              : formatMessage({ id: 'general.dc-club' })
-          }
+          alt={process.env.REACT_APP_BRAND === 'EC' ? formatMessage({ id: 'general.ec' }) : ''}
           src={
             process.env.REACT_APP_BRAND === 'EC'
               ? 'https://ukelectoralcommission.files.wordpress.com/2014/03/logo2.png'
