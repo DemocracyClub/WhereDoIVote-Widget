@@ -50,7 +50,7 @@ function PostcodeSelector(props) {
           value={formValue}
           onChange={handleFormChange}
           type="text"
-          id="postcode"
+          data-testid="postcode"
           name="postcode"
           className="form-control"
         />
