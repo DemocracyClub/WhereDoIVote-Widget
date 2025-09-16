@@ -800,13 +800,13 @@ button.toggled.arrow.inline-button::after {
 }
 
 
-#ToolTipContainer {
+#f48a9a8a31-ToolTipContainer {
   position: absolute;
   display: inline-block;
   padding: 0.075em 0 0.075em 0.25em;
 }
 
-#ToolTipContainer button {
+#f48a9a8a31-ToolTipContainer button {
   padding: 0 !important;
   text-align: center;
   width: 1.25em;
@@ -817,9 +817,10 @@ button.toggled.arrow.inline-button::after {
   font-weight: bold;
 }
 
-#PartyToolTip {
+#f48a9a8a31-PartyToolTip {
   width:100px;
 }
+
 /* dc-design system table styles  */
 .ds-table {
   overflow-x: auto;

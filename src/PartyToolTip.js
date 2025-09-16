@@ -7,11 +7,11 @@ function PartyToolTip(props) {
 
   if (prevParties) {
     return (
-      <div id="ToolTipContainer">
+      <div id="f48a9a8a31-ToolTipContainer">
         <button
           data-tip="Other party affiliations"
           data-event="click"
-          data-for="PartyToolTip"
+          data-for="f48a9a8a31-PartyToolTip"
           data-offset="{'top': 10}"
           role="note"
           aria-label="PartyToolTip"
@@ -19,7 +19,7 @@ function PartyToolTip(props) {
           i
         </button>
 
-        <ReactTooltip id="PartyToolTip" effect="solid" type="info">
+        <ReactTooltip id="f48a9a8a31-PartyToolTip" effect="solid" type="info">
           <FormattedMessage
             id="candidate.affiliations"
             description="Affiliated with the following parties in the last 12 months:"
