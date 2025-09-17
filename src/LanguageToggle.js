@@ -5,7 +5,7 @@ function LanguageToggle(props) {
     props.setLanguage(e.target.value);
   }
   return (
-    <form className="LanguageToggle">
+    <fieldset className="LanguageToggle">
       <label>
         <input
           data-testid="cy-selector"
@@ -28,7 +28,7 @@ function LanguageToggle(props) {
         />
         English
       </label>
-    </form>
+    </fieldset>
   );
 }
 
