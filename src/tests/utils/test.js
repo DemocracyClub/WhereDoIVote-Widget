@@ -24,7 +24,7 @@ export const renderWithReactIntl = (component) => {
 };
 
 export const typePostcode = (postcode) => {
-  fireEvent.change(document.querySelector('#postcode'), {
+  fireEvent.change(document.querySelector('[data-testid="postcode"]'), {
     target: { value: postcode },
   });
 };

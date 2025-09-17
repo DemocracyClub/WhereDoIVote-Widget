@@ -4,7 +4,7 @@ import { injectIntl } from 'react-intl';
 function ErrorMessageTemplate(props) {
   const { formatMessage } = props.intl;
   return (
-    <div className="ErrorMessage" id="eiw-error" role="alert" aria-live="assertive">
+    <div className="ErrorMessage" data-testid="eiw-error" role="alert" aria-live="assertive">
       {props.currentError && formatMessage({ id: props.currentError })}
     </div>
   );
