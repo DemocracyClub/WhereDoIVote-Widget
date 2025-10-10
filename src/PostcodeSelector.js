@@ -41,7 +41,7 @@ function PostcodeSelector(props) {
     <form className="PostcodeSelector" onSubmit={handleSubmit} data-testid="postcode-selector">
       <div className="form-group">
         <h2>
-          <label className="form-label-bold" htmlFor="postcode">
+          <label className="form-label-bold" htmlFor="f48a9a8a31-postcode">
             <FormattedMessage id="postcode.enter-postcode" description="Enter your postcode" />
           </label>
         </h2>
@@ -51,6 +51,7 @@ function PostcodeSelector(props) {
           onChange={handleFormChange}
           type="text"
           data-testid="postcode"
+          id="f48a9a8a31-postcode"
           name="postcode"
           className="form-control"
         />
