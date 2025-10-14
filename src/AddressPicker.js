@@ -41,17 +41,16 @@ class AddressPicker extends React.Component {
       <form className="AddressPicker" data-testid="address-selector">
         <div className="form-group">
           <h2>
-            <label className="form-label-bold" htmlFor="id_address">
+            <label className="form-label-bold" htmlFor="f48a9a8a31-address">
               {formatMessage({ id: 'address.choose-address' })}
             </label>
           </h2>
           <select
-            aria-labelledby="id_address"
             value={this.state.value}
             onChange={this.setAddress}
             data-testid="address-select"
             className="eiw-select-multirow"
-            id="id_address"
+            id="f48a9a8a31-address"
             name="address"
             size="5"
           >

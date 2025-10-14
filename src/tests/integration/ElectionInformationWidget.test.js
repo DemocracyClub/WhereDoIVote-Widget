@@ -133,7 +133,7 @@ describe('ElectionInformationWidget Address picker', () => {
     submitPostcode();
 
     const firstAddressPickerOption = await waitForElement(() =>
-      document.querySelector('#id_address option:first-child')
+      document.querySelector('[data-testid="address-select"] option:first-child')
     );
     expect(firstAddressPickerOption).toHaveTextContent('1 LANGTON ROAD, TUNBRIDGE WELLS');
   });
@@ -145,7 +145,7 @@ describe('ElectionInformationWidget Address picker', () => {
     submitPostcode();
 
     const lastAddressPickerOption = await waitForElement(() =>
-      document.querySelector('#id_address option:last-child')
+      document.querySelector('[data-testid="address-select"] option:last-child')
     );
     expect(lastAddressPickerOption).toHaveTextContent(en_messages['address.not-in-list']);
   });
@@ -156,7 +156,7 @@ describe('ElectionInformationWidget Address picker', () => {
     typePostcode(enteredPostcode);
     submitPostcode();
     const rusthall = await waitForElement(() =>
-      document.querySelector('#id_address option:nth-child(27)')
+      document.querySelector('[data-testid="address-select"] option:nth-child(27)')
     );
     fireEvent.change(getByTestId('address-select'), {
       target: { value: rusthall.value },
@@ -538,7 +538,7 @@ describe('ElectionInformationWidget Accessibility', () => {
     const PostcodeForm = await waitForElement(() => getByTestId('postcode-selector'));
     // find the label using ID
     let label = PostcodeForm.querySelector('label');
-    expect(label).toHaveAttribute('for', 'postcode');
+    expect(label).toHaveAttribute('for', 'f48a9a8a31-postcode');
   });
   it('includes descriptive titles on Google Directions link', async () => {
     let enteredPostcode = 'AA12AA';
