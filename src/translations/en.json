@@ -67,5 +67,18 @@
   "voter_id_requirements.header": "Voter ID",
   "voter_id_requirements.instructions": "You will need to take photo ID to vote at a polling station in this election. You do not need your poll card to vote. You must vote at your assigned polling station. ",
   "voter_id_requirements.acceptable-id": "Check the list of accepted forms of photo ID. ",
-  "voter_id_requirements.how-to-vote": "Read more about voting in Great Britain."
+  "voter_id_requirements.how-to-vote": "Read more about voting in Great Britain.",
+  "accessibility.getting-there-heading": "Getting there",
+  "accessibility.temporary-structure": "Your polling station is a temporary structure. Please look for signage directing you to the station.",
+  "accessibility.getting-to-the-station": "The electoral services team have added a note about getting to this station:",
+  "accessibility.at-the-station-heading": "At the polling station",
+  "accessibility.polling-station-has": "This polling station has:",
+  "accessibility.nearby-parking": "nearby parking",
+  "accessibility.disabled-parking": "disabled parking",
+  "accessibility.hearing-loop": "a hearing loop installed",
+  "accessibility.public-toilets": "publicly accessible toilets",
+  "accessibility.at-the-station": "The electoral services team have added a note about this station:",
+  "accessibility.level-access": "level access",
+  "accessibility.temporary-ramp": "a temporary ramp for access",
+  "accessibility.permanent-ramp": "a ramp for access"
 }

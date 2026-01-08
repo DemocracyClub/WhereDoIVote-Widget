@@ -34,6 +34,7 @@ export function APIClient(client, base_url, api_key) {
     if (api_key) {
       params.auth_token = api_key;
     }
+    params.include_accessibility = true;
     return client.get(url, { params });
   };
 

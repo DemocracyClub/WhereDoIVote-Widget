@@ -823,6 +823,17 @@ button.toggled.arrow.inline-button::after {
   width:100px;
 }
 
+/* accessibilty info */
+ul.accessibilty-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+ul.accessibilty-list > li {
+  list-style: none;
+}
+
 /* dc-design system table styles  */
 .ds-table {
   overflow-x: auto;
