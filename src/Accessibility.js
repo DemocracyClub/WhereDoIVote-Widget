@@ -124,7 +124,7 @@ function Accessibility(props) {
           <p>
             <FormattedMessage id="accessibility.polling-station-has" />
           </p>
-          <ul className="accessibilty-list">
+          <ul className="accessibility-list">
             {props.nearby_parking && (
               <li>
                 <span aria-hidden="true">🅿️</span>{' '}

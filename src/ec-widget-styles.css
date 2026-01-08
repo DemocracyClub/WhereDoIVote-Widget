@@ -793,13 +793,13 @@ section + section {
     margin-top: 2em;
 }
 
-/* accessibilty info */
-ul.accessibilty-list {
+/* accessibility info */
+ul.accessibility-list {
   list-style: none;
   padding-left: 0;
   margin-left: 0;
 }
 
-ul.accessibilty-list > li {
+ul.accessibility-list > li {
   list-style: none;
 }
