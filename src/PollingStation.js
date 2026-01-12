@@ -1,22 +1,12 @@
 import React from 'react';
 
 import { FormattedMessage } from 'react-intl';
+import { Accessibility } from './Accessibility';
 import { Notifications } from './Notifications';
 import { Directions } from './Directions';
 
 function PollingStation(props) {
   let splitAddress = [];
-  var wdiv_link;
-  if (props.uprn) {
-    wdiv_link = `https://wheredoivote.co.uk/address/${props.uprn}/`;
-  } else {
-    wdiv_link = `https://wheredoivote.co.uk/postcode/${props.postcode}/`;
-  }
-  var show_a11y_link = false;
-  const a11y_councils = ['CGN', 'CMN', 'COV', 'CRF', 'NTL', 'NWP', 'STY', 'VGL', 'WAE'];
-  if (a11y_councils.indexOf(props.electoralServices.council_id) > -1) {
-    show_a11y_link = true;
-  }
 
   props.station.address.split(',').forEach(function (line, index) {
     splitAddress.push(line.trim());
@@ -41,11 +31,6 @@ function PollingStation(props) {
           />
         </p>
       )}
-      {show_a11y_link && (
-        <p>
-          For detailed information on accessibility, see <a href={wdiv_link}>WhereDoIVote.co.uk</a>
-        </p>
-      )}
 
       {props.station.coordinates && (
         <Directions
@@ -53,6 +38,7 @@ function PollingStation(props) {
           destination={props.station.coordinates.destination}
         />
       )}
+      {props.accessibilityInformation && <Accessibility {...props.accessibilityInformation} />}
 
       <Notifications list={props.notifications} />
     </section>

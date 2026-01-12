@@ -67,5 +67,18 @@
   "voter_id_requirements.header": "ID Pleidleisiwr",
   "voter_id_requirements.instructions": "Bydd angen i chi dynnu llun ID i bleidleisio mewn gorsaf bleidleisio yn yr etholiad hwn. Nid oes angen eich cerdyn pleidleisio arnoch i bleidleisio. Rhaid i chi bleidleisio yn eich gorsaf bleidleisio benodedig. ",
   "voter_id_requirements.acceptable-id": "Gwiriwch y rhestr o ffurfiau derbyniol o ID llun. ",
-  "voter_id_requirements.how-to-vote": "Darllenwch fwy am bleidleisio ym Mhrydain Fawr."
+  "voter_id_requirements.how-to-vote": "Darllenwch fwy am bleidleisio ym Mhrydain Fawr.",
+  "accessibility.getting-there-heading": "Cyrraedd yno",
+  "accessibility.temporary-structure": "Your polling station is a temporary structure. Please look for signage directing you to the station.",
+  "accessibility.getting-to-the-station": "Mae'r tîm gwasanaethau etholiadol wedi ychwanegu nodyn am gyrraedd yr orsaf hon:",
+  "accessibility.at-the-station-heading": "Dod o hyd i'ch gorsaf bleidleisio",
+  "accessibility.polling-station-has": "This polling station has:",
+  "accessibility.nearby-parking": "lle parcio gerllaw",
+  "accessibility.disabled-parking": "parcio i'r anabl",
+  "accessibility.hearing-loop": "mae dolen glyw wedi'i gosod",
+  "accessibility.public-toilets": "toiledau cyhoeddus",
+  "accessibility.at-the-station": "Mae'r tîm gwasanaethau etholiadol wedi ychwanegu nodyn am yr orsaf hon:",
+  "accessibility.level-access": "mynediad gwastad",
+  "accessibility.temporary-ramp": "ramp dros dro ar gyfer mynediad",
+  "accessibility.permanent-ramp": "ramp ar gyfer mynediad"
 }

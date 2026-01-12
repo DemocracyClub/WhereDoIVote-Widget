@@ -50,6 +50,7 @@ function ElectionInformationWidget(props) {
   const [dates, setDates] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
   const [openingTimes, setOpeningTimes] = useState(undefined);
+  const [accessibilityInformation, setAccessibilityInformation] = useState(undefined);
   const [showParishText, setShowParishText] = useState(true);
   const dataSource = process.env.REACT_APP_API;
 
@@ -65,6 +66,7 @@ function ElectionInformationWidget(props) {
     setCurrentError(undefined);
     setDates(undefined);
     setOpeningTimes(undefined);
+    setAccessibilityInformation(undefined);
     setShowParishText(true);
     setLoading(false);
   }
@@ -121,6 +123,17 @@ function ElectionInformationWidget(props) {
       if (nextBallotDate && nextBallotDate.ballots) {
         setOpeningTimes(getOpeningTimes(nextBallotDate.ballots));
       }
+
+      if (
+        nextBallotDate &&
+        nextBallotDate.polling_station.polling_station_known &&
+        nextBallotDate.polling_station.station.properties?.accessibility_information
+      ) {
+        setAccessibilityInformation(
+          nextBallotDate.polling_station.station.properties.accessibility_information
+        );
+      }
+
       // Hide parish notifications for Northern Ireland and London
       if (
         response.electoral_services &&
@@ -220,6 +233,7 @@ function ElectionInformationWidget(props) {
               uprn={uprn}
               electoralServices={electoralServices}
               openingTimes={openingTimes}
+              accessibilityInformation={accessibilityInformation}
             />
           )}
           {stationNotFound && (

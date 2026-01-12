@@ -792,3 +792,14 @@ button.toggled.arrow.inline-button::after {
 section + section {
     margin-top: 2em;
 }
+
+/* accessibility info */
+ul.accessibility-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+ul.accessibility-list > li {
+  list-style: none;
+}
