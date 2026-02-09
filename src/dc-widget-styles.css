@@ -18,6 +18,8 @@
   --eiw-darker-grey: #6f777b;
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
+  --eiw-off-black: #403f41;
+
   --eiw-sanserif-font: 'Avenir', sans-serif;
   --eiw-font-size-heading: 1.5rem;
   --eiw-font-size-default: 1.2rem;
@@ -44,16 +46,6 @@
   --party-colour-party-804: #e11f7e;
   --party-colour-party-130: #008066;
   --party-colour-party-305 : #008066;
-
-  /* Unused by widget: */
-  --eiw-bright-blue-hover: #009bd6;
-  --eiw-global-radius: 0;
-  --eiw-btn-primary-color: #e6007e;
-  --eiw-menu-background: transparent;
-  --eiw-menu-background-hover: #e6007e;
-  --eiw-menu-text-hover: white;
-  --eiw-green: #4db314;
-  --eiw-off-black: #403f41;
 }
 :root {
   /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
@@ -71,6 +63,8 @@
   --eiw-darker-grey: #6f777b;
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
+  --eiw-off-black: #403f41;
+
   --eiw-sanserif-font: 'Avenir', sans-serif;
   --eiw-sanserif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --eiw-font-size-heading: 1.5rem;
@@ -98,15 +92,6 @@
   --party-colour-party-804: #e11f7e;
   --party-colour-party-130: #008066;
   --party-colour-party-305: #008066;
-  /* Unused by widget: */
-  --eiw-bright-blue-hover: #009bd6;
-  --eiw-global-radius: 0;
-  --eiw-btn-primary-color: #e6007e;
-  --eiw-menu-background: transparent;
-  --eiw-menu-background-hover: #e6007e;
-  --eiw-menu-text-hover: white;
-  --eiw-green: #4db314;
-  --eiw-off-black: #403f41;
 }
 
 /*
