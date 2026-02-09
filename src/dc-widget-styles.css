@@ -6,8 +6,8 @@
   --eiw-body-text-colour: #58595b;
   --eiw-heading-text-colour: #403f41;
   --eiw-text-black: #0b0c0c;
-  --eiw-bright-blue-wcag-fff-contrast-3-1: #009cd6;
-  --eiw-bright-blue-wcag-fff-contrast-3-5: #0092c8;
+  --eiw-blue-for-white: #007CAD;
+  --eiw-blue-for-black: #00B6FF;
   --eiw-light-blue-table-row: #e4f3fb;
   --eiw-bright-blue-accent: #007CAD;
   --eiw-bright-pink-accent: #E6007C;
@@ -60,8 +60,8 @@
   --eiw-body-text-colour: #58595b;
   --eiw-heading-text-colour: #403f41;
   --eiw-text-black: #0b0c0c;
-  --eiw-bright-blue-wcag-fff-contrast-3-1: #009cd6;
-  --eiw-bright-blue-wcag-fff-contrast-3-5: #0092c8;
+  --eiw-blue-for-white: #007CAD;
+  --eiw-blue-for-black: #00B6FF;
   --eiw-bright-blue-accent: #007faf;
   --eiw-bright-pink-accent: #ec008c;
   --eiw-bright-pink-transparent: rgba(236, 0, 140,0.3);
@@ -257,14 +257,14 @@ h2.eiw-header,
 .ElectionInformationWidget a.eiw-btn-primary,
 .eiw-btn-secondary {
   font-family: var(--eiw-sanserif-font);
-  background-color: var(--eiw-bright-blue-wcag-fff-contrast-3-1);
+  background-color: var(--eiw-blue-for-white);
   border: 0;
   padding: 0.4rem 0.6rem;
   margin: 0.5rem 0;
   font-size: var(--eiw-font-size-heading);
   color: #fff;
   display: inline-block;
-  border-bottom: 3px solid var(--eiw-bright-blue-accent);
+  border-bottom: 3px solid var(--eiw-off-black);
   line-height: 1.2;
 }
 
@@ -276,17 +276,6 @@ a.eiw-btn-secondary {
   border-bottom: none;
 }
 
-.ElectionInformationWidget button.eiw-btn-primary:hover,
-.ElectionInformationWidget a.eiw-btn-primary:hover {
-  background-color: var(--eiw-bright-blue-wcag-fff-contrast-3-5);
-  text-decoration: none;
-}
-
-.eiw-btn-seconday:hover,
-a.eiw-btn-seconday:hover {
-  background-color: var(--eiw-text-black);
-  text-decoration: none;
-}
 .ElectionInformationWidget button.eiw-btn-primary:disabled,
 .ElectionInformationWidget a.eiw-btn-primary:disabled {
   background-color: var(--eiw-light-grey);
