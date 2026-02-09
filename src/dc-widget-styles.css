@@ -45,7 +45,7 @@
   --party-colour-party-7931: #44bbd6;
   --party-colour-party-804: #e11f7e;
   --party-colour-party-130: #008066;
-  --party-colour-party-305 : #008066;
+  --party-colour-party-305: #008066;
 }
 :root {
   /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
