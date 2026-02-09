@@ -54,8 +54,9 @@
   --eiw-text-black: #0b0c0c;
   --eiw-blue-for-white: #007CAD;
   --eiw-blue-for-black: #00B6FF;
-  --eiw-bright-blue-accent: #007faf;
-  --eiw-bright-pink-accent: #ec008c;
+  --eiw-light-blue-table-row: #e4f3fb;
+  --eiw-bright-blue-accent: #007CAD;
+  --eiw-bright-pink-accent: #E6007C;
   --eiw-bright-pink-transparent: rgba(236, 0, 140,0.3);
   --eiw-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
   --eiw-error-red: #b10e1e;
@@ -66,7 +67,6 @@
   --eiw-off-black: #403f41;
 
   --eiw-sanserif-font: 'Avenir', sans-serif;
-  --eiw-sanserif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --eiw-font-size-heading: 1.5rem;
   --eiw-font-size-default: 1.2rem;
   --eiw-font-size-smaller: 1rem;
