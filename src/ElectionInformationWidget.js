@@ -35,6 +35,20 @@ function getOpeningTimes(ballots) {
   return { start: 7, end: 10 };
 }
 
+function getEcLink(postcode, uprn) {
+  if (uprn && postcode) {
+    return `https://www.electoralcommission.org.uk/polling-stations/address/${encodeURIComponent(
+      postcode
+    )}/${encodeURIComponent(uprn)}`;
+  }
+  if (postcode) {
+    return `https://www.electoralcommission.org.uk/polling-stations?postcode-search=${encodeURIComponent(
+      postcode
+    )}`;
+  }
+  return 'https://www.electoralcommission.org.uk/i-am-a/voter/your-election-information';
+}
+
 function ElectionInformationWidget(props) {
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -68,6 +82,8 @@ function ElectionInformationWidget(props) {
     setOpeningTimes(undefined);
     setAccessibilityInformation(undefined);
     setShowParishText(true);
+    setPostcode(undefined);
+    setUPRN(undefined);
     setLoading(false);
   }
 
@@ -180,6 +196,8 @@ function ElectionInformationWidget(props) {
     }
   }, [lookupGivenPostcode]);
 
+  const ecLink = getEcLink(postcode, uprn);
+
   return (
     <ShadowDomFactory>
       {process.env.REACT_APP_BRAND === 'EC' ? (
@@ -206,6 +224,7 @@ function ElectionInformationWidget(props) {
               date={dates[0]}
               postcode={postcode}
               showParishText={showParishText}
+              ecLink={ecLink}
               {...props}
             />
           )}
@@ -252,7 +271,12 @@ function ElectionInformationWidget(props) {
           {!addressList && dates && dates.length > 1 && (
             <>
               <hr />
-              <AdditionalFutureElections dates={dates.slice(1)} postcode={postcode} {...props} />
+              <AdditionalFutureElections
+                dates={dates.slice(1)}
+                postcode={postcode}
+                ecLink={ecLink}
+                {...props}
+              />
             </>
           )}
 

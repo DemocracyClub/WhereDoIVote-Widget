@@ -85,12 +85,15 @@ function BallotInfo(props) {
       ) : null}
 
       <Candidates {...props} />
-      <a href={ballot.wcivf_url} title={formatMessage({ id: 'elections.find-out-more' })}>
-        <FormattedMessage
-          id="elections.find-out-more"
-          description="Find out more at WhoCanIVoteFor"
-        />
-      </a>
+      {process.env.REACT_APP_BRAND === 'EC' ? (
+        <a href={props.ecLink} title={formatMessage({ id: 'elections.find-out-more-ec' })}>
+          <FormattedMessage id="elections.find-out-more-ec" />
+        </a>
+      ) : (
+        <a href={ballot.wcivf_url} title={formatMessage({ id: 'elections.find-out-more-wcivf' })}>
+          <FormattedMessage id="elections.find-out-more-wcivf" />
+        </a>
+      )}
     </section>
   );
 }
