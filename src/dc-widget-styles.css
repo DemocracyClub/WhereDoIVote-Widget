@@ -6,8 +6,8 @@
   --eiw-body-text-colour: #58595b;
   --eiw-heading-text-colour: #403f41;
   --eiw-text-black: #0b0c0c;
-  --eiw-bright-blue-wcag-fff-contrast-3-1: #009cd6;
-  --eiw-bright-blue-wcag-fff-contrast-3-5: #0092c8;
+  --eiw-blue-for-white: #007CAD;
+  --eiw-blue-for-black: #00B6FF;
   --eiw-light-blue-table-row: #e4f3fb;
   --eiw-bright-blue-accent: #007CAD;
   --eiw-bright-pink-accent: #E6007C;
@@ -18,61 +18,9 @@
   --eiw-darker-grey: #6f777b;
   --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
   --eiw-outline-focus: #ffbf47;
-  --eiw-sanserif-font: 'Avenir', sans-serif;
-  --eiw-font-size-heading: 1.5rem;
-  --eiw-font-size-default: 1.2rem;
-  --eiw-font-size-smaller: 1rem;
-  --eiw-font-size-smallest: 0.85rem;
-  --eiw-line-height-default: 1.2;
-  --eiw-spacing-default: 1rem;
-  --eiw-border-width: 2px;
-  --party-colour-independent: #767676;
-  --party-colour-party-52: #0087dc;
-  --party-colour-party-53: #d50000;
-  --party-colour-party-53-119: #d50000;
-  --party-colour-party-63: #008066;
-  --party-colour-party-90: #FDBB30;
-  --party-colour-party-77: #3f8428;
-  --party-colour-party-102: #fff95d;
-  --party-colour-party-85: #b3009d;
-  --party-colour-party-39: #326760;
-  --party-colour-party-70: #D46A4C;
-  --party-colour-party-83: #48A5EE;
-  --party-colour-party-55: #3A9E84;
-  --party-colour-party-103: #F6CB2F;
-  --party-colour-party-7931: #44bbd6;
-  --party-colour-party-804: #e11f7e;
-  --party-colour-party-130: #008066;
-  --party-colour-party-305 : #008066;
-
-  /* Unused by widget: */
-  --eiw-bright-blue-hover: #009bd6;
-  --eiw-global-radius: 0;
-  --eiw-btn-primary-color: #e6007e;
-  --eiw-menu-background: transparent;
-  --eiw-menu-background-hover: #e6007e;
-  --eiw-menu-text-hover: white;
-  --eiw-green: #4db314;
   --eiw-off-black: #403f41;
-}
-:root {
-  /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
-  --eiw-body-text-colour: #58595b;
-  --eiw-heading-text-colour: #403f41;
-  --eiw-text-black: #0b0c0c;
-  --eiw-bright-blue-wcag-fff-contrast-3-1: #009cd6;
-  --eiw-bright-blue-wcag-fff-contrast-3-5: #0092c8;
-  --eiw-bright-blue-accent: #007faf;
-  --eiw-bright-pink-accent: #ec008c;
-  --eiw-bright-pink-transparent: rgba(236, 0, 140,0.3);
-  --eiw-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
-  --eiw-error-red: #b10e1e;
-  --eiw-light-grey: #ddd;
-  --eiw-darker-grey: #6f777b;
-  --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
-  --eiw-outline-focus: #ffbf47;
+
   --eiw-sanserif-font: 'Avenir', sans-serif;
-  --eiw-sanserif-font: 'Adobe Caslon Pro', 'Cambria', Times, 'Times New Roman', serif;
   --eiw-font-size-heading: 1.5rem;
   --eiw-font-size-default: 1.2rem;
   --eiw-font-size-smaller: 1rem;
@@ -80,6 +28,7 @@
   --eiw-line-height-default: 1.2;
   --eiw-spacing-default: 1rem;
   --eiw-border-width: 2px;
+
   --party-colour-independent: #767676;
   --party-colour-party-52: #0087dc;
   --party-colour-party-53: #d50000;
@@ -98,15 +47,53 @@
   --party-colour-party-804: #e11f7e;
   --party-colour-party-130: #008066;
   --party-colour-party-305: #008066;
-  /* Unused by widget: */
-  --eiw-bright-blue-hover: #009bd6;
-  --eiw-global-radius: 0;
-  --eiw-btn-primary-color: #e6007e;
-  --eiw-menu-background: transparent;
-  --eiw-menu-background-hover: #e6007e;
-  --eiw-menu-text-hover: white;
-  --eiw-green: #4db314;
+}
+:root {
+  /* styles duplicated to avoid MSEdge bug where it couldn't handle `:root, :host` */
+  --eiw-body-text-colour: #58595b;
+  --eiw-heading-text-colour: #403f41;
+  --eiw-text-black: #0b0c0c;
+  --eiw-blue-for-white: #007CAD;
+  --eiw-blue-for-black: #00B6FF;
+  --eiw-light-blue-table-row: #e4f3fb;
+  --eiw-bright-blue-accent: #007CAD;
+  --eiw-bright-pink-accent: #E6007C;
+  --eiw-bright-pink-transparent: rgba(236, 0, 140,0.3);
+  --eiw-pink-wcag-fff-contrast-8-4-9: #8d1d5f;
+  --eiw-error-red: #b10e1e;
+  --eiw-light-grey: #ddd;
+  --eiw-darker-grey: #6f777b;
+  --eiw-grey-text-wcag-ddd-contrast-3-0-5: #717f85;
+  --eiw-outline-focus: #ffbf47;
   --eiw-off-black: #403f41;
+
+  --eiw-sanserif-font: 'Avenir', sans-serif;
+  --eiw-font-size-heading: 1.5rem;
+  --eiw-font-size-default: 1.2rem;
+  --eiw-font-size-smaller: 1rem;
+  --eiw-font-size-smallest: 0.85rem;
+  --eiw-line-height-default: 1.2;
+  --eiw-spacing-default: 1rem;
+  --eiw-border-width: 2px;
+
+  --party-colour-independent: #767676;
+  --party-colour-party-52: #0087dc;
+  --party-colour-party-53: #d50000;
+  --party-colour-party-53-119: #d50000;
+  --party-colour-party-63: #008066;
+  --party-colour-party-90: #FDBB30;
+  --party-colour-party-77: #3f8428;
+  --party-colour-party-102: #fff95d;
+  --party-colour-party-85: #b3009d;
+  --party-colour-party-39: #326760;
+  --party-colour-party-70: #D46A4C;
+  --party-colour-party-83: #48A5EE;
+  --party-colour-party-55: #3A9E84;
+  --party-colour-party-103: #F6CB2F;
+  --party-colour-party-7931: #44bbd6;
+  --party-colour-party-804: #e11f7e;
+  --party-colour-party-130: #008066;
+  --party-colour-party-305: #008066;
 }
 
 /*
@@ -257,14 +244,14 @@ h2.eiw-header,
 .ElectionInformationWidget a.eiw-btn-primary,
 .eiw-btn-secondary {
   font-family: var(--eiw-sanserif-font);
-  background-color: var(--eiw-bright-blue-wcag-fff-contrast-3-1);
+  background-color: var(--eiw-blue-for-white);
   border: 0;
   padding: 0.4rem 0.6rem;
   margin: 0.5rem 0;
   font-size: var(--eiw-font-size-heading);
   color: #fff;
   display: inline-block;
-  border-bottom: 3px solid var(--eiw-bright-blue-accent);
+  border-bottom: 3px solid var(--eiw-off-black);
   line-height: 1.2;
 }
 
@@ -276,17 +263,6 @@ a.eiw-btn-secondary {
   border-bottom: none;
 }
 
-.ElectionInformationWidget button.eiw-btn-primary:hover,
-.ElectionInformationWidget a.eiw-btn-primary:hover {
-  background-color: var(--eiw-bright-blue-wcag-fff-contrast-3-5);
-  text-decoration: none;
-}
-
-.eiw-btn-seconday:hover,
-a.eiw-btn-seconday:hover {
-  background-color: var(--eiw-text-black);
-  text-decoration: none;
-}
 .ElectionInformationWidget button.eiw-btn-primary:disabled,
 .ElectionInformationWidget a.eiw-btn-primary:disabled {
   background-color: var(--eiw-light-grey);
@@ -303,9 +279,6 @@ a.eiw-btn-seconday:hover {
   margin: 0;
   padding: 1rem 2rem 1.0625rem 2rem;
   text-decoration: none;
-}
-.ElectionInformationWidget .link-button:hover {
-  background-color: #f9fdff;
 }
 
 /*--------------------------------------------------------------
