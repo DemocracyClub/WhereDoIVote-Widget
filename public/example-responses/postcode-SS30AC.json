@@ -45,14 +45,7 @@
           "cancelled": true,
           "poll_open_date": "2019-05-02",
           "election_id": "local.rochford.2019-05-02",
-          "metadata": {
-            "cancelled_election": {
-              "url": null,
-              "type": "cancelled_election",
-              "detail": "The poll for this election will not take place because it is uncontested.",
-              "title": "Uncontested Election"
-            }
-          }
+          "metadata": null
         }
       ],
       "polling_station": {
