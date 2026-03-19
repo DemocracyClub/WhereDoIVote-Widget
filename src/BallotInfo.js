@@ -2,9 +2,11 @@ import React from 'react';
 import Candidates from './Candidates';
 import getWordsFromNumber from './utils';
 import { FormattedMessage } from 'react-intl';
+import { isConstituency } from './Ballot';
 
 function BallotInfo(props) {
   const ballot = props.ballot;
+  console.log(props);
   const { formatMessage } = props.intl;
 
   return (

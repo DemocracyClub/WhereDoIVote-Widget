@@ -1,5 +1,5 @@
-import React from 'react';
-import { injectIntl } from 'react-intl';
+import React, { use } from 'react';
+import { injectIntl, useIntl } from 'react-intl';
 import BallotInfo from './BallotInfo';
 
 function isConstituency(ballot_paper_id) {
@@ -24,18 +24,19 @@ function isRegion(ballot_paper_id) {
 }
 
 function Ballot(props) {
+  const intl = useIntl();
   const ballot = props.ballot;
   const candidatesVerified = ballot.candidates.length > 1 && ballot.candidates_verified;
   const isByElection = ballot.ballot_paper_id.includes('.by.');
   let divisionType = '';
   if (isConstituency(ballot.ballot_paper_id)) {
-    divisionType = 'Constituency';
+    divisionType = intl.formatMessage({id:"divisionType.constituency"});
   } else if (isRegion(ballot.ballot_paper_id)) {
-    divisionType = 'Region';
+    divisionType = intl.formatMessage({id:"divisionType.region"});
   }
   let bySuffix = '';
   if (isByElection) {
-    bySuffix = 'by-election';
+    bySuffix = intl.formatMessage({id:"election.byelection"});
   }
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>

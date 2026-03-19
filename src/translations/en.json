@@ -59,6 +59,7 @@
   "candidate.previous_party_affiliations": "Previous party affiliations", 
   "candidate.affiliations": "Affiliated with the following parties in the last 12 months:",
   "uncontested.header": "Uncontested Election",
+  "uncontested.message": "The poll for this election will not take place because it is uncontested.",
   "uncontested.equal_candidates": "This election was uncontested because the number of candidates who stood was equal to the number of available seats. There {is_or_are} {seats_contested} {seat_or_seats} in {post}, and only {num_candidates} {candidate_or_candidates}.", 
   "uncontested.fewer_candidates": "This election was uncontested because the number of candidates who stood was fewer than the number of available seats. There {is_or_are} {seats_contested} {seat_or_seats} in {post}, and {num_candidates} {candidate_or_candidates}.",
   "uncontested.fewer_candidates.not_zero": "A new election to fill the unclaimed {seat_or_seats} will be held within 35 working days of the original election date.",
@@ -81,5 +82,8 @@
   "accessibility.at-the-station": "The electoral services team have added a note about this station:",
   "accessibility.level-access": "level access",
   "accessibility.temporary-ramp": "a temporary ramp for access",
-  "accessibility.permanent-ramp": "a ramp for access"
+  "accessibility.permanent-ramp": "a ramp for access",
+  "divisionType.constituency": "Constituency",
+  "divisionType.region": "Region",
+  "election.byelection": "By-election"
 }
