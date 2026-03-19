@@ -24,18 +24,19 @@ function isRegion(ballot_paper_id) {
 }
 
 function Ballot(props) {
+  const { formatMessage } = props.intl;
   const ballot = props.ballot;
   const candidatesVerified = ballot.candidates.length > 1 && ballot.candidates_verified;
   const isByElection = ballot.ballot_paper_id.includes('.by.');
   let divisionType = '';
   if (isConstituency(ballot.ballot_paper_id)) {
-    divisionType = 'Constituency';
+    divisionType = formatMessage({ id: 'divisionType.constituency' });
   } else if (isRegion(ballot.ballot_paper_id)) {
-    divisionType = 'Region';
+    divisionType = formatMessage({ id: 'divisionType.region' });
   }
   let bySuffix = '';
   if (isByElection) {
-    bySuffix = 'by-election';
+    bySuffix = formatMessage({ id: 'election.byelection' });
   }
   return (
     <li className="Ballot" data-testid={ballot.ballot_paper_id}>

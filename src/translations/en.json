@@ -81,5 +81,8 @@
   "accessibility.at-the-station": "The electoral services team have added a note about this station:",
   "accessibility.level-access": "level access",
   "accessibility.temporary-ramp": "a temporary ramp for access",
-  "accessibility.permanent-ramp": "a ramp for access"
+  "accessibility.permanent-ramp": "a ramp for access",
+  "divisionType.constituency": "Constituency",
+  "divisionType.region": "Region",
+  "election.byelection": "By-election"
 }
