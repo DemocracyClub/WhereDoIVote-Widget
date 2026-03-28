@@ -24,6 +24,13 @@ import AdvanceVoting from './AdvanceVoting';
 import EC_styles from '!!raw-loader!./ec-widget-styles.css'; // eslint-disable-line
 import DC_styles from '!!raw-loader!./dc-widget-styles.css'; // eslint-disable-line
 
+import '@formatjs/intl-datetimeformat/polyfill-force';
+import '@formatjs/intl-numberformat/polyfill-force';
+import '@formatjs/intl-datetimeformat/locale-data/cy';
+import '@formatjs/intl-numberformat/locale-data/cy';
+import '@formatjs/intl-datetimeformat/locale-data/en';
+import '@formatjs/intl-numberformat/locale-data/en';
+
 const api = APIClientFactory();
 
 function getOpeningTimes(ballots) {
