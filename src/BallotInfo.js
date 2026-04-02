@@ -1,6 +1,6 @@
 import React from 'react';
 import Candidates from './Candidates';
-import getWordsFromNumber from './utils';
+import { getWordsFromNumber } from './utils';
 import { FormattedMessage } from 'react-intl';
 
 function BallotInfo(props) {

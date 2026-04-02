@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Notifications } from './Notifications';
 import { Directions } from './Directions';
+import { formatDate } from './utils';
 
 function AdvanceVoting(props) {
   let splitAddress = [];
@@ -32,14 +33,10 @@ function AdvanceVoting(props) {
           </tr>
 
           {props.advance_voting_station.opening_times.map((opening_time, index) => {
-            let advanceVotingDate = new Date(opening_time[0]);
-            let dayMonthYear = advanceVotingDate.toLocaleDateString(props.locale, {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            });
-            let openingTime = opening_time[1].substring(0, 5);
-            let closingTime = opening_time[2].substring(0, 5);
+            const advanceVotingDate = new Date(opening_time[0]);
+            const dayMonthYear = formatDate(advanceVotingDate, props.locale);
+            const openingTime = opening_time[1].substring(0, 5);
+            const closingTime = opening_time[2].substring(0, 5);
             return (
               <tr key={index}>
                 <td>{dayMonthYear}</td>
