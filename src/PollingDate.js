@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import getWordsFromNumber from './utils';
+import { getWordsFromNumber, formatDate } from './utils';
 import Ballot from './Ballot';
 
 /*
@@ -12,14 +12,8 @@ with javascript's built-in Date().
 */
 function PollingDate(props) {
   const date = props.date;
-  let electionDate = new Date(date.date);
-  let dayMonthYear = electionDate.toLocaleDateString(props.locale, {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
+  const electionDate = new Date(date.date);
+  const dayMonthYear = formatDate(electionDate, props.locale);
   const activeBallots = date.ballots.filter((b) => !b.cancelled);
 
   // Loop through all ballots and see if any of the requires_voter_id
