@@ -373,20 +373,6 @@ a.eiw-btn-primary::after {
 }
 
 /*--------------------------------------------------------------
-# Advance Voting Station
---------------------------------------------------------------*/
-
-.AdvancePollingStation .address p {
-  font-family: var(--eiw-sanserif-font);
-  font-size: var(--eiw-font-size-smaller);
-}
-
-.directions {
-  margin-top: var(--eiw-spacing-default);
-}
-
-
-/*--------------------------------------------------------------
 # Address finder
 --------------------------------------------------------------*/
 

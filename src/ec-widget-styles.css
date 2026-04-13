@@ -392,18 +392,7 @@ a.eiw-btn-primary::after {
 }
 
 
-/*--------------------------------------------------------------
-# Advance Voting Station
---------------------------------------------------------------*/
-.AdvancePollingStation .address p {
-  font-family: var(--eiw-sanserif-font);
-  font-size: var(--eiw-font-size-smaller);
-}
-
-.directions {
-  margin-top: var(--eiw-spacing-default);
-}
-
+/* dc-design system table styles  */
 .ds-table {
   overflow-x: auto;
   border-bottom: 1px solid white;
