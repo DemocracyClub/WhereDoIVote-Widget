@@ -82,7 +82,7 @@ function PollingDate(props) {
           />
         </p>
       )}
-      {voter_id_requirements && (
+      {voter_id_requirements === 'EA-2022' && (
         <div>
           <h4 className="eiw-secondary-header">
             <FormattedMessage id="voter_id_requirements.header" description="Voter ID" />
@@ -94,8 +94,8 @@ function PollingDate(props) {
           <p>
             <FormattedMessage
               id="voter_id_requirements.instructions"
-              description="You will need to take photo ID to vote at a polling station in this election. You do not need your poll card to vote. You must vote at your assigned polling station."
-            />
+              description="You will need to take photo ID to vote at a polling station in this election."
+            />{' '}
             <a href="https://www.electoralcommission.org.uk/voting-and-elections/voter-id/accepted-forms-photo-id">
               <FormattedMessage
                 id="voter_id_requirements.acceptable-id"
@@ -113,6 +113,10 @@ function PollingDate(props) {
           </p>
         </div>
       )}
+      <p>
+        <FormattedMessage id="station.assigned-station" />{' '}
+        <FormattedMessage id="station.no-poll-card" />
+      </p>
     </section>
   );
 }
