@@ -777,8 +777,10 @@ ul.accessibility-list > li {
   padding-left: 0;
 }
 
+.ds-table th,
 .ds-table td {
   font-family: var(--eiw-sanserif-font);
+  font-size: var(--eiw-font-size-smaller);
 }
 
 .ds-table tr:nth-child(even) {
@@ -787,7 +789,7 @@ ul.accessibility-list > li {
 }
 
 .ds-table caption {
-  font-size: var(--eiw-font-size-default);
+  font-size: var(--eiw-font-size-smaller);
   text-align: left;
   font-weight: bold;
   border-bottom: 1px solid; 

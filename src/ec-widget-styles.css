@@ -427,12 +427,14 @@ a.eiw-btn-primary::after {
 }
 
 .ds-table td {
+  font-size: var(--eiw-font-size-smaller);
   font-family: var(--eiw-sanserif-font);
   background-color: var(--eiw-table-bg-light-blue);
   color: var(--eiw-text-dark-blue)
 }
 
 .ds-table th {
+  font-size: var(--eiw-font-size-smaller);
   background-color: var(--eiw-text-dark-blue); 
   color: var(--eiw-text-white);
 }
@@ -442,7 +444,7 @@ a.eiw-btn-primary::after {
 }
 
 .ds-table caption {
-  font-size: var(--eiw-font-size-default);
+  font-size: var(--eiw-font-size-smaller);
   text-align: left;
   font-weight: bold;
   border-bottom: 1px solid white;
