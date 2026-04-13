@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
@@ -271,6 +272,16 @@ function ElectionInformationWidget(props) {
               setUPRN={setUPRN}
               {...props}
             />
+          )}
+
+          {station && dates && (
+            <p>
+              {!advanceVotingStations &&
+                (!pollingDayVotingStations || pollingDayVotingStations.length <= 1) && (
+                  <FormattedMessage id="station.assigned-station" />
+                )}{' '}
+              <FormattedMessage id="station.no-poll-card" />
+            </p>
           )}
 
           {station && <StationFound />}

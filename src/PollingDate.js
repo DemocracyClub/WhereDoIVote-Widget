@@ -113,10 +113,6 @@ function PollingDate(props) {
           </p>
         </div>
       )}
-      <p>
-        <FormattedMessage id="station.assigned-station" />{' '}
-        <FormattedMessage id="station.no-poll-card" />
-      </p>
     </section>
   );
 }
