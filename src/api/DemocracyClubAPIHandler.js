@@ -47,36 +47,5 @@ export function APIClient(client, base_url, api_key) {
     fetch: function (url) {
       return fetch(url);
     },
-
-    toAddress: function (response) {
-      let nextBallotDate = response.data.dates[0];
-      let stationProperties = nextBallotDate.polling_station.station.properties;
-      let address = stationProperties.address.replace(/\n/g, ', ');
-
-      if (stationProperties.postcode) {
-        address += ', ' + stationProperties.postcode;
-      }
-
-      const addressData = { address: address };
-
-      if (nextBallotDate.polling_station.station.geometry) {
-        const destinationCoordinates = nextBallotDate.polling_station.station.geometry.coordinates;
-
-        let coordinates = {
-          destination: destinationCoordinates[1] + ',' + destinationCoordinates[0],
-        };
-
-        if (response.data.postcode_location) {
-          if (response.data.postcode_location.geometry) {
-            const originCoordinates = response.data.postcode_location.geometry.coordinates;
-            coordinates.origin = originCoordinates[1] + ',' + originCoordinates[0];
-          }
-        }
-
-        addressData.coordinates = coordinates;
-      }
-
-      return addressData;
-    },
   };
 }

@@ -9,9 +9,12 @@ function PollingStation(props) {
   let splitAddress = [];
 
   props.station.address.split(',').forEach(function (line, index) {
-    splitAddress.push(line.trim());
-    splitAddress.push(<br key={index} />);
+    if (line.trim()) {
+      splitAddress.push(line.trim());
+      splitAddress.push(<br key={index} />);
+    }
   });
+
   return (
     <section className="PollingStation" data-testid="station-found">
       <h3 className="eiw-secondary-header">
@@ -32,11 +35,8 @@ function PollingStation(props) {
         </p>
       )}
 
-      {props.station.coordinates && (
-        <Directions
-          origin={props.station.coordinates.origin}
-          destination={props.station.coordinates.destination}
-        />
+      {props.station.location && (
+        <Directions origin={props.originPoint} destination={props.station.location} />
       )}
       {props.accessibilityInformation && <Accessibility {...props.accessibilityInformation} />}
 

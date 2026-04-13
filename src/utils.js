@@ -53,4 +53,38 @@ function formatDate(date, locale) {
   return formattedDate;
 }
 
-export { getWordsFromNumber, formatDateCy, formatDate };
+function formatPrimaryStationObject(station) {
+  const stationProperties = station.properties;
+  let address = stationProperties.address.replace(/\n+/g, ', ');
+
+  if (stationProperties.postcode) {
+    address += ', ' + stationProperties.postcode;
+  }
+
+  return {
+    address: address,
+    location: station?.geometry?.coordinates,
+  };
+}
+
+function formatAlternativeStationObject(station) {
+  let address = station.name + ', ' + station.address.replace(/\n+/g, ', ');
+
+  if (station.postcode) {
+    address += ', ' + station.postcode;
+  }
+
+  return {
+    address: address,
+    location: station?.location?.coordinates,
+    opening_times: station.opening_times,
+  };
+}
+
+export {
+  getWordsFromNumber,
+  formatDateCy,
+  formatDate,
+  formatPrimaryStationObject,
+  formatAlternativeStationObject,
+};
