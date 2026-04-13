@@ -35,6 +35,7 @@ export function APIClient(client, base_url, api_key) {
       params.auth_token = api_key;
     }
     params.include_accessibility = true;
+    params.include_2026_pilots = true;
     return client.get(url, { params });
   };
 
