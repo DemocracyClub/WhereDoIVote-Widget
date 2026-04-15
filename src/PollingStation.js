@@ -1,17 +1,24 @@
 import React from 'react';
 
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Accessibility } from './Accessibility';
 import { Notifications } from './Notifications';
 import { Directions } from './Directions';
+import { formatDate } from './utils';
 
 function PollingStation(props) {
+  const { locale } = useIntl();
+  const dayMonthYear = formatDate(new Date(props.electionDate), locale);
+
   let splitAddress = [];
 
   props.station.address.split(',').forEach(function (line, index) {
-    splitAddress.push(line.trim());
-    splitAddress.push(<br key={index} />);
+    if (line.trim()) {
+      splitAddress.push(line.trim());
+      splitAddress.push(<br key={index} />);
+    }
   });
+
   return (
     <section className="PollingStation" data-testid="station-found">
       <h3 className="eiw-secondary-header">
@@ -27,16 +34,14 @@ function PollingStation(props) {
             values={{
               start: props.openingTimes.start,
               end: props.openingTimes.end,
+              date: dayMonthYear,
             }}
           />
         </p>
       )}
 
-      {props.station.coordinates && (
-        <Directions
-          origin={props.station.coordinates.origin}
-          destination={props.station.coordinates.destination}
-        />
+      {props.station.location && (
+        <Directions origin={props.originPoint} destination={props.station.location} />
       )}
       {props.accessibilityInformation && <Accessibility {...props.accessibilityInformation} />}
 

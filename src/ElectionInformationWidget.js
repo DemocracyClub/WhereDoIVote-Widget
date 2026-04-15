@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { StartAgainButton, ErrorMessage, Loader } from './Branding';
 
@@ -19,7 +20,9 @@ import StationNotFound from './StationNotFound';
 import StationFound from './StationFound';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
-import AdvanceVoting from './AdvanceVoting';
+import { AdvanceVotingStations, PollingDayVotingStations } from './MultipleStations';
+
+import { formatPrimaryStationObject, formatAlternativeStationObject } from './utils';
 
 import EC_styles from '!!raw-loader!./ec-widget-styles.css'; // eslint-disable-line
 import DC_styles from '!!raw-loader!./dc-widget-styles.css'; // eslint-disable-line
@@ -54,8 +57,10 @@ function ElectionInformationWidget(props) {
   const [loading, setLoading] = useState(false);
   const [currentError, setCurrentError] = useState(undefined);
   const [station, setStation] = useState(undefined);
+  const [originPoint, setOriginPoint] = useState(undefined);
   const [stationNotFound, setStationNotFound] = useState(false);
-  const [advanceVotingStation, setAdvanceVotingStation] = useState(undefined);
+  const [advanceVotingStations, setAdvanceVotingStations] = useState(undefined);
+  const [pollingDayVotingStations, setPollingDayVotingStations] = useState(undefined);
   const [noUpcomingElection, setNoUpcomingElection] = useState(false);
   const [notifications, setNotifications] = useState(undefined);
   const [addressList, setAddressList] = useState(undefined);
@@ -64,6 +69,7 @@ function ElectionInformationWidget(props) {
   const [dates, setDates] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
   const [openingTimes, setOpeningTimes] = useState(undefined);
+  const [pollingDay, setPollingDay] = useState(undefined);
   const [accessibilityInformation, setAccessibilityInformation] = useState(undefined);
   const [showParishText, setShowParishText] = useState(true);
   const dataSource = process.env.REACT_APP_API;
@@ -71,15 +77,18 @@ function ElectionInformationWidget(props) {
   function resetWidget() {
     setSearchInitiated(false);
     setStation(undefined);
+    setOriginPoint(undefined);
     setAddressList(undefined);
     setElectoralServices(undefined);
     setStationNotFound(false);
-    setAdvanceVotingStation(undefined);
+    setAdvanceVotingStations(undefined);
+    setPollingDayVotingStations(undefined);
     setNoUpcomingElection(false);
     setNotifications(null);
     setCurrentError(undefined);
     setDates(undefined);
     setOpeningTimes(undefined);
+    setPollingDay(undefined);
     setAccessibilityInformation(undefined);
     setShowParishText(true);
     setPostcode(undefined);
@@ -108,6 +117,9 @@ function ElectionInformationWidget(props) {
       let nextBallotDate = response.dates[0];
       props.enableElections && setDates(response.dates);
 
+      if (nextBallotDate) {
+        setPollingDay(nextBallotDate.date);
+      }
       if (nextBallotDate && nextBallotDate.notifications) {
         setNotifications(nextBallotDate.notifications);
       }
@@ -117,7 +129,7 @@ function ElectionInformationWidget(props) {
         setElectoralServices(false);
       }
       if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
-        setStation(api.toAddress(resp));
+        setStation(formatPrimaryStationObject(nextBallotDate.polling_station.station));
       } else if (nextBallotDate && nextBallotDate.polling_station.polling_station_known === false) {
         setStationNotFound(true);
       } else if (response.address_picker) {
@@ -126,8 +138,38 @@ function ElectionInformationWidget(props) {
         setNoUpcomingElection(true);
       }
 
+      setOriginPoint(response?.postcode_location?.geometry?.coordinates);
+
       if (nextBallotDate && nextBallotDate.polling_station.polling_station_known) {
-        setAdvanceVotingStation(nextBallotDate.advance_voting_station);
+        const stations = (nextBallotDate.alternative_voting_stations ?? []).map(
+          formatAlternativeStationObject
+        );
+        let pollingDayStations = [
+          {
+            ...formatPrimaryStationObject(nextBallotDate.polling_station.station),
+            opening_times: [[nextBallotDate.date, '07:00:00', '22:00:00']],
+          },
+        ];
+        if (Array.isArray(stations)) {
+          const pollingDay = nextBallotDate.date;
+
+          const advanceStations = stations.filter(
+            (s) =>
+              Array.isArray(s.opening_times) && s.opening_times.some((slot) => slot[0] < pollingDay)
+          );
+          setAdvanceVotingStations(advanceStations.length > 0 ? advanceStations : undefined);
+
+          pollingDayStations = pollingDayStations.concat(
+            stations.filter(
+              (s) =>
+                Array.isArray(s.opening_times) &&
+                s.opening_times.some((slot) => slot[0] == pollingDay)
+            )
+          );
+          setPollingDayVotingStations(
+            pollingDayStations.length > 0 ? pollingDayStations : undefined
+          );
+        }
       } else if (nextBallotDate && nextBallotDate.polling_station.polling_station_known === false) {
         setStationNotFound(true);
       } else if (response.address_picker) {
@@ -237,29 +279,45 @@ function ElectionInformationWidget(props) {
             />
           )}
 
+          {station && dates && (
+            <p>
+              {!advanceVotingStations &&
+                (!pollingDayVotingStations || pollingDayVotingStations.length <= 1) && (
+                  <FormattedMessage id="station.assigned-station" />
+                )}{' '}
+              <FormattedMessage id="station.no-poll-card" />
+            </p>
+          )}
+
           {station && <StationFound />}
-          {advanceVotingStation && (
-            <AdvanceVoting
-              advance_voting_station={advanceVotingStation}
-              notifications={notifications}
-            />
+          {advanceVotingStations && (
+            <AdvanceVotingStations stations={advanceVotingStations} originPoint={originPoint} />
           )}
-          {station && (
-            <PollingStation
-              station={station}
-              notifications={notifications}
-              postcode={postcode}
-              uprn={uprn}
-              electoralServices={electoralServices}
-              openingTimes={openingTimes}
-              accessibilityInformation={accessibilityInformation}
+          {(pollingDayVotingStations && pollingDayVotingStations.length > 1 && (
+            <PollingDayVotingStations
+              stations={pollingDayVotingStations}
+              originPoint={originPoint}
             />
-          )}
+          )) ||
+            (station && (
+              <PollingStation
+                station={station}
+                notifications={notifications}
+                postcode={postcode}
+                uprn={uprn}
+                electoralServices={electoralServices}
+                openingTimes={openingTimes}
+                accessibilityInformation={accessibilityInformation}
+                originPoint={originPoint}
+                electionDate={pollingDay}
+              />
+            ))}
           {stationNotFound && (
             <StationNotFound
               notifications={notifications}
               electoral_services={electoralServices}
               openingTimes={openingTimes}
+              electionDate={pollingDay}
             />
           )}
           {noUpcomingElection && (

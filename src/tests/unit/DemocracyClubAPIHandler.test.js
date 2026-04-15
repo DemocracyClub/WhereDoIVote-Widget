@@ -3,10 +3,6 @@ import axios from 'axios';
 
 import { APIClient, APIClientFactory } from '../../api/DemocracyClubAPIHandler';
 
-function getDCAPIPollingStationResponseFormat(election) {
-  return { data: { dates: [election] } };
-}
-
 let api = new APIClient(axios, 'https://developers.democracyclub.org.uk/api/v1', null);
 
 describe('Democracy Club API client', () => {
@@ -73,111 +69,6 @@ describe('Democracy Club API client', () => {
 
     var requestUrl = axios.get.getCall(0).args[0];
     expect(requestUrl).toEqual('https://developers.democracyclub.org.uk/api/v1/some_path/');
-  });
-
-  describe('address transformation', () => {
-    it('returns address if only address is present', () => {
-      let input = getDCAPIPollingStationResponseFormat({
-        polling_station: {
-          station: {
-            properties: {
-              address: 'Some Address',
-            },
-          },
-        },
-      });
-
-      expect(api.toAddress(input)).toEqual({ address: 'Some Address' });
-    });
-
-    it('substitutes newlines for commas', () => {
-      let input = getDCAPIPollingStationResponseFormat({
-        polling_station: {
-          station: {
-            properties: {
-              address: 'Some Address\nSome Place\nSome Country',
-            },
-          },
-        },
-      });
-
-      expect(api.toAddress(input)).toEqual({
-        address: 'Some Address, Some Place, Some Country',
-      });
-    });
-
-    it('adds postcode if present', () => {
-      let input = getDCAPIPollingStationResponseFormat({
-        polling_station: {
-          station: {
-            properties: {
-              address: 'Some Address',
-              postcode: 'T3 5TS',
-            },
-          },
-        },
-      });
-
-      expect(api.toAddress(input)).toEqual({ address: 'Some Address, T3 5TS' });
-    });
-
-    it('adds destination postcode if present', () => {
-      let input = getDCAPIPollingStationResponseFormat({
-        polling_station: {
-          station: {
-            properties: {
-              address: 'Some Address',
-              postcode: 'T3 5TS',
-            },
-            geometry: {
-              coordinates: [20, 10],
-            },
-          },
-        },
-      });
-
-      expect(api.toAddress(input)).toEqual({
-        address: 'Some Address, T3 5TS',
-        coordinates: {
-          destination: '10,20',
-        },
-      });
-    });
-
-    it('adds origin postcode if present', () => {
-      let input = {
-        data: {
-          dates: [
-            {
-              polling_station: {
-                station: {
-                  properties: {
-                    address: 'Some Address',
-                    postcode: 'T3 5TS',
-                  },
-                  geometry: {
-                    coordinates: [20, 10],
-                  },
-                },
-              },
-            },
-          ],
-          postcode_location: {
-            geometry: {
-              coordinates: [40, 30],
-            },
-          },
-        },
-      };
-
-      expect(api.toAddress(input)).toEqual({
-        address: 'Some Address, T3 5TS',
-        coordinates: {
-          destination: '10,20',
-          origin: '30,40',
-        },
-      });
-    });
   });
 });
 
