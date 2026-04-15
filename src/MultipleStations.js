@@ -93,7 +93,8 @@ function PollingDayVotingStations(props) {
     <>
       <p>
         {/*
-          Not translated because 2026 pilots are England only
+          Intro and headings in this component not translated
+          because 2026 pilots are England only
           Review if we do this again
         */}
         Your council is trialling a system that allows you to vote in person at either your assigned
@@ -103,7 +104,18 @@ function PollingDayVotingStations(props) {
         <FormattedMessage id="station.your-station" />
       </h3>
       {props.stations.map((station, index) => (
-        <PollingStation key={index} station={station} originPoint={props.originPoint} />
+        <div key={index}>
+          {index === 0 ? (
+            <p>
+              <strong>Your Assigned Station</strong>
+            </p>
+          ) : (
+            <p>
+              <strong>Central Voting Hub</strong>
+            </p>
+          )}
+          <PollingStation station={station} originPoint={props.originPoint} />
+        </div>
       ))}
     </>
   );
