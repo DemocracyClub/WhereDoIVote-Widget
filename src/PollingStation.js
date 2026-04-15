@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Accessibility } from './Accessibility';
 import { Notifications } from './Notifications';
 import { Directions } from './Directions';
+import { formatDate } from './utils';
 
 function PollingStation(props) {
+  const { locale } = useIntl();
+  const dayMonthYear = formatDate(new Date(props.electionDate), locale);
+
   let splitAddress = [];
 
   props.station.address.split(',').forEach(function (line, index) {
@@ -30,6 +34,7 @@ function PollingStation(props) {
             values={{
               start: props.openingTimes.start,
               end: props.openingTimes.end,
+              date: dayMonthYear,
             }}
           />
         </p>

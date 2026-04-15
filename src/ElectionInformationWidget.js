@@ -69,6 +69,7 @@ function ElectionInformationWidget(props) {
   const [dates, setDates] = useState(undefined);
   const [electoralServices, setElectoralServices] = useState(undefined);
   const [openingTimes, setOpeningTimes] = useState(undefined);
+  const [pollingDay, setPollingDay] = useState(undefined);
   const [accessibilityInformation, setAccessibilityInformation] = useState(undefined);
   const [showParishText, setShowParishText] = useState(true);
   const dataSource = process.env.REACT_APP_API;
@@ -87,6 +88,7 @@ function ElectionInformationWidget(props) {
     setCurrentError(undefined);
     setDates(undefined);
     setOpeningTimes(undefined);
+    setPollingDay(undefined);
     setAccessibilityInformation(undefined);
     setShowParishText(true);
     setPostcode(undefined);
@@ -115,6 +117,9 @@ function ElectionInformationWidget(props) {
       let nextBallotDate = response.dates[0];
       props.enableElections && setDates(response.dates);
 
+      if (nextBallotDate) {
+        setPollingDay(nextBallotDate.date);
+      }
       if (nextBallotDate && nextBallotDate.notifications) {
         setNotifications(nextBallotDate.notifications);
       }
@@ -304,6 +309,7 @@ function ElectionInformationWidget(props) {
                 openingTimes={openingTimes}
                 accessibilityInformation={accessibilityInformation}
                 originPoint={originPoint}
+                electionDate={pollingDay}
               />
             ))}
           {stationNotFound && (
@@ -311,6 +317,7 @@ function ElectionInformationWidget(props) {
               notifications={notifications}
               electoral_services={electoralServices}
               openingTimes={openingTimes}
+              electionDate={pollingDay}
             />
           )}
           {noUpcomingElection && (

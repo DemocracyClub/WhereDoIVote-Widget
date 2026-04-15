@@ -24,7 +24,7 @@
   "station.found": "Where to vote",
   "station.not-found": "Where to vote",
   "station.your-station": "Vote on polling day",
-  "station.opening-hours": "Polling stations are open from {start}am to {end}pm on polling day",
+  "station.opening-hours": "Polling stations are open from {start}am to {end}pm on {date}",
   "elections.unknown":"We don't know of any upcoming elections in your area",
   "elections.candidates_heading":"Candidates",
   "elections.find-out-more-wcivf": "Find out more at WhoCanIVoteFor.co.uk",

@@ -1,9 +1,14 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Notifications } from './Notifications';
 import ElectoralServices from './ElectoralServices';
+import { formatDate } from './utils';
 
 function StationNotFound(props) {
+  const { locale } = useIntl();
+  const dayMonthYear = formatDate(new Date(props.electionDate), locale);
+
   return (
     <section className="StationNotFound" data-testid="station-not-found">
       <h2 className="eiw-header">
@@ -20,6 +25,7 @@ function StationNotFound(props) {
             values={{
               start: props.openingTimes.start,
               end: props.openingTimes.end,
+              date: dayMonthYear,
             }}
           />
         </p>
