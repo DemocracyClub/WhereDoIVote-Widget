@@ -78,6 +78,7 @@ function formatAlternativeStationObject(station) {
     address: address,
     location: station?.location?.coordinates,
     opening_times: station.opening_times,
+    pilot_info_url: station.pilot_info_url,
   };
 }
 
