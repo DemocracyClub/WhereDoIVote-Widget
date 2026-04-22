@@ -18,6 +18,7 @@ import PollingDate from './PollingDate';
 import AdditionalFutureElections from './AdditionalFutureElections';
 import StationNotFound from './StationNotFound';
 import StationFound from './StationFound';
+import { Notifications } from './Notifications';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
 import { AdvanceVotingStations, PollingDayVotingStations } from './MultipleStations';
@@ -121,7 +122,20 @@ function ElectionInformationWidget(props) {
         setPollingDay(nextBallotDate.date);
       }
       if (nextBallotDate && nextBallotDate.notifications) {
-        setNotifications(nextBallotDate.notifications);
+        if (props.enableElections) {
+          /*
+          Don't bother showing a notification for cancelled elections
+          if we're showing individual ballots.
+          We'll cover them in the CancelledBallot component.
+          */
+          setNotifications(
+            nextBallotDate.notifications.filter(
+              (notification) => notification.type !== 'cancelled_election'
+            )
+          );
+        } else {
+          setNotifications(nextBallotDate.notifications);
+        }
       }
       if (response.electoral_services) {
         setElectoralServices(response.electoral_services);
@@ -270,6 +284,7 @@ function ElectionInformationWidget(props) {
               {...props}
             />
           )}
+          {notifications && <Notifications list={notifications} />}
           {addressList && !station && (
             <AddressPicker
               addressList={addressList}
@@ -302,7 +317,6 @@ function ElectionInformationWidget(props) {
             (station && (
               <PollingStation
                 station={station}
-                notifications={notifications}
                 postcode={postcode}
                 uprn={uprn}
                 electoralServices={electoralServices}
@@ -314,18 +328,12 @@ function ElectionInformationWidget(props) {
             ))}
           {stationNotFound && (
             <StationNotFound
-              notifications={notifications}
               electoral_services={electoralServices}
               openingTimes={openingTimes}
               electionDate={pollingDay}
             />
           )}
-          {noUpcomingElection && (
-            <NoUpcomingElection
-              notifications={notifications}
-              electoral_services={electoralServices}
-            />
-          )}
+          {noUpcomingElection && <NoUpcomingElection electoral_services={electoralServices} />}
           {!addressList && dates && dates.length > 1 && (
             <>
               <hr />

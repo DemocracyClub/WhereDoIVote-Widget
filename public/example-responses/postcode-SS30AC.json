@@ -43,6 +43,7 @@
           "seats_contested": 2,
           "candidates": [],
           "cancelled": true,
+          "cancellation_reason": "NO_CANDIDATES",
           "poll_open_date": "2019-05-02",
           "election_id": "local.rochford.2019-05-02",
           "metadata": null

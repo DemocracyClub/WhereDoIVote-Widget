@@ -288,7 +288,7 @@ describe('ElectionInformationWidget Toggleable Welsh Widget', () => {
   });
 });
 
-describe('ElectionInformationWidget Notifications', () => {
+describe('ElectionInformationWidget Notifications (stations only widget)', () => {
   let getByTestId;
 
   beforeEach(async () => {
@@ -296,19 +296,19 @@ describe('ElectionInformationWidget Notifications', () => {
     getByTestId = wrapper.getByTestId;
   });
 
-  it('should show voter ID requirement for DE13GB', async () => {
+  it('should show pilot notification for DE13GB', async () => {
     let enteredPostcode = 'DE13GB';
 
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
     submitPostcode();
     const notificationContainer = await waitForElement(() =>
-      document.querySelector('.PollingStation article')
+      document.querySelector('[data-testid="notification"]')
     );
     expect(notificationContainer).toHaveTextContent('You need to show ID to vote at this election');
   });
 
-  it('should show an uncontested election for SS30AA', async () => {
+  it('should show notification for SS30AA', async () => {
     let enteredPostcode = 'SS30AA';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
@@ -316,7 +316,8 @@ describe('ElectionInformationWidget Notifications', () => {
     const notification = await waitForElement(() => getByTestId('notification'));
     expect(notification).toHaveTextContent('Uncontested Election');
   });
-  it('should show an uncontested election for SS30AB', async () => {
+
+  it('should show notification for SS30AB', async () => {
     let enteredPostcode = 'SS30AB';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
@@ -324,7 +325,8 @@ describe('ElectionInformationWidget Notifications', () => {
     const notification = await waitForElement(() => getByTestId('notification'));
     expect(notification).toHaveTextContent('Uncontested Election');
   });
-  it('should show an uncontested election for SS30AC', async () => {
+
+  it('should show notification for SS30AC', async () => {
     let enteredPostcode = 'SS30AC';
     mockResponse('postcode', enteredPostcode);
     typePostcode(enteredPostcode);
@@ -332,6 +334,7 @@ describe('ElectionInformationWidget Notifications', () => {
     const notification = await waitForElement(() => getByTestId('notification'));
     expect(notification).toHaveTextContent('Uncontested Election');
   });
+
   it('does not show notification when there is no event to be aware of', async () => {
     let enteredPostcode = 'AA12AA';
     mockResponse('postcode', enteredPostcode);
@@ -342,6 +345,64 @@ describe('ElectionInformationWidget Notifications', () => {
     );
     let notification = document.querySelector('.Notification');
     expect(YourPollingStation).toHaveTextContent(en_messages['station.your-station']);
+    expect(notification).toBe(null);
+  });
+});
+
+describe('ElectionInformationWidget Notifications (widget with ballots)', () => {
+  beforeEach(async () => {
+    renderElectionsWidget();
+  });
+
+  it('should show uncontested election message for EQUAL_CANDIDATES cancellation reason', async () => {
+    let enteredPostcode = 'SS30AA';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
+    expect(Widget).toHaveTextContent(en_messages['cancelled.uncontested_header']);
+    expect(Widget).toHaveTextContent(en_messages['cancelled.equal_candidates']);
+    let notification = document.querySelector('.Notification');
+    expect(notification).toBe(null);
+  });
+
+  it('should show postponed election message for UNDER_CONTESTED cancellation reason', async () => {
+    let enteredPostcode = 'SS30AB';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
+    expect(Widget).toHaveTextContent(en_messages['cancelled.postponed_header']);
+    expect(Widget).toHaveTextContent(
+      'the number of candidates who stood was fewer than the number of available seats'
+    );
+    let notification = document.querySelector('.Notification');
+    expect(notification).toBe(null);
+  });
+
+  it('should show postponed election message for NO_CANDIDATES cancellation reason', async () => {
+    let enteredPostcode = 'SS30AC';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
+    expect(Widget).toHaveTextContent(en_messages['cancelled.postponed_header']);
+    expect(Widget).toHaveTextContent('No candidates stood for the available seats');
+    let notification = document.querySelector('.Notification');
+    expect(notification).toBe(null);
+  });
+
+  it('should show postponed election message for CANDIDATE_DEATH cancellation reason', async () => {
+    let enteredPostcode = 'SS30AD';
+    mockResponse('postcode', enteredPostcode);
+    typePostcode(enteredPostcode);
+    submitPostcode();
+    const Widget = await waitForElement(() => document.querySelector('.ElectionInformationWidget'));
+    expect(Widget).toHaveTextContent(en_messages['cancelled.postponed_header']);
+    expect(Widget).toHaveTextContent(
+      'This election has been postponed due to the death of one of the candidates'
+    );
+    let notification = document.querySelector('.Notification');
     expect(notification).toBe(null);
   });
 });

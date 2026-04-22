@@ -2,7 +2,6 @@ import React from 'react';
 
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Accessibility } from './Accessibility';
-import { Notifications } from './Notifications';
 import { Directions } from './Directions';
 import { formatDate } from './utils';
 
@@ -44,8 +43,6 @@ function PollingStation(props) {
         <Directions origin={props.originPoint} destination={props.station.location} />
       )}
       {props.accessibilityInformation && <Accessibility {...props.accessibilityInformation} />}
-
-      <Notifications list={props.notifications} />
     </section>
   );
 }

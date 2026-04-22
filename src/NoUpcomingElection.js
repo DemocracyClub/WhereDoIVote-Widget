@@ -1,5 +1,4 @@
 import React from 'react';
-import { Notifications } from './Notifications';
 import { FormattedMessage } from 'react-intl';
 
 function NoUpcomingElection(props) {
@@ -11,7 +10,6 @@ function NoUpcomingElection(props) {
           description="We don't know of any upcoming elections in your area"
         />
       </h2>
-      <Notifications list={props.notifications} />
     </div>
   );
 }
