@@ -22,7 +22,7 @@ function PollingDate(props) {
   // to bring ID
   let voter_id_requirements = false;
   date.ballots.every(function (ballot) {
-    if (ballot.requires_voter_id) {
+    if (ballot.requires_voter_id && ballot.cancelled === false) {
       voter_id_requirements = ballot.requires_voter_id;
       return voter_id_requirements;
     }
