@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Notifications } from './Notifications';
 import ElectoralServices from './ElectoralServices';
 import { formatDate } from './utils';
 
@@ -30,7 +29,6 @@ function StationNotFound(props) {
           />
         </p>
       )}
-      <Notifications list={props.notifications} />
     </section>
   );
 }

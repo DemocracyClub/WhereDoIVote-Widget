@@ -303,7 +303,7 @@ describe('ElectionInformationWidget Notifications', () => {
     typePostcode(enteredPostcode);
     submitPostcode();
     const notificationContainer = await waitForElement(() =>
-      document.querySelector('.PollingStation article')
+      document.querySelector('[data-testid="notification"]')
     );
     expect(notificationContainer).toHaveTextContent('You need to show ID to vote at this election');
   });

@@ -18,6 +18,7 @@ import PollingDate from './PollingDate';
 import AdditionalFutureElections from './AdditionalFutureElections';
 import StationNotFound from './StationNotFound';
 import StationFound from './StationFound';
+import { Notifications } from './Notifications';
 import NoUpcomingElection from './NoUpcomingElection';
 import WarningBanner from './WarningBanner';
 import { AdvanceVotingStations, PollingDayVotingStations } from './MultipleStations';
@@ -270,6 +271,7 @@ function ElectionInformationWidget(props) {
               {...props}
             />
           )}
+          {notifications && <Notifications list={notifications} />}
           {addressList && !station && (
             <AddressPicker
               addressList={addressList}
@@ -302,7 +304,6 @@ function ElectionInformationWidget(props) {
             (station && (
               <PollingStation
                 station={station}
-                notifications={notifications}
                 postcode={postcode}
                 uprn={uprn}
                 electoralServices={electoralServices}
@@ -314,18 +315,12 @@ function ElectionInformationWidget(props) {
             ))}
           {stationNotFound && (
             <StationNotFound
-              notifications={notifications}
               electoral_services={electoralServices}
               openingTimes={openingTimes}
               electionDate={pollingDay}
             />
           )}
-          {noUpcomingElection && (
-            <NoUpcomingElection
-              notifications={notifications}
-              electoral_services={electoralServices}
-            />
-          )}
+          {noUpcomingElection && <NoUpcomingElection electoral_services={electoralServices} />}
           {!addressList && dates && dates.length > 1 && (
             <>
               <hr />
