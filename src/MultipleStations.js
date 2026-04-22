@@ -66,7 +66,13 @@ function PollingStation(props) {
   );
 }
 
+function getReadMoreLink(stations) {
+  const filtered = stations.filter((s) => s.pilot_info_url !== undefined);
+  return filtered.length > 0 ? filtered[0].pilot_info_url : undefined;
+}
+
 function AdvanceVotingStations(props) {
+  const readMoreLink = getReadMoreLink(props.stations);
   return (
     <>
       <p>
@@ -77,6 +83,14 @@ function AdvanceVotingStations(props) {
         Your council is trialling a system that allows you to vote in person before polling day. You
         can vote in advance at one of these locations, or vote at your assigned polling station as
         normal on polling day.
+        {readMoreLink && (
+          <>
+            {' '}
+            <a target="_blank" rel="noopener noreferrer" href={readMoreLink}>
+              Read More
+            </a>
+          </>
+        )}
       </p>
       <h3 className="eiw-secondary-header" data-testid="advance-voting-station">
         <FormattedMessage id="alt-voting-station.found" description="Vote before polling day" />
@@ -89,6 +103,7 @@ function AdvanceVotingStations(props) {
 }
 
 function PollingDayVotingStations(props) {
+  const readMoreLink = getReadMoreLink(props.stations);
   return (
     <>
       <p>
@@ -99,6 +114,14 @@ function PollingDayVotingStations(props) {
         */}
         Your council is trialling a system that allows you to vote in person at either your assigned
         station or a central voting hub.
+        {readMoreLink && (
+          <>
+            {' '}
+            <a target="_blank" rel="noopener noreferrer" href={readMoreLink}>
+              Read More
+            </a>
+          </>
+        )}
       </p>
       <h3 className="eiw-secondary-header">
         <FormattedMessage id="station.your-station" />
