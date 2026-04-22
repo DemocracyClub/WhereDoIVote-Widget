@@ -122,7 +122,20 @@ function ElectionInformationWidget(props) {
         setPollingDay(nextBallotDate.date);
       }
       if (nextBallotDate && nextBallotDate.notifications) {
-        setNotifications(nextBallotDate.notifications);
+        if (props.enableElections) {
+          /*
+          Don't bother showing a notification for cancelled elections
+          if we're showing individual ballots.
+          We'll cover them in the CancelledBallot component.
+          */
+          setNotifications(
+            nextBallotDate.notifications.filter(
+              (notification) => notification.type !== 'cancelled_election'
+            )
+          );
+        } else {
+          setNotifications(nextBallotDate.notifications);
+        }
       }
       if (response.electoral_services) {
         setElectoralServices(response.electoral_services);
