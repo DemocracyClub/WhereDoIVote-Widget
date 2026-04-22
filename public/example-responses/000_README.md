@@ -33,7 +33,7 @@ replicating various standard and edge cases cases we need to handle:
 - DE13GB
   - **uses postcode-DE13GB.json**
 
-## Uncontested elections:
+## Cancelled elections:
 
 - SS30AA
   - equal numbers of candidates and seats
@@ -44,6 +44,9 @@ replicating various standard and edge cases cases we need to handle:
 - SS30AC
   - zero candidates
   - **uses postcode-SS30AC.json**
+- SS30AD
+  - countermanded due to death of a candidate
+  - **uses postcode-SS30AD.json**
 
 ## Address pickers:
 

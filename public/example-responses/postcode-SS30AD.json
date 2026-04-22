@@ -18,8 +18,8 @@
         {
           "url": null,
           "type": "cancelled_election",
-          "detail": "The poll for this election will not take place because it is uncontested.",
-          "title": "Uncontested Election"
+          "detail": "The poll for this election will not take place.",
+          "title": "Cancelled Election"
         }
       ],
       "ballots": [
@@ -49,14 +49,26 @@
               },
               "list_position": null,
               "person": {
-                "ynr_id": 9798,
-                "name": "Daniel Efde",
-                "absolute_url": "https://whocanivotefor.co.uk/person/9798/daniel-efde"
+                "ynr_id": 68077,
+                "name": "Anjoom Ifikhar Maniar",
+                "absolute_url": "https://whocanivotefor.co.uk/person/68077/anjoom-ifikhar-maniar"
+              }
+            },
+            {
+              "party": {
+                "party_name": "Labour Party",
+                "party_id": "party:53"
+              },
+              "list_position": null,
+              "person": {
+                "ynr_id": 68072,
+                "name": "Annette Byrne",
+                "absolute_url": "https://whocanivotefor.co.uk/person/68072/annette-byrne"
               }
             }
           ],
           "cancelled": true,
-          "cancellation_reason": "EQUAL_CANDIDATES",
+          "cancellation_reason": "CANDIDATE_DEATH",
           "poll_open_date": "2019-05-02",
           "election_id": "local.rochford.2019-05-02",
           "metadata": null
