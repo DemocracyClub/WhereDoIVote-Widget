@@ -122,6 +122,8 @@
 *:focus {
   outline: 4px solid var(--eiw-outline-focus);
   box-shadow: 0 0 0 6px var(--eiw-body-text-colour);
+  appearance: none;
+  -moz-appearance: none;
 }
 
 .screen-reader-text {
