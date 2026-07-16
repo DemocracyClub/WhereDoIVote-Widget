@@ -11,14 +11,7 @@
         "station": null
       },
       "advance_voting_station": null,
-      "notifications": [
-        {
-          "type": "voter_id",
-          "url": "http://www.eoni.org.uk/Vote/Voting-at-a-polling-place",
-          "title": "You need to show photographic ID to vote in this election",
-          "detail": "Voters in Northern Ireland are required to show one form of photo ID, like a passport or driving licence."
-        }
-      ],
+      "notifications": [],
       "ballots": [
         {
           "ballot_paper_id": "parl.west-tyrone.by.2018-05-03",
@@ -26,13 +19,7 @@
           "ballot_url": "https://developers.democracyclub.org.uk/api/v1/sandbox/elections/parl.west-tyrone.by.2018-05-03/",
           "poll_open_date": "2018-11-22",
           "elected_role": "Member of Parliament",
-          "metadata": {
-            "ni-voter-id": {
-              "url": "http://www.eoni.org.uk/Vote/Voting-at-a-polling-place",
-              "title": "You need to show photographic ID to vote in this election",
-              "detail": "Voters in Northern Ireland are required to show one form of photo ID, like a passport or driving licence."
-            }
-          },
+          "metadata": {},
           "cancelled": false,
           "replaced_by": null,
           "replaces": null,

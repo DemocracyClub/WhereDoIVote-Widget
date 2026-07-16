@@ -28,6 +28,10 @@ function PollingDate(props) {
     }
     return voter_id_requirements;
   });
+  const more_info_link =
+    voter_id_requirements === 'EFA-2002'
+      ? 'http://www.eoni.org.uk/Vote/Voting-at-a-polling-place'
+      : 'https://www.electoralcommission.org.uk/voting-and-elections/voter-id/accepted-forms-photo-id';
 
   return (
     <section
@@ -82,36 +86,34 @@ function PollingDate(props) {
           />
         </p>
       )}
-      {voter_id_requirements === 'EA-2022' && (
+      {voter_id_requirements && (
         <div>
           <h4 className="eiw-secondary-header">
             <FormattedMessage id="voter_id_requirements.header" description="Voter ID" />
           </h4>
-        </div>
-      )}
-      {voter_id_requirements === 'EA-2022' && (
-        <div>
           <p>
             <FormattedMessage
               id="voter_id_requirements.instructions"
               description="You will need to take photo ID to vote at a polling station in this election."
             />{' '}
-            <a href="https://www.electoralcommission.org.uk/voting-and-elections/voter-id/accepted-forms-photo-id">
+            <a href={more_info_link}>
               <FormattedMessage
                 id="voter_id_requirements.acceptable-id"
                 description="Check the list of accepted forms of photo ID."
               />
             </a>
           </p>
-          <p>
-            <a href="https://www.gov.uk/how-to-vote">
-              <FormattedMessage
-                id="voter_id_requirements.how-to-vote"
-                description="Read more about voting in Great Britain."
-              />
-            </a>
-          </p>
         </div>
+      )}
+      {voter_id_requirements === 'EA-2022' && (
+        <p>
+          <a href="https://www.gov.uk/how-to-vote">
+            <FormattedMessage
+              id="voter_id_requirements.how-to-vote"
+              description="Read more about voting in Great Britain."
+            />
+          </a>
+        </p>
       )}
     </section>
   );
