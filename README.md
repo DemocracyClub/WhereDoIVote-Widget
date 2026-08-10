@@ -4,6 +4,8 @@
 
 An embeddable widget to find your nearest polling station, for upcoming elections in the UK.
 
+You can view work in progress on our temporary staging server: https://democracy-club-widget.netlify.com/
+
 ## Including the widget on your page
 
 Add the following lines to your HTML, where you want the widget to appear on the page
