@@ -137,7 +137,7 @@
 .ElectionInformationWidget select:focus,
 *:focus {
   outline: 4px solid var(--eiw-outline-focus);
-  box-shadow: 0 0 0 6px var(--eiw-body-text-colour);
+  box-shadow: 0 0 0 6px var(--eiw-off-black);
   appearance: none;
   -moz-appearance: none;
 }
@@ -354,7 +354,7 @@ a.eiw-btn-seconday:hover {
 .ElectionInformationWidget .form-control {
   font-size: var(--eiw-font-size-default);
   line-height: var(--eiw-line-height-default);
-  border: var(--eiw-border-width) solid var(--eiw-body-text-colour);
+  border: var(--eiw-border-width) solid var(--eiw-off-black);
   padding: 0.314rem 0.25rem 0.25rem;
   margin: 0 0 .5rem 0;
 }
