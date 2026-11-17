@@ -54,6 +54,7 @@ function PostcodeSelector(props) {
           id="f48a9a8a31-postcode"
           name="postcode"
           className="form-control"
+          autoComplete="postal-code"
         />
       </div>
       <button className="eiw-btn-primary" type="submit">
